@@ -28,7 +28,7 @@
     var foot = $(".foot");
     if (foot) {
       foot.innerHTML = "📱 모바일 웹 버전 · 개인 데이터는 PIN(4자리)로 암호화되어 있어요 · 스냅샷 " +
-        meta.stamp + " · 수정·저장은 PC 버전에서";
+        meta.stamp + " · 📒 가계부는 폰에 바로 저장";
     }
   }
 

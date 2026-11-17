@@ -1,8 +1,10 @@
 /* ============================================================
-   📱 예닝 오피스 모바일 웹 — PIN 잠금 + 데이터 복호화 + 읽기 전용 API
+   📱 예닝 오피스 모바일 웹 — PIN 잠금 + 데이터 복호화 + 가계부 폰 저장
    ------------------------------------------------------------
    - data.enc.json 은 PBKDF2(PIN, SHA-256, 15만 회) + AES-GCM-256 으로 암호화되어 있다.
    - PIN 이 맞아야만 복호화되고, 그 안의 스냅샷이 앱의 /api/* 응답을 대신한다.
+   - 📒 가계부(/api/budget)만 예외로, GET 은 스냅샷+폰 저장분을 병합하고
+     POST 는 budget-local.js 가 localStorage 에 저장한다(나머지 탭은 여전히 읽기 전용).
    - 평문 개인 데이터·API 키는 이 페이지 어디에도 들어가지 않는다.
    ============================================================ */
 (function () {
@@ -199,8 +201,8 @@
       '<div class="lk-sub">' + msg + "</div><button class='lk-key lk-ok' style='width:auto;padding:10px 18px' onclick='location.reload()'>다시 시도</button>";
   }
 
-  /* ---------------- /api/* → 암호화된 스냅샷 ---------------- */
-  var BLOCK_MSG = "📱 모바일 버전은 보기 전용이에요 — 바꾸기는 PC 버전에서 해 주세요";
+  /* ---------------- /api/* → 암호화된 스냅샷 (+ 가계부는 폰 저장분 병합) ---------------- */
+  var BLOCK_MSG = "📱 이 화면의 저장은 PC 버전에서 해 주세요 — 📒 가계부는 폰에서 바로 저장돼요";
   function jsonResponse(obj, status) {
     return new Response(JSON.stringify(obj), {
       status: status || 200,
@@ -219,7 +221,16 @@
     return window.__OFFICE_READY.then(function (data) {
       var pay = (data && data.pay) || {};
       if (method !== "GET") {
-        /* 저장·수정은 서버가 없으므로 정직하게 막는다 */
+        /* 📒 예닝 가계부 — 모바일에서도 바로 저장(localStorage)하고 화면용 값을 그대로 돌려준다 */
+        if (path === "/api/budget" && window.YB && typeof window.YB.apply === "function") {
+          var body = {};
+          try { body = JSON.parse((opt && opt.body) || "{}"); } catch (e) { body = {}; }
+          var out;
+          try { out = window.YB.apply(body, pay["/api/budget"] || {}); }
+          catch (e) { out = { ok: false, error: "저장하지 못했어요: " + ((e && e.message) || e) }; }
+          return jsonResponse(out);
+        }
+        /* 나머지 저장·수정은 서버가 없으므로 정직하게 막는다 */
         try {
           if (path === "/api/campaigns" && window.renderCampaign) setTimeout(function () { try { window.renderCampaign(); } catch (e) {} }, 40);
           if (path === "/api/revenue" && window.renderRevenue) setTimeout(function () { try { window.renderRevenue(); } catch (e) {} }, 40);
@@ -227,7 +238,13 @@
         } catch (e) {}
         return jsonResponse({ ok: false, error: BLOCK_MSG });
       }
-      if (Object.prototype.hasOwnProperty.call(pay, path)) return jsonResponse(pay[path]);
+      if (Object.prototype.hasOwnProperty.call(pay, path)) {
+        if (path === "/api/budget" && window.YB && typeof window.YB.merge === "function") {
+          /* PC 스냅샷 + 폰 저장분 병합 (중복 id 제거 · 지운 id 반영 · 합계 재계산) */
+          try { return jsonResponse(window.YB.merge(pay[path] || {})); } catch (e) {}
+        }
+        return jsonResponse(pay[path]);
+      }
       return jsonResponse({ ok: false, error: "이 화면은 모바일 버전에서 제공하지 않아요 (PC 버전 전용)" });
     });
   };
