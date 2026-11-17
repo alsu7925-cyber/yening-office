@@ -85,20 +85,32 @@
     }
 
     /* 탭 줄 — 폰에서 고른 탭이 잘리지 않게 가운데로 당겨 준다(탭 줄만 움직인다) */
-    try {
+    function centerTab(t) {
       var tabsEl = $("#tabs");
-      if (tabsEl) {
-        tabsEl.addEventListener("click", function (ev) {
+      if (!t || !tabsEl) return;
+      try {
+        var left = t.offsetLeft - (tabsEl.clientWidth - t.offsetWidth) / 2;
+        tabsEl.scrollTo({ left: Math.max(0, left), behavior: "smooth" });
+      } catch (e) {
+        tabsEl.scrollLeft = Math.max(0, t.offsetLeft - 24);
+      }
+    }
+    window.__centerTab = centerTab;
+    try {
+      var tabsEl2 = $("#tabs");
+      if (tabsEl2) {
+        tabsEl2.addEventListener("click", function (ev) {
           var t = ev.target && ev.target.closest ? ev.target.closest(".tab") : null;
-          if (!t) return;
-          setTimeout(function () {
-            try {
-              var left = t.offsetLeft - (tabsEl.clientWidth - t.offsetWidth) / 2;
-              tabsEl.scrollTo({ left: Math.max(0, left), behavior: "smooth" });
-            } catch (e) { tabsEl.scrollLeft = Math.max(0, t.offsetLeft - 24); }
-          }, 40);
+          if (t) setTimeout(function () { centerTab(t); }, 40);
         });
       }
+      /* 마지막에 보던 탭(spy 등)이 오른쪽 끝에서 잘려 있으면 한 번 당겨 준다 */
+      [80, 420].forEach(function (ms) {
+        setTimeout(function () { centerTab($("#tabs .tab.on")); }, ms);
+      });
+      window.addEventListener("office:ready", function () {
+        setTimeout(function () { centerTab($("#tabs .tab.on")); }, 60);
+      });
     } catch (e) {
       if (window.console) console.warn("[mobile-patch:tabs]", e);
     }
