@@ -70,6 +70,8 @@
     return s;
   }
   function space(s) { return String(s == null ? "" : s).replace(/\s+/g, " ").trim(); }
+  var ID_SEQ = 0;
+  function newId() { ID_SEQ += 1; return "rlm" + String(Date.now()) + String(ID_SEQ % 1000) + String(Math.floor(Math.random() * 90) + 10); }
   function sameTitle(a, b) { return space(a) === space(b); }
 
   /* ---------------- 🎭 블로그별 캐릭터 외형 · 영상 스타일 ---------------- */
@@ -211,7 +213,8 @@
     var seen = {}, out = [];
     rows.forEach(function (r) {
       var k = r.blog + "|" + space(r.title) + "|" + r.status;
-      if (seen[k]) return;
+      if (seen[k] || seen["id:" + r.id]) return;
+      seen["id:" + r.id] = 1;
       seen[k] = 1;
       out.push(r);
     });
@@ -269,7 +272,7 @@
         sp.status = "skipped"; sp.updated = now;
         loc.patch[srow.id] = sp;
       } else {
-        loc.rows.unshift({ id: "rlm" + String(Date.now()), blog: sbid, blogName: (blogOf(sbid) || {}).label || sbid,
+        loc.rows.unshift({ id: newId(), blog: sbid, blogName: (blogOf(sbid) || {}).label || sbid,
                            title: stitle, category: "", categoryLabel: "", status: "skipped", url: "",
                            note: "", created: now, updated: now, plan: {}, subtitle: {}, hasPrompts: false });
         if (loc.rows.length > MAX_ROWS) loc.rows = loc.rows.slice(0, MAX_ROWS);
@@ -312,18 +315,24 @@
         out.created = false;
         out.row = findRow(snap, exist.id);
       } else {
-        var row = { id: "rlm" + String(Date.now()), blog: bid, blogName: (blogOf(bid) || {}).label || bid,
+        var row = { id: newId(), blog: bid, blogName: (blogOf(bid) || {}).label || bid,
                     title: title, category: plan.category || "", categoryLabel: plan.categoryLabel || "",
                     status: "waiting", url: "", note: "", created: now, updated: now,
                     plan: plan, subtitle: plan.subtitle || {}, hasPrompts: !!(plan.cut1Prompt && plan.cut2Prompt) };
         loc.rows.unshift(row);
         if (loc.rows.length > MAX_ROWS) loc.rows = loc.rows.slice(0, MAX_ROWS);
+        loc.updated = now;
+        write(loc);                 /* 병합은 저장된 값에서 다시 읽으므로 먼저 저장 */
         out = mergeHistory(snap);
         out.created = true;
         out.row = findRow(snap, row.id);
+        return out;
       }
       loc.updated = now;
       write(loc);
+      out = mergeHistory(snap);
+      out.created = false;
+      out.row = findRow(snap, exist.id);
       return out;
     }
 
