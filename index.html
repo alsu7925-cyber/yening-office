@@ -1219,6 +1219,34 @@
   .spydetail b{color:#4b3a40}
   .spydetail .ln{margin-top:3px;font-size:11.5px;color:#8d7780}
   .spydetail a{color:#b9577a;font-weight:800;text-decoration:none}
+  /* 글 제목 = 눌러서 바로 열기 (밑줄 + ↗) */
+  .spydetail a.spytitle{color:#b9577a;text-decoration:underline;text-decoration-color:#fbcfe8;
+                        text-decoration-thickness:1.5px;text-underline-offset:2px}
+  .spydetail a.spytitle:hover{color:#db2777;text-decoration-color:#db2777}
+  /* 칸 상세 카드의 큰 바로가기 버튼 */
+  .spyopen{display:inline-flex;align-items:center;justify-content:center;gap:6px;
+           margin-top:9px;min-height:38px;padding:10px 20px;border-radius:12px;
+           font-family:inherit;font-size:14px;font-weight:900;letter-spacing:-.2px;
+           color:#ffffff !important;text-decoration:none !important;
+           background:linear-gradient(135deg,#f472b6,#db2777);
+           box-shadow:0 5px 14px rgba(219,39,119,.28);transition:.15s}
+  .spyopen:hover{transform:translateY(-1px);box-shadow:0 7px 18px rgba(219,39,119,.36)}
+  .spyopen:active{transform:translateY(0)}
+  .spynewbox .it a{color:#a03434;font-weight:800;text-decoration:underline;
+                   text-decoration-color:#f3c9cc;text-underline-offset:2px}
+  .spynewbox .it a:hover{color:#db2777;text-decoration-color:#f9a8d4}
+  .spymoverow .postlink{display:block;margin-top:2px;font-size:11px;font-weight:700;color:#b9577a;
+                        text-decoration:underline;text-decoration-color:#fbcfdd;text-underline-offset:2px;
+                        overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .spymoverow .postlink:hover{color:#db2777;text-decoration-color:#db2777}
+  .spytable a.compname{color:#4b3a40;font-weight:800;text-decoration:underline;
+                       text-decoration-color:#fbcfe8;text-decoration-thickness:1.5px;
+                       text-underline-offset:2px}
+  .spytable a.compname:hover{color:#db2777;text-decoration-color:#db2777}
+  .spytable a.compname .go{font-size:10.5px;color:#db2777;font-weight:900}
+  a.posttitlelink{color:#b9577a;font-weight:800;text-decoration:underline;
+                  text-decoration-color:#fbcfdd;text-underline-offset:2px}
+  a.posttitlelink:hover{color:#db2777;text-decoration-color:#db2777}
   .spynewbox{margin:10px 0 0;background:#fff4f5;border:1px solid #f8d3d6;border-radius:12px;
              padding:8px 11px;font-size:12px;color:#b0393c}
   .spynewbox b{color:#d0302f}
@@ -1573,8 +1601,12 @@ body.locked{overflow:hidden}
   .spylegend i{width:9px;height:9px;border-radius:2px;margin-right:3px}
   .spydetail{margin-top:8px;padding:8px 9px;font-size:11.5px;border-radius:11px;min-height:38px}
   .spydetail .ln{font-size:10.5px;line-height:1.5}
+  /* 폰에서는 카드 안 [블로그 글 열기 ↗] 를 손가락으로 누르기 좋게 크게 */
+  .spydetail a.spytitle{font-size:11.5px}
+  .spyopen{margin-top:8px;width:100%;min-height:44px;padding:11px 12px;font-size:13.5px;
+           border-radius:11px;box-sizing:border-box}
   .spynewbox{padding:7px 9px;font-size:11px;border-radius:11px;line-height:1.5}
-  .spynewbox .it{font-size:10px;padding:2px 6px}
+  .spynewbox .it{font-size:10px;padding:3px 7px;line-height:1.6}
 
   /* 어제보다 움직인 검색어 */
   .spycols{grid-template-columns:1fr;gap:7px}
@@ -1582,6 +1614,7 @@ body.locked{overflow:hidden}
   .spymove h4{font-size:11.5px;margin-bottom:5px}
   .spymoverow{padding:4px 0;font-size:11.5px;gap:6px}
   .spymoverow .kw{white-space:normal;overflow-wrap:anywhere}
+  .spymoverow .postlink{font-size:10px;margin-top:1px}
   .spymoverow .vol{font-size:10px}
 
   /* 표 — 화면보다 넓으면 칸 안에서 옆으로 밀어 본다(오른쪽 그림자로 밀 수 있다는 걸 알려 준다) */
@@ -1591,6 +1624,9 @@ body.locked{overflow:hidden}
   .spytable th{font-size:10.5px;padding:5px 5px}
   .spytable td{padding:5px 5px}
   .spytable .dimc{font-size:10px}
+  .spytable a.compname{font-size:11px;line-height:1.4}
+  .spytable a.compname .go{font-size:9.5px}
+  a.posttitlelink{font-size:10.5px;line-height:1.45}
 
   .spyempty{padding:16px 12px;font-size:11.5px;border-radius:13px}
   .spyprog{margin:4px 0 9px;padding:8px 10px;border-radius:12px}
@@ -1659,7 +1695,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11172014" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11172034" alt="예닝 오피스 배경">
     </div>
     <div class="desk-list" id="deskList"></div>
     <div class="propshelf" id="propShelf">
@@ -2382,7 +2418,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11172014"></script>
+<script src="assets/pin.js?v=11172034"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -3883,7 +3919,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11172014" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11172034" alt="예닝 오피스 배경">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
   OFFICE.blogs.forEach(b => { html += deskCardHTML(b, posOf(b)); });
   html += `<div class="crew" id="crew">${qcSeatHTML()}${receptionHTML()}</div>`;
@@ -5530,16 +5566,84 @@ function spyPostStatus(p){
   return {cls:"c-missing", label:"✕"};
 }
 
+function spyOpenLink(url){
+  if (!url) return false;
+  const u = String(url);
+  try {
+    const w = window.open(u, "_blank", "noopener");
+    if (w) return true;
+  } catch (e) { /* 팝업이 막히면 아래 방식으로 */ }
+  try {
+    const a = document.createElement("a");
+    a.href = u; a.target = "_blank"; a.rel = "noopener";
+    a.style.display = "none";
+    document.body.appendChild(a); a.click(); a.remove();
+    return true;
+  } catch (e) { return false; }
+}
+
+function spyPostUrl(p){
+  if (!p) return "";
+  return String(p.link || p.url || p.top_url || "").trim();
+}
+
+function spyCompUrl(x){
+  if (!x) return "";
+  const direct = x.top_url || x.top_post_url || x.winner_url || x.post_url || x.url || "";
+  if (direct) return String(direct).trim();
+  const bid = String(x.blog || "").trim();
+  const log = String(x.top_logNo || x.top_log || x.winner_logNo || "").trim();
+  if (bid) return log ? ("https://blog.naver.com/" + bid + "/" + log)
+                      : (x.home || ("https://blog.naver.com/" + bid));
+  return "";
+}
+
 function spyCellDetail(p){
+  p = p || {};
   const st = p.status === "rank1" ? "1위" : (p.status === "ranked" ? (p.rank + "위") :
       (p.status === "quoted" ? "따옴표 색인됨 · 100위 밖" :
       (p.status === "pending" ? "반영 전 (발행 6시간 이내)" : "누락 의심 (100위 안에 없음)")));
-  const bits = ["<b>" + spyEsc(p.title) + "</b>",
-    "<span class=\"ln\">" + st + (p.kw ? " · 대표 검색어 <b>" + spyEsc(p.kw) + "</b>" : "") +
-    " · 발행 " + spyWhen(p.pub) + (p.hours !== null && p.hours !== undefined ? " (" + p.hours + "시간 전)" : "") +
-    " · <a href=\"" + spyEsc(p.link) + "\" target=\"_blank\" rel=\"noopener\">글 열기 ↗</a></span>"];
+  const url = spyPostUrl(p);
+  const title = spyEsc(p.title);
+  const bits = [];
+  bits.push("<b>" + (url
+      ? '<a class="spytitle" href="' + spyEsc(url) + '" target="_blank" rel="noopener" title="블로그 글 새 탭에서 열기">' + title + " ↗</a>"
+      : title) + "</b>");
+  bits.push('<span class="ln">' + st +
+    (p.kw ? " · 대표 검색어 <b>" + spyEsc(p.kw) + "</b>" : "") +
+    " · 발행 " + spyWhen(p.pub) +
+    (p.hours !== null && p.hours !== undefined ? " (" + p.hours + "시간 전)" : "") + "</span>");
   if (p.new_missing) bits.push("<div class=\"ln\" style=\"color:#c0342f;font-weight:800\">\u26a0 어제는 " + p.prev_rank + "위였는데 오늘 빠졌어요 (새로 누락)</div>");
+  if (url) bits.push('<a class="spyopen" href="' + spyEsc(url) + '" target="_blank" rel="noopener">블로그 글 열기 ↗</a>');
   return bits.join("");
+}
+
+/* 칸을 누르면 상세 카드, 한 번 더 누르면 새 탭으로 바로 열기 */
+function spyShowCell(el, i){
+  const det = $("#spyDetail");
+  if (!det) return false;
+  det.innerHTML = spyCellDetail(SPYPOSTS[i] || {});
+  const body = $("#spyBody");
+  const cells = (body && body.querySelectorAll) ? body.querySelectorAll(".spycell") : [];
+  for (let k = 0; k < (cells.length || 0); k++) {
+    if (cells[k] !== el && cells[k].classList) cells[k].classList.remove("sel");
+  }
+  if (el && el.classList) el.classList.add("sel");
+  return true;
+}
+
+function spyPreviewCell(i){
+  const det = $("#spyDetail");
+  if (det) det.innerHTML = spyCellDetail(SPYPOSTS[i] || {});
+}
+
+function spyPickCell(el, i){
+  const sel = !!(el && el.classList && el.classList.contains("sel"));
+  if (sel) {                                  // 이미 뜬 칸을 한 번 더 누르면 바로 열기
+    const url = spyPostUrl(SPYPOSTS[i] || {});
+    if (url) return spyOpenLink(url);
+  }
+  return spyShowCell(el, i);
 }
 
 function renderSpyChips(){
@@ -5589,7 +5693,13 @@ function renderSpyGrid(b){
   let newBox = "";
   if (nm.length) {
     newBox = '<div class="spynewbox"><b>⚠ 새로 누락 ' + nm.length + '편</b> — 어제는 보였는데 오늘 100위 밖으로 밀렸어요<br>' +
-      nm.map(p => '<span class="it">' + spyEsc(String(p.title).slice(0,26)) + ' (' + p.prev_rank + '위→밖)</span>').join("") + '</div>';
+      nm.map(p => {
+        const label = spyEsc(String(p.title).slice(0, 26)) + ' (' + p.prev_rank + '위→밖)';
+        const url = spyPostUrl(p);
+        return url
+          ? '<a class="it" href="' + spyEsc(url) + '" target="_blank" rel="noopener" title="' + spyEsc(p.title) + '">' + label + ' ↗</a>'
+          : '<span class="it">' + label + '</span>';
+      }).join("") + '</div>';
   }
   return grid +
     '<div class="spylegend">' +
@@ -5598,9 +5708,9 @@ function renderSpyGrid(b){
       '<span><i style="background:#f3ede6;border:1px solid #e7ddd3"></i>누락 의심</span>' +
       '<span><i style="background:#fff1f2;border:2px dotted #f472b6"></i>따옴표 색인됨 · 100위 밖</span>' +
       '<span><i style="background:#faf8f6;border:1px solid #e7e5e4"></i>반영 전 (6시간 이내)</span>' +
-      '<span>칸을 누르면 글 정보가 나와요</span>' +
+      '<span>칸을 누르면 글 정보와 바로가기 링크가 나와요 (한 번 더 누르면 새 탭으로 열림)</span>' +
     '</div>' + newBox +
-    '<div class="spydetail" id="spyDetail">칸에 마우스를 올리면 제목·순위·발행일·링크가 나와요</div>';
+    '<div class="spydetail" id="spyDetail">칸을 누르면 글 정보와 바로가기 링크가 나와요</div>';
 }
 
 function renderSpyMovers(b){
@@ -5612,6 +5722,8 @@ function renderSpyMovers(b){
   }
   const row = (r, up) => '<div class="spymoverow"><div style="min-width:0;flex:1">' +
       '<div class="kw">' + spyEsc(r.kw) + '</div>' +
+      (spyPostUrl(r) ? '<a class="postlink" href="' + spyEsc(spyPostUrl(r)) + '" target="_blank" rel="noopener" title="' +
+          spyEsc(r.post || r.kw) + '">' + spyEsc(String(r.post || r.kw).slice(0, 30)) + ' ↗</a>' : '') +
       '<div class="vol">월 ' + spyNum(r.vol) + '회</div></div>' +
       '<div class="rk ' + (up ? "up" : "dn") + '">' + (up ? "▲" : "▼") + Math.abs(r.delta) +
       ' <span style="font-weight:700;color:#a58e96;font-size:11px">' + r.prev + '→' + r.today + '위</span></div></div>';
@@ -5629,8 +5741,10 @@ function renderSpyHidden(b){
     h.map(x => '<tr><td><b>' + spyEsc(x.kw) + '</b>' +
       (x.main ? '<div class="dimc">대표 검색어 ' + spyEsc(x.main) + ' 의 추가 노출</div>' : '') + '</td>' +
       '<td class="dimc">' + spyNum(x.vol) + '</td>' +
-      '<td class="rkc">' + x.rank + '위</td><td><a href="' + spyEsc(x.link) + '" target="_blank" rel="noopener" style="color:#b9577a;text-decoration:none">' +
-      spyEsc(String(x.post).slice(0,40)) + '</a></td></tr>').join("") + '</tbody></table></div>';
+      '<td class="rkc">' + x.rank + '위</td><td>' + (spyPostUrl(x)
+        ? '<a class="posttitlelink" href="' + spyEsc(spyPostUrl(x)) + '" target="_blank" rel="noopener" title="' + spyEsc(x.post) + '">' +
+          spyEsc(String(x.post).slice(0,40)) + ' ↗</a>'
+        : spyEsc(String(x.post || "").slice(0,40))) + '</td></tr>').join("") + '</tbody></table></div>';
 }
 
 function renderSpyComp(b){
@@ -5638,12 +5752,20 @@ function renderSpyComp(b){
   if (!c.length) return '<div class="spyempty" style="padding:16px">경쟁 블로그를 아직 못 찾았어요 (100위 안에 내 글이 없어서 비교 기준이 없습니다)</div>';
   const posCls = r => r <= 3 ? "" : (r <= 10 ? " mid" : " low");
   return '<div class="sub">같은 검색어에서 나란히 뜬 블로그 — 내 최고 순위 <span class="spypos' + posCls(b.my_best || 99) + '">' +
-    (b.my_best ? b.my_best + '위' : '100위 밖') + '</span></div>' +
+    (b.my_best ? b.my_best + '위' : '100위 밖') + '</span>' +
+    ' · <b>블로그 이름을 누르면 그 경쟁 글로 바로 가요</b></div>' +
     '<div style="overflow:auto"><table class="spytable"><thead><tr><th>#</th><th>경쟁 블로그</th><th>함께 뜬 검색어</th><th>최고 순위</th></tr></thead><tbody>' +
-    c.map((x, i) => '<tr><td class="dimc">' + (i+1) + '</td><td><b>' + spyEsc(x.name || x.blog) + '</b>' +
+    c.map((x, i) => {
+      const url = spyCompUrl(x);
+      const nm = spyEsc(x.name || x.blog);
+      const tip = x.top_title ? spyEsc(x.top_title) : spyEsc(url);
+      return '<tr><td class="dimc">' + (i+1) + '</td><td>' + (url
+        ? '<a class="compname" href="' + spyEsc(url) + '" target="_blank" rel="noopener" title="' + tip + '">' + nm + ' <span class="go">↗</span></a>'
+        : '<b>' + nm + '</b>') +
       '<div class="dimc">' + spyEsc(x.blog) + '</div></td>' +
       '<td class="dimc">' + (x.kws || []).map(k => spyEsc(k.kw) + ' <b style="color:#db2777">' + k.rank + '위</b>').join('<br>') + '</div>' +
-      '<td class="rkc">' + x.best + '위</td></tr>').join("") + '</tbody></table></div>';
+      '<td class="rkc">' + x.best + '위</td></tr>';
+    }).join("") + '</tbody></table></div>';
 }
 
 function renderSpyAll(){
@@ -5680,24 +5802,17 @@ function renderSpyBody(){
       (b.error ? ' · <b style="color:#c0342f">' + spyEsc(b.error) + '</b>' : '') + '</div>' +
       renderSpyHero(b) + '</section>' +
     '<section class="spysec"><h3>2. 최근 글 ' + (b.posts || []).length + '편 노출 지도</h3>' +
-      '<div class="sub">글마다 1~100위 안에 뜨는지 네모 칸으로 — 베이지 칸은 누락 의심, 연크림은 발행 6시간 이내</div>' +
+      '<div class="sub">글마다 1~100위 안에 뜨는지 네모 칸으로 — 베이지 칸은 누락 의심, 연크림은 발행 6시간 이내 · 칸을 누르면 글 정보와 바로가기 링크가 나와요</div>' +
       renderSpyGrid(b) + '</section>' +
     '<section class="spysec"><h3>3. 어제보다 움직인 검색어</h3>' +
       '<div class="sub">월 검색량 큰 순으로 위·아래 비교</div>' + renderSpyMovers(b) + '</section>' +
     '<section class="spysec"><h3>4. 내가 몰랐던 노출 검색어</h3>' +
       '<div class="sub">메인 타깃이 아닌데 100위 안에 걸린 숨은 검색어</div>' + renderSpyHidden(b) + '</section>' +
     '<section class="spysec"><h3>5. 같은 주제 경쟁 블로그 TOP 10</h3>' + renderSpyComp(b) + '</section>';
-  const det = $("#spyDetail");
   body.querySelectorAll(".spycell").forEach(el => {
     const i = Number(el.dataset.i);
-    const show = () => {
-      if (!det) return;
-      det.innerHTML = spyCellDetail(SPYPOSTS[i] || {});
-      body.querySelectorAll(".spycell").forEach(x => x.classList.remove("sel"));
-      el.classList.add("sel");
-    };
-    el.onmouseenter = show;
-    el.onclick = show;
+    el.onmouseenter = () => spyPreviewCell(i);        // 데스크톱: 올려만 봐도 미리보기
+    el.onclick = () => spyPickCell(el, i);            // 한 번 누르면 카드, 한 번 더 누르면 새 탭
   });
 }
 
@@ -6690,7 +6805,7 @@ loadMemo();
 loadOffice(false);
 if (document.querySelector("#pane-campaign.on")) loadCampaigns();
 </script>
-<script src="assets/budget-local.js?v=11172014"></script>
-<script src="assets/mobile-patch.js?v=11172014"></script>
+<script src="assets/budget-local.js?v=11172034"></script>
+<script src="assets/mobile-patch.js?v=11172034"></script>
 </body>
 </html>
