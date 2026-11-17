@@ -1256,7 +1256,7 @@ body.locked{overflow:hidden}
       <button class="btn small hazard" id="issueBadge" title="발행 오류 감지기 — 실제 오류 / 확인 지연 / 수동 확인">🚨 오류 확인 중…</button>
       <button class="btn small" id="linkBook" title="블로그 6곳 · 클립 · 인스타 · 스레드 · 페이스북 주소를 모아서 1초 복사">🔗 내 링크 모음</button>
       <button class="btn small" id="roomCfg" title="블로그 6곳의 밤티 이미지 · 젠스파크 · 클로드 방 · 밤티 대화방 주소와 일일 목표 편수를 넣습니다">⚙️ 링크/방 설정</button>
-      <button class="btn small" id="notionBtn" title="노션 공용 허브 · 체험단 마스터 센터 · 예약발행 현황 · 일일 성과 리포트를 새 탭으로 엽니다">📝 노션 바로가기</button>
+      <button class="btn small" id="notionBtn" title="노션 공용 허브 · 🛍️ 쇼핑커넥트 전용 허브 · 체험단 마스터 센터 · 예약발행 현황 · 일일 성과 리포트를 새 탭으로 엽니다">📝 노션 바로가기</button>
       <button class="btn small" id="refresh">↻ 현황 새로고침</button>
     </div>
   </header>
@@ -5045,6 +5045,7 @@ $("#stampModal").onclick = (ev) => { if (ev.target.id === "stampModal") $("#stam
 /* ---------- 📝 노션 바로가기 ---------- */
 const NOTION_LINKS = [
   {em: "🤝", tt: "피콜로 ↔ 클로드 공용 허브", ss: "블로그별 원고·메모함 모음", url: "https://app.notion.com/p/4180f05a7a62811689c3f7667385752c"},
+  {em: "🛍️", tt: "쇼핑커넥트 전용 허브", ss: "쇼핑커넥트 전용 페이지", url: "https://app.notion.com/p/41b0f05a7a628155aabcd89507907522"},
   {em: "✨", tt: "피콜로 체험단 마스터 센터", ss: "체험단 파이프라인 · 누적 방어 생활비", url: "https://app.notion.com/p/4130f05a7a6281d295bfe197e9bc7e71"},
   {em: "📅", tt: "예약발행 현황", ss: "오늘 예약 · 긴급 발행 · 원고 재고", url: "https://www.notion.so/41a0f05a7a62812c97dadda6dd56c4be"},
   {em: "📊", tt: "블로그 일일 성과·메인유입 리포트", ss: "매일 밤 23:30 수치 누적", url: "https://app.notion.com/p/41a0f05a7a6281459744d3893e22a27c"},
