@@ -1130,6 +1130,10 @@
   .rlev .rlv{font-weight:900;color:#3f6a8c;background:#eaf2fa;border-radius:7px;padding:1px 7px}
   .rlev .rll{font-weight:800;color:#8d7780}
   .rlev .rlsrc{color:#7d8798}
+  .rlsumtag{font-size:10px;font-weight:900;color:#7b5fb0;background:#efe7ff;
+            border-radius:6px;padding:1px 6px;margin-right:4px}
+  #rlHistFilter{display:flex;flex-wrap:wrap;max-width:100%}
+  #rlHistFilter .sg{flex:1 1 auto;text-align:center}
 
   @media (max-width:1100px){
     .cboards{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -1787,7 +1791,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11172318" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11172322" alt="예닝 오피스 배경">
     </div>
     <div class="desk-list" id="deskList"></div>
     <div class="propshelf" id="propShelf">
@@ -2591,7 +2595,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11172318"></script>
+<script src="assets/pin.js?v=11172322"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -4410,12 +4414,12 @@ function renderReelsPlan(d, local){
         <div class="rlboxh">🎬 영상 프롬프트 <span>영어 전용 · 한국어 자막 없음</span></div>
         <div class="rlcut first">
           <div class="rlcuthead"><b>Cut 1</b><span>문제 · 호기심 (8-10s)</span>${copyBtn(d.cut1Prompt, "Cut 1 복사")}</div>
-          <div class="rlsum">🇰🇷 ${esc(d.cut1Summary || "")}</div>
+          <div class="rlsum"><span class="rlsumtag">한국어</span> ${esc(d.cut1Summary || "")}</div>
           <pre class="rltext" id="rlCut1Text">${esc(d.cut1Prompt)}</pre>
         </div>
         <div class="rlcut">
           <div class="rlcuthead"><b>Cut 2</b><span>해결 · 정리 (8-10s)</span>${copyBtn(d.cut2Prompt, "Cut 2 복사")}</div>
-          <div class="rlsum">🇰🇷 ${esc(d.cut2Summary || "")}</div>
+          <div class="rlsum"><span class="rlsumtag">한국어</span> ${esc(d.cut2Summary || "")}</div>
           <pre class="rltext" id="rlCut2Text">${esc(d.cut2Prompt)}</pre>
         </div>
         <div class="cacts">${copyBtn(d.promptFull, "전체 프롬프트 복사")}</div>
@@ -4826,7 +4830,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11172318" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11172322" alt="예닝 오피스 배경">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
   OFFICE.blogs.forEach(b => { html += deskCardHTML(b, posOf(b)); });
   html += `<div class="crew" id="crew">${qcSeatHTML()}${receptionHTML()}</div>`;
@@ -7839,8 +7843,8 @@ loadMemo();
 loadOffice(false);
 if (document.querySelector("#pane-campaign.on")) loadCampaigns();
 </script>
-<script src="assets/budget-local.js?v=11172318"></script>
-<script src="assets/reels-local.js?v=11172318"></script>
-<script src="assets/mobile-patch.js?v=11172318"></script>
+<script src="assets/budget-local.js?v=11172322"></script>
+<script src="assets/reels-local.js?v=11172322"></script>
+<script src="assets/mobile-patch.js?v=11172322"></script>
 </body>
 </html>
