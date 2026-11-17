@@ -4793,8 +4793,9 @@ function renderBgTrend(){
   if (!box) return;
   const t = BUD.trend || [];
   if (!t.length){ box.innerHTML = '<div class="bgempty">추이를 그릴 자료가 아직 없어요</div>'; return; }
-  let max = 1;
+  let max = 0;
   t.forEach(x => { max = Math.max(max, bgNum(x.income), bgNum(x.expense), bgNum(x.saving)); });
+  if (!max){ box.innerHTML = '<div class="bgempty">내역을 넣으면 6개월 추이가 그려져요</div>'; return; }
   const h = v => (bgNum(v) > 0 ? Math.max(3, Math.round(bgNum(v) * 100 / max)) : 0);
   const cur = BUD.thisMonth || bgThisMonth();
   box.innerHTML = t.map(x => '<div class="bgtcol' + (x.month === cur ? " cur" : "") + '" title="' +
