@@ -638,6 +638,17 @@
       }
     }
 
+    /* 입력폼을 보는 달 바 아래로 올려 — 폰에서 열면 바로 금액을 적을 수 있게 */
+    try {
+      var pane = document.querySelector("#pane-budget .panel") || document.querySelector("#pane-budget");
+      var form = document.querySelector("#bgForm");
+      var anchor = document.querySelector("#bgBackTools") || document.querySelector("#pane-budget .bgbar");
+      if (pane && form && anchor && anchor.parentNode === pane &&
+          window.matchMedia && window.matchMedia("(max-width:820px)").matches) {
+        pane.insertBefore(form, anchor.nextSibling);
+      }
+    } catch (e) {}
+
     /* 첫 화면에도 배지가 보이도록 */
     setTimeout(function () { try { stamp(); } catch (e) {} }, 40);
   }
