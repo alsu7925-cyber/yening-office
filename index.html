@@ -1543,9 +1543,9 @@ body.locked{overflow:hidden}
 
   /* 블로그 알약 */
   .spychips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:2px 0 10px}
-  .spychip{justify-content:space-between;gap:3px;min-width:0;padding:7px 7px;font-size:10.5px;
+  .spychip{justify-content:space-between;gap:4px;min-width:0;padding:7px 8px;font-size:11px;
     border-radius:11px;line-height:1.25;letter-spacing:-.3px;overflow:hidden;white-space:nowrap}
-  .spychip .sc{flex:0 0 auto;font-size:9.5px;padding:1px 5px;border-radius:7px}
+  .spychip .sc{flex:0 0 auto;font-size:10px;padding:1px 5px;border-radius:7px}
 
   /* 오늘의 보고 — 점수·KPI·14일 그래프 */
   .spyhero{grid-template-columns:minmax(0,1fr);gap:9px;padding:11px 11px 12px;border-radius:16px}
@@ -1598,8 +1598,11 @@ body.locked{overflow:hidden}
   #pane-spy .phead{margin-bottom:7px}
 }
 
-@media (max-width:380px){
+/* 폰 폭(390·360)에서는 알약을 두 칸으로 — '예지브러리·세이브데스크'가 잘리지 않게 */
+@media (max-width:520px){
   .spychips{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:380px){
   .spygrid{grid-template-columns:repeat(5,minmax(0,1fr))}
 }
 </style>
@@ -1610,7 +1613,7 @@ body.locked{overflow:hidden}
   <header class="hero">
     <div>
       <h1>🏢 예닝 오피스 <span class="amp">·</span> 📱 모바일 <span style="display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;background:#ffe3ee;border:1px solid #f6a9bf;color:#a64065;font-size:12px;font-weight:700;vertical-align:middle">v2.0 · 11/17</span></h1>
-      <p>팀장님 여섯 분의 오늘 실적 · 체험단 마감 · 효자글 · 염탐 · 수익 · 가계부를 한 화면에서 🌸</p>
+      <p>팀장님 여섯 분 오늘 실적 · 염탐 · 수익 · 가계부를 한 화면에서 🌸</p>
     </div>
     <div class="hero-side">
       <div class="clock" id="clock">--:--</div>
@@ -1655,7 +1658,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11171958" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11172000" alt="예닝 오피스 배경">
     </div>
     <div class="desk-list" id="deskList"></div>
     <div class="propshelf" id="propShelf">
@@ -2378,7 +2381,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11171958"></script>
+<script src="assets/pin.js?v=11172000"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -3879,7 +3882,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11171958" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11172000" alt="예닝 오피스 배경">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
   OFFICE.blogs.forEach(b => { html += deskCardHTML(b, posOf(b)); });
   html += `<div class="crew" id="crew">${qcSeatHTML()}${receptionHTML()}</div>`;
@@ -6686,7 +6689,7 @@ loadMemo();
 loadOffice(false);
 if (document.querySelector("#pane-campaign.on")) loadCampaigns();
 </script>
-<script src="assets/budget-local.js?v=11171958"></script>
-<script src="assets/mobile-patch.js?v=11171958"></script>
+<script src="assets/budget-local.js?v=11172000"></script>
+<script src="assets/mobile-patch.js?v=11172000"></script>
 </body>
 </html>

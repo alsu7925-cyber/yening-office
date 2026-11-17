@@ -282,9 +282,9 @@ body.locked{overflow:hidden}
 
   /* 블로그 알약 */
   .spychips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:2px 0 10px}
-  .spychip{justify-content:space-between;gap:3px;min-width:0;padding:7px 7px;font-size:10.5px;
+  .spychip{justify-content:space-between;gap:4px;min-width:0;padding:7px 8px;font-size:11px;
     border-radius:11px;line-height:1.25;letter-spacing:-.3px;overflow:hidden;white-space:nowrap}
-  .spychip .sc{flex:0 0 auto;font-size:9.5px;padding:1px 5px;border-radius:7px}
+  .spychip .sc{flex:0 0 auto;font-size:10px;padding:1px 5px;border-radius:7px}
 
   /* 오늘의 보고 — 점수·KPI·14일 그래프 */
   .spyhero{grid-template-columns:minmax(0,1fr);gap:9px;padding:11px 11px 12px;border-radius:16px}
@@ -337,7 +337,10 @@ body.locked{overflow:hidden}
   #pane-spy .phead{margin-bottom:7px}
 }
 
-@media (max-width:380px){
+/* 폰 폭(390·360)에서는 알약을 두 칸으로 — '예지브러리·세이브데스크'가 잘리지 않게 */
+@media (max-width:520px){
   .spychips{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:380px){
   .spygrid{grid-template-columns:repeat(5,minmax(0,1fr))}
 }
