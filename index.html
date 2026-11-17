@@ -1695,7 +1695,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11172034" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11172037" alt="예닝 오피스 배경">
     </div>
     <div class="desk-list" id="deskList"></div>
     <div class="propshelf" id="propShelf">
@@ -2418,7 +2418,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11172034"></script>
+<script src="assets/pin.js?v=11172037"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -3919,7 +3919,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11172034" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11172037" alt="예닝 오피스 배경">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
   OFFICE.blogs.forEach(b => { html += deskCardHTML(b, posOf(b)); });
   html += `<div class="crew" id="crew">${qcSeatHTML()}${receptionHTML()}</div>`;
@@ -5569,11 +5569,13 @@ function spyPostStatus(p){
 function spyOpenLink(url){
   if (!url) return false;
   const u = String(url);
-  try {
-    const w = window.open(u, "_blank", "noopener");
-    if (w) return true;
-  } catch (e) { /* 팝업이 막히면 아래 방식으로 */ }
-  try {
+  let w = null;
+  try { w = window.open(u, "_blank"); } catch (e) { w = null; }
+  if (w) {                       // 팝업이 열렸다 (noopener 를 기능문자열에 넣으면 null 이 와서 알 수 없음)
+    try { w.opener = null; } catch (e) { /* 다른 출처면 무시 */ }
+    return true;
+  }
+  try {                          // 팝업이 막혔을 때 — <a target=_blank> 로 한 번 더
     const a = document.createElement("a");
     a.href = u; a.target = "_blank"; a.rel = "noopener";
     a.style.display = "none";
@@ -6805,7 +6807,7 @@ loadMemo();
 loadOffice(false);
 if (document.querySelector("#pane-campaign.on")) loadCampaigns();
 </script>
-<script src="assets/budget-local.js?v=11172034"></script>
-<script src="assets/mobile-patch.js?v=11172034"></script>
+<script src="assets/budget-local.js?v=11172037"></script>
+<script src="assets/mobile-patch.js?v=11172037"></script>
 </body>
 </html>
