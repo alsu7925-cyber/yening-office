@@ -232,6 +232,20 @@
           catch (e) { out = { ok: false, error: "저장하지 못했어요: " + ((e && e.message) || e) }; }
           return jsonResponse(out);
         }
+        /* 🎬 릴스 스튜디오 — 캐릭터 외형·영상 스타일과 제작 이력을 폰에 저장한다 */
+        if (path.indexOf("/api/reels/") === 0 && window.YR) {
+          var rbody = {};
+          try { rbody = JSON.parse((opt && opt.body) || "{}"); } catch (e) { rbody = {}; }
+          var rout;
+          try {
+            if (path === "/api/reels/profiles") rout = window.YR.saveProfiles(rbody, pay["/api/reels/profiles"] || {});
+            else if (path === "/api/reels/history") rout = window.YR.historyOp(rbody, pay["/api/reels/history"] || {});
+            else rout = { ok: false, mobile: true, error: "폰에서는 이 기기에서 바로 만들어요" };
+          } catch (e) {
+            rout = { ok: false, error: "저장하지 못했어요: " + ((e && e.message) || e) };
+          }
+          return jsonResponse(rout);
+        }
         /* 🕵️ 지금 다시 염탐 — 폰에는 수집 서버가 없으므로 안내만 띄우고 끝낸다 */
         if (path === "/api/spy/run") {
           try {
@@ -248,6 +262,13 @@
           if (path === "/api/budget" && window.loadBudget) setTimeout(function () { try { window.loadBudget(); } catch (e) {} }, 40);
         } catch (e) {}
         return jsonResponse({ ok: false, error: BLOCK_MSG });
+      }
+      /* 🎬 릴스 스튜디오(GET) — 폰에서 고친 캐릭터 외형·스타일과 제작 이력을 스냅샷에 얹는다 */
+      if (path === "/api/reels/profiles" && window.YR && typeof window.YR.mergeProfiles === "function") {
+        try { return jsonResponse(window.YR.mergeProfiles(pay[path] || {})); } catch (e) {}
+      }
+      if (path === "/api/reels/history" && window.YR && typeof window.YR.mergeHistory === "function") {
+        try { return jsonResponse(window.YR.mergeHistory(pay[path] || {})); } catch (e) {}
       }
       if (Object.prototype.hasOwnProperty.call(pay, path)) {
         if (path === "/api/budget" && window.YB && typeof window.YB.merge === "function") {

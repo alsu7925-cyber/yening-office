@@ -1038,6 +1038,76 @@
   .ratio span{font-size:11.5px;font-weight:900;color:#c4587a;min-width:44px;text-align:right}
   .up{color:#3f8c5c;font-weight:900}
   .down{color:#c2413f;font-weight:900}
+  /* ---------- 🎬 AI 영상 제작 (릴스 스튜디오) ---------- */
+  .rlform{display:flex;flex-direction:column;gap:8px;margin-top:2px}
+  .rlrow{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start}
+  .rlrow>label{flex:1 1 170px;min-width:150px;margin:0}
+  .rlform .rlhint,.rlhint{font-size:11px;font-weight:700;color:var(--dim);margin-left:6px}
+  .rlform input[type=text],.rlform textarea,.rlform select{font-size:13px}
+  .rlform textarea{min-height:64px}
+  .rlmeta{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+  .rlchip{font-size:11.5px;font-weight:800;color:#8a5b6c;background:#fff6fa;
+          border:1px solid #f6dbe3;border-radius:20px;padding:3px 9px}
+  .rlchip.mut{color:#a08d96;background:#fdfbfc;border-color:#f0e6ea}
+  .rlchip.ok{color:#3f8c5c;background:#eef8f1;border-color:#d3ecdd}
+  .rlchip.mob{color:#5f7fb8;background:#eef4ff;border-color:#dbe6fa}
+  .rlgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin-top:10px}
+  .rlbox{background:#fffdfd;border:1px solid #f6dbe3;border-radius:16px;padding:11px 12px;min-width:0}
+  .rlbox.en{background:linear-gradient(180deg,#fffdfd,#f7fbff);border-color:#dbe6fa}
+  .rlbox.ko{background:linear-gradient(180deg,#fffdfd,#fff8fb)}
+  .rlboxh{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;font-weight:900;
+          font-size:13px;color:#4b3a40;margin-bottom:8px}
+  .rlboxh span{font-size:11px;font-weight:800;color:#a08d96}
+  .rlcut{border-top:1px dashed #f0dde4;padding-top:8px;margin-top:8px}
+  .rlcut.first{border-top:0;padding-top:0;margin-top:0}
+  .rlcuthead{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:11.5px;
+             color:#8a5b6c;margin-bottom:5px}
+  .rlcuthead b{font-size:12.5px;color:#b9577a}
+  .rlcuthead .lkb{margin-left:auto}
+  .rltext{margin:0;white-space:pre-wrap;word-break:break-word;
+          font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+          font-size:11.5px;line-height:1.62;color:#5b4750;background:#fbfafc;
+          border:1px solid #eef0f5;border-radius:11px;padding:9px 10px;
+          max-height:280px;overflow:auto}
+  .rlsub{display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-top:1px dashed #f0dde4}
+  .rlsub.first{border-top:0;padding-top:0}
+  .rlsub>b{min-width:34px;font-size:11.5px;color:#b9577a;padding-top:1px}
+  .rlsub p{margin:0;font-size:13px;color:#4b3a40;line-height:1.55;flex:1 1 auto;min-width:0}
+  .rlsub .lkb{flex:none}
+  .rlnote{margin-top:8px;font-size:11px;color:#a08d96;line-height:1.6}
+  .rlwarn{margin-top:10px;font-size:11.5px;font-weight:800;color:#a2653a;background:#fff7ec;
+          border:1px solid #f6e0b8;border-radius:11px;padding:7px 10px;line-height:1.55}
+  .rlprof{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .rlpcard{background:#fff;border:1px solid #f6dbe3;border-radius:16px;padding:11px 12px;min-width:0}
+  .rlph{display:flex;gap:7px;align-items:baseline;flex-wrap:wrap;font-weight:900;
+        font-size:13px;color:#4b3a40}
+  .rlph small{font-size:11px;font-weight:800;color:#a9869a}
+  .rlpbadge{margin-left:auto;font-size:10.5px;font-weight:900;color:#b9577a;background:#ffe6ee;
+            border:1px solid #f3c6d3;border-radius:20px;padding:2px 8px}
+  .rlpwarn2{font-size:10.5px;font-weight:800;color:#a2653a;background:#fff7ec;
+            border:1px solid #f6e0b8;border-radius:20px;padding:2px 8px}
+  .rlpc{font-size:11.5px;color:#8a7178;margin:5px 0 6px;line-height:1.6}
+  .rlpc b{color:#b9577a}
+  .rlpcard label.f{margin:6px 0 4px;font-size:11.5px}
+  .rleng{font-size:10.5px;font-weight:800;color:#8ba0c4;margin-left:4px}
+  .rlpcard textarea{font-size:11.5px;line-height:1.55;min-height:52px}
+  .rlstatus{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
+  .rlstatus .sg{border:1px solid var(--line);background:#fff;border-radius:9px;
+                padding:5px 9px;font-size:11.5px;font-weight:800;color:#8d7780;
+                cursor:pointer;font-family:inherit;transition:.15s}
+  .rlstatus .sg:hover{background:#fff4f8;border-color:var(--pink-line);color:#c4587a}
+  .rlstatus .sg.on{background:#ffe6ee;border-color:#f3c6d3;color:#b9577a}
+  .rlurl{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap;align-items:center}
+  .rlurl input{flex:1 1 170px;font-size:11.5px;padding:7px 9px;border-radius:9px}
+  .rlurl .btn{padding:6px 9px;font-size:11px}
+  .rlurl a{font-size:11.5px;font-weight:800;color:#b9577a}
+  .rlhist .cacts .btn{padding:5px 9px;font-size:11px}
+  .rlhist .hm b{font-weight:900}
+  @media (max-width:900px){
+    .rlgrid{grid-template-columns:1fr}
+    .rlprof{grid-template-columns:1fr}
+    .rlrow>label{flex:1 1 100%}
+  }
 
   @media (max-width:1100px){
     .cboards{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -1695,7 +1765,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11172126" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11172306" alt="예닝 오피스 배경">
     </div>
     <div class="desk-list" id="deskList"></div>
     <div class="propshelf" id="propShelf">
@@ -1783,6 +1853,59 @@ body.locked{overflow:hidden}
       <span class="hint">효자글마다 3개 · [📋] 누르면 바로 붙여넣기</span>
     </div>
     <div class="hotlist" id="hotTopics"></div>
+  </section>
+
+  <section class="panel" id="reelsStudio">
+    <div class="phead">
+      <h2>🎬 AI 영상 제작</h2>
+      <span class="hint" id="reelsHint">2컷 고정 · 약 20초 · 9:16 세로 · 완전 무음 · 화면 글자 없음</span>
+      <button class="btn small" id="reelsReload">↻ 불러오기</button>
+    </div>
+    <div class="rlform">
+      <div class="rlrow">
+        <label class="f">블로그<select class="csel" id="rlBlog"></select></label>
+        <label class="f">효자글 후보<select class="csel" id="rlTitle"></select></label>
+      </div>
+      <label class="f">제목<span class="rlhint">후보를 고르면 채워져요 · 직접 고쳐도 됩니다</span></label>
+      <input type="text" id="rlTitleInput" placeholder="영상으로 만들 효자글 제목">
+      <div class="rlrow">
+        <label class="f">카테고리<select class="csel" id="rlCat"></select></label>
+        <span class="rlhint" id="rlCatHint">제목을 보고 자동으로 판단해요</span>
+      </div>
+      <label class="f">글 핵심 내용 (선택 · 자막에만 반영돼요)</label>
+      <textarea id="rlCore" placeholder="자막 도입에 넣고 싶은 핵심만 짧게 (없으면 비워 두세요 · 영문 프롬프트에는 들어가지 않아요)"></textarea>
+      <div class="cacts">
+        <button class="btn small main" id="rlMake">🎬 AI 영상 제작</button>
+        <button class="btn small" id="rlAgainTop">↻ 다시 만들기</button>
+      </div>
+    </div>
+    <div id="rlOut"><div class="cempty">효자글을 고르거나 제목을 넣고 [🎬 AI 영상 제작]을 눌러 주세요 · 영문 프롬프트와 한국어 자막이 따로 나옵니다.</div></div>
+  </section>
+
+  <section class="panel" id="reelsHistoryPanel">
+    <div class="phead">
+      <h2>🎞 영상 제작 이력</h2>
+      <span class="hint">제작 대기 → 제작 중 → 업로드 완료 · 블로그별로 모아 봐요</span>
+      <button class="btn small" id="rlHistReload">↻ 새로고침</button>
+    </div>
+    <div class="rlmeta" id="rlHistStats"></div>
+    <div class="ctoolbar">
+      <div class="seg" id="rlHistFilter">
+        <button class="sg on" data-f="all">전체</button>
+        <button class="sg" data-f="waiting">제작 대기</button>
+        <button class="sg" data-f="making">제작 중</button>
+        <button class="sg" data-f="uploaded">업로드 완료</button>
+      </div>
+    </div>
+    <div class="hotlist" id="rlHistory"></div>
+  </section>
+
+  <section class="panel" id="reelsProfilePanel">
+    <div class="phead">
+      <h2>🎭 블로그별 고정 콘셉트</h2>
+      <span class="hint">캐릭터 외형·영상 스타일은 영문으로 적어 주세요 (영상 프롬프트에 그대로 들어가요)</span>
+    </div>
+    <div class="rlprof" id="rlProfiles"></div>
   </section>
   </div>
 
@@ -1894,6 +2017,17 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="status" id="status"></div>
+
+    <div id="failBar" style="display:none;background:#fdecea;border:1.5px solid #f0b4ab;border-radius:14px;padding:10px 12px;margin:10px 0 2px">
+      <div style="display:flex;gap:9px;align-items:flex-start;flex-wrap:wrap">
+        <span style="font-size:18px;line-height:1.2">⚠️</span>
+        <div style="flex:1 1 220px;min-width:0">
+          <div style="font-weight:800;color:#b3261e;font-size:13.5px">결과 일부 누락</div>
+          <div id="failNames" style="font-size:12.5px;color:#7a3b34;margin-top:2px;line-height:1.5">실패한 씨앗: <b id="failSeedList"></b></div>
+        </div>
+        <button class="btn small" id="refail" style="white-space:nowrap">🔄 실패한 씨앗만 다시 채굴</button>
+      </div>
+    </div>
 
     <div class="card" id="resultCard" style="display:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 14px">
       <div class="toolbar">
@@ -2418,7 +2552,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11172126"></script>
+<script src="assets/pin.js?v=11172306"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -3842,7 +3976,7 @@ function renderHot(d){
         <div class="ht">“${esc(c.title)}”</div>
         <div class="hm">선정 이유: ${esc(c.why)}</div>
         <ol class="topics">${(c.topics || []).map(t => `<li>${esc(t)}</li>`).join("")}</ol>
-        <div class="cacts">${copyBtn(c.prompt, "클티용 후속 원고 지시문 복사")}</div>
+        <div class="cacts">${copyBtn(c.prompt, "클티용 후속 원고 지시문 복사")}${["ye_zib", "pick_moa", "savedesk", "worddesk", "mybodydesk"].indexOf(c.blog) >= 0 ? `<button class="btn small" data-reels-open="1" data-reels-blog="${esc(c.blog)}" data-reels-title="${esc(c.title)}">🎬 AI 영상 제작</button>` : ``}</div>
       </div>`).join("")
     : `<div class="cempty">후속 주제를 만들 효자글이 아직 없어요.</div>`;
 }
@@ -3857,6 +3991,534 @@ async function loadHot(force){
 }
 
 if ($("#hotRefresh")) $("#hotRefresh").onclick = () => loadHot(true);
+
+/* ---------------- 🎬 AI 영상 제작 (릴스 스튜디오) ----------------
+   효자글 → ①영문 2컷 영상 프롬프트 ②한국어 자막(제목·도입·컷1·컷2).
+   PC 는 /api/reels/plan(파이썬)에서 만들고, 폰은 같은 규칙의 reelsPlanLocal 로 그 자리에서 만듭니다.
+   두 결과는 같은 데이터(REELS_DATA)·같은 규칙이라 값이 같습니다(test_reels_studio.py 가 대조). */
+const REELS_DATA = {"noAudio": "No audio, no music, no sound effects, no dialogue, no voiceover. No text, no captions, no logos.", "header": "Two-cut vertical short video, about 20 seconds in total (8-10s per cut), 9:16 vertical, completely silent.", "tail": "Consistency: same character, same outfit, same setting and lighting in both cuts; the two cuts read as one short story. Total length about 20 seconds.", "subNote": "※ AI로 다시 만든 장면입니다(실제 촬영 아님) · 영상 화면에는 자막을 넣지 않아요", "order": ["ye_zib", "pick_moa", "savedesk", "worddesk", "mybodydesk"], "statuses": [{"key": "waiting", "label": "제작 대기"}, {"key": "making", "label": "제작 중"}, {"key": "uploaded", "label": "업로드 완료"}], "blogs": {"ye_zib": {"label": "예지브러리", "emoji": "🍑", "role": "뷰티 · 초등 육아", "concept": "아이 둘과 함께하는 집 안의 짧은 상황극 — 육아는 투닥거림, 뷰티는 거울 앞 고민, 다이어트는 식탁·운동 장면으로 바꿔요", "character": "A Korean mother in her mid-30s, shoulder-length wavy dark brown hair, light natural makeup, soft peach knit cardigan and beige trousers; warm and expressive face", "style": "Cozy pastel Korean home, soft natural window light, warm color grading, gentle handheld camera with shallow depth of field, realistic daily life, bright and clean", "scenes": {"parenting": {"label": "육아", "intro": "아이 둘과 함께하는 집 안의 짧은 상황극", "subtitle1": "{kw} — 아이 둘 키우면 매일 마주치는 장면", "subtitle2": "어떻게 정리했는지 글에 담았어요", "variants": [{"cut1": {"setting": "a bright living room with a low sofa, wooden floor and a basket of toys", "action": "two young children tug at the same picture book while the mother looks up from folding laundry", "expression": "mildly tired but affectionate, lips pressed together", "camera": "slow push-in from the doorway at eye level"}, "cut2": {"setting": "the same living room, same warm window light", "action": "the mother kneels between the two children, opens the book to a page with two pictures and shows one side to each child", "expression": "calm and warm, a small smile", "camera": "gentle handheld medium shot, slight pull-back"}}, {"cut1": {"setting": "a small kitchen with a fruit bowl and a school backpack on the counter", "action": "two children argue over the last tangerine while the mother holds a lunch box in one hand", "expression": "surprised, eyebrows raised", "camera": "static medium shot, slight tilt down"}, "cut2": {"setting": "same kitchen counter, same daylight", "action": "the mother peels the tangerine, splits it into two equal halves and hands one to each child", "expression": "relieved smile, soft eye contact with each child", "camera": "slow close-up on her hands, then tilt up to their faces"}}]}, "beauty": {"label": "뷰티", "intro": "거울 앞에서 시작되는 짧은 뷰티 상황극", "subtitle1": "{kw}, 거울 앞에서 한참 서 있게 되는 날", "subtitle2": "확인한 내용만 정리했어요", "variants": [{"cut1": {"setting": "a tidy bathroom mirror corner with skincare bottles and a folded towel", "action": "she leans toward the mirror, turns her face left and right and touches her cheek lightly", "expression": "concerned, slight frown", "camera": "close-up at eye level, very slow push-in"}, "cut2": {"setting": "same bathroom corner, same soft light", "action": "she picks one bottle, reads the label and spreads a small amount on the back of her hand", "expression": "focused and calm", "camera": "over-the-shoulder close-up, gentle drift"}}, {"cut1": {"setting": "a bedroom vanity with a hair brush, a hair dryer and a hand mirror", "action": "she lifts a strand of hair, lets it fall and sighs quietly", "expression": "worried, lips pursed", "camera": "static close-up with shallow focus"}, "cut2": {"setting": "same vanity, same warm lamp light", "action": "she brushes the strand into place and checks the back of her head with the hand mirror", "expression": "content, a small nod", "camera": "slow arc from her side to the back of her head"}}]}, "diet": {"label": "다이어트", "intro": "식탁과 거실에서 이어지는 짧은 다이어트 상황극", "subtitle1": "{kw}, 시작이 제일 어려운 그 순간", "subtitle2": "오늘부터 할 수 있는 것부터", "variants": [{"cut1": {"setting": "a kitchen table with a bowl of salad, a glass of water and an open notebook", "action": "she opens the fridge, looks inside for a long moment and closes it again", "expression": "hesitant, biting her lip", "camera": "handheld medium shot from behind, slight sway"}, "cut2": {"setting": "same kitchen table, same morning light", "action": "she sits down, fills half the plate with vegetables and writes one short line in the notebook", "expression": "determined, small smile", "camera": "static medium close-up, slight tilt down to the plate"}}, {"cut1": {"setting": "a living room floor with a rolled yoga mat and a water bottle", "action": "she stands on the mat, checks her watch and sits back down on the sofa", "expression": "discouraged, shoulders down", "camera": "wide static shot at eye level"}, "cut2": {"setting": "same living room floor, same soft daylight", "action": "she rolls the mat out, holds a simple stretch for a moment and checks her watch again", "expression": "focused, relaxed jaw", "camera": "slow low-angle push-in"}}]}, "daily": {"label": "기타 일상", "intro": "일상 속에서 자연스럽게 이어지는 짧은 상황극", "subtitle1": "{kw}, 문득 궁금해지는 순간", "subtitle2": "핵심만 짧게 정리했어요", "variants": [{"cut1": {"setting": "a small home desk with a laptop, a cup of tea and a notebook", "action": "she pauses mid-typing, leans back and stares at the screen", "expression": "curious, head tilted", "camera": "static medium shot, slight push-in"}, "cut2": {"setting": "same home desk, same afternoon light", "action": "she opens the notebook, writes three short lines and underlines the middle one", "expression": "satisfied, small nod", "camera": "over-the-shoulder close-up"}}, {"cut1": {"setting": "a sunny balcony with laundry hanging and a small potted plant", "action": "she holds a phone in one hand and a watering can in the other, looking at the phone", "expression": "puzzled, one eyebrow raised", "camera": "handheld medium shot, gentle sway"}, "cut2": {"setting": "same balcony, same bright daylight", "action": "she puts the phone down, waters the plant and smiles at it", "expression": "bright and relaxed", "camera": "slow pull-back to a wide shot"}}]}}, "rule": {"order": ["diet", "beauty", "parenting"], "words": {"diet": ["다이어트", "감량", "체중", "몸무게", "식단", "칼로리", "요요", "홈트", "근력", "유산소", "공복", "간헐적", "운동", "살빼"], "beauty": ["뷰티", "피부", "여드름", "모공", "화장", "메이크업", "클렌징", "세안", "스킨", "로션", "크림", "선크림", "자외선", "헤어", "염색", "미용", "네일", "향수", "립", "쿠션", "파운데이션", "속눈썹", "눈썹", "주름", "탄력"], "parenting": ["육아", "아이", "초등", "어린이", "아들", "딸", "엄마", "아빠", "등원", "학교", "숙제", "간식", "이유식", "기저귀", "놀이", "학원", "키즈", "아기", "형제", "자매", "어린이집", "유치원", "방학", "개학", "준비물", "공부", "학습", "문제집", "독서"]}, "default": "daily", "multi": [], "multiTarget": ""}, "id": "ye_zib", "color": "#f6a9bf", "team": "예브팀장"}, "pick_moa": {"label": "픽모아", "emoji": "🛠️", "role": "IT · 자동차", "concept": "공학도·엔지니어 느낌의 해결사 — 컴퓨터·스마트폰·자동차·가전에 문제가 생기면 원인을 확인하고 고쳐요(실제로 가능한 점검·설정·수리만)", "character": "A Korean engineer in his late 20s, short black hair, round glasses, grey work shirt with rolled-up sleeves and a small tool pouch on his belt; precise and calm", "style": "Clean workshop and home desk, soft industrial lighting, cool grey and blue palette, steady camera with slow push-ins, realistic repair bench, practical and tidy", "scenes": {"computer": {"label": "컴퓨터 · 노트북", "intro": "엔지니어가 책상에서 원인을 찾아 고치는 장면", "subtitle1": "{kw}, 갑자기 안 될 때", "subtitle2": "원인 확인부터 순서대로", "variants": [{"cut1": {"setting": "a home desk with a laptop, a charger, a small screwdriver set and a mug", "action": "he presses the power button twice, watches the black screen and leans closer", "expression": "focused, eyebrows drawn", "camera": "static medium shot, slow push-in"}, "cut2": {"setting": "same desk, back panel of the laptop opened on a mat", "action": "he checks the charger connection, reseats the memory module and closes the panel", "expression": "confident, slight nod", "camera": "over-the-shoulder close-up, gentle tilt up"}}, {"cut1": {"setting": "a workshop bench with a desktop tower, a keyboard and a monitor", "action": "he taps the keyboard, watches the frozen screen and looks at the tower", "expression": "puzzled, head tilted", "camera": "handheld medium shot, slight sway"}, "cut2": {"setting": "same bench, side panel removed", "action": "he unplugs the drive cable, plugs it back firmly and presses the power button", "expression": "concentrated, small satisfied smile", "camera": "slow close-up on his hands, then pull-back to the monitor"}}]}, "phone": {"label": "스마트폰 · 태블릿", "intro": "엔지니어가 기기 설정을 하나씩 확인하는 장면", "subtitle1": "{kw}, 화면이 멈추거나 금방 닳을 때", "subtitle2": "설정에서 확인할 것부터", "variants": [{"cut1": {"setting": "a bright desk with a smartphone, a charging cable and a small brush", "action": "he taps the phone, the screen stays dark, and he turns it over in his hand", "expression": "curious, mouth slightly open", "camera": "static close-up on the phone, slight drift"}, "cut2": {"setting": "same desk, phone connected to the cable", "action": "he cleans the charging port with the brush, plugs the cable in and watches the screen light up", "expression": "relieved, small nod", "camera": "over-the-shoulder close-up, tilt up to his face"}}, {"cut1": {"setting": "a kitchen table with a tablet propped on a stand and a cup of coffee", "action": "he swipes the tablet, the screen stutters, and he sets it down flat", "expression": "mildly frustrated, exhaling", "camera": "medium shot, slow push-in"}, "cut2": {"setting": "same table, tablet held in both hands", "action": "he turns the tablet off, waits, turns it back on and checks the screen calmly", "expression": "calm and focused", "camera": "close-up on the screen edge, then pull-back"}}]}, "car": {"label": "자동차", "intro": "엔지니어가 차 앞에서 점검 순서를 따라가는 장면", "subtitle1": "{kw}, 계기판에 불이 들어왔을 때", "subtitle2": "점검 순서대로 정리했어요", "variants": [{"cut1": {"setting": "a parked car in a quiet parking lot, hood closed, morning light", "action": "he sits in the driver seat, looks at the dashboard and switches the engine off", "expression": "concerned, lips pressed", "camera": "medium shot from the passenger side, slow push-in"}, "cut2": {"setting": "same car, hood open", "action": "he pulls the oil dipstick, checks the level with a cloth and closes the hood", "expression": "focused, calm nod", "camera": "over-the-shoulder close-up, slight tilt up"}}, {"cut1": {"setting": "a driveway with a car, a tyre pressure gauge and a cloth on the ground", "action": "he crouches by a tyre, presses it with his palm and looks along the sidewall", "expression": "curious, eyes narrowed", "camera": "low static shot, slight push-in"}, "cut2": {"setting": "same driveway, gauge attached to the valve", "action": "he checks the pressure reading, adjusts the cap and stands up", "expression": "satisfied, small smile", "camera": "close-up on the gauge, then pull-back to full body"}}]}, "appliance": {"label": "생활가전", "intro": "엔지니어가 가전을 직접 점검하는 장면", "subtitle1": "{kw}, 작동이 멈췄을 때", "subtitle2": "직접 할 수 있는 것만 담았어요", "variants": [{"cut1": {"setting": "a laundry room with a washing machine, a basket and a floor mat", "action": "he presses the start button twice and listens to the silent machine", "expression": "puzzled, head tilted", "camera": "static medium shot, slow push-in"}, "cut2": {"setting": "same laundry room, filter drawer open", "action": "he pulls out the lint filter, cleans it, puts it back and closes the drawer", "expression": "focused, satisfied nod", "camera": "close-up on his hands, tilt up to his face"}}, {"cut1": {"setting": "a living room corner with an air purifier and a soft rug", "action": "he waves a hand in front of the air outlet and frowns at the unchanged display", "expression": "curious, one eyebrow raised", "camera": "handheld medium shot, gentle sway"}, "cut2": {"setting": "same corner, front cover removed", "action": "he lifts out the filter, taps it clean over a bin and slides it back in", "expression": "calm and certain", "camera": "over-the-shoulder close-up"}}]}}, "rule": {"order": ["car", "computer", "phone", "appliance"], "words": {"car": ["자동차", "차량", "타이어", "엔진", "오일", "브레이크", "계기판", "워셔", "부동액", "주행", "주차", "자차", "차고"], "phone": ["스마트폰", "아이폰", "갤럭시", "휴대폰", "배터리", "충전", "액정", "화면", "안드로이드", "ios", "와이파이", "블루투스", "태블릿", "아이패드"], "computer": ["컴퓨터", "노트북", "데스크탑", "윈도우", "맥북", "모니터", "키보드", "마우스", "ssd", "램", "cpu", "그래픽카드", "프린터", "pc"], "appliance": ["청소기", "가습기", "공기청정기", "세탁기", "건조기", "냉장고", "에어컨", "전자레인지", "정수기", "밥솥", "선풍기", "히터", "온풍기"]}, "default": "computer", "multi": [], "multiTarget": ""}, "id": "pick_moa", "color": "#a9c4f0", "team": "픽모아팀장"}, "savedesk": {"label": "세이브데스크", "emoji": "🪙", "role": "금융 · 세금", "concept": "강사가 경제·생활비·절약 정보를 브리핑 — 말 없이 표정과 손짓으로 설명하고, 글의 주제에 맞는 소품과 배경을 씁니다", "character": "A Korean lecturer in his early 40s, short neat black hair, thin metal-frame glasses, navy blazer over a light grey shirt; calm, trustworthy posture", "style": "Minimal studio and home-office sets, clean desk with a few props, soft side key light, steady tripod camera, muted navy and warm beige palette, realistic and uncluttered", "scenes": {"saving": {"label": "생활비 · 절약", "intro": "강사가 생활비·절약 정보를 짧게 브리핑하는 장면", "subtitle1": "{kw}, 새는 곳부터 짚어 봅니다", "subtitle2": "오늘 바꿀 수 있는 것만 정리했습니다", "variants": [{"cut1": {"setting": "a bright kitchen counter with a stack of receipts, a calculator and a piggy bank", "action": "the lecturer holds up a receipt and taps the total line twice", "expression": "concerned, eyebrows slightly raised", "camera": "medium shot, slow push-in"}, "cut2": {"setting": "same counter, a printed budget sheet in front of him", "action": "he circles three lines on the sheet with a pen and taps the smallest number", "expression": "confident, slight nod", "camera": "over-the-shoulder close-up, then tilt to his face"}}, {"cut1": {"setting": "a tidy home office desk with a laptop, a utility bill and a coffee cup", "action": "he compares two bills side by side, moving one closer", "expression": "curious, head tilted", "camera": "static medium shot, slight push-in"}, "cut2": {"setting": "same desk, one bill folded away", "action": "he points at one line on the remaining bill and gives a small thumbs-up", "expression": "pleased, relaxed smile", "camera": "close-up on the bill, tilt up to his face"}}]}, "grant": {"label": "지원금 · 환급", "intro": "강사가 지원금 정보를 브리핑하는 장면", "subtitle1": "{kw}, 받을 수 있는데 놓치는 돈이 있습니다", "subtitle2": "조건과 기간, 순서대로 짚어 드립니다", "variants": [{"cut1": {"setting": "a clean studio desk with a closed folder, a calendar and a pen", "action": "the lecturer opens the folder, checks the calendar and looks at the camera", "expression": "serious, one eyebrow raised", "camera": "medium shot, slow push-in"}, "cut2": {"setting": "same desk, calendar turned toward the camera", "action": "he marks one date with a pen and holds up one finger", "expression": "firm and reassuring", "camera": "over-the-shoulder close-up, tilt up"}}, {"cut1": {"setting": "a home office desk with a laptop, a folder and a documents tray", "action": "he spreads three blank sheets on the desk and taps the first one", "expression": "focused, lips pressed", "camera": "static overhead shot, slight tilt"}, "cut2": {"setting": "same desk, the three sheets stacked in order", "action": "he stacks them neatly, taps the pile twice and nods once", "expression": "satisfied, calm", "camera": "slow push-in on the stack, tilt up to his face"}}]}, "tax": {"label": "세금", "intro": "강사가 세금 정보를 브리핑하는 장면", "subtitle1": "{kw}, 이번 달에 챙길 것부터", "subtitle2": "계산 순서대로 정리했습니다", "variants": [{"cut1": {"setting": "a tidy desk with a blank tax form, a calculator and a pen", "action": "the lecturer looks at the form, then at the calculator, and sighs through his nose", "expression": "slightly overwhelmed but composed", "camera": "medium shot, slow push-in"}, "cut2": {"setting": "same desk, calculator in hand", "action": "he presses a few keys, writes one number on the form and taps it", "expression": "confident, small nod", "camera": "close-up on the calculator, tilt up"}}, {"cut1": {"setting": "a quiet study with a desk lamp, a folder and a cup of tea", "action": "he flips through a thin folder and stops on one page", "expression": "concentrated, eyes narrowed", "camera": "static medium close-up"}, "cut2": {"setting": "same study, lamp still on", "action": "he marks the page with a pen, closes the folder and sets it aside", "expression": "relieved, relaxed shoulders", "camera": "gentle pull-back to a wide shot"}}]}, "finance": {"label": "금융 · 재테크", "intro": "강사가 숫자와 지표를 짚어 주는 장면", "subtitle1": "{kw}, 숫자로 보면 더 분명해집니다", "subtitle2": "지표 세 개만 먼저 보세요", "variants": [{"cut1": {"setting": "a minimal desk with a tablet showing a plain line chart without labels and a pen", "action": "the lecturer tilts the tablet toward the camera and points at the line", "expression": "curious, one eyebrow raised", "camera": "medium shot, slow push-in"}, "cut2": {"setting": "same desk, tablet flat on the desk", "action": "he draws three dots along the line with his finger and holds up three fingers", "expression": "confident and calm", "camera": "close-up on the tablet, tilt up to his face"}}, {"cut1": {"setting": "a bright office desk with a notebook, a pen and a stack of coins", "action": "he stacks the coins, then spreads them into three small piles", "expression": "thoughtful, mouth slightly pursed", "camera": "overhead shot, slight drift"}, "cut2": {"setting": "same desk, the three piles lined up", "action": "he points at each pile in turn and gives a single firm nod", "expression": "reassuring, small smile", "camera": "slow push-in on the piles, tilt up"}}]}}, "rule": {"order": ["tax", "grant", "saving", "finance"], "words": {"grant": ["지원금", "보조금", "바우처", "환급", "신청", "자격", "마감", "정부", "지자체", "소상공인", "근로장려", "아동수당", "긴급복지"], "tax": ["세금", "세무", "연말정산", "종합소득세", "부가세", "재산세", "양도세", "상속세", "증여세", "공제", "신고", "홈택스", "원천징수"], "saving": ["절약", "생활비", "알뜰", "통신비", "관리비", "전기", "가스", "수도", "공과금", "구독", "고정지출", "장보기", "마트", "할인", "쿠폰", "포인트"], "finance": ["주식", "배당", "예금", "적금", "금리", "펀드", "연금", "보험", "대출", "환율", "코인", "비트코인", "재테크", "자산", "투자", "증권", "etf", "도약계좌", "청년도약"]}, "default": "saving", "multi": [], "multiTarget": ""}, "id": "savedesk", "color": "#f7d488", "team": "세이브팀장"}, "mybodydesk": {"label": "내몸데스크", "emoji": "🌿", "role": "건강 정보", "concept": "자녀가 부모님의 건강을 걱정하고 챙기는 상황극 — 증상·치료 효과를 과장하지 않고, 의학적으로 부정확한 행동은 넣지 않아요", "character": "A Korean daughter in her late 30s with short dark hair and a light green cardigan, and her elderly mother in her late 60s with short grey hair and a beige knit vest", "style": "Warm home interior with soft daylight, muted greens and warm wood, calm and reassuring mood, steady handheld camera, realistic Korean family, no medical procedures, no exaggerated symptoms", "scenes": {"symptom": {"label": "증상 · 통증", "intro": "자녀가 부모님의 불편을 살피는 장면", "subtitle1": "부모님이 말 안 하는 불편, 먼저 물어보세요", "subtitle2": "병원에 갈 기준은 글에서 확인하세요", "variants": [{"cut1": {"setting": "a warm living room sofa with a cushion and a cup of tea on the side table", "action": "the mother quietly rubs her knee while the daughter watches from the doorway", "expression": "worried, lips pressed", "camera": "slow push-in from the doorway"}, "cut2": {"setting": "same sofa, side table cleared", "action": "the daughter places a cushion under her mother's knee, sits beside her and asks one short question", "expression": "gentle and attentive", "camera": "medium two-shot, gentle pull-back"}}, {"cut1": {"setting": "a kitchen table with a bowl of soup and a small towel", "action": "the mother pauses before lifting the bowl and presses a hand to her back", "expression": "uncomfortable, eyes closed briefly", "camera": "static medium shot, slight push-in"}, "cut2": {"setting": "same kitchen table, soup moved closer", "action": "the daughter slides the bowl nearer, puts a cushion on the chair and sits down across from her", "expression": "warm and steady", "camera": "over-the-shoulder close-up"}}]}, "checkup": {"label": "검진", "intro": "자녀가 부모님 검진 일정을 챙기는 장면", "subtitle1": "{kw}, 언제 받았는지 기억나세요?", "subtitle2": "준비물과 순서는 글에 정리했어요", "variants": [{"cut1": {"setting": "a dining table with a wall calendar, a pencil and two cups of tea", "action": "the daughter flips the calendar back and forth while the mother shakes her head slightly", "expression": "unsure, eyebrows raised", "camera": "static medium shot, slow push-in"}, "cut2": {"setting": "same dining table, calendar open", "action": "the daughter circles one date, writes a short note and shows it to her mother", "expression": "bright and reassuring", "camera": "over-the-shoulder close-up, tilt up to their faces"}}, {"cut1": {"setting": "a living room with a hospital-style paper folder and a phone on the table", "action": "the mother holds the folder, looks at it and sets it down without opening", "expression": "hesitant, shoulders slightly down", "camera": "medium two-shot, gentle sway"}, "cut2": {"setting": "same living room, folder open between them", "action": "the daughter opens the folder, points at two lines and puts a pen beside it", "expression": "calm and supportive", "camera": "slow close-up on the folder, pull-back to two-shot"}}]}, "nutrition": {"label": "영양 · 보충제", "intro": "자녀가 부모님 식탁과 영양제를 함께 보는 장면", "subtitle1": "{kw}, 부모님 식탁부터 챙길까요", "subtitle2": "확인한 내용만 담았어요", "variants": [{"cut1": {"setting": "a kitchen table with a supplement bottle, a glass of water and a small dish", "action": "the mother holds the bottle at arm's length, squinting at the label", "expression": "confused, forehead wrinkled", "camera": "static close-up on the bottle, slight drift"}, "cut2": {"setting": "same kitchen table, bottle turned label-up between them", "action": "the daughter reads the label aloud with her finger and sets the bottle beside the water glass", "expression": "focused and patient", "camera": "over-the-shoulder close-up"}}, {"cut1": {"setting": "a bright kitchen counter with vegetables, a cutting board and a bowl", "action": "the daughter looks into the fridge, then at a half-empty plate on the counter", "expression": "thoughtful, head tilted", "camera": "handheld medium shot, gentle sway"}, "cut2": {"setting": "same counter, vegetables washed and arranged", "action": "she puts a small portion of vegetables on the plate and carries it toward the table", "expression": "warm, satisfied smile", "camera": "slow pull-back to a wide kitchen shot"}}]}, "habit": {"label": "생활 습관", "intro": "자녀와 부모가 함께 작은 습관을 해 보는 장면", "subtitle1": "{kw}, 매일 반복되는 습관 하나", "subtitle2": "오늘부터 같이 해 보세요", "variants": [{"cut1": {"setting": "a quiet park path with trees and a bench, late afternoon light", "action": "the mother sits on the bench and waves her hand as if to say she is fine", "expression": "tired but smiling", "camera": "wide static shot, slow push-in"}, "cut2": {"setting": "same park path, a few steps further", "action": "the daughter offers her arm and they walk slowly together along the path", "expression": "calm and content", "camera": "slow tracking shot from the side"}}, {"cut1": {"setting": "a living room with a yoga mat, a water bottle and a television off", "action": "the mother stands beside the mat, looks at it and sits on the sofa", "expression": "reluctant, small smile", "camera": "medium shot, slight push-in"}, "cut2": {"setting": "same living room, mat unrolled", "action": "the daughter guides a simple shoulder stretch and the mother copies it once", "expression": "relaxed, both smiling", "camera": "over-the-shoulder close-up, pull-back to two-shot"}}]}}, "rule": {"order": ["checkup", "nutrition", "symptom", "habit"], "words": {"checkup": ["검진", "내시경", "초음파", "mri", "ct", "혈액검사", "예방접종", "접종", "검사", "위내시경", "대장내시경", "건강검진"], "nutrition": ["유산균", "비타민", "영양제", "오메가", "단백질", "칼슘", "마그네슘", "철분", "식이섬유", "식단", "음식", "프로바이오틱스"], "symptom": ["증상", "통증", "아프", "혈압", "혈당", "콜레스테롤", "두통", "어지럼", "소화", "변비", "설사", "기침", "감기", "관절", "허리", "무릎", "어깨", "손목", "부종", "붓", "열", "가려움", "알레르기", "탈모"], "habit": ["습관", "수면", "숙면", "잠", "운동", "걷기", "스트레칭", "금연", "금주", "자세", "스마트폰", "명상", "호흡", "물마시기"]}, "default": "symptom", "multi": [], "multiTarget": ""}, "id": "mybodydesk", "color": "#bfe3b0", "team": "내몸팀장"}, "worddesk": {"label": "워드데스크", "emoji": "📖", "role": "영 · 중 · 일", "concept": "강사가 학생에게 언어를 가르치는 강의 장면 — 설명은 소리 없이 몸짓으로, 영어·중국어·일본어 비교는 한국어 자막으로 전달", "character": "A Korean teacher in her early 30s with long straight black hair tied back, light green blouse and a fine knit vest, holding a blank white card", "style": "Bright classroom and study desk, whiteboard and notebooks, soft daylight, steady tripod camera with gentle zooms, calm and friendly atmosphere", "scenes": {"english": {"label": "영어", "intro": "선생님이 영어 표현을 카드로 설명하는 장면", "subtitle1": "{kw}, 영어로는 어떻게 다를까", "subtitle2": "헷갈리는 포인트만 정리했어요", "variants": [{"cut1": {"setting": "a bright classroom desk with three blank white cards and a marker", "action": "the teacher lays one card in front of a student and points at it", "expression": "curious, eyebrows raised", "camera": "static medium shot, slow push-in"}, "cut2": {"setting": "same desk, the card turned over", "action": "the teacher taps the card twice, then makes a small circle in the air with the marker", "expression": "bright and encouraging", "camera": "over-the-shoulder close-up, tilt up"}}, {"cut1": {"setting": "a study desk with an open notebook, a pen and two blank cards", "action": "the student writes one short line and looks up, unsure", "expression": "hesitant, pen hovering", "camera": "close-up on the notebook, slow drift"}, "cut2": {"setting": "same desk, teacher sitting beside the student", "action": "the teacher points at two lines, nods once and gives a small thumbs-up", "expression": "warm and confident", "camera": "medium two-shot, gentle pull-back"}}]}, "chinese": {"label": "중국어", "intro": "선생님이 중국어 표현을 카드로 설명하는 장면", "subtitle1": "{kw}, 중국어로는 어떻게 다를까", "subtitle2": "발음 포인트는 글에 정리했어요", "variants": [{"cut1": {"setting": "a bright classroom desk with blank cards, a small mirror and a marker", "action": "the teacher holds a card up, then points at her own mouth in silence", "expression": "focused, lips slightly forward", "camera": "close-up on her face, slow push-in"}, "cut2": {"setting": "same desk, the mirror between them", "action": "the teacher shows the mouth shape in the mirror and the student copies it", "expression": "patient and bright", "camera": "over-the-shoulder close-up"}}, {"cut1": {"setting": "a study room with a whiteboard, a marker and two chairs", "action": "the teacher draws one short stroke on the board and steps back", "expression": "concentrated, head tilted", "camera": "medium shot, slight push-in"}, "cut2": {"setting": "same room, the student at the board", "action": "the student copies the stroke, the teacher nods and adds one more", "expression": "pleased, small smile", "camera": "close-up on the board, pull-back to two-shot"}}]}, "japanese": {"label": "일본어", "intro": "선생님이 일본어 표현을 카드로 설명하는 장면", "subtitle1": "{kw}, 일본어로는 어떻게 다를까", "subtitle2": "차이만 뽑아 정리했어요", "variants": [{"cut1": {"setting": "a tidy study desk with blank cards, a notebook and a cup of tea", "action": "the teacher fans out three blank cards and picks one", "expression": "curious, eyebrows raised", "camera": "overhead shot, slow drift"}, "cut2": {"setting": "same desk, the chosen card in front", "action": "the teacher taps the card, then makes a short bow with her head", "expression": "friendly and clear", "camera": "medium shot, gentle push-in"}}, {"cut1": {"setting": "a classroom corner with a low table, cushions and a notebook", "action": "the student reads the notebook and looks up with a puzzled expression", "expression": "confused, mouth slightly open", "camera": "static medium close-up"}, "cut2": {"setting": "same corner, teacher sitting on the opposite cushion", "action": "the teacher points at one word, then at the student, and nods twice", "expression": "reassuring, warm smile", "camera": "two-shot, slow pull-back"}}]}, "compare": {"label": "3개국어 비교", "intro": "선생님이 세 언어를 나란히 놓고 비교하는 장면", "subtitle1": "같은 말, 세 언어로 어떻게 다를까", "subtitle2": "차이만 뽑아 정리했어요", "variants": [{"cut1": {"setting": "a bright desk with three blank cards in a row and a marker", "action": "the teacher looks at the three cards, then at the student, and shrugs one shoulder", "expression": "curious, playful", "camera": "static medium shot, slow push-in"}, "cut2": {"setting": "same desk, the three cards spread further apart", "action": "the teacher points at each card in turn and makes the same small gesture for all three", "expression": "bright and certain", "camera": "overhead close-up, pull-back"}}, {"cut1": {"setting": "a study room with a whiteboard divided into three blank columns", "action": "the teacher stands at the board, marker in hand, and taps the first column", "expression": "focused, thinking", "camera": "wide static shot, slow push-in"}, "cut2": {"setting": "same room, three columns each with one dot", "action": "the teacher taps all three dots in order and circles the middle one", "expression": "satisfied, small nod", "camera": "over-the-shoulder close-up"}}]}}, "rule": {"order": ["compare", "english", "chinese", "japanese"], "words": {"compare": ["비교", "차이", "세 언어", "3개국어", "삼개국어"], "english": ["영어", "영단어", "영문법", "토익", "회화", "발음", "표현", "스피킹"], "chinese": ["중국어", "중단어", "병음", "한자"], "japanese": ["일본어", "일단어", "히라가나", "가타카나"]}, "default": "english", "multi": ["영어", "중국어", "일본어"], "multiTarget": "compare"}, "id": "worddesk", "color": "#b6d9c6", "team": "워드팀장"}}, "rules": {"ye_zib": {"order": ["diet", "beauty", "parenting"], "words": {"diet": ["다이어트", "감량", "체중", "몸무게", "식단", "칼로리", "요요", "홈트", "근력", "유산소", "공복", "간헐적", "운동", "살빼"], "beauty": ["뷰티", "피부", "여드름", "모공", "화장", "메이크업", "클렌징", "세안", "스킨", "로션", "크림", "선크림", "자외선", "헤어", "염색", "미용", "네일", "향수", "립", "쿠션", "파운데이션", "속눈썹", "눈썹", "주름", "탄력"], "parenting": ["육아", "아이", "초등", "어린이", "아들", "딸", "엄마", "아빠", "등원", "학교", "숙제", "간식", "이유식", "기저귀", "놀이", "학원", "키즈", "아기", "형제", "자매", "어린이집", "유치원", "방학", "개학", "준비물", "공부", "학습", "문제집", "독서"]}, "default": "daily", "multi": [], "multiTarget": ""}, "pick_moa": {"order": ["car", "computer", "phone", "appliance"], "words": {"car": ["자동차", "차량", "타이어", "엔진", "오일", "브레이크", "계기판", "워셔", "부동액", "주행", "주차", "자차", "차고"], "phone": ["스마트폰", "아이폰", "갤럭시", "휴대폰", "배터리", "충전", "액정", "화면", "안드로이드", "ios", "와이파이", "블루투스", "태블릿", "아이패드"], "computer": ["컴퓨터", "노트북", "데스크탑", "윈도우", "맥북", "모니터", "키보드", "마우스", "ssd", "램", "cpu", "그래픽카드", "프린터", "pc"], "appliance": ["청소기", "가습기", "공기청정기", "세탁기", "건조기", "냉장고", "에어컨", "전자레인지", "정수기", "밥솥", "선풍기", "히터", "온풍기"]}, "default": "computer", "multi": [], "multiTarget": ""}, "savedesk": {"order": ["tax", "grant", "saving", "finance"], "words": {"grant": ["지원금", "보조금", "바우처", "환급", "신청", "자격", "마감", "정부", "지자체", "소상공인", "근로장려", "아동수당", "긴급복지"], "tax": ["세금", "세무", "연말정산", "종합소득세", "부가세", "재산세", "양도세", "상속세", "증여세", "공제", "신고", "홈택스", "원천징수"], "saving": ["절약", "생활비", "알뜰", "통신비", "관리비", "전기", "가스", "수도", "공과금", "구독", "고정지출", "장보기", "마트", "할인", "쿠폰", "포인트"], "finance": ["주식", "배당", "예금", "적금", "금리", "펀드", "연금", "보험", "대출", "환율", "코인", "비트코인", "재테크", "자산", "투자", "증권", "etf", "도약계좌", "청년도약"]}, "default": "saving", "multi": [], "multiTarget": ""}, "mybodydesk": {"order": ["checkup", "nutrition", "symptom", "habit"], "words": {"checkup": ["검진", "내시경", "초음파", "mri", "ct", "혈액검사", "예방접종", "접종", "검사", "위내시경", "대장내시경", "건강검진"], "nutrition": ["유산균", "비타민", "영양제", "오메가", "단백질", "칼슘", "마그네슘", "철분", "식이섬유", "식단", "음식", "프로바이오틱스"], "symptom": ["증상", "통증", "아프", "혈압", "혈당", "콜레스테롤", "두통", "어지럼", "소화", "변비", "설사", "기침", "감기", "관절", "허리", "무릎", "어깨", "손목", "부종", "붓", "열", "가려움", "알레르기", "탈모"], "habit": ["습관", "수면", "숙면", "잠", "운동", "걷기", "스트레칭", "금연", "금주", "자세", "스마트폰", "명상", "호흡", "물마시기"]}, "default": "symptom", "multi": [], "multiTarget": ""}, "worddesk": {"order": ["compare", "english", "chinese", "japanese"], "words": {"compare": ["비교", "차이", "세 언어", "3개국어", "삼개국어"], "english": ["영어", "영단어", "영문법", "토익", "회화", "발음", "표현", "스피킹"], "chinese": ["중국어", "중단어", "병음", "한자"], "japanese": ["일본어", "일단어", "히라가나", "가타카나"]}, "default": "english", "multi": ["영어", "중국어", "일본어"], "multiTarget": "compare"}}, "ko": {"stop": ["그리고", "하지만", "이런", "저런", "때문", "대한", "위한", "에서", "으로", "라고", "한다", "있는", "없는", "보다", "까지", "부터", "이유", "정리", "비교", "언제", "어디", "왜", "어떻게", "무엇", "누구", "좋을까", "다를까", "있을까", "없을까"], "josa": ["으로", "에서", "에게", "부터", "까지", "보다", "처럼", "만큼", "로", "에", "의", "을", "를", "은", "는", "이", "가", "와", "과", "도"], "bad": ["언제", "어디", "왜", "어떻게", "무엇", "누구", "이유", "때문", "주제"]}};
+const RL_SUPPORTED = ["ye_zib", "pick_moa", "savedesk", "worddesk", "mybodydesk"];
+const RL_STATUS = {waiting: "제작 대기", making: "제작 중", uploaded: "업로드 완료"};
+let RL = {profiles: null, history: null, plan: null, filter: "all", blog: "", local: false};
+
+function rlUlen(s){ return Array.from(String(s == null ? "" : s)).length; }
+function rlSpace(s){ return String(s == null ? "" : s).replace(/\s+/g, " ").trim(); }
+
+/* 영상 프롬프트에 들어가는 값은 영문만 — 한글 줄은 빼고, 남는 게 없으면 기본 영문값 */
+function reelsEn(value, def){
+  const raw = String(value == null ? "" : value).trim();
+  if (!raw) return {text: def, korean: false};
+  const keep = [];
+  let dropped = 0;
+  raw.split(/\n+/).forEach(line => {
+    const s = line.trim();
+    if (!s) return;
+    if (/[\uAC00-\uD7A3]/.test(s)) { dropped++; return; }
+    keep.push(s);
+  });
+  if (!keep.length) return {text: def, korean: true};
+  return {text: keep.join(" "), korean: dropped > 0};
+}
+
+function reelsVariant(title, variants){
+  const list = variants || [];
+  if (!list.length) return {cut1: {}, cut2: {}};
+  let h = 7;
+  const t = String(title == null ? "" : title);
+  for (let i = 0; i < t.length; i++){
+    const cp = t.charCodeAt(i);
+    if (cp >= 0xD800 && cp <= 0xDFFF) continue;
+    h = (h * 31 + cp) % 1000003;
+  }
+  return list[h % list.length];
+}
+
+function reelsKeyword(title){
+  const ko = (REELS_DATA && REELS_DATA.ko) || {};
+  const stop = ko.stop || [], bad = ko.bad || [], josa = ko.josa || [];
+  const t = String(title == null ? "" : title).replace(/["'“”‘’\[\]()·,.!?~…:\/]/g, " ");
+  let toks = t.split(/\s+/).filter(x => x && rlUlen(x) >= 2 && stop.indexOf(x) < 0 && bad.indexOf(x) < 0);
+  toks = toks.filter(x => !(rlUlen(x) <= 3 && /(는|한|된|할|인)$/.test(x)));
+  toks = toks.filter(x => !/^[0-9]/.test(x));
+  const onlyHangul = toks.filter(x => /[\uAC00-\uD7A3]/.test(x));
+  if (onlyHangul.length) toks = onlyHangul;
+  if (!toks.length){
+    const short = rlSpace(title).slice(0, 12).trim();
+    return short || "오늘의 주제";
+  }
+  const hangul = /[\uAC00-\uD7A3]/;
+  const idx = toks.map((x, i) => i);
+  idx.sort((a, b) => {
+    const ha = hangul.test(toks[a]) ? 1 : 0, hb = hangul.test(toks[b]) ? 1 : 0;
+    if (ha !== hb) return hb - ha;
+    const la = rlUlen(toks[a]), lb = rlUlen(toks[b]);
+    if (la !== lb) return lb - la;
+    return a - b;
+  });
+  const picked = idx.slice(0, 2).sort((a, b) => a - b);
+  const words = picked.map(i => {
+    let w = toks[i];
+    for (let j = 0; j < josa.length; j++){
+      const suf = josa[j];
+      if (rlUlen(w) > rlUlen(suf) + 1 && w.slice(-suf.length) === suf){ w = w.slice(0, w.length - suf.length); break; }
+    }
+    return w;
+  });
+  let joined = words.join(" ").trim();
+  if (rlUlen(joined) > 16) joined = words[0];
+  return joined || "오늘의 주제";
+}
+
+function reelsCategoryJS(blog, title){
+  const rule = ((REELS_DATA.rules || {})[blog]) || {};
+  const t = String(title == null ? "" : title).toLowerCase();
+  const multi = rule.multi || [];
+  if (multi.length && rule.multiTarget){
+    let hit = 0;
+    multi.forEach(w => { if (t.indexOf(String(w).toLowerCase()) >= 0) hit++; });
+    if (hit >= 2) return rule.multiTarget;
+  }
+  const words = rule.words || {};
+  const order = rule.order || [];
+  for (let i = 0; i < order.length; i++){
+    const list = words[order[i]] || [];
+    for (let j = 0; j < list.length; j++){
+      if (t.indexOf(String(list[j]).toLowerCase()) >= 0) return order[i];
+    }
+  }
+  return rule.default || "";
+}
+
+function reelsTrim(text, limit){
+  const lim = limit || 40;
+  const s = rlSpace(text);
+  const arr = Array.from(s);
+  if (arr.length <= lim) return s;
+  return arr.slice(0, lim).join("").replace(/\s+$/, "") + "…";
+}
+
+function reelsCutBlock(n, kind, c, character, style){
+  return [
+    "Cut " + n + " — " + kind + " (8-10s, 9:16 vertical)",
+    "Character: " + character,
+    "Setting: " + (c.setting || ""),
+    "Action: " + (c.action || ""),
+    "Expression: " + (c.expression || ""),
+    "Camera: " + (c.camera || ""),
+    "Style: " + style,
+    "Timing: 8-10 seconds, 9:16 vertical, silent.",
+    REELS_DATA.noAudio
+  ].join("\n");
+}
+
+/* 폰에서도 PC 와 똑같은 2컷 프롬프트·한국어 자막을 만든다(서버 없이) */
+function reelsPlanLocal(body){
+  body = body || {};
+  const D = REELS_DATA || {};
+  const title = rlSpace(body.title);
+  const blog = String(body.blog || "");
+  const meta = (D.blogs || {})[blog];
+  if (!meta) return {ok: false, error: "AI 영상 제작은 예지브러리·픽모아·세이브데스크·워드데스크·내몸데스크 5곳만 지원해요."};
+  if (!title) return {ok: false, error: "효자글 제목을 먼저 골라 주세요."};
+  const scenes = meta.scenes || {};
+  const autoCat = reelsCategoryJS(blog, title);
+  let cat = (body.category && scenes[body.category]) ? body.category : autoCat;
+  if (!scenes[cat]) cat = Object.keys(scenes)[0];
+  const scene = scenes[cat] || {label: "", intro: "", subtitle1: "", subtitle2: "", variants: []};
+  const prof = rlBlogMeta(blog);
+  const charR = reelsEn(body.character || prof.character, meta.character);
+  const styleR = reelsEn(body.style || prof.style, meta.style);
+  const variant = reelsVariant(title, scene.variants || []);
+  const kw = reelsKeyword(title);
+  const coreTxt = rlSpace(body.core);
+  const warnings = [];
+  if (charR.korean) warnings.push("캐릭터 외형에 한글이 있어 영상 프롬프트에는 기본 영문 값을 썼어요.");
+  if (styleR.korean) warnings.push("영상 스타일에 한글이 있어 영상 프롬프트에는 기본 영문 값을 썼어요.");
+  const cut1 = reelsCutBlock(1, "Problem and curiosity", variant.cut1 || {}, charR.text, styleR.text);
+  const cut2 = reelsCutBlock(2, "Solution and takeaway", variant.cut2 || {}, charR.text, styleR.text);
+  const promptFull = [D.header, cut1, cut2, D.tail].join("\n\n");
+  const intro = coreTxt ? reelsTrim(coreTxt, 40) : (scene.intro || "");
+  const sub1 = String(scene.subtitle1 || "").replace("{kw}", kw);
+  const sub2 = String(scene.subtitle2 || "").replace("{kw}", kw);
+  const titleTrim = reelsTrim(title, 46);
+  const subtitle = {
+    title: "제목 · " + titleTrim,
+    intro: intro,
+    cut1: sub1,
+    cut2: sub2,
+    note: D.subNote,
+    full: ["[제목] " + titleTrim, "[도입] " + intro, "[컷1] " + sub1, "[컷2] " + sub2, D.subNote].join("\n")
+  };
+  return {
+    ok: true, blog: blog, blogName: meta.label, emoji: meta.emoji, team: meta.team || "",
+    concept: meta.concept, title: title, keyword: kw,
+    category: cat, categoryLabel: scene.label || "", autoCategory: autoCat,
+    core: coreTxt.slice(0, 200),
+    character: charR.text, style: styleR.text,
+    cut1Prompt: cut1, cut2Prompt: cut2, promptFull: promptFull,
+    header: D.header, tail: D.tail, noAudio: D.noAudio,
+    subtitle: subtitle,
+    rules: {cuts: 2, cut1: "8-10s", cut2: "8-10s", total: "약 20초", aspect: "9:16",
+            silent: true, onScreenText: false},
+    warnings: warnings, generatedBy: "local"
+  };
+}
+
+/* ---------- 블로그별 콘셉트(저장값 반영) ---------- */
+function rlBlogMeta(id){
+  const list = ((RL.profiles || {}).blogs || []);
+  for (let i = 0; i < list.length; i++) if (list[i].id === id) return list[i];
+  const d = ((REELS_DATA || {}).blogs || {})[id] || {};
+  const cats = [];
+  Object.keys(d.scenes || {}).forEach(k => cats.push({key: k, label: (d.scenes[k] || {}).label || k}));
+  return {id: id, label: d.label || id, emoji: d.emoji || "🎬", role: d.role || "",
+          concept: d.concept || "", character: d.character || "", style: d.style || "",
+          categories: cats};
+}
+
+function rlCandidates(blog){
+  return (((HOT || {}).candidates) || []).filter(c => c.blog === blog);
+}
+
+function rlSyncBlogs(){
+  const sel = $("#rlBlog");
+  if (!sel) return;
+  const cur = RL.blog || sel.value || "ye_zib";
+  sel.innerHTML = RL_SUPPORTED.map(id => {
+    const m = rlBlogMeta(id);
+    return `<option value="${esc(id)}">${esc(m.emoji)} ${esc(m.label)}</option>`;
+  }).join("");
+  sel.value = RL_SUPPORTED.indexOf(cur) >= 0 ? cur : "ye_zib";
+  RL.blog = sel.value || "ye_zib";
+}
+
+function rlSyncCats(){
+  const sel = $("#rlBlog");
+  const blog = (sel && sel.value) || RL.blog || "ye_zib";
+  RL.blog = blog;
+  const cats = (rlBlogMeta(blog).categories || []);
+  const catSel = $("#rlCat");
+  if (catSel){
+    const keep = catSel.value;
+    catSel.innerHTML = [`<option value="auto">자동 판별 (제목 보고)</option>`]
+      .concat(cats.map(c => `<option value="${esc(c.key)}">${esc(c.label)}</option>`)).join("");
+    if (keep && Array.from(catSel.options || []).some(o => o.value === keep)) catSel.value = keep;
+  }
+  const titleSel = $("#rlTitle");
+  if (titleSel){
+    const cands = rlCandidates(blog);
+    titleSel.innerHTML = cands.length
+      ? cands.map((c, i) => `<option value="${i}">${esc(reelsTrim(c.title, 26))} · ${fmt(c.views)}회</option>`).join("")
+      : `<option value="">(이 블로그 효자글 없음 — 제목 직접 입력)</option>`;
+  }
+  const hint = $("#rlCatHint");
+  if (hint){
+    const m = rlBlogMeta(blog);
+    hint.textContent = cats.length ? ("고정 콘셉트 · " + (m.categories || []).map(c => c.label).join(" / ")) : "";
+  }
+}
+
+/* ---------- 결과: 영문 프롬프트 칸 / 한국어 자막 칸 완전 분리 ---------- */
+function renderReelsPlan(d, local){
+  const out = $("#rlOut");
+  if (!out || !d || !d.ok) return;
+  const s = d.subtitle || {};
+  out.innerHTML = `
+    <div class="rlmeta">
+      <span class="rlchip">${esc(d.emoji || "🎬")} ${esc(d.blogName || "")}</span>
+      <span class="rlchip">${esc(d.categoryLabel || "")}</span>
+      <span class="rlchip">2컷 · 약 20초 · 9:16 세로</span>
+      <span class="rlchip mut">완전 무음 · 화면 글자 없음</span>
+      ${local ? `<span class="rlchip mob">📱 이 기기에서 바로 생성</span>` : `<span class="rlchip mut">PC 서버에서 생성</span>`}
+    </div>
+    <div class="rlgrid">
+      <div class="rlbox en">
+        <div class="rlboxh">🎬 영상 프롬프트 <span>영어 전용 · 한국어 자막 없음</span></div>
+        <div class="rlcut first">
+          <div class="rlcuthead"><b>Cut 1</b><span>문제 · 호기심 (8-10s)</span>${copyBtn(d.cut1Prompt, "Cut 1 복사")}</div>
+          <pre class="rltext" id="rlCut1Text">${esc(d.cut1Prompt)}</pre>
+        </div>
+        <div class="rlcut">
+          <div class="rlcuthead"><b>Cut 2</b><span>해결 · 정리 (8-10s)</span>${copyBtn(d.cut2Prompt, "Cut 2 복사")}</div>
+          <pre class="rltext" id="rlCut2Text">${esc(d.cut2Prompt)}</pre>
+        </div>
+        <div class="cacts">${copyBtn(d.promptFull, "전체 프롬프트 복사")}</div>
+      </div>
+      <div class="rlbox ko">
+        <div class="rlboxh">📝 한국어 자막 <span>영상 자막용 · 영문 프롬프트 없음</span></div>
+        <div class="rlsub first"><b>제목</b><p>${esc(s.title || "")}</p></div>
+        <div class="rlsub"><b>도입</b><p>${esc(s.intro || "")}</p></div>
+        <div class="rlsub"><b>컷1</b><p id="rlSub1">${esc(s.cut1 || "")}</p>${copyBtn(s.cut1, "컷1 복사")}</div>
+        <div class="rlsub"><b>컷2</b><p id="rlSub2">${esc(s.cut2 || "")}</p>${copyBtn(s.cut2, "컷2 복사")}</div>
+        <div class="cacts">${copyBtn(s.full, "전체 자막 복사")}</div>
+        <div class="rlnote">${esc(s.note || "")}</div>
+      </div>
+    </div>
+    ${(d.warnings || []).length ? `<div class="rlwarn">⚠️ ${esc((d.warnings || []).join(" / "))}</div>` : ""}
+    <div class="cacts" style="margin-top:10px">
+      <button class="btn small main" id="rlAddHist">🎞 이 영상 제작 이력에 담기</button>
+      <button class="btn small" id="rlAgain">↻ 다시 만들기</button>
+    </div>`;
+  const add = $("#rlAddHist");
+  if (add) add.onclick = () => reelsAddHistory(d);
+  const again = $("#rlAgain");
+  if (again) again.onclick = () => reelsMake();
+}
+
+/* ---------- 생성 ---------- */
+async function reelsMake(){
+  const blog = (($("#rlBlog") || {}).value) || RL.blog || "ye_zib";
+  const title = rlSpace((($("#rlTitleInput") || {}).value) || "");
+  const cat = (($("#rlCat") || {}).value) || "auto";
+  const core = String((($("#rlCore") || {}).value) || "").trim();
+  if (!title){ toast("효자글 제목을 먼저 골라 주세요"); return; }
+  const body = {blog: blog, title: title, category: cat === "auto" ? "" : cat, core: core};
+  let d = await apiJSON("/api/reels/plan", {method: "POST",
+    headers: {"Content-Type": "application/json"}, body: JSON.stringify(body)});
+  let local = false;
+  if (!d || !d.ok){ d = reelsPlanLocal(body); local = true; }
+  if (!d || !d.ok){ toast((d && d.error) || "영상 프롬프트를 만들지 못했어요"); return; }
+  RL.plan = d;
+  RL.local = local;
+  renderReelsPlan(d, local);
+  toast(local ? "📱 이 기기에서 바로 만들었어요" : "🎬 2컷 프롬프트와 한국어 자막을 만들었어요");
+}
+
+async function reelsOpen(blog, title){
+  if (!RL.profiles) await loadReels(false);
+  RL.blog = RL_SUPPORTED.indexOf(blog) >= 0 ? blog : (RL.blog || "ye_zib");
+  const bsel = $("#rlBlog");
+  if (bsel) bsel.value = RL.blog;
+  rlSyncCats();
+  const ti = $("#rlTitleInput");
+  if (ti) ti.value = title || "";
+  await reelsMake();
+  const sec = $("#reelsStudio");
+  if (sec && sec.scrollIntoView){ try { sec.scrollIntoView({behavior: "smooth", block: "start"}); } catch(e){} }
+}
+
+/* ---------- 캐릭터 외형 · 영상 스타일 (블로그별 저장) ---------- */
+function renderReelsProfiles(){
+  const box = $("#rlProfiles");
+  if (!box) return;
+  const blogs = ((RL.profiles || {}).blogs || []);
+  if (!blogs.length){
+    box.innerHTML = `<div class="cempty">블로그별 콘셉트를 불러오지 못했어요 — [↻ 불러오기]를 눌러 주세요.</div>`;
+    return;
+  }
+  box.innerHTML = blogs.map(b => `
+    <div class="rlpcard" data-blog="${esc(b.id)}">
+      <div class="rlph">${esc(b.emoji)} ${esc(b.label)}<small>${esc(b.role || "")}</small>
+        ${b.custom ? `<span class="rlpbadge">수정함</span>` : ``}
+        ${b.koreanInPrompt ? `<span class="rlpwarn2">한글 있음 · 프롬프트엔 영문 기본값</span>` : ``}
+      </div>
+      <div class="rlpc"><b>고정 콘셉트</b> ${esc(b.concept || "")}</div>
+      <label class="f">캐릭터 외형<span class="rleng">영문</span></label>
+      <textarea class="rlpchar" rows="2" placeholder="${esc(b.defaultCharacter || "")}">${esc(b.characterRaw || b.character || "")}</textarea>
+      <label class="f">영상 스타일<span class="rleng">영문</span></label>
+      <textarea class="rlpstyle" rows="2" placeholder="${esc(b.defaultStyle || "")}">${esc(b.styleRaw || b.style || "")}</textarea>
+      <div class="cacts">
+        <button class="btn small main rlpsave">저장</button>
+        <button class="btn small rlpdef">기본값으로</button>
+      </div>
+    </div>`).join("");
+}
+
+async function reelsSaveProfile(blog, character, style, reset){
+  const body = reset ? {blog: blog, reset: true} : {blog: blog, character: character, style: style};
+  const d = await apiJSON("/api/reels/profiles", {method: "POST",
+    headers: {"Content-Type": "application/json"}, body: JSON.stringify(body)});
+  if (!d || !d.ok){ toast((d && d.error) || "저장하지 못했어요"); return null; }
+  RL.profiles = d;
+  renderReelsProfiles();
+  rlSyncCats();
+  toast(reset ? "🎭 기본 외형·스타일로 되돌렸어요" : "🎭 저장했어요 — 다음 영상부터 적용돼요");
+  return d;
+}
+
+/* ---------- 제작 이력 ---------- */
+function renderReelsHistory(){
+  const box = $("#rlHistory");
+  const statsEl = $("#rlHistStats");
+  const rows = ((RL.history || {}).rows || []);
+  const cnt = {all: rows.length, waiting: 0, making: 0, uploaded: 0};
+  const perBlog = {};
+  rows.forEach(r => {
+    cnt[r.status] = (cnt[r.status] || 0) + 1;
+    const b = perBlog[r.blog] || (perBlog[r.blog] = {total: 0, uploaded: 0,
+      name: r.blogName || (((REELS_DATA.blogs || {})[r.blog] || {}).label) || r.blog,
+      emoji: ((REELS_DATA.blogs || {})[r.blog] || {}).emoji || "🎬"});
+    b.total++;
+    if (r.status === "uploaded") b.uploaded++;
+  });
+  if (statsEl){
+    statsEl.innerHTML = [
+      `<span class="rlchip">전체 ${cnt.all}편</span>`,
+      `<span class="rlchip">제작 대기 ${cnt.waiting || 0}</span>`,
+      `<span class="rlchip">제작 중 ${cnt.making || 0}</span>`,
+      `<span class="rlchip ok">업로드 완료 ${cnt.uploaded || 0}</span>`
+    ].concat(Object.keys(perBlog).map(k => {
+      const b = perBlog[k];
+      return `<span class="rlchip mut">${esc(b.emoji)} ${esc(b.name)} ${b.uploaded}/${b.total}</span>`;
+    })).join("");
+  }
+  if (!box) return;
+  const list = RL.filter === "all" ? rows : rows.filter(r => r.status === RL.filter);
+  if (!list.length){
+    box.innerHTML = `<div class="cempty">${rows.length
+      ? "이 상태의 영상이 아직 없어요."
+      : "아직 담은 영상이 없어요 — 위에서 [🎞 이 영상 제작 이력에 담기]를 눌러 주세요."}</div>`;
+    return;
+  }
+  box.innerHTML = list.map(r => {
+    const meta = ((REELS_DATA.blogs || {})[r.blog] || {});
+    const name = r.blogName || meta.label || r.blog;
+    const emoji = meta.emoji || "🎬";
+    const seg = Object.keys(RL_STATUS).map(k =>
+      `<button class="sg ${r.status === k ? "on" : ""}" data-rl-set="${k}">${RL_STATUS[k]}</button>`).join("");
+    const link = r.url
+      ? ` · <a href="${esc(r.url)}" target="_blank" rel="noopener">영상 열기</a>`
+      : " · 업로드 주소 없음";
+    return `<div class="hotcard rlhist" data-id="${esc(r.id)}">
+      <div class="hh">${esc(emoji)} ${esc(name)}<span class="bg">${esc(r.categoryLabel || "")} · ${esc(String(r.updated || "").slice(5, 16))}</span></div>
+      <div class="ht">“${esc(r.title)}”</div>
+      <div class="hm">상태 <b>${esc(RL_STATUS[r.status] || "제작 대기")}</b>${link}</div>
+      <div class="rlstatus">${seg}</div>
+      <div class="rlurl">
+        <input type="text" class="rlurlinput" value="${esc(r.url || "")}" placeholder="업로드한 영상 URL (https://...)">
+        <button class="btn rlurlsave">URL 저장</button>
+      </div>
+      <div class="cacts">
+        ${r.hasPrompts ? `<button class="btn rlview">🎬 프롬프트·자막 다시 보기</button>` : ``}
+        <button class="btn rldel">🗑 이력에서 지우기</button>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+async function reelsHistOp(op, payload){
+  const body = Object.assign({op: op}, payload || {});
+  const r = await apiJSON("/api/reels/history", {method: "POST",
+    headers: {"Content-Type": "application/json"}, body: JSON.stringify(body)});
+  if (!r || !r.ok){ toast((r && r.error) || "이력에 저장하지 못했어요"); return null; }
+  RL.history = r;
+  renderReelsHistory();
+  if (r.warning) toast("⚠️ " + r.warning);
+  return r;
+}
+
+async function reelsAddHistory(d){
+  if (!d || !d.ok) return;
+  const r = await reelsHistOp("add", {
+    blog: d.blog, title: d.title, category: d.category, categoryLabel: d.categoryLabel,
+    core: d.core || "", cut1Prompt: d.cut1Prompt, cut2Prompt: d.cut2Prompt,
+    subtitle: d.subtitle, character: d.character, style: d.style, note: ""
+  });
+  if (r) toast(r.created === false ? "🎞 이력의 프롬프트를 새로 고쳤어요" : "🎞 제작 대기에 담았어요");
+}
+
+async function reelsSetStatus(id, st){
+  const r = await reelsHistOp("status", {id: id, status: st});
+  if (r) toast("🎞 " + (RL_STATUS[st] || st) + "로 바꿨어요");
+}
+
+async function reelsSaveUrl(id, url){
+  const r = await reelsHistOp("url", {id: id, url: url});
+  if (r) toast(url ? "🔗 영상 주소를 저장했어요" : "🔗 영상 주소를 비웠어요");
+}
+
+async function reelsDelete(id){
+  let ok = true;
+  try { ok = window.confirm("이 이력에서 지울까요? (영상 파일은 지워지지 않아요)"); } catch(e) { ok = true; }
+  if (!ok) return;
+  const r = await reelsHistOp("delete", {id: id});
+  if (r) toast("🗑 이력에서 지웠어요");
+}
+
+function reelsViewHistory(id){
+  const row = (((RL.history || {}).rows) || []).filter(r => r.id === id)[0];
+  if (!row || !row.plan || !row.plan.ok){ toast("이 이력에는 프롬프트가 없어요 — 다시 만들어 주세요"); return; }
+  RL.plan = row.plan;
+  renderReelsPlan(row.plan, false);
+  const out = $("#rlOut");
+  if (out && out.scrollIntoView){ try { out.scrollIntoView({behavior: "smooth", block: "start"}); } catch(e){} }
+}
+
+/* ---------- 불러오기 · 연결 ---------- */
+async function loadReels(force){
+  const q = force ? "?fresh=1" : "";
+  const res = await Promise.all([
+    apiJSON("/api/reels/profiles" + q),
+    apiJSON("/api/reels/history" + q)
+  ]);
+  if (res[0] && res[0].ok) RL.profiles = res[0];
+  if (res[1] && res[1].ok) RL.history = res[1];
+  if (!RL.blog){
+    const withCand = RL_SUPPORTED.filter(id => rlCandidates(id).length);
+    RL.blog = withCand[0] || "ye_zib";
+  }
+  rlSyncBlogs();
+  rlSyncCats();
+  renderReelsProfiles();
+  renderReelsHistory();
+}
+
+if ($("#reelsReload")) $("#reelsReload").onclick = () => { toast("🎬 영상 콘셉트·이력을 새로 불러오는 중…"); loadReels(true); };
+if ($("#rlHistReload")) $("#rlHistReload").onclick = () => loadReels(true);
+if ($("#rlMake")) $("#rlMake").onclick = () => reelsMake();
+if ($("#rlAgainTop")) $("#rlAgainTop").onclick = () => reelsMake();
+if ($("#rlBlog")) $("#rlBlog").onchange = () => { rlSyncCats(); };
+if ($("#rlTitle")) $("#rlTitle").onchange = (ev) => {
+  const idx = Number(ev.target.value);
+  const c = rlCandidates(RL.blog)[idx];
+  const ti = $("#rlTitleInput");
+  if (c && ti) ti.value = c.title;
+};
+if ($("#rlHistFilter")) $("#rlHistFilter").onclick = (ev) => {
+  const b = ev.target && ev.target.closest ? ev.target.closest("[data-f]") : null;
+  if (!b) return;
+  RL.filter = b.dataset.f || "all";
+  document.querySelectorAll("#rlHistFilter .sg").forEach(x => x.classList.toggle("on", x === b));
+  renderReelsHistory();
+};
+if ($("#rlHistory")) $("#rlHistory").onclick = (ev) => {
+  const card = ev.target && ev.target.closest ? ev.target.closest(".rlhist") : null;
+  if (!card) return;
+  const id = card.dataset.id;
+  const st = ev.target.closest("[data-rl-set]");
+  if (st){ reelsSetStatus(id, st.dataset.rlSet); return; }
+  if (ev.target.closest(".rlurlsave")){
+    const input = card.querySelector(".rlurlinput");
+    reelsSaveUrl(id, input ? input.value : "");
+    return;
+  }
+  if (ev.target.closest(".rlview")){ reelsViewHistory(id); return; }
+  if (ev.target.closest(".rldel")){ reelsDelete(id); return; }
+};
+if ($("#rlProfiles")) $("#rlProfiles").onclick = (ev) => {
+  const card = ev.target && ev.target.closest ? ev.target.closest(".rlpcard") : null;
+  if (!card) return;
+  const blog = card.dataset.blog;
+  const ch = card.querySelector(".rlpchar");
+  const st = card.querySelector(".rlpstyle");
+  if (ev.target.closest(".rlpsave")){
+    reelsSaveProfile(blog, ch ? ch.value : "", st ? st.value : "", false);
+    return;
+  }
+  if (ev.target.closest(".rlpdef")){
+    reelsSaveProfile(blog, "", "", true);
+  }
+};
+document.addEventListener("click", (ev) => {
+  const b = ev.target && ev.target.closest ? ev.target.closest("[data-reels-open]") : null;
+  if (!b) return;
+  ev.preventDefault();
+  const blog = b.dataset.reelsBlog || "";
+  const title = b.dataset.reelsTitle || "";
+  try { if (localStorage.getItem("office_tab") !== "hot") showTab("hot"); } catch(e) {}
+  reelsOpen(blog, title);
+});
+try { window.reelsPlanLocal = reelsPlanLocal; } catch(e) {}
 
 function refreshSpeech(){
   const sp = $("#speechBox");
@@ -3919,7 +4581,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11172126" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11172306" alt="예닝 오피스 배경">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
   OFFICE.blogs.forEach(b => { html += deskCardHTML(b, posOf(b)); });
   html += `<div class="crew" id="crew">${qcSeatHTML()}${receptionHTML()}</div>`;
@@ -4280,6 +4942,8 @@ tick(); setInterval(tick, 20000);
 
 /* ---------------- 채굴기 ---------------- */
 let ROWS = [], SORT = {k:"total", d:-1}, DOCS = {};
+let FAILED = [];                 /* 재시도 후에도 실패한 씨앗 이름들 */
+let HUB_NOTE = "";               /* API HUB 무료 안전 한도 안내 */
 const SEL = new Set();
 
 const CHIPS = ["안양맛집","평촌맛집","호계동맛집","범계맛집","인덕원맛집","군포맛집",
@@ -4401,6 +5065,36 @@ function decide(r, maxRatio){
   if (r.capped && r.comp === "낮음" && r.total >= 1000) r.verdict = "check";
 }
 
+function seedKey(s){ return String(s || "").toLowerCase().replace(/\s+/g, ""); }
+function failNamesOf(data){
+  if (data && Array.isArray(data.failed_seeds)) return data.failed_seeds.filter(Boolean);
+  const out = [];
+  ((data && data.failed) || []).forEach(f => (f.keywords || []).forEach(k => {
+    if (k && out.indexOf(k) < 0) out.push(k);
+  }));
+  return out;
+}
+function hubNoteHTML(){
+  return HUB_NOTE ? ' · <span style="color:#b3261e">' + HUB_NOTE + "</span>" : "";
+}
+function renderFailBar(){
+  const bar = $("#failBar");
+  if (!bar) return;
+  if (!FAILED.length) { bar.style.display = "none"; return; }
+  $("#failSeedList").textContent = FAILED.join(", ");
+  bar.style.display = "";
+}
+function rowFromApi(r, seedsNorm){
+  const k = seedKey(r.kw);
+  const hit = seedsNorm.some(s => {
+    if (!s) return false;
+    if (k.includes(s)) return true;
+    const toks = String(s).split(/\s+/).filter(Boolean);
+    return toks.length > 1 && toks.every(t => k.includes(t));
+  });
+  return {...r, docs:null, capped:false, ratio:null, verdict:"", seedHit:hit};
+}
+
 $("#go").onclick = async () => {
   const raw = $("#seeds").value.split(/[,\n]/).map(s => s.trim()).filter(Boolean);
   if (!raw.length) { toast("씨앗 키워드를 먼저 넣어 주세요"); $("#seeds").focus(); return; }
@@ -4409,6 +5103,7 @@ $("#go").onclick = async () => {
   const maxRatio = Number($("#maxRatio").value || 1);
   $("#go").disabled = true;
   ROWS = []; DOCS = {}; SEL.clear(); $("#tb").innerHTML = "";
+  FAILED = []; renderFailBar();
   $("#copybox").style.display = "none";
   try { localStorage.setItem("miner_seeds", raw.join(", ")); } catch(e) {}
   $("#resultCard").style.display = "none";
@@ -4427,19 +5122,13 @@ $("#go").onclick = async () => {
     $("#go").disabled = false; return;
   }
 
-  const seeds = (data.seed || []).map(s => s.toLowerCase().replace(/\s+/g,""));
-  ROWS = data.keywords.map(r => {
-    const k = r.kw.toLowerCase().replace(/\s+/g,"");
-    const hit = seeds.some(s => {
-      if (!s) return false;
-      if (k.includes(s)) return true;
-      const toks = s.split(/\s+/).filter(Boolean);
-      return toks.length > 1 && toks.every(t => k.includes(t));
-    });
-    return {...r, docs:null, capped:false, ratio:null, verdict:"", seedHit:hit};
-  });
+  const seeds = (data.seed || []).map(seedKey);
+  ROWS = data.keywords.map(r => rowFromApi(r, seeds));
+  FAILED = failNamesOf(data);
+  renderFailBar();
   if (!ROWS.length) {
     $("#status").textContent = "😅 조건(최소 월 검색량 " + fmt(minVol) + ")에 맞는 키워드가 없어요. 최소 검색량을 낮춰 보세요.";
+    renderFailBar();
     $("#go").disabled = false; return;
   }
   $("#resultCard").style.display = "";
@@ -4458,6 +5147,7 @@ $("#go").onclick = async () => {
         });
         const d = await res.json();
         if (d.ok) {
+          if (d.note) HUB_NOTE = d.note;
           Object.entries(d.docs).forEach(([kw, v]) => {
             DOCS[kw] = v;
             const row = ROWS.find(r => r.kw === kw);
@@ -4479,12 +5169,89 @@ $("#go").onclick = async () => {
   if (topN > 0) {
     $("#status").innerHTML = "✅ 연관 키워드 <b>" + ROWS.length + "개</b> 채굴 완료 · "
       + "씨앗 관련 " + shown + "개 · ⭐ 황금 " + golds + "개 · 확인 " + checks + "개"
-      + (data.failed && data.failed.length ? ' · <span style="color:#c58f2c">일부 씨앗 조회 실패</span>' : "");
+      + (FAILED.length ? ' · <span style="color:#c58f2c">일부 씨앗 조회 실패</span>' : "")
+      + hubNoteHTML();
   } else {
     $("#status").innerHTML = "✅ 연관 키워드 <b>" + ROWS.length + "개</b> 채굴 완료 · "
       + "문서수 조회를 건너뛰었어요 (경쟁률·황금 판정은 문서수 조회가 필요해요)";
   }
+  renderFailBar();
   $("#go").disabled = false;
+};
+
+/* 🔄 재시도 후에도 실패한 씨앗만 다시 채굴 */
+$("#refail").onclick = async () => {
+  if (!FAILED.length) { renderFailBar(); return; }
+  const btn = $("#refail");
+  const seeds = FAILED.slice();
+  const minVol = Number($("#minVol").value || 0);
+  const topN = Number($("#topN").value) || 0;
+  const maxRatio = Number($("#maxRatio").value || 1);
+  btn.disabled = true;
+  $("#status").innerHTML = "🔄 실패한 씨앗 <b>" + seeds.length + "개</b>(" + seeds.join(", ") + ")를 다시 채굴 중…";
+
+  let data;
+  try {
+    const res = await fetch("/api/mine", {
+      method: "POST", headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({ keywords: seeds, minVolume: minVol, expand: false })
+    });
+    data = await res.json();
+    if (!data.ok) throw new Error(data.error || "조회 실패");
+  } catch (e) {
+    $("#status").textContent = "❌ 다시 채굴 실패: " + e.message;
+    renderFailBar();
+    btn.disabled = false; return;
+  }
+
+  const seedsNorm = (data.seed || seeds).map(seedKey);
+  const known = new Set(ROWS.map(r => r.kw));
+  const added = [];
+  (data.keywords || []).forEach(r => {
+    if (known.has(r.kw)) return;
+    known.add(r.kw);
+    const row = rowFromApi(r, seedsNorm);
+    ROWS.push(row); added.push(row);
+  });
+
+  /* 성공한 씨앗은 실패 목록에서 빼고, 끝까지 실패한 것만 남깁니다 */
+  FAILED = failNamesOf(data);
+  render();
+  renderFailBar();
+
+  /* 문서수 조회가 켜져 있으면 새로 들어온 키워드 것도 이어서 조회 */
+  if (topN > 0 && added.length) {
+    const targets = added.slice()
+      .sort((a, b) => (b.total || 0) - (a.total || 0))
+      .slice(0, topN).map(r => r.kw);
+    for (let i = 0; i < targets.length; i += 10) {
+      const part = targets.slice(i, i + 10);
+      $("#status").innerHTML = "📊 새 키워드 문서수 조회 중… <b>" + Math.min(i+10, targets.length) + " / " + targets.length + "</b>";
+      try {
+        const d = await (await fetch("/api/docs", {method:"POST", headers:{"Content-Type":"application/json"},
+          body: JSON.stringify({keywords: part})})).json();
+        if (d.ok) Object.entries(d.docs).forEach(([kw, v]) => {
+          DOCS[kw] = v;
+          const row = ROWS.find(r => r.kw === kw);
+          if (row) { row.docs = v.n; row.capped = !!v.capped;
+            row.ratio = (v.capped || v.n === null || !row.total) ? null : v.n / row.total;
+            decide(row, maxRatio); }
+        });
+        if (d.note) HUB_NOTE = d.note;
+        render();
+      } catch (e) { /* '문서수 다시 조회'로 보완 가능 */ }
+    }
+  }
+
+  const golds = ROWS.filter(r => r.verdict === "gold").length;
+  $("#status").innerHTML = "✅ 다시 채굴 완료 · 새 키워드 <b>" + added.length + "개</b> 추가 (전체 " + ROWS.length + "개 · ⭐ 황금 " + golds + "개)"
+    + (FAILED.length
+        ? ' · <span style="color:#c58f2c">아직 실패한 씨앗 ' + FAILED.length + '개: ' + FAILED.join(", ") + "</span>"
+        : " · 모든 씨앗 조회 완료")
+    + hubNoteHTML();
+  if (!added.length && FAILED.length) toast("🔄 새 키워드는 없었어요 — 실패한 씨앗은 그대로예요");
+  renderFailBar();
+  btn.disabled = false;
 };
 
 $("#redoc").onclick = async () => {
@@ -4503,10 +5270,11 @@ $("#redoc").onclick = async () => {
           row.ratio = (v.capped || v.n === null || !row.total) ? null : v.n / row.total;
           decide(row, maxRatio); }
       });
+      if (d.note) HUB_NOTE = d.note;
       render();
     } catch(e) {}
   }
-  $("#status").textContent = "✅ 문서수 다시 조회 완료";
+  $("#status").innerHTML = "✅ 문서수 다시 조회 완료" + hubNoteHTML();
 };
 
 function selectedRows(){
@@ -5917,7 +6685,7 @@ function showTab(name){
   try { localStorage.setItem("office_tab", name); } catch(e){}
   if (name === "campaign" && !CAMP.ok) loadCampaigns();
   if (name === "office" && !OFFICE) loadOffice(false);
-  if (name === "hot") loadHot(false);
+  if (name === "hot") { loadHot(false); loadReels(false); }
   if (name === "revenue") { loadRevenue(); loadMemo(); }
   if (name === "budget") loadBudget();
   if (name === "spy") loadSpy();
@@ -6807,7 +7575,8 @@ loadMemo();
 loadOffice(false);
 if (document.querySelector("#pane-campaign.on")) loadCampaigns();
 </script>
-<script src="assets/budget-local.js?v=11172126"></script>
-<script src="assets/mobile-patch.js?v=11172126"></script>
+<script src="assets/budget-local.js?v=11172306"></script>
+<script src="assets/reels-local.js?v=11172306"></script>
+<script src="assets/mobile-patch.js?v=11172306"></script>
 </body>
 </html>
