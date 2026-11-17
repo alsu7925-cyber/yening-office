@@ -151,6 +151,18 @@ body.locked{overflow:hidden}
   .revtbl table,.tablebox table{font-size:11px}
   .revtbl th,.revtbl td{padding:6px 7px}
 
+  /* 📝 대표님 메모장 — 모바일은 읽기·복사만 (적기·핀·지우기는 PC 에서) */
+  .revgrid{grid-template-columns:1fr;gap:10px}
+  .memopanel{padding:10px 10px 11px}
+  .memoedit{display:none}
+  .memoronote{display:block}
+  .memolist{max-height:none}
+  .memocard .mbtn.act{display:none}
+  .memocard .mbody{max-height:none;font-size:12.5px}
+  .memocard .mbtn{font-size:11px;padding:5px 9px}
+  .memohead b{font-size:13px}
+  .memohead .memostate{font-size:10px}
+
   .timeline{padding-left:58px}
   .timeline:before{left:44px}
   .tldate{left:-58px;width:42px}
