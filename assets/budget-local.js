@@ -649,6 +649,21 @@
       }
     } catch (e) {}
 
+    /* 가계부 탭을 누르면 패널을 화면 위로 끌어올려 — 머리말·소품을 지나 스크롤하지 않게 */
+    try {
+      var tabBtn = document.querySelector('#tabs .tab[data-tab="budget"]');
+      if (tabBtn && !tabBtn.__yb) {
+        tabBtn.__yb = true;
+        tabBtn.addEventListener("click", function () {
+          if (!window.matchMedia || !window.matchMedia("(max-width:820px)").matches) return;
+          setTimeout(function () {
+            var pane = document.querySelector("#pane-budget");
+            if (pane && pane.scrollIntoView) pane.scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 80);
+        });
+      }
+    } catch (e) {}
+
     /* 첫 화면에도 배지가 보이도록 */
     setTimeout(function () { try { stamp(); } catch (e) {} }, 40);
   }
