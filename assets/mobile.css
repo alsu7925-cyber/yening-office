@@ -323,11 +323,12 @@ body.locked{overflow:hidden}
   .spymoverow .kw{white-space:normal;overflow-wrap:anywhere}
   .spymoverow .vol{font-size:10px}
 
-  /* 표 — 화면보다 넓으면 칸 안에서 옆으로 밀어 본다 */
-  .spysec>div[style]{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+  /* 표 — 화면보다 넓으면 칸 안에서 옆으로 밀어 본다(오른쪽 그림자로 밀 수 있다는 걸 알려 준다) */
+  .spysec>div[style]{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;border-radius:8px;
+    box-shadow:inset -12px 0 12px -12px rgba(198,136,155,.55)}
   .spytable{font-size:11px;min-width:300px}
-  .spytable th{font-size:10.5px;padding:5px 6px}
-  .spytable td{padding:5px 6px}
+  .spytable th{font-size:10.5px;padding:5px 5px}
+  .spytable td{padding:5px 5px}
   .spytable .dimc{font-size:10px}
 
   .spyempty{padding:16px 12px;font-size:11.5px;border-radius:13px}
