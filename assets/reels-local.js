@@ -96,6 +96,14 @@
       b.custom = !!(rawc.trim() || raws.trim());
       b.koreanInPrompt = !!(ch.korean || st.korean);
     });
+    var baseSet = out.settings && typeof out.settings === "object" ? out.settings : (data().defaults || {});
+    if (loc.settings && typeof loc.settings === "object") {
+      out.settings = {
+        monthlyCredit: (loc.settings.monthlyCredit !== undefined ? loc.settings.monthlyCredit : baseSet.monthlyCredit),
+        perVideoCredit: (loc.settings.perVideoCredit !== undefined ? loc.settings.perVideoCredit : baseSet.perVideoCredit),
+        defaults: baseSet.defaults || data().defaults || {}
+      };
+    }
     out.updated = loc.updated || out.updated || "";
     out.mobile = true;
     return out;
@@ -103,9 +111,22 @@
 
   function saveProfiles(body, snap) {
     body = body || {};
+    var loc = read();
+    if (body.settings && typeof body.settings === "object") {
+      var cur0 = loc.settings || {};
+      var m = Number(body.settings.monthlyCredit), p = Number(body.settings.perVideoCredit);
+      if (isFinite(m) && m >= 0) cur0.monthlyCredit = Math.min(1000000, Math.round(m));
+      if (isFinite(p) && p >= 1) cur0.perVideoCredit = Math.min(100000, Math.round(p));
+      loc.settings = cur0;
+      loc.updated = stamp();
+      write(loc);
+      var out0 = mergeProfiles(snap || {});
+      out0.changed = ["settings"];
+      out0.msg = "폰에 크레딧 설정을 저장했어요.";
+      return out0;
+    }
     var bid = String(body.blog || "");
     if (!blogOf(bid)) return { ok: false, error: "저장할 블로그를 찾지 못했어요." };
-    var loc = read();
     if (body.reset) {
       delete loc.profiles[bid];
     } else {
@@ -139,6 +160,7 @@
       categoryLabel: row.categoryLabel || plan.categoryLabel || "",
       status: status,
       statusLabel: ST[status],
+      aiSetting: !!row.aiSetting,
       url: cleanUrl(row.url),
       note: String(row.note || "").slice(0, 200),
       created: String(row.created || "").slice(0, 19),
@@ -163,6 +185,7 @@
       rows.forEach(function (r) {
         if (r.id !== id) return;
         if (p.status) { r.status = p.status; r.statusLabel = statuses()[p.status] || r.statusLabel; }
+        if (p.aiSetting !== undefined) r.aiSetting = !!p.aiSetting;
         if (p.url !== undefined) r.url = cleanUrl(p.url);
         if (p.note !== undefined) r.note = String(p.note || "").slice(0, 200);
         if (p.plan) {
@@ -229,6 +252,35 @@
     var now = stamp();
     var out;
 
+    if (op === "skip") {
+      var sbid = String(body.blog || "");
+      var stitle = space(body.title).slice(0, 140);
+      if (!blogOf(sbid)) return { ok: false, error: "AI 영상 제작은 5개 네이버 블로그만 지원해요." };
+      if (!stitle) return { ok: false, error: "건너뛸 글 제목이 없어요." };
+      var srow = null;
+      mergeHistory(snap).rows.forEach(function (r) {
+        if (!srow && r.blog === sbid && sameTitle(r.title, stitle)) srow = r;
+      });
+      var localRow = srow && loc.rows.some(function (r) { return r.id === srow.id; });
+      if (srow && localRow) {
+        loc.rows.forEach(function (r) { if (r.id === srow.id) { r.status = "skipped"; r.updated = now; } });
+      } else if (srow) {
+        var sp = loc.patch[srow.id] || {};
+        sp.status = "skipped"; sp.updated = now;
+        loc.patch[srow.id] = sp;
+      } else {
+        loc.rows.unshift({ id: "rlm" + String(Date.now()), blog: sbid, blogName: (blogOf(sbid) || {}).label || sbid,
+                           title: stitle, category: "", categoryLabel: "", status: "skipped", url: "",
+                           note: "", created: now, updated: now, plan: {}, subtitle: {}, hasPrompts: false });
+        if (loc.rows.length > MAX_ROWS) loc.rows = loc.rows.slice(0, MAX_ROWS);
+      }
+      loc.updated = now;
+      write(loc);
+      out = mergeHistory(snap);
+      out.skipped = stitle;
+      return out;
+    }
+
     if (op === "add") {
       var bid = String(body.blog || "");
       var title = space(body.title).slice(0, 140);
@@ -294,8 +346,9 @@
       if (op === "status") {
         var st = String(body.status || "");
         if (!ST[st]) return { ok: false, error: "상태는 제작 대기·제작 중·업로드 완료 중 하나예요." };
-        if (inLocal) loc.rows.forEach(function (r) { if (r.id === id) { r.status = st; r.updated = now; } });
-        else { patch.status = st; patch.updated = now; }
+        var ai = body.aiSetting === undefined ? undefined : !!body.aiSetting;
+        if (inLocal) loc.rows.forEach(function (r) { if (r.id === id) { r.status = st; r.updated = now; if (ai !== undefined) r.aiSetting = ai; } });
+        else { patch.status = st; patch.updated = now; if (ai !== undefined) patch.aiSetting = ai; }
       } else if (op === "url") {
         var raw = String(body.url || "").trim();
         var cu = cleanUrl(raw);
