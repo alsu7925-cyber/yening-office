@@ -223,6 +223,7 @@
         try {
           if (path === "/api/campaigns" && window.renderCampaign) setTimeout(function () { try { window.renderCampaign(); } catch (e) {} }, 40);
           if (path === "/api/revenue" && window.renderRevenue) setTimeout(function () { try { window.renderRevenue(); } catch (e) {} }, 40);
+          if (path === "/api/budget" && window.loadBudget) setTimeout(function () { try { window.loadBudget(); } catch (e) {} }, 40);
         } catch (e) {}
         return jsonResponse({ ok: false, error: BLOCK_MSG });
       }
