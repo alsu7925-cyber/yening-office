@@ -1791,7 +1791,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11180005" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11180012" alt="예닝 오피스 배경">
     </div>
     <div class="desk-list" id="deskList"></div>
     <div class="propshelf" id="propShelf">
@@ -2595,7 +2595,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11180005"></script>
+<script src="assets/pin.js?v=11180012"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -4333,7 +4333,8 @@ function rlSyncCats(){
   if (titleSel){
     const cands = rlCandidates(blog);
     titleSel.innerHTML = cands.length
-      ? cands.map((c, i) => `<option value="${i}">${esc(reelsTrim(c.title, 26))} · ${fmt(c.views)}회</option>`).join("")
+      ? [`<option value="">— 효자글을 고르세요 (${cands.length}건) —</option>`]
+          .concat(cands.map((c, i) => `<option value="${i}">${esc(reelsTrim(c.title, 26))} · ${fmt(c.views)}회</option>`)).join("")
       : `<option value="">(후보 없음 — 이미 만든 글은 빠져 있어요 · 제목 직접 입력)</option>`;
   }
   const hint = $("#rlCatHint");
@@ -4719,10 +4720,14 @@ if ($("#rlShowDone")) $("#rlShowDone").onchange = (ev) => {
 };
 if ($("#rlBlog")) $("#rlBlog").onchange = () => { rlSyncCats(); };
 if ($("#rlTitle")) $("#rlTitle").onchange = (ev) => {
+  if (ev.target.value === "") return;
   const idx = Number(ev.target.value);
   const c = rlCandidates(RL.blog)[idx];
   const ti = $("#rlTitleInput");
-  if (c && ti) ti.value = c.title;
+  if (c && ti) {
+    ti.value = c.title;
+    reelsMake();
+  }
 };
 if ($("#rlHistFilter")) $("#rlHistFilter").onclick = (ev) => {
   const b = ev.target && ev.target.closest ? ev.target.closest("[data-f]") : null;
@@ -4831,7 +4836,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11180005" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11180012" alt="예닝 오피스 배경">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
   OFFICE.blogs.forEach(b => { html += deskCardHTML(b, posOf(b)); });
   html += `<div class="crew" id="crew">${qcSeatHTML()}${receptionHTML()}</div>`;
@@ -7844,8 +7849,8 @@ loadMemo();
 loadOffice(false);
 if (document.querySelector("#pane-campaign.on")) loadCampaigns();
 </script>
-<script src="assets/budget-local.js?v=11180005"></script>
-<script src="assets/reels-local.js?v=11180005"></script>
-<script src="assets/mobile-patch.js?v=11180005"></script>
+<script src="assets/budget-local.js?v=11180012"></script>
+<script src="assets/reels-local.js?v=11180012"></script>
+<script src="assets/mobile-patch.js?v=11180012"></script>
 </body>
 </html>
