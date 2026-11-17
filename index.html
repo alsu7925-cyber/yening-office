@@ -55,7 +55,7 @@
         box-shadow:0 6px 16px rgba(198,136,155,.22);
         transition:transform .16s ease, box-shadow .16s ease, background .16s ease}
   .desk:hover{transform:translate(-50%,-50%) translateY(-3px);background:#fffafc;
-              box-shadow:0 12px 24px rgba(198,136,155,.32);z-index:5}
+              box-shadow:0 12px 24px rgba(198,136,155,.32);z-index:9}
   .desk:active{transform:translate(-50%,-50%) translateY(-1px) scale(.99)}
   .desk .av{width:32px;height:32px;flex:0 0 32px;border-radius:50%;
             background:var(--c,#f7b7c9);display:flex;align-items:center;justify-content:center;
@@ -185,14 +185,15 @@
   .foot{text-align:center;color:#c3aeb6;font-size:11.5px;margin-top:18px}
 
   /* ---------- 팀장님 산책 캐릭터 ---------- */
-  .stage .desk{border-left:4px solid var(--c,#f2c8d5);z-index:1}
+  /* 카드가 캐릭터보다 위에 떠서 늘 읽히도록 (v2.2 — 팀장 8명이라 캐릭터가 카드를 자주 지나감) */
+  .stage .desk{border-left:4px solid var(--c,#f2c8d5);z-index:6}
   .stage .desk .av{display:none}
   .stage .desk.ceo .av{display:flex}
   .walkers{position:absolute;inset:0;pointer-events:none}
   .walker{position:absolute;transform:translate(-50%,-97%);pointer-events:auto;cursor:pointer;
           transition:left 4s cubic-bezier(.42,.02,.58,1), top 4s cubic-bezier(.42,.02,.58,1);
           will-change:left,top;z-index:3}
-  .walker .bod{position:relative;width:64px;height:80px;border-radius:0;background:none;
+  .walker .bod{position:relative;width:58px;height:72px;border-radius:0;background:none;
                box-shadow:none;display:flex;align-items:flex-end;justify-content:center;
                font-size:17px;transition:transform .18s ease}
   .walker .bod img{display:block;height:100%;width:auto;max-width:112px;
@@ -229,6 +230,21 @@
                  filter:blur(.7px)}
   .royal.emp::before{top:107px;width:44px}
   .royal.puppy::before{top:91px;width:36px}
+  /* 🐾 연탄이 — 까만 털에 가슴만 하얀 말티푸 (대표님 반려견 마스코트) */
+  .royal.pet .bod{height:78px}
+  .royal.pet::before{top:74px;width:30px;height:8px}
+  .royal.pet .rbubble{bottom:94px}
+  .royal.pet .wtag{top:-12px;color:#5f4a52}
+  .royal.pet.happy .bod{animation:petwag .42s ease-in-out 3}
+  .royal.pet.happy .bod img{filter:drop-shadow(0 6px 10px rgba(160,110,130,.45)) brightness(1.04)}
+  .royal.pet.walking .bod{animation:waddle .3s ease-in-out infinite}
+  @keyframes petwag{0%,100%{transform:rotate(0) translateY(0)}
+                    25%{transform:rotate(-7deg) translateY(-4px)}
+                    60%{transform:rotate(6deg) translateY(-2px)}
+                    85%{transform:rotate(-3deg) translateY(-1px)}}
+  .royal.pet .pfx{position:absolute;left:50%;top:-22px;transform:translateX(-50%) scale(.7);
+                  font-size:14px;opacity:0;pointer-events:none;transition:.2s}
+  .royal.pet.happy .pfx{opacity:1;transform:translateX(-50%) scale(1) translateY(-4px)}
   @keyframes royalbob{from{transform:translateY(0)}to{transform:translateY(-3px)}}
   .royal.walking .bod{animation:walkbob .34s ease-in-out infinite alternate}
   .royal:hover .bod{transform:translateY(-2px) scale(1.05)}
@@ -266,7 +282,7 @@
 
   /* ---------- 🧑‍💼 밤티(품질관리석) · 클티(안내데스크) ---------- */
   .crew{position:absolute;inset:0;pointer-events:none;z-index:4}
-  .qcseat{position:absolute;left:76.4%;top:29.5%;transform:translate(-50%,-50%);
+  .qcseat{position:absolute;left:37.5%;top:26.5%;transform:translate(-50%,-50%);
           pointer-events:auto;cursor:pointer;z-index:4;text-align:center}
   .qcseat .chr{position:relative;width:86px;height:112px;display:flex;align-items:flex-end;
                 justify-content:center;transition:transform .18s ease}
@@ -292,7 +308,7 @@
                 transition:.18s;pointer-events:none;box-shadow:0 4px 10px rgba(198,136,155,.2)}
   .qcseat .qbub.on{opacity:1;transform:translateX(-50%) scale(1)}
 
-  .reception{position:absolute;left:50%;top:96.5%;transform:translate(-50%,-50%);
+  .reception{position:absolute;left:50%;top:94.0%;transform:translate(-50%,-50%);
              pointer-events:none;z-index:6;text-align:center}
   .reception .rdsk{position:relative;width:148px;height:46px;margin:0 auto;
                    border-radius:10px 10px 14px 14px;pointer-events:auto;cursor:pointer;
@@ -923,6 +939,11 @@
   .ntrow .tt{font-size:13px;font-weight:800}
   .ntrow .ss{font-size:11px;color:#9a8189}
   .ntrow .go{margin-left:auto;color:#c4587a;font-weight:900;font-size:12px}
+  /* 🚪 출입문 — 묶음 제목 (v2.2) */
+  .dgroup{margin:8px 2px 2px;font-size:11.5px;font-weight:900;color:#a8879a;
+          letter-spacing:.2px;display:flex;align-items:center;gap:6px}
+  .dgroup:before{content:"";flex:0 0 12px;height:2px;border-radius:2px;background:#f2c8d5}
+  .dgroup:first-child{margin-top:2px}
 
   /* 🚶 아장아장 걷기 (방향 반전 · 잰걸음 바운스 · 발밑 그림자) */
   @keyframes waddle{0%{transform:rotate(-4deg) translateY(0)}25%{transform:rotate(0) translateY(-3px)}
@@ -1478,9 +1499,13 @@ body.locked{overflow:hidden}
   .royal .bod{width:38px;height:54px}
   .royal.emp .bod{height:58px}
   .royal.puppy .bod{height:50px}
+  .royal.pet .bod{height:44px}
   .royal::before{top:51px;width:20px;height:6px}
   .royal.emp::before{top:55px;width:22px}
   .royal.puppy::before{top:47px;width:19px}
+  .royal.pet::before{top:41px;width:16px}
+  .royal.pet .rbubble{bottom:52px}
+  .royal.pet .pfx{top:-16px;font-size:10px}
   .royal .wtag{font-size:8px;top:-9px;padding:0 5px}
   .royal .rbubble{bottom:60px;font-size:8.5px;padding:2px 6px;white-space:normal;max-width:42vw;text-align:center}
   .qcseat{transform:translate(-50%,-50%) scale(.56)}
@@ -1745,8 +1770,8 @@ body.locked{overflow:hidden}
 
   <header class="hero">
     <div>
-      <h1>🏢 예닝 오피스 <span class="amp">·</span> 📱 모바일 <span style="display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;background:#ffe3ee;border:1px solid #f6a9bf;color:#a64065;font-size:12px;font-weight:700;vertical-align:middle">v2.1 · 11/18</span></h1>
-      <p>팀장님 여섯 분 오늘 실적 · 염탐 · 수익 · 가계부를 한 화면에서 🌸</p>
+      <h1>🏢 예닝 오피스 <span class="amp">·</span> 📱 모바일 <span style="display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;background:#ffe3ee;border:1px solid #f6a9bf;color:#a64065;font-size:12px;font-weight:700;vertical-align:middle">v2.2 · 11/18</span></h1>
+      <p>팀장님 여덟 분 오늘 실적 · 염탐 · 수익 · 가계부를 한 화면에서 🌸</p>
     </div>
     <div class="hero-side">
       <div class="clock" id="clock">--:--</div>
@@ -1791,7 +1816,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11180151" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11180235" alt="예닝 오피스 배경">
     </div>
     <div class="desk-list" id="deskList"></div>
     <div class="propshelf" id="propShelf">
@@ -1815,13 +1840,13 @@ body.locked{overflow:hidden}
       <div class="stat">
         <div class="sl">오늘 발행 완료</div>
         <div class="sv"><b id="stToday">–</b><small>편</small></div>
-        <div class="sd">블로그 6곳 합계 · <span id="stTime">–</span> 기준</div>
+        <div class="sd">블로그 8곳 합계 · <span id="stTime">–</span> 기준</div>
       </div>
       <div class="stat">
         <div class="sl">목표 대비 진행</div>
         <div class="sv"><b id="stGoalPct">–</b><small>%</small></div>
         <div class="bar"><i id="stBar"></i></div>
-        <div class="sd" id="stGoalTxt">하루 3포 × 6곳 = 18편</div>
+        <div class="sd" id="stGoalTxt">하루 3포 × 8곳 = 24편</div>
       </div>
       <div class="stat">
         <div class="sl">📅 오늘 예약 (노션)</div>
@@ -2209,6 +2234,8 @@ body.locked{overflow:hidden}
           <option value="worddesk">워드데스크</option>
           <option value="mybodydesk">내몸데스크</option>
           <option value="tistory">픽모아 티스토리</option>
+          <option value="petlifedesk">펫라이프데스크</option>
+          <option value="plantlifedesk">플랜트라이프데스크</option>
         </select>
       </div>
       <div><label class="f">애드포스트 수익(원)</label><input type="number" id="rvAd" min="0" step="1" placeholder="0"></div>
@@ -2595,7 +2622,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11180151"></script>
+<script src="assets/pin.js?v=11180235"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -2603,36 +2630,42 @@ const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
 
 /* ---------------- 오피스 ---------------- */
 const POS = {
-  ceo:        { left: 50.0, top: 7.5 },
-  left:  [ {left:18.6, top:24.6}, {left:14.6, top:46.8}, {left:10.2, top:70.4} ],
-  right: [ {left:82.4, top:25.5}, {left:84.9, top:47.8}, {left:88.0, top:72.2} ]
+  ceo:        { left: 50.0, top: 8.0 },
+  left:  [ {left:18.0, top:24.5}, {left:12.5, top:42.0}, {left:9.6, top:59.5}, {left:12.0, top:78.0} ],
+  right: [ {left:82.0, top:25.5}, {left:86.5, top:42.5}, {left:90.0, top:60.5}, {left:85.0, top:78.5} ]
 };
-/* 팀장님이 걸어 다니는 바닥 자리 (배경 이미지 기준 %) */
+/* 팀장님이 걸어 다니는 바닥 자리 (배경 이미지 기준 %) — 8자리(v2.2) */
 const DESK_SPOT = {
-  ye_zib:[17,50], pick_moa:[12,67], savedesk:[9,88],
-  worddesk:[84,50], mybodydesk:[87,71], tistory:[89,88]
+  ye_zib:[24,31], pick_moa:[19,47], savedesk:[16,64], petlifedesk:[17,83],
+  worddesk:[76,31], mybodydesk:[80,47], tistory:[82,64], plantlifedesk:[78,83]
 };
 const ROAM = [
-  [26,40],[25,56],[23,73],[74,41],[76,58],[77,74],
-  [50,50],[50,44],[50,88],[36,82],[64,82],
-  [33,84],[68,84],[14,24],[94,50],[30,62],[70,62],
-  [46,89],[54,89],[80,50]
+  [26,38],[26,46],[23,55],[21,64],[19,73],[22,84],
+  [74,38],[76,47],[79,56],[82,65],[81,74],[78,84],
+  [50,36],[50,41],[36,30],[64,30],[33,40],[67,40],
+  [30,68],[70,68],[44,84],[56,84],[36,88],[64,88]
 ];
 let OFFICE = null;
 let GOAL_LOCAL = 3;
 const WALKERS = [];
-/* 대표실 자리 — 예닝 대표님은 큰 책상 앞에, 피콜로는 그 옆 러그를 살랑살랑 산책 */
-const CHAR_SPOT = { yening: [49.5, 41.5], piccolo: [60.5, 42.0] };
+/* 대표실 자리 — 예닝 대표님은 큰 책상 앞에, 피콜로·연탄이는 그 옆 러그를 살랑살랑 산책 */
+const CHAR_SPOT = { yening: [50.0, 36.5], piccolo: [58.5, 37.5], yeontan: [44.0, 42.5] };
 const PICCOLO_ROAM = [
-  [57,39.5],[63,40],[66,42],[62,44.5],[54,44],[50,43],[46,42],[58,45.5],[65,44],[52,40]
+  [55,35.5],[58,36],[61,37.5],[62,40],[59,41.5],[56,40.5],[54,38.5],[52,37],
+  [63,42.5],[58,43.5],[64,38]
+];
+/* 연탄이 — 대표님 책상 앞 러그와 소파 앞바닥을 종종걸음으로 */
+const YEONTAN_ROAM = [
+  [40,41],[42,39.5],[45,38.5],[47,40],[46,42],[43,43],[40,43],
+  [38,41],[37,39],[41,37.5],[44,40.5],[47,43.5],[35,42.5]
 ];
 const ROYALS = [];
 const REDUCE = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* ☕ 목표 달성 휴식 좌석 — office_bg.png 중앙 핑크 라운지 소파 위 6자리 (배경 이미지 % 좌표) */
+/* ☕ 목표 달성 휴식 좌석 — office_bg.png 중앙 핑크 라운지 소파 위 8자리 (배경 이미지 % 좌표) */
 const SOFA_SEATS = [
-  [35.4, 67.7], [40.5, 65.1], [46.2, 63.5],
-  [53.9, 63.5], [59.3, 65.1], [63.8, 67.5]
+  [33.5, 56.0], [37.0, 52.0], [42.0, 49.0], [47.0, 47.5],
+  [53.0, 47.5], [58.0, 49.0], [63.0, 52.0], [66.5, 56.0]
 ];
 let REST_DEMO = false;
 try { REST_DEMO = new URLSearchParams(location.search).get("rest_demo") === "1"; } catch(e) {}
@@ -2777,13 +2810,31 @@ function receptionHTML(){
   </div>`;
 }
 
-/* ---------- 대표실 두 캐릭터 ---------- */
+/* ---------- 대표실 캐릭터 (예닝 대표님 · 피콜로 비서 · 연탄이) ---------- */
+/* 🐾 연탄이 반응 대사 — 가짜 숫자 없이 인사·애교만 */
+const YEONTAN_LINES = [
+  "멍! 멍! 🐾", "꼬리 흔들흔들 ~ 🐶", "연탄이 여기 있어요! 🖤",
+  "대표님, 쓰다듬어 주세요 🐾", "멍멍! 오늘도 화이팅! 🐶",
+  "간식 냄새 났어요 🍪", "코가 바빠요 👃", "가슴 하얀 데 보이죠? 💛",
+  "같이 산책 가요 🌿", "쓰담쓰담 받았어요 💫"
+];
+let YEONTAN_I = Math.floor(Math.random() * YEONTAN_LINES.length);
+
 function royalHTML(who){
   const sp = CHAR_SPOT[who] || [50, 40];
   if (who === "yening") {
     return `<div class="royal emp" data-who="yening" style="left:${sp[0]}%;top:${sp[1]}%">
       <div class="bod"><img src="assets/avatars/yening.png" alt="예닝 대표님" draggable="false" onerror="this.parentNode.innerHTML='👑'"></div>
       <div class="wtag">👑 예닝 대표님</div>
+      <div class="rbubble"></div>
+    </div>`;
+  }
+  if (who === "yeontan") {
+    return `<div class="royal puppy pet" data-who="yeontan" style="left:${sp[0]}%;top:${sp[1]}%"
+        title="🐾 연탄이 — 대표님네 말티푸 · 누르면 애교">
+      <div class="pfx">💕</div>
+      <div class="bod"><img src="assets/avatars/yeontan.png" alt="연탄이" draggable="false" onerror="this.parentNode.innerHTML='🐶'"></div>
+      <div class="wtag">🐾 연탄이</div>
       <div class="rbubble"></div>
     </div>`;
   }
@@ -2797,7 +2848,7 @@ function royalHTML(who){
 function buildRoyals(){
   const box = $("#royals");
   if (!box) return;
-  box.innerHTML = royalHTML("yening") + royalHTML("piccolo");
+  box.innerHTML = royalHTML("yening") + royalHTML("piccolo") + royalHTML("yeontan");
   ROYALS.length = 0;
   Array.from(box.children).forEach(el => {
     const who = el.dataset.who;
@@ -2808,22 +2859,29 @@ function buildRoyals(){
   });
   if (REDUCE) return;
   const pic = ROYALS.find(r => r.who === "piccolo");
-  if (pic) pic.timer = setTimeout(() => strollPiccolo(pic), 2200);
+  if (pic) pic.timer = setTimeout(() => strollRoyal(pic, "piccolo"), 2200);
+  const tan = ROYALS.find(r => r.who === "yeontan");
+  if (tan) tan.timer = setTimeout(() => strollRoyal(tan, "yeontan"), 1200);
 }
 
-function strollPiccolo(r){
+function strollRoyal(r, kind){
   try {
     if (!document.body.contains(r.el)) return;
-    if (Date.now() < r.pausedUntil) { r.timer = setTimeout(() => strollPiccolo(r), 1000); return; }
+    const roam = (kind === "yeontan") ? YEONTAN_ROAM : PICCOLO_ROAM;
+    const home = CHAR_SPOT[kind] || CHAR_SPOT.piccolo;
+    if (Date.now() < r.pausedUntil) { r.timer = setTimeout(() => strollRoyal(r, kind), 1000); return; }
     let dest;
     if (Math.random() < 0.3) {
-      dest = CHAR_SPOT.piccolo;
+      dest = home;
     } else {
-      const pool = PICCOLO_ROAM.filter(s => Math.hypot(s[0]-r.x, s[1]-r.y) > 4);
-      dest = pool[Math.floor(Math.random() * pool.length)] || CHAR_SPOT.piccolo;
+      const pool = roam.filter(s => Math.hypot(s[0]-r.x, s[1]-r.y) > 3.2);
+      dest = pool[Math.floor(Math.random() * pool.length)] || home;
     }
     const dist = Math.hypot(dest[0]-r.x, dest[1]-r.y);
-    const dur = Math.min(4.6, Math.max(1.8, dist * 0.34));
+    if (kind === "yeontan" && dest[0] < r.x - 0.4) r.el.classList.add("dir-l");
+    if (kind === "yeontan" && dest[0] > r.x + 0.4) r.el.classList.remove("dir-l");
+    const dur = Math.min(kind === "yeontan" ? 2.6 : 4.6,
+                        Math.max(kind === "yeontan" ? 1.1 : 1.8, dist * (kind === "yeontan" ? 0.22 : 0.34)));
     r.el.style.transitionDuration = dur.toFixed(2) + "s";
     r.el.classList.add("walking");
     r.el.style.left = dest[0] + "%";
@@ -2831,14 +2889,37 @@ function strollPiccolo(r){
     r.x = dest[0]; r.y = dest[1];
     setTimeout(() => { if (document.body.contains(r.el)) r.el.classList.remove("walking"); },
                dur * 1000 + 80);
-    r.timer = setTimeout(() => strollPiccolo(r), dur * 1000 + 2600 + Math.random() * 3200);
+    r.timer = setTimeout(() => strollRoyal(r, kind),
+                         dur * 1000 + (kind === "yeontan" ? 1800 : 2600) + Math.random() * 2800);
   } catch(e) { /* 산책 중 오류는 조용히 넘어감 */ }
 }
 
 function tapRoyal(r){
+  if (r.who === "yeontan") { tapYeontan(r); return; }
   r.pausedUntil = Date.now() + 4200;
   if (r.who === "yening") showSpeech("ceo");
   else showSpeech("piccolo");
+}
+
+/* 🐾 연탄이 쓰다듬기 — 멍멍 · 꼬리 흔들기 · 짧은 애교 대사 */
+function tapYeontan(r){
+  r.pausedUntil = Date.now() + 5200;
+  r.el.classList.remove("walking");
+  YEONTAN_I = (YEONTAN_I + 1 + Math.floor(Math.random() * (YEONTAN_LINES.length - 1))) % YEONTAN_LINES.length;
+  const line = YEONTAN_LINES[YEONTAN_I];
+  const bub = r.el.querySelector(".rbubble");
+  if (bub) {
+    bub.textContent = line;
+    bub.classList.add("on");
+    clearTimeout(bub._h);
+    bub._h = setTimeout(() => bub.classList.remove("on"), 2600);
+  }
+  r.el.classList.add("happy");
+  const fx = r.el.querySelector(".pfx");
+  if (fx) fx.textContent = ["💕", "🐾", "멍!", "💛", "✨"][Math.floor(Math.random() * 5)];
+  clearTimeout(r._h);
+  r._h = setTimeout(() => r.el.classList.remove("happy"), 1500);
+  if (r.timer) { clearTimeout(r.timer); r.timer = setTimeout(() => strollRoyal(r, "yeontan"), 5600); }
 }
 
 /* ---------- 📚 클티 상태 표현 (평소 · 긴급 · 숙제 0건) ---------- */
@@ -2907,7 +2988,7 @@ function materialsPrompt(){
   const draft = String(matText() || "").split("\n").map(s => s.trim()).filter(Boolean);
   const all = saved.concat(draft.filter(s => saved.indexOf(s) < 0));
   const head = ["[소재 분류 요청 — 클티]",
-    "아래 소재를 6개 블로그(예지브러리 · 픽모아 · 세이브데스크 · 워드데스크 · 내몸데스크 · 픽모아 티스토리) 중 어디에 쓸지 골라 줘.",
+    "아래 소재를 8개 블로그(예지브러리 · 픽모아 · 세이브데스크 · 워드데스크 · 내몸데스크 · 픽모아 티스토리 · 펫라이프데스크 · 플랜트라이프데스크) 중 어디에 쓸지 골라 줘.",
     "소재마다 ① 추천 블로그 ② 카테고리 ③ 제목 후보 3개 ④ 이미지 프롬프트 1줄 ⑤ 예약 시간(09:00·18:30) 순서로 정리해 줘.",
     "확인하지 않은 사실은 지어내지 말고 '확인 필요'로 표시해 줘.", ""];
   return head.concat(all.map((t, i) => (i + 1) + ". " + t)).join("\n");
@@ -2996,7 +3077,7 @@ function keultiSpeechHTML(){
     ${hw}
     <div class="ksec"><b>📦 원고 재고</b><span class="sp">${esc(sch.sourceLabel || "")}</span></div>
     <div class="kchips">${stockBlock}</div>
-    <div class="ksec"><b>🚀 6개 방 바로가기</b><span class="sp">클로드 프로젝트 방 · 미설정은 [URL 넣기]</span></div>
+    <div class="ksec"><b>🚀 방 바로가기</b><span class="sp">클로드 프로젝트 방 · 미설정은 [URL 넣기]</span></div>
     <div class="krooms">${rooms}
       ${sch.pageUrl ? `<span class="kroom">🗂 노션 원고함 <a class="kgo" href="${esc(sch.pageUrl)}" target="_blank" rel="noopener">열기</a></span>` : ""}
     </div>
@@ -3207,7 +3288,7 @@ function paintStrips(){
 /* ---------- 대표실 말풍선 ---------- */
 let CHEER_I = Math.floor(Math.random() * 7);
 const CHEERS = [
-  "오늘도 6개 채널 18편, 지금 페이스면 다 채워요! 멍!",
+  "오늘도 8개 채널 24편, 지금 페이스면 다 채워요! 멍!",
   "한 편 한 편이 쌓이면 상위노출이 따라와요 🐾",
   "마감 임박한 것부터 처리하면 마음이 가벼워져요 🐶",
   "물 한 잔 마시고 다음 원고로 가요, 멍!",
@@ -3247,7 +3328,7 @@ function ceoSpeechHTML(){
     : `· 📅 예약발행 현황 <b style="color:#b13a3a">수집 실패</b> — ${esc(sch.error || "노션·스냅샷을 읽지 못했어요")}`;
   return `<div class="sline"><span>오늘 전체 목표</span><b>${total} / ${goal}편</b><span class="spct">${pct}%</span></div>
     <div class="sbar"><i style="width:${pct}%"></i></div>
-    <div class="srow">· 하루 3편 × 6곳 = ${goal}편 기준 · ${left ? "남은 <b>" + left + "편</b>" : "<b>목표 달성!</b> 🎉"}</div>
+    <div class="srow">· 하루 3편 × ${(OFFICE.blogs || []).length || 8}곳 = ${goal}편 기준 · ${left ? "남은 <b>" + left + "편</b>" : "<b>목표 달성!</b> 🎉"}</div>
     <div class="srow">· ☕ 목표 달성 휴식 중 <b>${restN}명</b>${restN ? " — " + esc(restNames) : ""}</div>
     <div class="srow">· 마감 임박(D-3 이내) <b>${urgentN}건</b> — ${esc(urgentNames(cm, 3))}</div>
     <div class="srow">· 오늘 마감 <b>${esc(todayDue || "없음")}</b> · 원고 대기(방문완료) <b>${cm.waitingCount || 0}건</b></div>
@@ -3928,7 +4009,7 @@ async function showIssues(force){
   m.classList.add("on");
   const body = $("#issueBody");
   if (!ISSUES || force) {
-    if (body) body.innerHTML = `<div class="cempty">🔎 6개 블로그·SNS 점검 중…</div>`;
+    if (body) body.innerHTML = `<div class="cempty">🔎 블로그·SNS 점검 중…</div>`;
     await loadIssues(force);
   }
   if (body) body.innerHTML = issueBodyHTML(ISSUES);
@@ -4836,7 +4917,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11180151" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11180235" alt="예닝 오피스 배경">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
   OFFICE.blogs.forEach(b => { html += deskCardHTML(b, posOf(b)); });
   html += `<div class="crew" id="crew">${qcSeatHTML()}${receptionHTML()}</div>`;
@@ -4861,7 +4942,8 @@ function updateOfficeCards(){
       const lt = card.querySelector(".latest");
       if (lt) {
         lt.innerHTML = b.ok
-          ? (b.latest ? `<b>최신</b> · ${esc(b.latest)}` : "")
+          ? (b.latest ? `<b>최신</b> · ${esc(b.latest)}`
+                      : (b.empty ? `<span style="color:#b09aa2">새 블로그 · 아직 글 0편</span>` : ""))
           : `<span style="color:#c98a9b">RSS 확인 실패</span>`;
       }
       card.title = b.blog + " — 클릭하면 어제 성과 보고가 떠요";
@@ -5045,7 +5127,7 @@ function paintStatus(){
   $("#stGoalPct").textContent = pct;
   $("#stBar").style.width = pct + "%";
   $("#stGoalTxt").textContent = OFFICE.total + "편 / " + OFFICE.goal + "편 · 하루 " +
-      OFFICE.goalPerBlog + "포 × 6곳";
+      OFFICE.goalPerBlog + "포 × " + ((OFFICE.blogs || []).length || 8) + "곳";
   const t = (OFFICE.now || "").slice(11,19);
   $("#stTime").textContent = t || "–";
   const api = OFFICE.api || {};
@@ -5629,7 +5711,8 @@ try {
 let REV = { ok: false, adpost: [], shopping_connect: [], date: "", updated: "", source: "" };
 const REV_BLOG_NAME = { all: "전체 합계", ye_zib: "예지브러리", pick_moa: "픽모아",
                        savedesk: "세이브데스크", worddesk: "워드데스크",
-                       mybodydesk: "내몸데스크", tistory: "픽모아 티스토리" };
+                       mybodydesk: "내몸데스크", tistory: "픽모아 티스토리",
+                       petlifedesk: "펫라이프데스크", plantlifedesk: "플랜트라이프데스크" };
 const revNum = v => { const n = Number(v); return isNaN(n) ? 0 : n; };
 const revWon = v => revNum(v).toLocaleString("ko-KR");
 const revP2 = n => String(n).padStart(2, "0");
@@ -7469,11 +7552,26 @@ function openTablet(){
 }
 function openDoor(){
   const d = PROPS.door || {};
-  const rows = (d.sites || []).map(s =>
+  const order = (d.groups && d.groups.length) ? d.groups : [""];
+  const sites = d.sites || [];
+  const seen = {};
+  const rowsFor = (g) => sites.filter(s => (s.group || "") === g).map(s =>
     `<a class="ntrow" href="${esc(s.url)}" target="_blank" rel="noopener">
       <span class="em">${esc(s.emoji)}</span><span><span class="tt">${esc(s.name)}</span><br><span class="ss">${esc(s.url)}</span></span>
       <span class="go">열기 ↗</span></a>`).join("");
-  openPropModal("🚪 출입문 · 자주 쓰는 업무 사이트", rows, "");
+  let html = order.map(g => {
+    const r = rowsFor(g);
+    if (!r) return "";
+    seen[g] = 1;
+    return (g ? `<div class="dgroup">${esc(g)}</div>` : "") + r;
+  }).join("");
+  /* 그룹이 없는 옛 스냅샷·추가분도 빠뜨리지 않는다 */
+  const rest = sites.filter(s => !seen[s.group || ""]).map(s =>
+    `<a class="ntrow" href="${esc(s.url)}" target="_blank" rel="noopener">
+      <span class="em">${esc(s.emoji)}</span><span><span class="tt">${esc(s.name)}</span><br><span class="ss">${esc(s.url)}</span></span>
+      <span class="go">열기 ↗</span></a>`).join("");
+  openPropModal("🚪 출입문 · 자주 쓰는 업무·수익 사이트",
+    html + (rest ? `<div class="dgroup">그 밖에</div>` + rest : ""), "");
 }
 function openCorkboard(){
   const c = PROPS.corkboard || {};
@@ -7798,12 +7896,12 @@ function confettiBurst(){
 /* ---------- ⚙️ 설정 모달 — 블로그별 일일 목표 발행 편수 ---------- */
 function goalRowHTML(){
   const n = (OFFICE && OFFICE.goalPerBlog) || GOAL_LOCAL || 3;
-  const total = n * ((OFFICE && OFFICE.blogs && OFFICE.blogs.length) || 6);
+  const total = n * ((OFFICE && OFFICE.blogs && OFFICE.blogs.length) || 8);
   return `<div class="rrow rdef" id="goalRow">
     <label>🎯 블로그별 일일 목표 발행 편수 <small>(기본 3편 · 3포 게이지 · 소파 휴식 · 달성률에 바로 반영)</small></label>
     <div style="display:flex;gap:8px;align-items:center">
       <input class="rin" id="goalInput" type="number" min="1" max="20" step="1" value="${n}" style="max-width:110px">
-      <span style="font-size:12px;color:#8d7780">편 / 블로그 · 6곳 합계 <b id="goalSum">${total}</b>편</span>
+      <span style="font-size:12px;color:#8d7780">편 / 블로그 · ${(OFFICE && OFFICE.blogs || []).length || 8}곳 합계 <b id="goalSum">${total}</b>편</span>
     </div></div>`;
 }
 function bindGoalRow(){
@@ -7849,8 +7947,8 @@ loadMemo();
 loadOffice(false);
 if (document.querySelector("#pane-campaign.on")) loadCampaigns();
 </script>
-<script src="assets/budget-local.js?v=11180151"></script>
-<script src="assets/reels-local.js?v=11180151"></script>
-<script src="assets/mobile-patch.js?v=11180151"></script>
+<script src="assets/budget-local.js?v=11180235"></script>
+<script src="assets/reels-local.js?v=11180235"></script>
+<script src="assets/mobile-patch.js?v=11180235"></script>
 </body>
 </html>
