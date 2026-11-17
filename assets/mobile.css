@@ -260,3 +260,84 @@ body.locked{overflow:hidden}
   #pane-budget .bgmini table{min-width:296px}
   #pane-budget .bgmini .bgx{font-size:13px;padding:5px 9px;min-height:34px}
 }
+
+/* ============================================================
+   🕵️ 내 블로그 염탐 (v2.0) — 390px 폰 화면 보정
+   - 블로그 알약(전체 요약 + 5곳)을 3칸 그리드로
+   - 점수 카드는 세로 한 줄, 30칸 노출 지도는 6칸씩 5줄
+   - 표(전체 요약·숨은 검색어·경쟁 블로그)는 옆으로 밀어서 본다
+   - '지금 다시 염탐'은 mobile-patch.js 가 07:17 자동 측정 안내로 바꾼다
+   ============================================================ */
+.spymobnote{display:none}
+
+@media (max-width:820px){
+  .spymobnote{display:block;background:#fff8fb;border:1px dashed var(--pink-line);border-radius:11px;
+    padding:7px 10px;margin:0 0 9px;font-size:11px;line-height:1.5;color:#8d7780;font-weight:700}
+  .spymobnote b{color:#b9577a}
+
+  #pane-spy .spytop{gap:6px;margin:0 2px 8px;flex-wrap:nowrap}
+  #pane-spy .spytop .grow{display:none}
+  #pane-spy .spytop .btn{flex:1 1 0;justify-content:center;text-align:center;font-size:11.5px;
+    padding:9px 6px;min-height:40px;border-radius:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+  /* 블로그 알약 */
+  .spychips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:2px 0 10px}
+  .spychip{justify-content:space-between;gap:3px;min-width:0;padding:7px 7px;font-size:10.5px;
+    border-radius:11px;line-height:1.25;letter-spacing:-.3px;overflow:hidden;white-space:nowrap}
+  .spychip .sc{flex:0 0 auto;font-size:9.5px;padding:1px 5px;border-radius:7px}
+
+  /* 오늘의 보고 — 점수·KPI·14일 그래프 */
+  .spyhero{grid-template-columns:minmax(0,1fr);gap:9px;padding:11px 11px 12px;border-radius:16px}
+  .spyscorebox{border-right:0;border-bottom:1px dashed var(--line);padding:0 0 8px}
+  .spyscore{font-size:33px}
+  .spyscore small{font-size:12px}
+  .spydelta{font-size:11.5px}
+  .spysublabel{font-size:10.5px}
+  .spykpis{gap:6px}
+  .spykpi{padding:7px 4px;border-radius:11px}
+  .spykpi b{font-size:17px}
+  .spykpi span{font-size:9.5px;letter-spacing:-.3px}
+  .spyspark svg{height:44px}
+  .spyspark .cap{font-size:9.5px}
+
+  .spysec{margin-top:9px;padding:10px 9px 11px;border-radius:15px}
+  .spysec h3{font-size:13px;line-height:1.35}
+  .spysec .sub{font-size:10.5px;line-height:1.55;margin-bottom:8px}
+
+  /* 30칸 노출 지도 — 6칸씩 5줄 */
+  .spygrid{grid-template-columns:repeat(6,minmax(0,1fr));gap:4px}
+  .spycell{aspect-ratio:1/1;border-radius:6px;font-size:9.5px}
+  .spycell .nb{top:-4px;right:-4px;font-size:8px;line-height:12px;padding:0 3px}
+  .spylegend{gap:5px 9px;font-size:10px;margin-top:8px}
+  .spylegend i{width:9px;height:9px;border-radius:2px;margin-right:3px}
+  .spydetail{margin-top:8px;padding:8px 9px;font-size:11.5px;border-radius:11px;min-height:38px}
+  .spydetail .ln{font-size:10.5px;line-height:1.5}
+  .spynewbox{padding:7px 9px;font-size:11px;border-radius:11px;line-height:1.5}
+  .spynewbox .it{font-size:10px;padding:2px 6px}
+
+  /* 어제보다 움직인 검색어 */
+  .spycols{grid-template-columns:1fr;gap:7px}
+  .spymove{padding:8px 9px;border-radius:12px}
+  .spymove h4{font-size:11.5px;margin-bottom:5px}
+  .spymoverow{padding:4px 0;font-size:11.5px;gap:6px}
+  .spymoverow .kw{white-space:normal;overflow-wrap:anywhere}
+  .spymoverow .vol{font-size:10px}
+
+  /* 표 — 화면보다 넓으면 칸 안에서 옆으로 밀어 본다 */
+  .spysec>div[style]{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+  .spytable{font-size:11px;min-width:300px}
+  .spytable th{font-size:10.5px;padding:5px 6px}
+  .spytable td{padding:5px 6px}
+  .spytable .dimc{font-size:10px}
+
+  .spyempty{padding:16px 12px;font-size:11.5px;border-radius:13px}
+  .spyprog{margin:4px 0 9px;padding:8px 10px;border-radius:12px}
+  .spylog{font-size:11px}
+  #pane-spy .note{font-size:10px;line-height:1.6;margin-top:9px}
+  #pane-spy .phead{margin-bottom:7px}
+}
+
+@media (max-width:380px){
+  .spychips{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .spygrid{grid-template-columns:repeat(5,minmax(0,1fr))}
+}

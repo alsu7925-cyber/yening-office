@@ -56,6 +56,34 @@
       toastSafe("⛏️ 키워드 채굴기는 PC 버전 전용이에요");
     };
 
+    /* 🕵️ 내 블로그 염탐 — 폰에는 네이버를 긁어 올 서버가 없어요.
+       '지금 다시 염탐' 은 오류 대신 매일 07:17 자동 측정 결과를 보라는 안내를 띄운다. */
+    var SPY_MOBILE_MSG = "📱 모바일은 매일 07:17 자동 측정 결과를 보여줘요 (즉시 측정은 PC에서 가능)";
+    window.showSpyMobileNotice = function () { toastSafe(SPY_MOBILE_MSG); };
+    window.runSpy = function () { window.showSpyMobileNotice(); };
+
+    try {
+      var spyTop = $("#pane-spy .spytop");
+      if (spyTop && !$("#spyMobNote")) {
+        var spyNote = document.createElement("div");
+        spyNote.id = "spyMobNote";
+        spyNote.className = "spymobnote";
+        spyNote.innerHTML = "📱 폰에서는 <b>매일 07:17</b> 자동 측정 결과를 보여 줘요 · 지금 바로 측정은 PC에서";
+        spyTop.insertAdjacentElement("afterend", spyNote);
+      }
+      var spyRunBtn = $("#spyRun");
+      if (spyRunBtn) {
+        spyRunBtn.title = SPY_MOBILE_MSG;
+        spyRunBtn.onclick = function (ev) {
+          if (ev && ev.preventDefault) ev.preventDefault();
+          window.showSpyMobileNotice();
+          return false;
+        };
+      }
+    } catch (e) {
+      if (window.console) console.warn("[mobile-patch:spy]", e);
+    }
+
     /* 👊 터치로 팀장 두 번 톡톡 = 때리기 */
     var lastTap = 0, lastEl = null;
     document.addEventListener("touchend", function (ev) {

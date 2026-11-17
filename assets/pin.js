@@ -203,6 +203,8 @@
 
   /* ---------------- /api/* → 암호화된 스냅샷 (+ 가계부는 폰 저장분 병합) ---------------- */
   var BLOCK_MSG = "📱 이 화면의 저장은 PC 버전에서 해 주세요 — 📒 가계부는 폰에서 바로 저장돼요";
+  /* 🕵️ 염탐은 네이버를 긁어 오는 서버가 필요해서 폰에서는 돌릴 수 없다 — 요청 자체를 보내지 않고 안내만 한다 */
+  var SPY_MOBILE_MSG = "📱 모바일은 매일 07:17 자동 측정 결과를 보여줘요 (즉시 측정은 PC에서 가능)";
   function jsonResponse(obj, status) {
     return new Response(JSON.stringify(obj), {
       status: status || 200,
@@ -229,6 +231,15 @@
           try { out = window.YB.apply(body, pay["/api/budget"] || {}); }
           catch (e) { out = { ok: false, error: "저장하지 못했어요: " + ((e && e.message) || e) }; }
           return jsonResponse(out);
+        }
+        /* 🕵️ 지금 다시 염탐 — 폰에는 수집 서버가 없으므로 안내만 띄우고 끝낸다 */
+        if (path === "/api/spy/run") {
+          try {
+            if (typeof window.showSpyMobileNotice === "function") window.showSpyMobileNotice();
+            else if (window.toast) window.toast(SPY_MOBILE_MSG);
+          } catch (e) {}
+          return jsonResponse({ ok: false, mobile: true, error: SPY_MOBILE_MSG,
+                                state: { running: false, pct: 0, msg: "" } });
         }
         /* 나머지 저장·수정은 서버가 없으므로 정직하게 막는다 */
         try {
