@@ -129,6 +129,35 @@
       }
     }, { passive: true });
 
+    /* 🎯 블로그별 목표(v2.3) — 폰은 PC 스냅샷의 목표를 그대로 보여 주고,
+       고치는 건 PC 설정에서 한다(서버가 없어 저장이 안 된다는 걸 미리 알린다). */
+    try {
+      function markGoalsMobile() {
+        var grid = $("#goalRow");
+        if (!grid || grid.getAttribute("data-mob") === "1") return;
+        grid.setAttribute("data-mob", "1");
+        var inputs = grid.querySelectorAll(".gin");
+        for (var i = 0; i < inputs.length; i++) {
+          inputs[i].disabled = true;
+          inputs[i].title = "목표 수정은 PC 버전 ⚙️ 설정에서";
+        }
+        var note = document.createElement("div");
+        note.className = "goalnote";
+        note.innerHTML = "📱 폰은 PC에서 저장한 목표를 그대로 보여 줘요 · 목표를 바꾸려면 PC 버전 ⚙️ 설정";
+        grid.appendChild(note);
+      }
+      var wrapRRB = window.renderRoomBody;
+      if (typeof wrapRRB === "function") {
+        window.renderRoomBody = function () {
+          wrapRRB.apply(this, arguments);
+          markGoalsMobile();
+        };
+      }
+      markGoalsMobile();
+    } catch (e) {
+      if (window.console) console.warn("[mobile-patch:goals]", e);
+    }
+
     /* 무대를 길게 눌러도 브라우저 메뉴가 뜨지 않게 */
     document.addEventListener("contextmenu", function (ev) {
       if (ev.target && ev.target.closest && ev.target.closest("#stage, .tab, .btn")) ev.preventDefault();

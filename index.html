@@ -1763,6 +1763,11 @@ body.locked{overflow:hidden}
 @media (max-width:380px){
   .spygrid{grid-template-columns:repeat(5,minmax(0,1fr))}
 }
+
+/* 🎯 블로그별 목표(v2.3) — 폰에서는 읽기 전용 안내 */
+#goalRow .goalnote{margin-top:6px;font-size:11px;line-height:1.5;color:#a9869a;
+  background:#fff6fa;border:1px dashed #f0d7e2;border-radius:9px;padding:5px 8px}
+#goalRow .gin:disabled{background:#faf7f8;color:#8d7780;-webkit-text-fill-color:#8d7780}
 </style>
 </head>
 <body>
@@ -1770,7 +1775,7 @@ body.locked{overflow:hidden}
 
   <header class="hero">
     <div>
-      <h1>🏢 예닝 오피스 <span class="amp">·</span> 📱 모바일 <span style="display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;background:#ffe3ee;border:1px solid #f6a9bf;color:#a64065;font-size:12px;font-weight:700;vertical-align:middle">v2.2 · 11/18</span></h1>
+      <h1>🏢 예닝 오피스 <span class="amp">·</span> 📱 모바일 <span style="display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;background:#ffe3ee;border:1px solid #f6a9bf;color:#a64065;font-size:12px;font-weight:700;vertical-align:middle">v2.3 · 11/18</span></h1>
       <p>팀장님 여덟 분 오늘 실적 · 염탐 · 수익 · 가계부를 한 화면에서 🌸</p>
     </div>
     <div class="hero-side">
@@ -1787,7 +1792,7 @@ body.locked{overflow:hidden}
     <a class="tstrip due zero" id="stripDue" href="#" title="체험단 대시보드로 이동">
       <span class="em">⏰</span><span class="tx" id="stripDueTx">원고 마감 확인 중…</span>
     </a>
-    <button class="tstrip goal" id="stripGoal" title="애드포스트 승인 목표일까지 남은 날 · 오늘 3포 달성률">
+    <button class="tstrip goal" id="stripGoal" title="애드포스트 승인 목표일까지 남은 날 · 오늘 목표 달성률">
       <span class="em">🎯</span><span class="dd" id="stripDday">D-–</span>
       <span class="tx">애드포스트 승인</span>
       <span class="gbar"><i id="stripBar" style="width:0"></i></span>
@@ -1816,7 +1821,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11181620" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11181842" alt="예닝 오피스 배경">
     </div>
     <div class="desk-list" id="deskList"></div>
     <div class="propshelf" id="propShelf">
@@ -1846,7 +1851,7 @@ body.locked{overflow:hidden}
         <div class="sl">목표 대비 진행</div>
         <div class="sv"><b id="stGoalPct">–</b><small>%</small></div>
         <div class="bar"><i id="stBar"></i></div>
-        <div class="sd" id="stGoalTxt">하루 3포 × 8곳 = 24편</div>
+        <div class="sd" id="stGoalTxt">오늘 0 / 26편</div>
       </div>
       <div class="stat">
         <div class="sl">📅 오늘 예약 (노션)</div>
@@ -2622,7 +2627,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11181620"></script>
+<script src="assets/pin.js?v=11181842"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -2699,7 +2704,7 @@ function ceoCardHTML(boss, pos){
     <div class="info">
       <div class="nm">${esc(boss.team)}</div>
       <div class="role">${esc(boss.role)}</div>
-      <div class="bubble ceoBubble">API 연결 확인 중… · 오늘도 3포 루틴!</div>
+      <div class="bubble ceoBubble">API 연결 확인 중… · 오늘도 목표 채우기!</div>
     </div>
   </div>`;
 }
@@ -3280,9 +3285,9 @@ function paintStrips(){
   const bar = $("#stripBar");
   if (bar) bar.style.width = (g.pct || 0) + "%";
   const tp = $("#strip3po");
-  if (tp) tp.textContent = `${g.total || 0} / ${g.goal || 18}편`;
+  if (tp) tp.textContent = `${g.total || 0} / ${g.goal || 26}편`;
   const gs = $("#stripGoal");
-  if (gs) gs.title = `${g.text || ""} · 오늘 3포 ${g.total || 0}/${g.goal || 18}편`;
+  if (gs) gs.title = `${g.text || ""} · 오늘 목표 ${g.total || 0}/${g.goal || 26}편`;
 }
 
 /* ---------- 대표실 말풍선 ---------- */
@@ -3312,6 +3317,11 @@ function urgentNames(cm, k){
   return parts.join(" · ") + (u.length > lim ? " 외 " + (u.length - lim) + "건" : "");
 }
 
+function goalBrief(){
+  const bs = (OFFICE && OFFICE.blogs) || [];
+  if (!bs.length) return "목표 없음";
+  return bs.map(b => (b.team || b.blog || "").replace("팀장", "").trim() + " " + (b.goal || 0)).join(" · ");
+}
 function ceoSpeechHTML(){
   const total = OFFICE ? (OFFICE.total || 0) : 0;
   const goal = (OFFICE && OFFICE.goal) || 18;
@@ -3328,7 +3338,8 @@ function ceoSpeechHTML(){
     : `· 📅 예약발행 현황 <b style="color:#b13a3a">수집 실패</b> — ${esc(sch.error || "노션·스냅샷을 읽지 못했어요")}`;
   return `<div class="sline"><span>오늘 전체 목표</span><b>${total} / ${goal}편</b><span class="spct">${pct}%</span></div>
     <div class="sbar"><i style="width:${pct}%"></i></div>
-    <div class="srow">· 하루 3편 × ${(OFFICE.blogs || []).length || 8}곳 = ${goal}편 기준 · ${left ? "남은 <b>" + left + "편</b>" : "<b>목표 달성!</b> 🎉"}</div>
+    <div class="srow">· 블로그별 목표 합계 <b>${goal}편</b> — ${esc(goalBrief())}</div>
+    <div class="srow">· ${left ? "남은 <b>" + left + "편</b>" : "<b>목표 달성!</b> 🎉"}</div>
     <div class="srow">· ☕ 목표 달성 휴식 중 <b>${restN}명</b>${restN ? " — " + esc(restNames) : ""}</div>
     <div class="srow">· 마감 임박(D-3 이내) <b>${urgentN}건</b> — ${esc(urgentNames(cm, 3))}</div>
     <div class="srow">· 오늘 마감 <b>${esc(todayDue || "없음")}</b> · 원고 대기(방문완료) <b>${cm.waitingCount || 0}건</b></div>
@@ -3375,7 +3386,7 @@ function reportBlockHTML(b){
 }
 
 function leaderSpeechHTML(b){
-  const goal = (OFFICE && OFFICE.goalPerBlog) || 3;
+  const goal = b.goal || ((OFFICE && OFFICE.goalPerBlog) || 3);
   const pct = goal ? Math.min(100, Math.round((b.today || 0) / goal * 100)) : 0;
   const restBadge = b.resting ? '<span class="spct" style="background:#f3b344">☕ 휴식 중</span>' : "";
   const line = b.resting
@@ -4886,7 +4897,7 @@ function showSpeech(kind){
   box.style.display = "";
   try { box.scrollIntoView({behavior:"smooth", block:"nearest"}); } catch(e) {}
   if (isCeo) {
-    toast("👑 오늘 " + ((OFFICE && OFFICE.total) || 0) + " / " + ((OFFICE && OFFICE.goal) || 18) + "편 · 마감 임박 " + (((OFFICE || {}).campaigns || {}).urgentCount || 0) + "건");
+    toast("👑 오늘 " + ((OFFICE && OFFICE.total) || 0) + " / " + ((OFFICE && OFFICE.goal) || 26) + "편 · 마감 임박 " + (((OFFICE || {}).campaigns || {}).urgentCount || 0) + "건");
   } else {
     toast("🐶 멍! 대표님 오늘 마감 챙기세요!");
     popRoyalBubble("piccolo", "멍! 오늘 마감 챙기세요 🐶");
@@ -4917,7 +4928,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11181620" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11181842" alt="예닝 오피스 배경">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
   OFFICE.blogs.forEach(b => { html += deskCardHTML(b, posOf(b)); });
   html += `<div class="crew" id="crew">${qcSeatHTML()}${receptionHTML()}</div>`;
@@ -5126,8 +5137,7 @@ function paintStatus(){
   const pct = OFFICE.goal ? Math.min(100, Math.round(OFFICE.total / OFFICE.goal * 100)) : 0;
   $("#stGoalPct").textContent = pct;
   $("#stBar").style.width = pct + "%";
-  $("#stGoalTxt").textContent = OFFICE.total + "편 / " + OFFICE.goal + "편 · 하루 " +
-      OFFICE.goalPerBlog + "포 × " + ((OFFICE.blogs || []).length || 8) + "곳";
+  $("#stGoalTxt").textContent = OFFICE.total + "편 / " + OFFICE.goal + "편 · 블로그별 목표 합계";
   const t = (OFFICE.now || "").slice(11,19);
   $("#stTime").textContent = t || "–";
   const api = OFFICE.api || {};
@@ -5239,7 +5249,7 @@ if ($("#stripDue")) $("#stripDue").onclick = (ev) => {
 };
 if ($("#stripGoal")) $("#stripGoal").onclick = () => {
   const g = (OFFICE && OFFICE.goals) || {};
-  toast(`🎯 ${g.text || ""} · 애드포스트 승인 ${g.date || ""} · 오늘 3포 ${g.total || 0}/${g.goal || 18}편`);
+  toast(`🎯 ${g.text || ""} · 애드포스트 승인 ${g.date || ""} · 오늘 목표 ${g.total || 0}/${g.goal || 26}편`);
   const b = $("#stGoalPct");
   if (b) { try { b.scrollIntoView({behavior:"smooth", block:"center"}); } catch(e) {} }
 };
@@ -7893,25 +7903,48 @@ function confettiBurst(){
   setTimeout(() => box.remove(), 6500);
 }
 
-/* ---------- ⚙️ 설정 모달 — 블로그별 일일 목표 발행 편수 ---------- */
+/* ---------- ⚙️ 설정 모달 — 블로그별 하루 목표 발행 편수 (v2.3) ---------- */
+/* 블로그마다 목표가 달라요 — 세이브 6 · 픽모아 5 · 나머지 3 · 티스토리 2 (합계 26편) */
+const GOAL_DEFAULTS = {ye_zib: 3, pick_moa: 5, savedesk: 6, worddesk: 3,
+                       mybodydesk: 3, tistory: 2, petlifedesk: 2, plantlifedesk: 2};
+function goalMap(){
+  const m = Object.assign({}, GOAL_DEFAULTS);
+  const cur = (OFFICE && OFFICE.goalsByBlog) || {};
+  Object.keys(cur).forEach(k => { if (cur[k]) m[k] = Number(cur[k]); });
+  return m;
+}
+function goalBlogs(){
+  const bs = (OFFICE && OFFICE.blogs) || [];
+  if (bs.length) return bs;
+  return Object.keys(GOAL_DEFAULTS).map(id => ({id: id, team: id, blog: id, emoji: "•"}));
+}
 function goalRowHTML(){
-  const n = (OFFICE && OFFICE.goalPerBlog) || GOAL_LOCAL || 3;
-  const total = n * ((OFFICE && OFFICE.blogs && OFFICE.blogs.length) || 8);
+  const m = goalMap();
+  const list = goalBlogs();
+  const total = list.reduce((s, b) => s + (m[b.id] || 0), 0);
   return `<div class="rrow rdef" id="goalRow">
-    <label>🎯 블로그별 일일 목표 발행 편수 <small>(기본 3편 · 3포 게이지 · 소파 휴식 · 달성률에 바로 반영)</small></label>
-    <div style="display:flex;gap:8px;align-items:center">
-      <input class="rin" id="goalInput" type="number" min="1" max="20" step="1" value="${n}" style="max-width:110px">
-      <span style="font-size:12px;color:#8d7780">편 / 블로그 · ${(OFFICE && OFFICE.blogs || []).length || 8}곳 합계 <b id="goalSum">${total}</b>편</span>
-    </div></div>`;
+    <label>🎯 블로그별 하루 목표 발행 편수 <small>(각자 목표로 3포 게이지 · 소파 휴식 · 달성률 계산 — 합계가 위 전체 목표가 됩니다)</small></label>
+    <div class="rgrid" id="goalGrid">${list.map(b => `
+      <div class="rf"><label>${esc(b.emoji || "")} ${esc((b.team || "").replace("팀장", ""))} <small>${esc(b.blog || b.id)}</small></label>
+        <input class="gin" data-bid="${esc(b.id)}" type="number" min="1" max="20" step="1" value="${m[b.id] || 3}"></div>`).join("")}</div>
+    <div style="margin-top:7px;font-size:12px;color:#8d7780">하루 합계 <b id="goalSum">${total}</b>편 · 블로그 ${list.length}곳</div>
+  </div>`;
 }
 function bindGoalRow(){
-  const inp = $("#goalInput");
-  if (!inp) return;
-  inp.oninput = () => {
-    const v = Math.max(1, Math.min(20, Number(inp.value) || 0));
-    const sum = $("#goalSum");
-    if (sum) sum.textContent = v * ((OFFICE && OFFICE.blogs && OFFICE.blogs.length) || 6);
+  const box = $("#goalRow");
+  if (!box) return;
+  const inputs = Array.prototype.slice.call(box.querySelectorAll(".gin"));
+  const refresh = () => {
+    let sum = 0;
+    inputs.forEach(i => {
+      const v = Math.max(1, Math.min(20, Number(i.value) || 0));
+      sum += v;
+    });
+    const s = $("#goalSum");
+    if (s) s.textContent = sum;
   };
+  inputs.forEach(i => { i.oninput = refresh; i.onchange = refresh; });
+  refresh();
 }
 const _origRenderRoomBody = renderRoomBody;
 renderRoomBody = function(){
@@ -7923,16 +7956,27 @@ renderRoomBody = function(){
 };
 const _origSaveRoomLinks = saveRoomLinks;
 saveRoomLinks = async function(payload){
-  const gi = $("#goalInput");
-  if (gi && payload && payload.__saveGoal !== false){
-    const n = Number(gi.value) || 0;
-    const cur = (OFFICE && OFFICE.goalPerBlog) || 3;
-    if (n && n !== cur){
+  const inputs = Array.prototype.slice.call(document.querySelectorAll("#goalRow .gin"));
+  if (inputs.length && payload && payload.__saveGoal !== false){
+    const cur = goalMap();
+    const goals = {};
+    let changed = false;
+    inputs.forEach(i => {
+      const bid = i.dataset.bid || "";
+      if (!bid) return;
+      const v = Math.max(1, Math.min(20, Number(i.value) || 0));
+      goals[bid] = v;
+      if (v !== (cur[bid] || v)) changed = true;
+    });
+    if (changed){
       const d = await apiJSON("/api/config", {method: "POST", headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({daily_goal_per_blog: n})});
+        body: JSON.stringify({daily_goals_by_blog: goals})});
       if (!d.ok){ toast("❌ " + (d.error || "목표 저장 실패")); return d; }
-      if (OFFICE) OFFICE.goalPerBlog = d.dailyGoalPerBlog;
-      toast("🎯 " + (d.message || "목표를 저장했어요"));
+      if (OFFICE){
+        OFFICE.goalsByBlog = d.dailyGoalsByBlog || goals;
+        OFFICE.goal = d.total || OFFICE.goal;
+      }
+      toast("🎯 " + (d.message || "블로그별 목표를 저장했어요"));
       loadOffice(true);
     }
   }
@@ -7947,8 +7991,8 @@ loadMemo();
 loadOffice(false);
 if (document.querySelector("#pane-campaign.on")) loadCampaigns();
 </script>
-<script src="assets/budget-local.js?v=11181620"></script>
-<script src="assets/reels-local.js?v=11181620"></script>
-<script src="assets/mobile-patch.js?v=11181620"></script>
+<script src="assets/budget-local.js?v=11181842"></script>
+<script src="assets/reels-local.js?v=11181842"></script>
+<script src="assets/mobile-patch.js?v=11181842"></script>
 </body>
 </html>
