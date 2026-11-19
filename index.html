@@ -48,6 +48,33 @@
   .stage{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--pink-line);
          box-shadow:inset 0 0 0 1px rgba(255,255,255,.6)}
   .stage img{display:block;width:100%;height:auto}
+  /* ---------- 🛋️ 라운지 확장 (v2.5) — 소파 옆 보조 소파(2인) ---------- */
+  /*   배경 이미지의 분홍 소파와 같은 톤(블러시 핑크)으로 그려서 '한 세트'처럼 보이게 합니다. */
+  .stage .loungeaux{position:absolute;left:36.6%;top:70.2%;width:18.4%;height:11.4%;
+    transform:translate(-50%,-50%);pointer-events:none;z-index:2;
+    border-radius:26% 26% 20% 20%/24% 24% 18% 18%;
+    border:1px solid rgba(198,128,134,.55);
+    background:linear-gradient(180deg,#FFF3F1 0%,#FBDCDA 40%,#F0B9BA 78%,#E2A0A3 100%);
+    box-shadow:0 14px 20px rgba(120,66,74,.34), 0 3px 0 rgba(255,255,255,.55) inset,
+               inset 0 -6px 12px rgba(190,120,128,.25)}
+  .stage .loungeaux:before{content:"";position:absolute;left:-1%;right:-1%;top:-9%;height:56%;
+    border-radius:50% 50% 22% 22%/64% 64% 26% 26%;
+    border:1px solid rgba(198,128,134,.5);
+    background:linear-gradient(180deg,#FFF6F4 0%,#FCDEDC 55%,#F3C0C1 100%);
+    box-shadow:0 5px 10px rgba(120,66,74,.18), inset 0 5px 9px rgba(255,255,255,.75)}
+  .stage .loungeaux:after{content:"";position:absolute;left:2%;right:2%;bottom:-2%;height:40%;
+    border-radius:9px 9px 40% 40%/7px 7px 30% 30%;
+    background:linear-gradient(180deg,#F7CFCD 0%,#E3A0A3 100%);
+    box-shadow:inset 0 4px 8px rgba(120,66,74,.18), inset 0 -5px 9px rgba(120,66,74,.22)}
+  .stage .loungeaux b{position:absolute;width:31%;height:30%;top:47%;
+    border-radius:36% 36% 24% 24%/44% 44% 28% 28%;
+    background:linear-gradient(155deg,#FCE3E1 0%,#F1BEBF 100%);
+    border:1px solid rgba(198,128,134,.45);
+    box-shadow:0 3px 6px rgba(120,66,74,.24), inset 0 2px 4px rgba(255,255,255,.7)}
+  .stage .loungeaux b:nth-child(1){left:6%}
+  .stage .loungeaux b:nth-child(2){left:34.5%}
+  .stage .loungeaux b:nth-child(3){left:63%}
+
   /* ---------- ⚾ 스포츠 데스크 소품 (v2.3 — 스포브리핑) : 라운지 앞 바닥의 네이비 매트 ---------- */
   .stage img.sportmat{position:absolute;left:35%;top:89.5%;width:128px;height:auto;
             transform:translate(-50%,-50%);pointer-events:none;z-index:2;
@@ -1406,6 +1433,241 @@
     .spycols{grid-template-columns:1fr}
     .spygrid{grid-template-columns:repeat(6,minmax(0,1fr))}
   }
+  /* ---------- 📊 주간 리포트 (v2.5 · 예브 스타일 시그니처) ---------- */
+  .wk{--wkc:#FFFDFB; --wksoft:#F9E9E9; --wkblush:#F2D8D7; --wkdusty:#DFA2A5;
+      --wkrose:#C88189; --wkbrown:#6E4B3F; --wkline:#EFDFDA; --wkdim:#B39A93;
+      background:linear-gradient(180deg,#FFFDFB 0%,#FFFBFA 100%);
+      border:1px solid var(--wkline);border-radius:22px;padding:16px 16px 18px;
+      font-variant-numeric:tabular-nums}
+  .wk .wkhead{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+  .wk .wkttl{font-size:20px;font-weight:900;color:var(--wkbrown);letter-spacing:-.5px;line-height:1.25}
+  .wk .wkttl small{display:block;font-size:11.5px;font-weight:700;color:var(--wkdim);
+                   letter-spacing:0;margin-top:3px}
+  .wk .wksel{margin-left:auto;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+  .wk .wksel label{font-size:11.5px;font-weight:800;color:var(--wkdim)}
+  .wk .wksel select{border:1px solid var(--wkline);background:#fff;border-radius:12px;
+                    padding:8px 11px;font-family:inherit;font-size:12.5px;font-weight:800;
+                    color:var(--wkbrown);cursor:pointer;max-width:240px}
+  .wk .wkchip{font-size:11px;font-weight:900;border-radius:20px;padding:4px 10px;
+              background:var(--wksoft);color:var(--wkrose);border:1px solid #EBD3CE;white-space:nowrap}
+  .wk .wkchip.live{background:#FDF1EC;color:#B26B5A;border-color:#F0D8CF}
+  .wk .wknotice{background:#FFF9F4;border:1px dashed #EAD0C6;border-radius:14px;
+                padding:10px 13px;font-size:12.5px;color:#8B6A5F;line-height:1.65;margin-bottom:12px}
+  .wk .wknotice b{color:var(--wkrose)}
+  .wk .wkcards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+  .wk .wkcard{background:#fff;border:1px solid var(--wkline);border-radius:16px;padding:12px 14px;
+              min-width:0}
+  .wk .wkcard.hero{background:linear-gradient(135deg,#E5B0B3 0%,#C88189 100%);border:0;
+                   box-shadow:0 10px 22px rgba(200,129,137,.26)}
+  .wk .wkcard .lb{font-size:11.5px;font-weight:800;color:var(--wkdim)}
+  .wk .wkcard .vl{font-size:24px;font-weight:900;color:var(--wkbrown);letter-spacing:-.8px;
+                  margin-top:2px;white-space:nowrap}
+  .wk .wkcard .vl i{font-style:normal;font-size:13px;font-weight:800;margin-left:2px;color:var(--wkdim)}
+  .wk .wkcard .sub{font-size:11px;color:var(--wkdim);margin-top:3px;line-height:1.45}
+  .wk .wkcard.hero .lb{color:#FBEAEA}
+  .wk .wkcard.hero .vl{color:#fff;font-size:27px}
+  .wk .wkcard.hero .vl i{color:#FBEAEA}
+  .wk .wkcard.hero .sub{color:#FCEFEF}
+  .wk .wkgrid{display:grid;grid-template-columns:1.3fr 1fr;gap:12px;margin-top:12px}
+  .wk .wkbox{background:#fff;border:1px solid var(--wkline);border-radius:18px;padding:13px 15px 15px}
+  .wk .wkbox h3{margin:0 0 11px;font-size:13.5px;font-weight:900;color:var(--wkbrown);
+                display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .wk .wkbox h3 small{margin-left:auto;font-size:10.5px;font-weight:700;color:var(--wkdim)}
+
+  /* 요일별 막대 */
+  .wk .wkbars{position:relative;height:196px;display:flex;align-items:flex-end;gap:6px;
+              padding:18px 2px 0;border-bottom:1px solid #F4E7E3}
+  .wk .wkb{flex:1 1 0;min-width:0;height:100%;display:flex;flex-direction:column;
+           justify-content:flex-end;align-items:center;position:relative;z-index:1}
+  .wk .wkb .v{font-size:10.5px;font-weight:900;color:var(--wkbrown);margin-bottom:4px;white-space:nowrap}
+  .wk .wkb .bar{width:100%;max-width:46px;flex:0 0 auto;border-radius:9px 9px 3px 3px;
+                background:linear-gradient(180deg,#F6DEDD 0%,#DFA2A5 100%);
+                box-shadow:inset 0 -3px 0 rgba(255,255,255,.35);transition:height .5s ease}
+  .wk .wkb.best .bar{background:linear-gradient(180deg,#DFA2A5 0%,#C88189 100%);
+                     box-shadow:0 6px 14px rgba(200,129,137,.32)}
+  .wk .wkb.best .v{color:var(--wkrose);font-size:11.5px}
+  .wk .wkb.miss .bar{height:5px !important;background:#F1E4E0;box-shadow:none}
+  .wk .wkb.miss .v{color:#CDB7B0;font-weight:800}
+  .wk .wkb .d{position:absolute;bottom:-32px;font-size:11px;font-weight:900;color:#A98F87;
+              text-align:center;line-height:1.3}
+  .wk .wkb .d b{display:block;font-size:10px;font-weight:700;color:#C7B2AB}
+  .wk .wkb.best .d{color:var(--wkrose)}
+  .wk .wkavg{position:absolute;left:0;right:0;border-top:1.5px dashed #D9B48F;z-index:0}
+  .wk .wkavg span{position:absolute;right:0;top:-17px;font-size:10px;font-weight:800;color:#B98A5E;
+                  background:#fff;padding:0 4px}
+  .wk .wkbarfoot{padding-top:36px;font-size:10.5px;color:var(--wkdim);line-height:1.6}
+
+  /* 도넛 */
+  .wk .wkflowwrap{display:flex;align-items:center;gap:14px}
+  .wk .wkdonut{width:126px;height:126px;flex:0 0 126px;border-radius:50%;position:relative;
+               background:conic-gradient(#EFE6E2 0 100%)}
+  .wk .wkdonut .hole{position:absolute;inset:17px;border-radius:50%;background:#fff;
+                     display:flex;flex-direction:column;align-items:center;justify-content:center;
+                     text-align:center;box-shadow:inset 0 0 0 1px #F6ECE8}
+  .wk .wkdonut .hole b{font-size:19px;font-weight:900;color:var(--wkbrown);letter-spacing:-.6px}
+  .wk .wkdonut .hole span{font-size:10px;font-weight:800;color:var(--wkdim);margin-top:1px}
+  .wk .wklegen{flex:1 1 auto;min-width:0}
+  .wk .wklegen .row{display:flex;align-items:center;gap:7px;font-size:12px;padding:3px 0;
+                    color:#7E6660;font-weight:700}
+  .wk .wklegen .row i{width:9px;height:9px;border-radius:3px;flex:0 0 9px}
+  .wk .wklegen .row em{font-style:normal;margin-left:auto;font-weight:900;color:var(--wkbrown)}
+  .wk .wklegen .row small{color:var(--wkdim);font-weight:700}
+  .wk .wkbasis{margin-top:10px;font-size:10.5px;color:var(--wkdim);line-height:1.55}
+
+  /* 조회수 많은 글 */
+  .wk .wkrank{display:flex;flex-direction:column;gap:3px}
+  .wk .wkrk{position:relative;display:grid;grid-template-columns:24px 54px minmax(0,1fr) auto;
+            gap:8px;align-items:center;padding:6px 7px;border-radius:10px;overflow:hidden;
+            font-size:12px}
+  .wk .wkrk .bg{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#FBEFEC,#FDF8F6);
+                border-radius:10px;z-index:0}
+  .wk .wkrk>*{position:relative;z-index:1}
+  .wk .wkrk .no{width:22px;height:22px;border-radius:50%;background:#F7E7E4;color:#A8847C;
+                font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center}
+  .wk .wkrk.top1 .no{background:linear-gradient(135deg,#DFA2A5,#C88189);color:#fff}
+  .wk .wkrk .ty{font-size:9.5px;font-weight:900;border-radius:20px;padding:2px 6px;text-align:center;
+                background:#F6E3E1;color:#B4726E;white-space:nowrap}
+  .wk .wkrk .ty.search{background:#F3EDE9;color:#9B8478}
+  .wk .wkrk .tt{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+                color:#5E4A44;font-weight:700}
+  .wk .wkrk .vv{font-weight:900;color:var(--wkbrown);font-size:12.5px}
+  .wk .wkrk .bl{font-size:9.5px;color:#C0A9A2;font-weight:700;margin-left:5px}
+  .wk .wkmore{margin-top:8px;text-align:center;font-size:11.5px;font-weight:800;color:var(--wkrose);
+              cursor:pointer;padding:5px;border-radius:10px;background:#FCF3F1;border:1px solid #F3E1DC}
+
+  /* 읽을 점 */
+  .wk .wkins{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .wk .wkin{border:1px solid var(--wkline);border-radius:14px;padding:10px 12px;background:#FFFCFA;
+            display:flex;gap:9px}
+  .wk .wkin .n{width:21px;height:21px;flex:0 0 21px;border-radius:50%;background:var(--wksoft);
+               color:var(--wkrose);font-size:11px;font-weight:900;display:flex;align-items:center;
+               justify-content:center;margin-top:1px}
+  .wk .wkin b{display:block;font-size:12.5px;color:#5E4A44;letter-spacing:-.2px;line-height:1.4}
+  .wk .wkin p{margin:3px 0 0;font-size:11.5px;color:#8B7269;line-height:1.6}
+
+  /* 체크리스트 */
+  .wk .wktodo{display:flex;flex-direction:column;gap:7px}
+  .wk .wkt{display:flex;align-items:flex-start;gap:9px;background:#FFFCFA;border:1px solid var(--wkline);
+           border-radius:13px;padding:9px 12px;cursor:pointer;transition:.15s}
+  .wk .wkt:hover{border-color:#E6CCC5;background:#FFF9F7}
+  .wk .wkt input{appearance:none;-webkit-appearance:none;width:17px;height:17px;flex:0 0 17px;
+                 margin:1px 0 0;border:1.6px solid #DCC6BF;border-radius:6px;background:#fff;
+                 cursor:pointer;position:relative;transition:.15s}
+  .wk .wkt input:checked{background:linear-gradient(135deg,#DFA2A5,#C88189);border-color:#C88189}
+  .wk .wkt input:checked::after{content:"✓";position:absolute;inset:0;color:#fff;font-size:11px;
+                                font-weight:900;display:flex;align-items:center;justify-content:center}
+  .wk .wkt.done span{color:#BBA8A2;text-decoration:line-through}
+  .wk .wkt span{font-size:12.5px;color:#5E4A44;line-height:1.55;font-weight:700}
+
+  /* 자세히 보기 */
+  .wk .wksub{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+  .wk .wksub button{border:1px solid var(--wkline);background:#fff;color:#9B847C;font-family:inherit;
+                    font-size:12px;font-weight:800;padding:6px 13px;border-radius:20px;cursor:pointer}
+  .wk .wksub button.on{background:var(--wksoft);color:var(--wkrose);border-color:#EBD3CE}
+  .wk .wkdetail{overflow:auto;max-height:56vh;border:1px solid #F5E9E5;border-radius:13px}
+  .wk .wkdetail table{font-size:12px}
+  .wk .wkdetail thead th{background:#FBF1EE;color:#8E736B;border-bottom:1px solid #F2E3DE}
+  .wk .wkdetail tbody td{border-bottom:1px solid #FAEFEC;color:#6E5850}
+  .wk .wkdetail tbody td.l{text-align:left;white-space:normal}
+  .wk .wkdetail tbody td.v{font-weight:900;color:var(--wkbrown)}
+  .wk .wkdetail tbody tr.miss td{color:#C9B5AE}
+  .wk .wkfoot{margin-top:12px;font-size:10.5px;color:#C0AAA3;line-height:1.6}
+  .wk .wkempty{padding:26px 10px;text-align:center;font-size:12.5px;color:var(--wkdim);line-height:1.7}
+
+  /* ---------- 🛋️ 좁은 화면(모바일) 라운지 — 휴식 중 캐릭터가 겹쳐 보이지 않게 ---------- */
+  @media (max-width: 900px) {
+    .walker.resting .bod{width:26px;height:33px}          /* 앉은 자세는 살짝 작게 → 소파가 넓어 보임 */
+    .walker.resting .resttag{font-size:0;padding:0 5px;top:-15px}   /* 글자 대신 ☕ 하나만 */
+    .walker.resting .resttag:before{content:"☕";font-size:9px}
+  }
+  @media (max-width: 900px) {
+    .wk{padding:13px 11px 15px}
+    .wk .wkcards{grid-template-columns:1fr 1fr}
+    .wk .wkgrid{grid-template-columns:1fr}
+    .wk .wkcard .vl{font-size:20px}
+    .wk .wkcard.hero .vl{font-size:22px}
+    .wk .wkins{grid-template-columns:1fr}
+    .wk .wkflows{flex-direction:column;align-items:flex-start}
+    .wk .wkbars{height:168px}
+    .wk .wkrk{grid-template-columns:22px 46px minmax(0,1fr) auto;gap:6px;font-size:11.5px}
+    .wk .wkrk .bl{display:none}
+    .wk .wkttl{font-size:17px}
+  }
+
+  /* ---------- 🎬 공식 유튜브 자동 캡처기 (v2.4) ---------- */
+  .ytenv{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);
+         border-radius:14px;padding:9px 12px;margin-bottom:12px;font-size:12.5px;color:#7d6870}
+  .ytenv .dot2{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:5px;background:#cbb7bf}
+  .ytenv .dot2.ok{background:#5cba82}
+  .ytenv .dot2.no{background:#e6a95c}
+  .ytenv b{color:#b9577a}
+  .ytbox{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px}
+  .ytsearch{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end}
+  .ytsearch > div{min-width:0}
+  .ytsearch .btn{white-space:nowrap}
+  .ytinsta{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end;margin-top:10px;
+           padding-top:10px;border-top:1px dashed var(--line)}
+  .ytinsta input{flex:1 1 170px;min-width:150px}
+  .ytmini{font-size:11.5px;color:#b09aa2}
+  .ytchk{display:flex;align-items:center;gap:6px;font-size:12px;color:#8d7780;margin-top:10px;cursor:pointer}
+  .ytwarn{margin-top:8px;font-size:12px;color:#a2792a;background:#fffaf0;border:1px solid #f3e3b6;
+          border-radius:11px;padding:7px 10px;display:none}
+  .ytwarn b{color:#8a6416}
+  .ytres{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:11px;margin-top:12px}
+  .ytcard{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:#fff;display:flex;
+          flex-direction:column}
+  .ytcard .th{position:relative;display:block;background:#f7f1f3}
+  .ytcard .th img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+  .ytcard .th .dur{position:absolute;right:6px;bottom:6px;background:rgba(30,20,26,.78);color:#fff;
+                   font-size:10.5px;font-weight:800;border-radius:6px;padding:1px 5px}
+  .ytcard .m{padding:8px 9px 4px;flex:1}
+  .ytcard .t{font-size:12.6px;font-weight:800;line-height:1.36;color:#463339;
+             display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .ytcard .c{font-size:11.5px;color:#957f88;margin-top:4px;display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+  .ytb{font-size:10.5px;font-weight:900;border-radius:999px;padding:1px 7px;border:1px solid;white-space:nowrap}
+  .ytb.ok{background:#eefaf1;color:#2f7d4d;border-color:#c3e8cf}
+  .ytb.ver{background:#eef4ff;color:#3d63a8;border-color:#c9d9f5}
+  .ytb.chk{background:#fff8e6;color:#a2792a;border-color:#f0dfae}
+  .ytb.no{background:#fdeeee;color:#b3423f;border-color:#f2c6c4}
+  .ytacts{display:flex;gap:6px;padding:6px 9px 9px;flex-wrap:wrap}
+  .ytacts .btn{flex:1 1 auto;justify-content:center}
+  .yth{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;margin:16px 2px 8px}
+  .yth b{font-size:14.5px;color:#463339}
+  .ytbar{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-bottom:9px}
+  .ytwarn2{font-size:12px;color:#a33;background:#fdeeee;border:1px solid #f2c6c4;border-radius:11px;
+           padding:8px 10px;margin-bottom:10px;line-height:1.5;font-weight:700}
+  .ytgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:12px}
+  .ytframe{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:#fff;display:flex;
+           flex-direction:column}
+  .ytframe > img{width:100%;display:block;background:#f7f1f3}
+  .ytframe .fb{padding:8px 9px 9px;flex:1;display:flex;flex-direction:column;gap:6px}
+  .ytframe .ts{font-size:11px;font-weight:900;color:#c4587a}
+  .ytframe .srcin{width:100%;font-size:10.5px;font-family:Consolas,"D2Coding",monospace;border:1px solid var(--line);
+                  border-radius:8px;padding:5px 6px;color:#6b5a61;background:#fffafc;line-height:1.45}
+  .ytframe .fbact{display:flex;gap:6px;margin-top:auto}
+  .ytframe .fbact .btn{flex:1 1 auto;justify-content:center;text-decoration:none}
+  .ytpast{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px}
+  .ytpast .p{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;cursor:pointer;text-align:left;
+             padding:0;font-family:inherit}
+  .ytpast .p:hover{border-color:var(--pink-line);box-shadow:0 6px 16px rgba(214,151,170,.18)}
+  .ytpast .p img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#f7f1f3}
+  .ytpast .p .pt{padding:6px 7px;font-size:11px;color:#7d6870;line-height:1.35}
+  .ytpast .p .pt b{display:block;color:#463339;font-size:11.5px;margin-bottom:2px;
+                   display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+  .ytframe .srcin{resize:vertical;min-height:62px;line-height:1.45;overflow:auto}
+  .ytextra{margin-top:10px;font-size:12px;color:#8d7780}
+  .ytextra summary{cursor:pointer;font-weight:800;color:#957f88}
+  .ytextra summary:hover{color:#c4587a}
+  .ytextra .xch{display:inline-block;background:#fff6fa;border:1px solid var(--line);border-radius:999px;
+                 padding:2px 9px;margin:3px 4px 0 0;font-size:11.5px;color:#7d6870}
+  .ytdetail{margin-top:6px;font-size:11.5px;color:#8d7780}
+  .ytdetail summary{cursor:pointer;font-weight:800;color:#a2792a}
+  .ytdetail div{margin-top:4px;white-space:pre-wrap;word-break:break-all;font-family:Consolas,"D2Coding",monospace;font-size:10.5px;color:#9a8790}
+  .ytspin{display:inline-block;width:13px;height:13px;border:2px solid #f2c9d7;border-top-color:#d9497a;
+          border-radius:50%;animation:ytspin .7s linear infinite;vertical-align:-2px;margin-right:5px}
+  @keyframes ytspin{to{transform:rotate(360deg)}}
+  .ytempty{grid-column:1/-1;background:#fffafc;border:1px dashed var(--line);border-radius:14px;
+           padding:16px;text-align:center;color:#a09199;font-size:12.5px;line-height:1.6}
 
 /* ===== mobile overrides (build) ===== */
 /* ============================================================
@@ -1779,7 +2041,7 @@ body.locked{overflow:hidden}
 
   <header class="hero">
     <div>
-      <h1>🏢 예닝 오피스 <span class="amp">·</span> 📱 모바일 <span style="display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;background:#ffe3ee;border:1px solid #f6a9bf;color:#a64065;font-size:12px;font-weight:700;vertical-align:middle">v2.3 · 11/20</span></h1>
+      <h1>🏢 예닝 오피스 <span class="amp">·</span> 📱 모바일 <span style="display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;background:#ffe3ee;border:1px solid #f6a9bf;color:#a64065;font-size:12px;font-weight:700;vertical-align:middle">v2.5 · 11/20</span></h1>
       <p>팀장님 아홉 분 오늘 실적 · 염탐 · 수익 · 가계부를 한 화면에서 🌸</p>
     </div>
     <div class="hero-side">
@@ -1788,6 +2050,7 @@ body.locked{overflow:hidden}
       <button class="btn small" id="linkBook" title="블로그 9곳 · 클립 · 인스타 · 스레드 · 페이스북 주소를 모아서 1초 복사">🔗 내 링크 모음</button>
       <button class="btn small" id="roomCfg" title="블로그 9곳의 밤티 이미지 · 젠스파크 · 클로드 방 · 밤티 대화방 주소와 블로그별 목표 편수를 넣습니다">⚙️ 링크/방 설정</button>
       <button class="btn small" id="notionBtn" title="노션 공용 허브 · 🛍️ 쇼핑커넥트 전용 허브 · 체험단 마스터 센터 · 예약발행 현황 · 일일 성과 리포트를 새 탭으로 엽니다">📝 노션 바로가기</button>
+      <button class="btn small" id="ytJump" title="공식 유튜브에서 장면 6~7장을 캡처하고 출처를 자동으로 만들어요">🎬 유튜브 캡처</button>
       <button class="btn small" id="refresh">↻ 현황 새로고침</button>
     </div>
   </header>
@@ -1812,6 +2075,8 @@ body.locked{overflow:hidden}
     <button class="tab" data-tab="spy">🕵️ 내 블로그 염탐<span class="tbadge" id="spyBadge" style="display:none"></span></button>
     <button class="tab" data-tab="revenue">💰 수익 현황</button>
     <button class="tab" data-tab="budget">📒 예닝 가계부</button>
+    <button class="tab" data-tab="ytcap">🎬 유튜브 캡처</button>
+    <button class="tab" data-tab="weekly">📊 주간 리포트</button>
   </nav>
 
   <div class="tabpane on" id="pane-office">
@@ -1825,7 +2090,8 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11200057" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11200444" alt="예닝 오피스 배경">
+      <div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>
     </div>
     <div class="desk-list" id="deskList"></div>
     <div class="propshelf" id="propShelf">
@@ -2466,6 +2732,174 @@ body.locked{overflow:hidden}
   </section>
   </div>
 
+  <div class="tabpane" id="pane-ytcap">
+  <!-- ================= 🎬 공식 유튜브 자동 캡처기 (v2.4) ================= -->
+  <section class="panel" id="ytpanel">
+    <div class="phead">
+      <h2>🎬 공식 유튜브 자동 캡처기</h2>
+      <span class="hint">검색 → 공식 채널만 → 장면 6~7장 + 출처 자동 저장 · PC 전용</span>
+      <button class="btn small" id="ytEnvRefresh" style="margin-left:auto" title="yt-dlp · ffmpeg 준비 상태를 다시 확인합니다">↻ 준비 상태</button>
+    </div>
+
+    <div class="ytenv" id="ytEnvBar"><span class="ytspin"></span>준비 상태 확인 중…</div>
+
+    <div class="ytbox">
+      <div class="ytsearch">
+        <div style="flex:2 1 260px">
+          <label class="f">무엇을 찾을까요? (예: 박동원 홈런, 카더가든)</label>
+          <input type="text" id="ytQ" placeholder="검색어를 넣고 Enter — 개인 유튜버는 빼고 공식 채널만 골라요">
+        </div>
+        <div style="flex:0 1 130px">
+          <label class="f">후보 수</label>
+          <select id="ytN">
+            <option value="8">8개</option>
+            <option value="14" selected>14개</option>
+            <option value="20">20개</option>
+          </select>
+        </div>
+        <button class="btn main" id="ytGo">🔎 공식 영상 찾기</button>
+        <button class="btn" id="ytInsta" title="구글에서 site:instagram.com 으로 그 이름의 공식 인스타그램을 찾아 새 창으로 엽니다">📸 공식 인스타 찾기</button>
+      </div>
+
+      <div class="ytinsta">
+        <div style="flex:0 1 210px">
+          <label class="f">인스타 계정명 (출처 예시 복사용)</label>
+          <input type="text" id="ytInstaAcc" placeholder="@계정명 (비우면 검색어) ">
+        </div>
+        <button class="btn small" id="ytInstaCopy">📋 인스타 출처 예시 복사</button>
+        <span class="ytmini" id="ytInstaHint">예) 출처: @kbo_fan 공식 인스타그램</span>
+      </div>
+
+      <label class="ytchk"><input type="checkbox" id="ytAllCh"> 개인·비공식 채널도 같이 보기 (기본은 숨김)</label>
+      <div class="ytwarn" id="ytAllWarn"></div>
+
+      <details class="ytextra">
+        <summary>＋ 우리가 쓰는 공식 채널 직접 추가 (예: 새 구단 · 소속사 채널)</summary>
+        <div class="ytsearch" style="margin-top:8px">
+          <div style="flex:1 1 260px"><input type="text" id="ytExtra" placeholder="채널 이름 그대로 (예: 수원FC)"></div>
+          <button class="btn small main" id="ytExtraSave">＋ 허용 목록에 추가</button>
+        </div>
+        <div class="ytmini" id="ytExtraList" style="margin-top:7px">불러오는 중…</div>
+      </details>
+    </div>
+
+    <div class="status" id="ytStatus" style="display:none"></div>
+    <div class="ytres" id="ytRes" style="display:none"></div>
+
+    <div class="ytbox" style="margin-top:12px">
+      <label class="f">유튜브 주소로 바로 캡처</label>
+      <div class="ytsearch">
+        <div style="flex:1 1 320px">
+          <input type="text" id="ytUrl" placeholder="https://youtu.be/… 또는 youtube.com/watch?v=…">
+        </div>
+        <div style="flex:0 1 96px">
+          <select id="ytCount">
+            <option value="7" selected>7장</option>
+            <option value="6">6장</option>
+          </select>
+        </div>
+        <button class="btn main" id="ytCapUrl">🎬 이 영상 캡처</button>
+        <button class="btn small" id="ytThumbBtn" title="내려받기가 막혔을 때만 — 유튜브 썸네일 4장으로 대체 저장">📷 썸네일 4장 대체</button>
+      </div>
+      <div class="ytmini" style="margin-top:7px">사진은 <b>오피스 폴더 → captures → 날짜 폴더</b>에 저장되고, 같은 폴더에 <b>출처.txt</b> 가 함께 만들어져요.</div>
+    </div>
+
+    <div id="ytResultWrap" style="display:none">
+      <div class="yth"><b id="ytCapTitle">캡처 결과</b><span class="ytmini" id="ytCapMeta"></span></div>
+      <div class="ytbar">
+        <button class="btn small" id="ytOpen">📂 폴더 열기</button>
+        <button class="btn small claude" id="ytCopyAll">📋 출처 전체 복사</button>
+        <button class="btn small" id="ytCopyMain">📋 대표 출처만 복사</button>
+        <span class="ytmini" id="ytFolderTx"></span>
+      </div>
+      <div class="ytwarn2" id="ytCapWarn" style="display:none"></div>
+      <div class="ytgrid" id="ytFrames"></div>
+      <div class="copybox">
+        <label class="f">전체 출처 복사칸 (Ctrl+A → Ctrl+C 로도 가져갈 수 있어요)</label>
+        <textarea id="ytSourceAll" readonly></textarea>
+      </div>
+    </div>
+
+    <div class="yth"><b>🗂 지난 캡처</b><span class="ytmini">눌러서 사진과 출처를 다시 꺼내요</span></div>
+    <div class="ytpast" id="ytPast"></div>
+  </section>
+  </div>
+
+  <div class="tabpane" id="pane-weekly">
+  <!-- ================= 📊 주간 리포트 (v2.5) ================= -->
+  <section class="panel wk" id="wkPanel">
+    <div class="wkhead">
+      <div class="wkttl">피콜로 분석 · 주간 흐름
+        <small>월~일 한 주를 한 장으로 · 크리에이터 어드바이저 23:30 수집 기록으로만 계산해요</small>
+      </div>
+      <div class="wksel">
+        <label for="wkWeek">주차</label>
+        <select id="wkWeek"></select>
+        <span class="wkchip" id="wkState">불러오는 중…</span>
+        <button class="btn small" id="wkReload" title="수집 기록을 다시 읽어 주간 리포트를 새로 만듭니다">↻ 다시 계산</button>
+      </div>
+    </div>
+
+    <div class="wknotice" id="wkNotice">주간 기록을 불러오는 중…</div>
+
+    <div class="wkcards" id="wkCards"></div>
+
+    <div class="wkgrid">
+      <div class="wkbox">
+        <h3>요일별 조회수 <small id="wkBarMeta"></small></h3>
+        <div class="wkbars" id="wkBars"></div>
+        <div class="wkbarfoot" id="wkBarFoot"></div>
+      </div>
+      <div class="wkbox">
+        <h3>어디서 들어왔나 <small>유입 비율</small></h3>
+        <div class="wkflowwrap">
+          <div class="wkdonut" id="wkFlow"><div class="hole"><b>–</b><span>홈판</span></div></div>
+          <div class="wklegen" id="wkFlowLeg"></div>
+        </div>
+        <div class="wkbasis" id="wkFlowBasis"></div>
+      </div>
+    </div>
+
+    <div class="wkgrid">
+      <div class="wkbox">
+        <h3>조회수 많은 글 <small id="wkRankMeta"></small></h3>
+        <div class="wkrank" id="wkRank"></div>
+        <div class="wkmore" id="wkRankMore" style="display:none">▾ 나머지 글 더 보기</div>
+      </div>
+      <div class="wkbox">
+        <h3>글 유형별 조회 <small>기록된 순위 글 기준</small></h3>
+        <div class="wkflowwrap">
+          <div class="wkdonut" id="wkTypeFlow"><div class="hole"><b>–</b><span>유형</span></div></div>
+          <div class="wklegen" id="wkTypeLeg"></div>
+        </div>
+        <div class="wkbasis" id="wkTypeBasis"></div>
+      </div>
+    </div>
+
+    <div class="wkbox" style="margin-top:12px">
+      <h3>읽을 점 <small>실제 수치에서만 뽑은 관찰</small></h3>
+      <div class="wkins" id="wkInsights"></div>
+    </div>
+
+    <div class="wkbox" style="margin-top:12px">
+      <h3>다음 기획에 넣을 것 <small>체크하면 저장돼요</small></h3>
+      <div class="wktodo" id="wkTodos"></div>
+    </div>
+
+    <div class="wkbox" style="margin-top:12px">
+      <h3>자세히 보기 <small id="wkDetailMeta"></small></h3>
+      <div class="wksub" id="wkSub">
+        <button class="on" data-wkv="day">날짜별</button>
+        <button data-wkv="flow">유입</button>
+        <button data-wkv="post">글별</button>
+      </div>
+      <div class="wkdetail" id="wkDetail"></div>
+    </div>
+
+    <div class="wkfoot" id="wkFoot"></div>
+  </section>
+  </div>
+
   <div class="foot">📱 모바일 웹 버전 · 개인 데이터는 PIN(4자리)로 암호화되어 있어요 · 📒 가계부는 폰에 바로 저장 · 나머지 수정은 PC 버전에서</div>
 </div>
 <div class="toast" id="toast"></div>
@@ -2632,7 +3066,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11200057"></script>
+<script src="assets/pin.js?v=11200444"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -2673,10 +3107,12 @@ const YEONTAN_ROAM = [
 const ROYALS = [];
 const REDUCE = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* ☕ 목표 달성 휴식 좌석 — office_bg.png 중앙 핑크 라운지 소파 위 9자리 (배경 이미지 % 좌표) */
+/* ☕ 목표 달성 휴식 좌석 — 중앙 라운지 소파 7자리 + 보조 소파 2자리 (배경 이미지 % 좌표) */
 const SOFA_SEATS = [
-  [33.5, 55.0], [36.5, 52.0], [40.5, 49.6], [45.0, 48.0], [50.0, 47.3],
-  [55.0, 48.0], [59.5, 49.6], [63.5, 52.0], [67.0, 55.0]
+  /* v2.5 라운지 확장 — 큰 소파 6자리(곡선 끝까지 넓게) + 보조 소파(3인) 3자리 */
+  [34.5, 54.2], [40.7, 49.9], [46.9, 47.9],
+  [53.1, 47.9], [59.3, 49.9], [65.5, 54.2],
+  [32.2, 72.4], [36.6, 72.8], [41.0, 72.4]
 ];
 let REST_DEMO = false;
 try { REST_DEMO = new URLSearchParams(location.search).get("rest_demo") === "1"; } catch(e) {}
@@ -4935,7 +5371,8 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11200057" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11200444" alt="예닝 오피스 배경">`;
+  html += `<div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>`;   /* 🛋️ v2.5 보조 소파 */
   html += `<img class="sportmat" src="assets/avatars/spobriefing_mat.png" alt="⚾ 스포츠 데스크 매트">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
   OFFICE.blogs.forEach(b => { html += deskCardHTML(b, posOf(b)); });
@@ -7051,7 +7488,7 @@ if ($("#spyRun")) $("#spyRun").onclick = runSpy;
 if ($("#spyCsv")) $("#spyCsv").onclick = spyCsv;
 
 /* ================= 탭 전환 ================= */
-const TABS = ["office", "hot", "campaign", "miner", "spy", "revenue", "budget"];
+const TABS = ["office", "hot", "campaign", "miner", "spy", "revenue", "budget", "ytcap", "weekly"];
 function showTab(name){
   if (TABS.indexOf(name) < 0) name = "office";
   document.querySelectorAll("#tabs .tab").forEach(t =>
@@ -7065,9 +7502,341 @@ function showTab(name){
   if (name === "revenue") { loadRevenue(); loadMemo(); }
   if (name === "budget") loadBudget();
   if (name === "spy") loadSpy();
+  if (name === "ytcap") { ytLoadEnv(); ytLoadPast(); ytLoadExtra(); }
+  if (name === "weekly" && !(WEEKLY.weeks || []).length) loadWeekly();
 }
 document.querySelectorAll("#tabs .tab").forEach(t => {
   t.onclick = () => showTab(t.dataset.tab);
+});
+
+/* ================= 📊 주간 리포트 (v2.5) ================= */
+/*  크리에이터 어드바이저 23:30 수집 기록(creator_advisor_logs)만으로 만든 /api/weekly 를 그립니다.
+    - 아직 수집 전인 날짜는 0 이 아니라 '-' 로 표시합니다(가짜 숫자 금지).
+    - 체크리스트는 폰(localStorage) + PC(/api/weekly/todo) 양쪽에 저장됩니다. */
+let WEEKLY = { ok: false, weeks: [], sel: "" };
+let WK_VIEW = "day";
+let WK_MORE = false;
+const WK_MOBILE = (typeof window.__OFFICE_READY !== "undefined");
+
+function wkN(n, dflt) {
+  if (n === null || n === undefined || n === "") return (dflt === undefined ? "–" : dflt);
+  return Number(n).toLocaleString("ko-KR");
+}
+function wkPct(v) {
+  if (v === null || v === undefined) return "–";
+  return (Math.round(Number(v) * 10) / 10) + "%";
+}
+function wkDoneLocal() {
+  try { return JSON.parse(localStorage.getItem("office_weekly_todo") || "{}") || {}; } catch (e) { return {}; }
+}
+function wkSaveLocal(o) {
+  try { localStorage.setItem("office_weekly_todo", JSON.stringify(o)); } catch (e) {}
+}
+function wkCur() {
+  const list = WEEKLY.weeks || [];
+  return list.find(w => w.key === WEEKLY.sel) || list[0] || null;
+}
+
+async function loadWeekly(force) {
+  const n = $("#wkNotice");
+  if (n && !(WEEKLY.weeks || []).length) n.textContent = "주간 기록을 불러오는 중…";
+  let url = "/api/weekly?" + (force ? "fresh=1&" : "") + "t=" + Date.now();
+  try {
+    const r = await fetch(url);
+    const d = await r.json();
+    WEEKLY = d || { ok: false, weeks: [] };
+    const list = WEEKLY.weeks || [];
+    if (!WEEKLY.sel || !list.some(w => w.key === WEEKLY.sel)) WEEKLY.sel = (list[0] || {}).key || "";
+    renderWeekly();
+  } catch (e) {
+    if (n) n.innerHTML = "주간 리포트를 불러오지 못했어요 — <b>" + esc(String((e && e.message) || e)) + "</b><br>" +
+      "PC 오피스가 켜져 있는지 확인하고 [↻ 다시 계산]을 눌러 주세요.";
+  }
+}
+
+function renderWeekly() {
+  const w = wkCur();
+  const sel = $("#wkWeek");
+  if (sel) {
+    sel.innerHTML = (WEEKLY.weeks || []).map(x =>
+      `<option value="${esc(x.key)}"${x.key === (w && w.key) ? " selected" : ""}>${esc(x.label)}${x.status === "in_progress" ? " (진행 중)" : ""}</option>`
+    ).join("") || `<option>기록 없음</option>`;
+  }
+  const st = $("#wkState");
+  if (st) {
+    st.className = "wkchip" + (w && w.status === "in_progress" ? " live" : "");
+    st.textContent = !w ? "기록 없음" : (w.status === "in_progress" ? "📝 진행 중 · " + w.days_counted + "일 수집" : "✅ " + w.days_counted + "일 완성");
+  }
+  const nt = $("#wkNotice");
+  if (nt) {
+    if (!w) {
+      nt.innerHTML = "아직 이 주의 수집 기록이 없어요. 밤 11시 30분 수집이 하루씩 쌓이면 자동으로 채워져요.";
+    } else {
+      nt.innerHTML = "🗓 <b>" + esc(w.label) + "</b> · " + esc(w.notice);
+    }
+  }
+  const panel = $("#wkPanel");
+  if (panel) panel.style.display = "";
+  if (!w) {
+    ["#wkCards", "#wkBars", "#wkRank", "#wkInsights", "#wkTodos"].forEach(s => {
+      const el = $(s); if (el) el.innerHTML = `<div class="wkempty">표시할 기록이 아직 없어요.</div>`;
+    });
+    ["#wkFlowLeg", "#wkTypeLeg"].forEach(s => { const el = $(s); if (el) el.innerHTML = ""; });
+    const det = $("#wkDetail"); if (det) det.innerHTML = "";
+    return;
+  }
+  wkRenderCards(w);
+  wkRenderBars(w);
+  wkRenderFlow(w);
+  wkRenderRank(w);
+  wkRenderTypes(w);
+  wkRenderInsights(w);
+  wkRenderTodos(w);
+  wkRenderDetail(w);
+  const foot = $("#wkFoot");
+  if (foot) {
+    foot.innerHTML = "📡 출처 · " + esc(WEEKLY.source || "") +
+      "<br>📚 " + esc(WEEKLY.coverage || "") +
+      (WEEKLY.updated ? "<br>🕒 마지막 계산 " + esc(String(WEEKLY.updated).replace("T", " ").slice(0, 16)) : "") +
+      "<br>※ 수치가 비어 있는 날짜는 0이 아니라 ‘수집 전’이에요. 없는 숫자는 만들지 않습니다.";
+  }
+}
+
+function wkRenderCards(w) {
+  const box = $("#wkCards");
+  if (!box) return;
+  const isFull = w.days_counted >= 7;
+  const best = w.best || {};
+  const top = w.top || {};
+  box.innerHTML =
+    `<div class="wkcard hero">
+       <div class="lb">한 주 조회수</div>
+       <div class="vl">${wkN(w.total)}<i>회</i></div>
+       <div class="sub">${isFull ? "월~일 7일 합계" : "수집된 " + w.days_counted + "일 합계"}</div>
+     </div>
+     <div class="wkcard">
+       <div class="lb">하루 평균</div>
+       <div class="vl">${wkN(w.avg)}<i>회</i></div>
+       <div class="sub">수집한 ${w.days_counted}일 평균</div>
+     </div>
+     <div class="wkcard">
+       <div class="lb">가장 많이 본 날</div>
+       <div class="vl">${best.label ? esc(best.label) + " <i>" + esc(best.wd) + "</i>" : "–"}</div>
+       <div class="sub">${best.views ? wkN(best.views) + "회" : "기록 없음"}</div>
+     </div>
+     <div class="wkcard">
+       <div class="lb">1위 글 쏠림</div>
+       <div class="vl">${wkPct(top.share)}</div>
+       <div class="sub">${top.title ? esc(String(top.title).slice(0, 22)) + (String(top.title).length > 22 ? "…" : "") : "기록 없음"}</div>
+     </div>`;
+}
+
+function wkRenderBars(w) {
+  const box = $("#wkBars"), foot = $("#wkBarFoot"), meta = $("#wkBarMeta");
+  if (!box) return;
+  const days = w.days || [];
+  const vals = days.filter(d => d.views !== null && d.views !== undefined);
+  const max = Math.max.apply(null, vals.map(d => d.views).concat([1]));
+  const avg = w.avg || 0;
+  const bestDate = (w.best || {}).date;
+  if (meta) meta.textContent = vals.length ? ("최고 " + wkN(Math.max.apply(null, vals.map(d => d.views))) + "회") : "수집 전";
+  box.innerHTML = days.map(d => {
+    const miss = (d.views === null || d.views === undefined);
+    const h = miss ? 5 : Math.max(5, Math.round(d.views / max * 84));
+    const cls = "wkb" + (miss ? " miss" : "") + (d.date === bestDate ? " best" : "");
+    return `<div class="${cls}" title="${esc(d.label)}(${esc(d.wd)}) ${miss ? "수집 전" : wkN(d.views) + "회"}">
+      <span class="v">${miss ? "-" : wkN(d.views)}</span>
+      <div class="bar" style="height:${h}%"></div>
+      <span class="d">${esc(d.wd)}<b>${esc(d.label)}</b></span>
+    </div>`;
+  }).join("");
+  /* 평균 점선은 막대와 같은 눈금(칸 높이의 84%)으로 그립니다 — %가 컨테이너 기준이라
+     padding 만큼 어긋나던 문제를 px 로 맞춥니다. */
+  if (avg) {
+    const colH = Math.max(40, box.clientHeight - 18);
+    const px = Math.max(6, Math.round(avg / max * 84 / 100 * colH));
+    const line = document.createElement("div");
+    line.className = "wkavg";
+    line.style.bottom = px + "px";
+    line.innerHTML = `<span>평균 ${wkN(avg)}</span>`;
+    box.appendChild(line);
+  }
+  if (foot) {
+    foot.textContent = vals.length
+      ? `막대 위 숫자는 그날 5곳 합계 조회수 · 주황 점선은 하루 평균(${wkN(avg)}회) · 빈 칸은 아직 수집 전이에요.`
+      : "이 주에는 아직 수집된 날짜가 없어요.";
+  }
+}
+
+function wkDonut(el, items, holeBig, holeSmall) {
+  if (!el) return;
+  let acc = 0;
+  const stops = [];
+  (items || []).forEach(it => {
+    const p = Number(it.pct) || 0;
+    if (p <= 0) return;
+    stops.push(it.color + " " + acc.toFixed(2) + "% " + (acc + p).toFixed(2) + "%");
+    acc += p;
+  });
+  el.style.background = stops.length ? "conic-gradient(from -90deg," + stops.join(",") + ")" : "conic-gradient(#EFE6E2 0% 100%)";
+  const hole = el.querySelector(".hole");
+  if (hole) hole.innerHTML = "<b>" + holeBig + "</b><span>" + holeSmall + "</span>";
+}
+
+function wkRenderFlow(w) {
+  const items = w.inflow || [];
+  const top = items.slice().sort((a, b) => (b.pct || 0) - (a.pct || 0))[0];
+  wkDonut($("#wkFlow"), items, top && top.pct ? wkPct(top.pct) : "–", top ? top.label : "유입");
+  const leg = $("#wkFlowLeg");
+  if (leg) {
+    leg.innerHTML = items.map(it =>
+      `<div class="row"><i style="background:${esc(it.color)}"></i>${esc(it.label)}<em>${wkPct(it.pct)}</em></div>`
+    ).join("") || `<div class="row">기록 없음</div>`;
+  }
+  const b = $("#wkFlowBasis");
+  if (b) {
+    b.innerHTML = items.length
+      ? "블로그별 유입 비중을 그 주 조회수로 가중한 값이에요." + (w.inflow_basis ? " (유입분석 기준일 " + esc(w.inflow_basis) + ")" : "")
+      : "유입경로 기록이 아직 없어요.";
+  }
+}
+
+function wkRenderRank(w) {
+  const box = $("#wkRank"), meta = $("#wkRankMeta"), more = $("#wkRankMore");
+  if (!box) return;
+  const posts = w.posts || [];
+  if (meta) meta.textContent = posts.length ? `기록된 ${w.post_count}편 중 상위` : "";
+  if (!posts.length) {
+    box.innerHTML = `<div class="wkempty">조회수 순위 기록이 아직 없어요.</div>`;
+    if (more) more.style.display = "none";
+    return;
+  }
+  const max = posts[0].views || 1;
+  const show = WK_MORE ? posts : posts.slice(0, 6);
+  box.innerHTML = show.map(p => {
+    const wpc = Math.max(3, Math.round(p.views / max * 100));
+    return `<div class="wkrk${p.rank === 1 ? " top1" : ""}">
+      <div class="bg" style="width:${wpc}%"></div>
+      <span class="no">${p.rank}</span>
+      <span class="ty ${p.type === "search" ? "search" : ""}">${p.type === "home" ? "홈판" : "검색"}</span>
+      <span class="tt" title="${esc(p.title)}">${esc(p.title)}<span class="bl">${esc(p.blog_name)}</span></span>
+      <span class="vv">${wkN(p.views)}</span>
+    </div>`;
+  }).join("");
+  if (more) {
+    more.style.display = posts.length > 6 ? "" : "none";
+    more.textContent = WK_MORE ? "▴ 접기" : "▾ 나머지 " + (posts.length - 6) + "편 더 보기";
+  }
+}
+
+function wkRenderTypes(w) {
+  const items = (w.types || []).map(t => ({ ...t, pct: t.share }));
+  const top = items.slice().sort((a, b) => (b.share || 0) - (a.share || 0))[0];
+  wkDonut($("#wkTypeFlow"), items, top && top.share ? wkPct(top.share) : "–", top ? top.label : "유형");
+  const leg = $("#wkTypeLeg");
+  if (leg) {
+    leg.innerHTML = items.map(it =>
+      `<div class="row"><i style="background:${esc(it.color)}"></i>${esc(it.label)}<em>${wkPct(it.share)}</em></div>`
+    ).join("") || `<div class="row">기록 없음</div>`;
+  }
+  const b = $("#wkTypeBasis");
+  if (b) {
+    b.innerHTML = "위 조회수 순위에 기록된 글 " + (w.post_count || 0) + "편을 기준으로 한 비중이에요. " +
+      "‘홈판형’은 그 주 홈판 유입 기록이 있는 글입니다.";
+  }
+}
+
+function wkRenderInsights(w) {
+  const box = $("#wkInsights");
+  if (!box) return;
+  const ins = w.insights || [];
+  box.innerHTML = ins.length ? ins.map(i =>
+    `<div class="wkin"><span class="n">${i.n}</span><div><b>${esc(i.title)}</b><p>${esc(i.body)}</p></div></div>`
+  ).join("") : `<div class="wkempty">아직 읽을 점을 만들 만큼 기록이 쌓이지 않았어요.</div>`;
+}
+
+function wkRenderTodos(w) {
+  const box = $("#wkTodos");
+  if (!box) return;
+  const local = wkDoneLocal()[w.key] || [];
+  const done = new Set((w.todo_done || []).concat(local));
+  box.innerHTML = (w.todos || []).map(t =>
+    `<label class="wkt${done.has(t.id) ? " done" : ""}" data-id="${esc(t.id)}">
+       <input type="checkbox"${done.has(t.id) ? " checked" : ""}><span>${esc(t.text)}</span>
+     </label>`
+  ).join("") || `<div class="wkempty">체크리스트가 아직 없어요.</div>`;
+  box.querySelectorAll("input[type=checkbox]").forEach(cb => {
+    cb.onchange = () => wkToggleTodo(w, cb);
+  });
+}
+
+async function wkToggleTodo(w, cb) {
+  const lab = cb.closest(".wkt");
+  const id = lab && lab.dataset.id;
+  if (!id) return;
+  lab.classList.toggle("done", cb.checked);
+  const all = wkDoneLocal();
+  const set = new Set(all[w.key] || []);
+  if (cb.checked) set.add(id); else set.delete(id);
+  all[w.key] = Array.from(set);
+  wkSaveLocal(all);
+  const srv = new Set(w.todo_done || []);
+  if (cb.checked) srv.add(id); else srv.delete(id);
+  w.todo_done = Array.from(srv);
+  if (WK_MOBILE) { toast("📱 이 기기에 저장했어요"); return; }
+  try {
+    const r = await fetch("/api/weekly/todo", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ week: w.key, done: w.todo_done })
+    });
+    const d = await r.json();
+    if (d && d.ok) toast("✅ 체크 저장했어요");
+    else if (d && d.error) toast("⚠️ " + d.error);
+  } catch (e) { toast("⚠️ 저장하지 못했어요 — 잠시 뒤 다시 눌러 주세요"); }
+}
+
+function wkRenderDetail(w) {
+  const box = $("#wkDetail"), meta = $("#wkDetailMeta");
+  if (!box) return;
+  if (meta) meta.textContent = WK_VIEW === "day" ? "7일 전체" : (WK_VIEW === "flow" ? "유입경로·블로그별" : "순위 기록 " + (w.post_count || 0) + "편");
+  if (WK_VIEW === "day") {
+    box.innerHTML = `<table><thead><tr><th class="l">날짜</th><th>조회</th><th>검색 유입</th><th>홈판 유입</th><th class="l">메모</th></tr></thead><tbody>` +
+      (w.days || []).map(d => {
+        const miss = d.views === null || d.views === undefined;
+        return `<tr class="${miss ? "miss" : ""}"><td class="l">${esc(d.label)} ${esc(d.wd)}</td>
+          <td class="v">${miss ? "-" : wkN(d.views)}</td>
+          <td>${miss ? "-" : wkN(d.search)}</td>
+          <td>${miss ? "-" : wkN(d.main)}</td>
+          <td class="l">${miss ? "수집 전" : ("실시간 수집 " + esc(d.collected || "23:30"))}</td></tr>`;
+      }).join("") + `</tbody></table>`;
+  } else if (WK_VIEW === "flow") {
+    const rows = (w.inflow || []).map(it => `<tr><td class="l">${esc(it.label)}</td><td class="v">${wkPct(it.pct)}</td></tr>`).join("");
+    const bl = (w.blogs || []).map(b =>
+      `<tr><td class="l">${esc(b.emoji)} ${esc(b.name)}</td><td class="v">${wkN(b.views)}</td>
+        <td>${wkN(b.search)}</td><td>${wkN(b.main)}</td><td>${wkPct(b.share)}</td></tr>`).join("");
+    box.innerHTML = `<table><thead><tr><th class="l">유입경로</th><th>비중</th></tr></thead><tbody>${rows ||
+      `<tr class="miss"><td class="l">기록 없음</td><td>-</td></tr>`}</tbody></table>
+      <table style="margin-top:6px"><thead><tr><th class="l">블로그</th><th>조회</th><th>검색</th><th>홈판</th><th>비중</th></tr></thead>
+      <tbody>${bl || `<tr class="miss"><td class="l">기록 없음</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>`}</tbody></table>`;
+  } else {
+    box.innerHTML = `<table><thead><tr><th>#</th><th class="l">글</th><th class="l">블로그</th><th>조회</th><th class="l">기록일</th></tr></thead><tbody>` +
+      (w.posts || []).map(p =>
+        `<tr><td>${p.rank}</td><td class="l" title="${esc(p.title)}">${esc(p.title)}</td>
+          <td class="l">${esc(p.blog_name)}</td><td class="v">${wkN(p.views)}</td>
+          <td class="l">${esc((p.day_labels || []).join(" · "))}</td></tr>`
+      ).join("") + `</tbody></table>`;
+  }
+}
+
+if ($("#wkWeek")) $("#wkWeek").onchange = () => { WEEKLY.sel = $("#wkWeek").value; WK_MORE = false; renderWeekly(); };
+if ($("#wkReload")) $("#wkReload").onclick = () => loadWeekly(true);
+if ($("#wkRankMore")) $("#wkRankMore").onclick = () => { WK_MORE = !WK_MORE; wkRenderRank(wkCur()); };
+document.querySelectorAll("#wkSub button").forEach(b => {
+  b.onclick = () => {
+    WK_VIEW = b.dataset.wkv;
+    document.querySelectorAll("#wkSub button").forEach(x => x.classList.toggle("on", x === b));
+    wkRenderDetail(wkCur());
+  };
 });
 
 /* ================= 체험단 대시보드 ================= */
@@ -7993,6 +8762,352 @@ saveRoomLinks = async function(payload){
   return _origSaveRoomLinks(payload);
 };
 
+/* ================= 🎬 공식 유튜브 자동 캡처기 (v2.4) ================= */
+let YTENV = null, YTCUR = null, YTSETUP_T = null;
+
+function ytEsc(s){
+  return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+function ytDur(sec){
+  sec = Number(sec) || 0;
+  if (!sec) return "";
+  const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60), s = sec % 60;
+  return (h ? h + ":" + p2(m) : String(m)) + ":" + p2(s);
+}
+function ytBadge(v){
+  const lvl = (v || {}).level || "private";
+  const cls = lvl === "official" ? "ok" : (lvl === "verified" ? "ver" : (lvl === "check" ? "chk" : "no"));
+  const ico = lvl === "official" ? "✅ " : (lvl === "verified" ? "☑️ " : (lvl === "check" ? "⚠️ " : "⛔ "));
+  return '<span class="ytb ' + cls + '">' + ico + ytEsc((v || {}).label || "") + "</span>";
+}
+
+async function ytLoadEnv(){
+  const bar = $("#ytEnvBar");
+  if (!bar) return;
+  const d = await apiJSON("/api/yt_env");
+  if (!d || !d.ok){ bar.textContent = "⚠️ 준비 상태를 읽지 못했어요"; return; }
+  YTENV = d;
+  const dot = ok => '<span class="dot2 ' + (ok ? "ok" : "no") + '"></span>';
+  let h = dot(!!d.ytdlp) + "yt-dlp " + (d.ytdlp ? "<b>" + ytEsc(d.ytdlp) + "</b>" : "<b>없음</b>")
+        + " &nbsp;·&nbsp; " + dot(!!d.ffmpeg) + "ffmpeg "
+        + (d.ffmpeg ? "<b>" + ytEsc(d.ffmpegKind) + "</b>" : "<b>없음</b>")
+        + " &nbsp;·&nbsp; " + dot(true) + "검색 <b>바로 됩니다</b>";
+  if (d.ready){
+    h += " &nbsp;·&nbsp; 🎬 캡처 준비 완료";
+  } else {
+    const st = (d.setup || {}).state || "idle";
+    if (st === "running") h += ' &nbsp;·&nbsp; <span class="ytspin"></span>설치 중… ' + ytEsc((d.setup || {}).ts || "");
+    else h += ' <button class="btn small main" id="ytSetupBtn" style="margin-left:6px">📦 패키지 설치 (한 번만)</button>';
+    if (st === "error") h += ' <span class="ytmini" style="color:#b3423f">설치가 실패했어요 — 사용법.txt 의 안내를 봐 주세요</span>';
+  }
+  bar.innerHTML = h;
+  const sb = $("#ytSetupBtn");
+  if (sb) sb.onclick = ytStartSetup;
+}
+
+async function ytStartSetup(){
+  const d = await apiJSON("/api/yt_setup", {method: "POST", headers: {"Content-Type": "application/json"}, body: "{}"});
+  if (!d || !d.ok){ toast("❌ 패키지 설치를 시작하지 못했어요"); return; }
+  toast("📦 설치를 시작했어요 — 1~3분 걸려요");
+  ytLoadEnv();
+  if (YTSETUP_T) clearInterval(YTSETUP_T);
+  YTSETUP_T = setInterval(async () => {
+    const e = await apiJSON("/api/yt_env");
+    ytLoadEnv();
+    if (e && e.ok && e.ready){
+      clearInterval(YTSETUP_T); YTSETUP_T = null;
+      toast("✅ 캡처 준비 완료 — 이제 영상을 담을 수 있어요");
+    } else if (e && e.setup && e.setup.state === "error"){
+      clearInterval(YTSETUP_T); YTSETUP_T = null;
+    }
+  }, 8000);
+}
+
+async function ytFind(){
+  const q = ($("#ytQ").value || "").trim();
+  if (!q){ toast("검색어를 먼저 적어 주세요"); try { $("#ytQ").focus(); } catch(e){} return; }
+  try { localStorage.setItem("yt_q", q); } catch(e){}
+  const n = $("#ytN").value || "14";
+  const allOn = $("#ytAllCh").checked;
+  const all = allOn ? "1" : "0";
+  $("#ytStatus").innerHTML = '<span class="ytspin"></span>「' + ytEsc(q) + '」 찾는 중…';
+  $("#ytStatus").style.display = "block";
+  $("#ytRes").innerHTML = "";
+  $("#ytRes").style.display = "grid";
+  $("#ytGo").disabled = true;
+  const t0 = Date.now();
+  const d = await apiJSON("/api/yt_search?q=" + encodeURIComponent(q) + "&n=" + n + "&all=" + all);
+  $("#ytGo").disabled = false;
+  const took = ((Date.now() - t0) / 1000).toFixed(1);
+  if (!d || !d.ok){
+    $("#ytStatus").style.display = "block";
+    $("#ytStatus").innerHTML = "⚠️ " + ytEsc((d && d.error) || "검색에 실패했어요");
+    return;
+  }
+  const items = d.items || [];
+  $("#ytStatus").innerHTML = "🔎 <b>" + ytEsc(d.query) + "</b> · 공식 <b>" + (d.officialN || 0) + "개</b>"
+    + (d.verifiedN ? " · 인증 " + d.verifiedN + "개" : "")
+    + (d.checkN ? " · 확인 필요 " + d.checkN + "개" : "")
+    + " · 개인 채널 <b>" + (d.hidden || 0) + "개 숨김</b>"
+    + ' <span class="ytmini">(' + took + "초)</span>";
+  const w = $("#ytAllWarn");
+  if (!allOn && (d.hidden || 0) > 0){
+    w.style.display = "block";
+    w.innerHTML = "🙈 개인·비공식 채널 <b>" + d.hidden + "개</b>는 기본으로 뺐어요. "
+      + "정말 필요할 때만 위의 <b>‘개인·비공식 채널도 같이 보기’</b>를 켜 주세요.";
+  } else { w.style.display = "none"; }
+
+  const g = $("#ytRes");
+  g.innerHTML = "";
+  if (!items.length){
+    g.innerHTML = '<div class="ytempty">공식 채널 결과가 없어요.<br>검색어를 조금 넓게(예: 구단명 + 선수명) 잡거나, '
+      + "‘개인 채널도 같이 보기’를 켜서 확인해 보세요.</div>";
+    return;
+  }
+  items.forEach((it, i) => {
+    const card = document.createElement("div");
+    card.className = "ytcard";
+    card.innerHTML = '<div class="th"><img src="' + ytEsc(it.thumb) + '" alt="" loading="lazy">'
+      + (it.duration ? '<span class="dur">' + ytDur(it.duration) + "</span>" : "") + "</div>"
+      + '<div class="m"><div class="t">' + ytEsc(it.title) + "</div>"
+      + '<div class="c">' + ytBadge(it.verdict) + "<span>" + ytEsc(it.channel) + "</span></div></div>"
+      + '<div class="ytacts"><button class="btn small main ytgrab" data-i="' + i + '">🎬 캡처</button>'
+      + '<a class="btn small" href="' + ytEsc(it.url) + '" target="_blank" rel="noopener" title="유튜브에서 원본 영상 열기">▶ 영상</a></div>';
+    g.appendChild(card);
+  });
+  g.querySelectorAll(".ytgrab").forEach(b => {
+    b.onclick = () => {
+      const it = items[Number(b.dataset.i)];
+      if (it) ytDoCapture(it.url, Number($("#ytCount").value || 7), it);
+    };
+  });
+}
+
+async function ytDoCapture(url, count, item){
+  if (!url){ toast("유튜브 주소를 먼저 넣어 주세요"); return; }
+  $("#ytUrl").value = url;
+  $("#ytStatus").innerHTML = '<span class="ytspin"></span>내려받는 중… 영상 길이에 따라 30초~2분 걸려요. '
+    + "이 화면 그대로 두고 기다려 주세요.";
+  document.querySelectorAll(".ytgrab").forEach(b => { b.disabled = true; });
+  $("#ytCapUrl").disabled = true;
+  const d = await apiJSON("/api/yt_capture", {
+    method: "POST", headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({url: url, count: count || 7})
+  });
+  document.querySelectorAll(".ytgrab").forEach(b => { b.disabled = false; });
+  $("#ytCapUrl").disabled = false;
+  if (!d || !d.ok){
+    let msg = "⚠️ " + ytEsc((d && d.error) || "캡처에 실패했어요");
+    if (d && d.canThumb) msg += '<div class="ytmini" style="margin-top:5px">급하면 위 <b>[📷 썸네일 4장 대체]</b>로 '
+      + "유튜브 썸네일만 저장할 수 있어요.</div>";
+    if (d && d.detail) msg += '<details class="ytdetail"><summary>자세한 원인 보기</summary>'
+      + "<div>" + ytEsc(d.detail) + "</div></details>";
+    $("#ytStatus").innerHTML = msg;
+    $("#ytStatus").style.display = "block";
+    return;
+  }
+  $("#ytStatus").style.display = "block";
+  $("#ytStatus").innerHTML = "✅ 저장 완료 · " + ytEsc(d.channel || "") + " · 사진 " + (d.count || 0) + "장";
+  ytRender(d);
+  ytLoadPast();
+}
+
+async function ytThumbCapture(){
+  const url = ($("#ytUrl").value || "").trim() || (($("#ytQ").value || "").trim());
+  if (!url){ toast("먼저 주소나 검색어를 넣어 주세요"); return; }
+  if (!/youtu/i.test(url)){
+    toast("썸네일 대체 저장은 유튜브 주소로만 돼요 — 검색 결과 카드의 [🎬 캡처]를 써 보세요");
+    return;
+  }
+  $("#ytStatus").innerHTML = '<span class="ytspin"></span>썸네일 4장을 담는 중…';
+  const d = await apiJSON("/api/yt_thumbs", {
+    method: "POST", headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({url: url})
+  });
+  if (!d || !d.ok){
+    $("#ytStatus").innerHTML = "⚠️ " + ytEsc((d && d.error) || "썸네일도 저장하지 못했어요");
+    return;
+  }
+  $("#ytStatus").innerHTML = "📷 썸네일 " + (d.count || 0) + "장 저장 (대체)";
+  ytRender(d);
+  ytLoadPast();
+}
+
+function ytRender(d){
+  YTCUR = d;
+  $("#ytResultWrap").style.display = "";
+  $("#ytCapTitle").textContent = (d.thumbOnly ? "📷 썸네일 4장 (대체) · " : "🎬 캡처 완료 · ") + (d.title || "");
+  $("#ytCapMeta").textContent = "사진 " + (d.count || 0) + "장 · " + (d.channel || "")
+    + (d.created ? " · " + d.created : "");
+  $("#ytFolderTx").textContent = "저장 위치 · captures/" + (d.folder || "");
+  const w = $("#ytCapWarn");
+  if (d.warning){ w.style.display = ""; w.textContent = d.warning; }
+  else { w.style.display = "none"; w.textContent = ""; }
+  $("#ytSourceAll").value = d.sourceAll || d.sourceMain || "";
+
+  const g = $("#ytFrames");
+  g.innerHTML = "";
+  (d.frames || []).forEach((f, i) => {
+    const card = document.createElement("div");
+    card.className = "ytframe";
+    const img = document.createElement("img");
+    img.src = f.url || "";
+    img.alt = (i + 1) + "장 장면";
+    img.loading = "lazy";
+    const fb = document.createElement("div");
+    fb.className = "fb";
+    const ts = document.createElement("div");
+    ts.className = "ts";
+    ts.textContent = (i + 1) + "장 · " + (f.ts || "");
+    const inp = document.createElement("textarea");
+    inp.className = "srcin";
+    inp.readOnly = true;
+    inp.rows = 3;
+    inp.value = f.source || "";
+    inp.title = "이 장면의 출처 문구 — 그대로 복사해 쓰시면 됩니다";
+    const act = document.createElement("div");
+    act.className = "fbact";
+    const cp = document.createElement("button");
+    cp.className = "btn small main";
+    cp.type = "button";
+    cp.textContent = "📋 출처 복사";
+    cp.onclick = () => copyText(f.source || "", "📋 " + (i + 1) + "장 출처를 복사했어요");
+    const go = document.createElement("a");
+    go.className = "btn small";
+    go.href = f.openUrl || "";
+    go.target = "_blank";
+    go.rel = "noopener";
+    go.textContent = "▶ 이 장면";
+    act.appendChild(cp);
+    act.appendChild(go);
+    fb.appendChild(ts);
+    fb.appendChild(inp);
+    fb.appendChild(act);
+    card.appendChild(img);
+    card.appendChild(fb);
+    g.appendChild(card);
+  });
+  try { $("#ytResultWrap").scrollIntoView({behavior: "smooth", block: "start"}); } catch(e){}
+  toast((d.thumbOnly ? "📷 썸네일 " : "🎬 사진 ") + (d.count || 0) + "장 + 출처 저장 완료");
+}
+
+async function ytLoadPast(){
+  const el = $("#ytPast");
+  if (!el) return;
+  const d = await apiJSON("/api/yt_list");
+  const items = (d && d.items) || [];
+  if (!items.length){
+    el.innerHTML = '<div class="ytempty">아직 캡처한 게 없어요 — 위에서 검색해 첫 장면을 담아 보세요 🌸</div>';
+    return;
+  }
+  el.innerHTML = "";
+  items.forEach(it => {
+    const b = document.createElement("button");
+    b.className = "p";
+    b.type = "button";
+    b.innerHTML = (it.thumb ? '<img src="' + ytEsc(it.thumb) + '" alt="" loading="lazy">' : "")
+      + '<div class="pt"><b>' + ytEsc(it.title || it.folder) + "</b>"
+      + ytEsc(it.channel || "") + " · " + (it.count || 0) + "장</div>";
+    b.onclick = () => ytOpenPast(it.folder);
+    el.appendChild(b);
+  });
+}
+
+async function ytOpenPast(folder){
+  if (!folder) return;
+  const m = await apiJSON("/api/yt_captures/" + encodeURIComponent(folder) + "/meta.json");
+  if (!m || !(m.frames || []).length){ toast("이 캡처를 다시 읽지 못했어요"); return; }
+  let txt = "";
+  try {
+    const r = await fetch("/api/yt_captures/" + encodeURIComponent(folder) + "/" + encodeURIComponent("출처.txt"));
+    if (r.ok) txt = await r.text();
+  } catch(e){}
+  ytRender({folder: folder, title: m.title || folder, channel: m.channel || "",
+            created: m.created || "", count: (m.frames || []).length, frames: m.frames || [],
+            warning: m.warning || "", sourceMain: m.sourceMain || "", sourceAll: txt,
+            thumbOnly: !!m.thumbOnly});
+}
+
+function ytInstaTerm(){
+  return ($("#ytQ").value || "").trim();
+}
+function ytInstaAccount(){
+  let acc = ($("#ytInstaAcc").value || "").trim() || ytInstaTerm();
+  acc = acc.replace(/\s+/g, "")
+           .replace(/^https?:\/\/(www\.)?instagram\.com\//i, "")
+           .replace(/\?.*$/, "")
+           .replace(/^@/, "")
+           .replace(/\/+$/, "");
+  return acc;
+}
+
+async function ytLoadExtra(){
+  const el = $("#ytExtraList");
+  if (!el) return;
+  const d = await apiJSON("/api/yt_channels");
+  const list = (d && d.extra) || [];
+  el.innerHTML = list.length
+    ? "지금 추가된 채널 " + list.length + "곳 : " + list.map(x => '<span class="xch">' + ytEsc(x) + "</span>").join("")
+    : "아직 직접 추가한 채널이 없어요 — 기본 목록(스포츠·방송·소속사)만 쓰고 있어요.";
+}
+async function ytSaveExtra(){
+  const inp = $("#ytExtra");
+  const v = (inp.value || "").trim();
+  if (!v){ toast("채널 이름을 적어 주세요"); return; }
+  const cur = await apiJSON("/api/yt_channels");
+  const list = ((cur && cur.extra) || []).concat([v]);
+  const d = await apiJSON("/api/yt_channels", {method: "POST", headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({extra: list})});
+  if (!d || !d.ok){ toast("❌ 저장하지 못했어요"); return; }
+  inp.value = "";
+  toast("✅ 「" + v + "」 채널을 허용 목록에 넣었어요");
+  ytLoadExtra();
+  if (($("#ytQ").value || "").trim()) ytFind();
+}
+if ($("#ytExtraSave")) $("#ytExtraSave").onclick = ytSaveExtra;
+if ($("#ytJump")) $("#ytJump").onclick = () => { showTab("ytcap"); };
+if ($("#ytGo")) $("#ytGo").onclick = ytFind;
+if ($("#ytQ")) $("#ytQ").addEventListener("keydown", ev => { if (ev.key === "Enter") ytFind(); });
+if ($("#ytAllCh")) $("#ytAllCh").onchange = () => { if (($("#ytQ").value || "").trim()) ytFind(); };
+if ($("#ytEnvRefresh")) $("#ytEnvRefresh").onclick = () => { toast("↻ 준비 상태 확인"); ytLoadEnv(); };
+if ($("#ytCapUrl")) $("#ytCapUrl").onclick = () => {
+  const url = ($("#ytUrl").value || "").trim();
+  if (!url){ toast("유튜브 주소를 먼저 넣어 주세요"); return; }
+  ytDoCapture(url, Number($("#ytCount").value || 7));
+};
+if ($("#ytThumbBtn")) $("#ytThumbBtn").onclick = ytThumbCapture;
+if ($("#ytOpen")) $("#ytOpen").onclick = async () => {
+  if (!YTCUR || !YTCUR.folder){ toast("먼저 캡처해 주세요"); return; }
+  const d = await apiJSON("/api/yt_open", {method: "POST", headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({folder: YTCUR.folder})});
+  toast(d && d.ok ? "📂 탐색기에서 폴더를 열었어요" : ("❌ " + ((d && d.error) || "폴더를 열지 못했어요")));
+};
+if ($("#ytCopyAll")) $("#ytCopyAll").onclick = () => {
+  if (!YTCUR){ toast("먼저 캡처해 주세요"); return; }
+  copyText(YTCUR.sourceAll || YTCUR.sourceMain || "", "📋 전체 출처를 복사했어요");
+};
+if ($("#ytCopyMain")) $("#ytCopyMain").onclick = () => {
+  if (!YTCUR){ toast("먼저 캡처해 주세요"); return; }
+  copyText(YTCUR.sourceMain || "", "📋 대표 출처를 복사했어요");
+};
+if ($("#ytInsta")) $("#ytInsta").onclick = () => {
+  const q = ytInstaTerm();
+  if (!q){ toast("먼저 검색어(이름)를 적어 주세요"); try { $("#ytQ").focus(); } catch(e){} return; }
+  const url = "https://www.google.com/search?q=" + encodeURIComponent('site:instagram.com "' + q + '"');
+  window.open(url, "_blank", "noopener");
+  toast("📸 구글에서 공식 인스타를 찾는 창을 열었어요");
+};
+if ($("#ytInstaCopy")) $("#ytInstaCopy").onclick = () => {
+  const acc = ytInstaAccount();
+  if (!acc){ toast("계정명이나 검색어를 먼저 적어 주세요"); return; }
+  copyText("출처: @" + acc + " 공식 인스타그램", "📸 인스타 출처 예시를 복사했어요");
+};
+try {
+  const q0 = localStorage.getItem("yt_q");
+  if (q0 && $("#ytQ") && !$("#ytQ").value) $("#ytQ").value = q0;
+} catch(e){}
+
 try {
   const savedTab = localStorage.getItem("office_tab");
   if (savedTab && TABS.indexOf(savedTab) >= 0) showTab(savedTab);
@@ -8001,8 +9116,8 @@ loadMemo();
 loadOffice(false);
 if (document.querySelector("#pane-campaign.on")) loadCampaigns();
 </script>
-<script src="assets/budget-local.js?v=11200057"></script>
-<script src="assets/reels-local.js?v=11200057"></script>
-<script src="assets/mobile-patch.js?v=11200057"></script>
+<script src="assets/budget-local.js?v=11200444"></script>
+<script src="assets/reels-local.js?v=11200444"></script>
+<script src="assets/mobile-patch.js?v=11200444"></script>
 </body>
 </html>
