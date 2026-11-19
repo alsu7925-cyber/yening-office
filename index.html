@@ -48,6 +48,9 @@
   .stage{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--pink-line);
          box-shadow:inset 0 0 0 1px rgba(255,255,255,.6)}
   .stage img{display:block;width:100%;height:auto}
+  /* ---------- ⚾ 스포츠 데스크 소품 (v2.3 — 스포브리핑) : 라운지 앞 바닥의 네이비 매트 ---------- */
+  .sportmat{position:absolute;left:35%;top:89.5%;width:128px;transform:translate(-50%,-50%);
+            pointer-events:none;z-index:2;filter:drop-shadow(0 4px 7px rgba(120,90,100,.24))}
   .desk{position:absolute;transform:translate(-50%,-50%);width:208px;
         display:flex;gap:7px;align-items:center;
         background:rgba(255,253,252,.94);border:1px solid #f0bfce;border-radius:14px;
@@ -185,7 +188,7 @@
   .foot{text-align:center;color:#c3aeb6;font-size:11.5px;margin-top:18px}
 
   /* ---------- 팀장님 산책 캐릭터 ---------- */
-  /* 카드가 캐릭터보다 위에 떠서 늘 읽히도록 (v2.2 — 팀장 8명이라 캐릭터가 카드를 자주 지나감) */
+  /* 카드가 캐릭터보다 위에 떠서 늘 읽히도록 (v2.3 — 팀장 9명이라 캐릭터가 카드를 자주 지나감) */
   .stage .desk{border-left:4px solid var(--c,#f2c8d5);z-index:6}
   .stage .desk .av{display:none}
   .stage .desk.ceo .av{display:flex}
@@ -1775,14 +1778,14 @@ body.locked{overflow:hidden}
 
   <header class="hero">
     <div>
-      <h1>🏢 예닝 오피스 <span class="amp">·</span> 📱 모바일 <span style="display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;background:#ffe3ee;border:1px solid #f6a9bf;color:#a64065;font-size:12px;font-weight:700;vertical-align:middle">v2.3 · 11/18</span></h1>
-      <p>팀장님 여덟 분 오늘 실적 · 염탐 · 수익 · 가계부를 한 화면에서 🌸</p>
+      <h1>🏢 예닝 오피스 <span class="amp">·</span> 📱 모바일 <span style="display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;background:#ffe3ee;border:1px solid #f6a9bf;color:#a64065;font-size:12px;font-weight:700;vertical-align:middle">v2.3 · 11/20</span></h1>
+      <p>팀장님 아홉 분 오늘 실적 · 염탐 · 수익 · 가계부를 한 화면에서 🌸</p>
     </div>
     <div class="hero-side">
       <div class="clock" id="clock">--:--</div>
       <button class="btn small hazard" id="issueBadge" title="발행 오류 감지기 — 실제 오류 / 확인 지연 / 수동 확인">🚨 오류 확인 중…</button>
-      <button class="btn small" id="linkBook" title="블로그 6곳 · 클립 · 인스타 · 스레드 · 페이스북 주소를 모아서 1초 복사">🔗 내 링크 모음</button>
-      <button class="btn small" id="roomCfg" title="블로그 6곳의 밤티 이미지 · 젠스파크 · 클로드 방 · 밤티 대화방 주소와 일일 목표 편수를 넣습니다">⚙️ 링크/방 설정</button>
+      <button class="btn small" id="linkBook" title="블로그 9곳 · 클립 · 인스타 · 스레드 · 페이스북 주소를 모아서 1초 복사">🔗 내 링크 모음</button>
+      <button class="btn small" id="roomCfg" title="블로그 9곳의 밤티 이미지 · 젠스파크 · 클로드 방 · 밤티 대화방 주소와 블로그별 목표 편수를 넣습니다">⚙️ 링크/방 설정</button>
       <button class="btn small" id="notionBtn" title="노션 공용 허브 · 🛍️ 쇼핑커넥트 전용 허브 · 체험단 마스터 센터 · 예약발행 현황 · 일일 성과 리포트를 새 탭으로 엽니다">📝 노션 바로가기</button>
       <button class="btn small" id="refresh">↻ 현황 새로고침</button>
     </div>
@@ -1821,7 +1824,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11192338" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11200044" alt="예닝 오피스 배경">
     </div>
     <div class="desk-list" id="deskList"></div>
     <div class="propshelf" id="propShelf">
@@ -1845,13 +1848,13 @@ body.locked{overflow:hidden}
       <div class="stat">
         <div class="sl">오늘 발행 완료</div>
         <div class="sv"><b id="stToday">–</b><small>편</small></div>
-        <div class="sd">블로그 8곳 합계 · <span id="stTime">–</span> 기준</div>
+        <div class="sd">블로그 9곳 합계 · <span id="stTime">–</span> 기준</div>
       </div>
       <div class="stat">
         <div class="sl">목표 대비 진행</div>
         <div class="sv"><b id="stGoalPct">–</b><small>%</small></div>
         <div class="bar"><i id="stBar"></i></div>
-        <div class="sd" id="stGoalTxt">오늘 0 / 26편</div>
+        <div class="sd" id="stGoalTxt">오늘 0 / 27편</div>
       </div>
       <div class="stat">
         <div class="sl">📅 오늘 예약 (노션)</div>
@@ -2241,6 +2244,7 @@ body.locked{overflow:hidden}
           <option value="tistory">픽모아 티스토리</option>
           <option value="petlifedesk">펫라이프데스크</option>
           <option value="plantlifedesk">플랜트라이프데스크</option>
+          <option value="spobriefing">스포브리핑</option>
         </select>
       </div>
       <div><label class="f">애드포스트 수익(원)</label><input type="number" id="rvAd" min="0" step="1" placeholder="0"></div>
@@ -2627,7 +2631,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11192338"></script>
+<script src="assets/pin.js?v=11200044"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -2639,10 +2643,11 @@ const POS = {
   left:  [ {left:18.0, top:24.5}, {left:12.5, top:42.0}, {left:9.6, top:59.5}, {left:12.0, top:78.0} ],
   right: [ {left:82.0, top:25.5}, {left:86.5, top:42.5}, {left:90.0, top:60.5}, {left:85.0, top:78.5} ]
 };
-/* 팀장님이 걸어 다니는 바닥 자리 (배경 이미지 기준 %) — 8자리(v2.2) */
+/* 팀장님이 걸어 다니는 바닥 자리 (배경 이미지 기준 %) — 9자리(v2.3) */
 const DESK_SPOT = {
   ye_zib:[24,31], pick_moa:[19,47], savedesk:[16,64], petlifedesk:[17,83],
-  worddesk:[76,31], mybodydesk:[80,47], tistory:[82,64], plantlifedesk:[78,83]
+  worddesk:[76,31], mybodydesk:[80,47], tistory:[82,64], plantlifedesk:[78,83],
+  spobriefing:[35,79.6]
 };
 const ROAM = [
   [26,38],[26,46],[23,55],[21,64],[19,73],[22,84],
@@ -2667,15 +2672,16 @@ const YEONTAN_ROAM = [
 const ROYALS = [];
 const REDUCE = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* ☕ 목표 달성 휴식 좌석 — office_bg.png 중앙 핑크 라운지 소파 위 8자리 (배경 이미지 % 좌표) */
+/* ☕ 목표 달성 휴식 좌석 — office_bg.png 중앙 핑크 라운지 소파 위 9자리 (배경 이미지 % 좌표) */
 const SOFA_SEATS = [
-  [33.5, 56.0], [37.0, 52.0], [42.0, 49.0], [47.0, 47.5],
-  [53.0, 47.5], [58.0, 49.0], [63.0, 52.0], [66.5, 56.0]
+  [33.5, 55.0], [36.5, 52.0], [40.5, 49.6], [45.0, 48.0], [50.0, 47.3],
+  [55.0, 48.0], [59.5, 49.6], [63.5, 52.0], [67.0, 55.0]
 ];
 let REST_DEMO = false;
 try { REST_DEMO = new URLSearchParams(location.search).get("rest_demo") === "1"; } catch(e) {}
 
 function posOf(b){
+  if (b && b.pos && typeof b.pos.left === "number") return b.pos;   /* 스포브리핑 — 바닥 가운데 */
   const arr = (b.side === "left") ? POS.left : POS.right;
   return arr[b.row] || arr[0];
 }
@@ -3952,7 +3958,7 @@ if ($("#linkBook")) $("#linkBook").onclick = () => openLinkBook();
 if ($("#linkClose")) $("#linkClose").onclick = () => closeLinkBook();
 if ($("#linkModal")) $("#linkModal").onclick = (ev) => { if (ev.target && ev.target.id === "linkModal") closeLinkBook(); };
 if ($("#linkCopyAll")) $("#linkCopyAll").onclick = () =>
-    copyText(allLinksText(SNSDATA || {brands: []}), "📋 6개 브랜드 주소 전부 복사했어요");
+    copyText(allLinksText(SNSDATA || {brands: []}), "📋 " + (((SNSDATA || {}).brands || []).length || "전체") + "개 브랜드 주소 전부 복사했어요");
 document.addEventListener("keydown", (ev) => { if (ev.key === "Escape") closeLinkBook(); });
 /* 📋 복사 버튼은 계속 다시 그려지므로 문서 전체에서 한 번만 받습니다 */
 document.addEventListener("click", (ev) => {
@@ -4928,7 +4934,8 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11192338" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11200044" alt="예닝 오피스 배경">`;
+  html += `<img class="sportmat" src="assets/avatars/spobriefing_mat.png" alt="⚾ 스포츠 데스크 매트">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
   OFFICE.blogs.forEach(b => { html += deskCardHTML(b, posOf(b)); });
   html += `<div class="crew" id="crew">${qcSeatHTML()}${receptionHTML()}</div>`;
@@ -5722,7 +5729,8 @@ let REV = { ok: false, adpost: [], shopping_connect: [], date: "", updated: "", 
 const REV_BLOG_NAME = { all: "전체 합계", ye_zib: "예지브러리", pick_moa: "픽모아",
                        savedesk: "세이브데스크", worddesk: "워드데스크",
                        mybodydesk: "내몸데스크", tistory: "픽모아 티스토리",
-                       petlifedesk: "펫라이프데스크", plantlifedesk: "플랜트라이프데스크" };
+                       petlifedesk: "펫라이프데스크", plantlifedesk: "플랜트라이프데스크",
+                       spobriefing: "스포브리핑" };
 const revNum = v => { const n = Number(v); return isNaN(n) ? 0 : n; };
 const revWon = v => revNum(v).toLocaleString("ko-KR");
 const revP2 = n => String(n).padStart(2, "0");
@@ -7904,9 +7912,10 @@ function confettiBurst(){
 }
 
 /* ---------- ⚙️ 설정 모달 — 블로그별 하루 목표 발행 편수 (v2.3) ---------- */
-/* 블로그마다 목표가 달라요 — 세이브 6 · 픽모아 5 · 나머지 3 · 티스토리 2 (합계 26편) */
+/* 블로그마다 목표가 달라요 — 세이브 6 · 픽모아 5 · 나머지 3 · 스포브리핑 1 · 티스토리 2 (합계 27편) */
 const GOAL_DEFAULTS = {ye_zib: 3, pick_moa: 5, savedesk: 6, worddesk: 3,
-                       mybodydesk: 3, tistory: 2, petlifedesk: 2, plantlifedesk: 2};
+                       mybodydesk: 3, tistory: 2, petlifedesk: 2, plantlifedesk: 2,
+                       spobriefing: 1};
 function goalMap(){
   const m = Object.assign({}, GOAL_DEFAULTS);
   const cur = (OFFICE && OFFICE.goalsByBlog) || {};
@@ -7991,8 +8000,8 @@ loadMemo();
 loadOffice(false);
 if (document.querySelector("#pane-campaign.on")) loadCampaigns();
 </script>
-<script src="assets/budget-local.js?v=11192338"></script>
-<script src="assets/reels-local.js?v=11192338"></script>
-<script src="assets/mobile-patch.js?v=11192338"></script>
+<script src="assets/budget-local.js?v=11200044"></script>
+<script src="assets/reels-local.js?v=11200044"></script>
+<script src="assets/mobile-patch.js?v=11200044"></script>
 </body>
 </html>
