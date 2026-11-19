@@ -2382,7 +2382,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11200519" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11200521" alt="예닝 오피스 배경">
       <div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>
     </div>
     <div class="desk-list" id="deskList"></div>
@@ -3591,7 +3591,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11200519"></script>
+<script src="assets/pin.js?v=11200521"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -5896,7 +5896,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11200519" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11200521" alt="예닝 오피스 배경">`;
   html += `<div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>`;   /* 🛋️ v2.5 보조 소파 */
   html += `<img class="sportmat" src="assets/avatars/spobriefing_mat.png" alt="⚾ 스포츠 데스크 매트">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
@@ -10825,6 +10825,8 @@ function stRender(d) {
       "</div>";
   }).join("");
   box.innerHTML =
+    '<div class="v27btns" style="margin:0 0 8px"><button class="btn small main" data-act="copyall">📋 분석 전체 복사</button>' +
+    '<span class="v27mini" style="margin-left:4px">후킹·키워드·구조·중복·후속 5개를 한 번에 복사해요</span></div>' +
     '<div class="v27stcard"><h4>① 제목 후킹 분석 — ' + esc(hk.summary || "") + "</h4>" +
     (hk.features || []).map(function (f) {
       return '<div class="sc-li"> <b>' + esc(f.label) + "</b> — " + esc(f.why) + "</div>";
@@ -10845,6 +10847,31 @@ function stRender(d) {
     '<div class="v27mini">' + esc(dup.note || "") + "</div></div>" +
     '<div class="v27stcard"><h4>⑤ 후속 주제 5개 — 다음에 검색할 말로</h4>' + fups +
     '<div class="v27mini">마음에 드는 제목은 [🎯 채점기로 보내기] → 점수 확인 → [🏆 성적표에 저장] 순서로 이어 가면 돼요.</div></div>';
+}
+
+function stCopyAll() {
+  const d = V27.strat;
+  if (!d) { toast("먼저 분석해 주세요"); return; }
+  const inp = d.input || {};
+  const fu = d.followups || {};
+  const lines = ["🔥 효자글 전략 분석 (" + v27Today() + ")",
+    "제목: " + (inp.title || ""),
+    "블로그: " + (inp.blogName || inp.blog || "") + (inp.views !== null && inp.views !== undefined ? " · 조회 " + v27n(inp.views) : "") +
+    (inp.homePct !== null && inp.homePct !== undefined ? " · 홈판 " + v27n(inp.homePct) + "%" : "") +
+    (inp.searchPct !== null && inp.searchPct !== undefined ? " · 검색 " + v27n(inp.searchPct) + "%" : ""),
+    "후킹: " + ((d.hook || {}).summary || ""),
+    "키워드: " + (d.keywords || []).map(function (k) { return k.kw; }).join(", "),
+    "본문 구조: " + ((d.body || {}).summary || (d.body || {}).note || ""),
+    "중복 점검: " + (((d.duplicates || {}).high || []).length
+      ? ((d.duplicates || {}).high || []).map(function (x) { return x.title + "(" + x.level + ")"; }).join(" / ")
+      : "겹치는 제목 없음") + " · 발행 글 " + ((d.duplicates || {}).indexed || 0) + "편과 비교",
+    "", "후속 주제 5개"];
+  ((fu.rows) || []).forEach(function (f, i) {
+    lines.push((i + 1) + ". " + f.angle + " — " + f.intent);
+    lines.push("   제목: " + f.homeTitle);
+    lines.push("   키워드: " + f.searchKeyword);
+  });
+  copyText(lines.join("\n"), "📋 분석 전체를 복사했어요");
 }
 
 function stRenderHistory(list) {
@@ -11103,6 +11130,7 @@ if ($("#pane-score")) {
   if ($("#stRun")) $("#stRun").onclick = stRun;
   if ($("#stSave")) $("#stSave").onclick = stSaveNow;
   if ($("#stResult")) $("#stResult").addEventListener("click", function (ev) {
+    if (ev.target.closest('[data-act="copyall"]')) { stCopyAll(); return; }
     const b = ev.target.closest("[data-fup]");
     if (!b || !V27.strat) return;
     const row = ((V27.strat.followups || {}).rows || [])[Number(b.dataset.fup)];
@@ -11197,8 +11225,8 @@ if ($("#pane-score")) {
 }
 window.__v27Sub = v27Sub;
 </script>
-<script src="assets/budget-local.js?v=11200519"></script>
-<script src="assets/reels-local.js?v=11200519"></script>
-<script src="assets/mobile-patch.js?v=11200519"></script>
+<script src="assets/budget-local.js?v=11200521"></script>
+<script src="assets/reels-local.js?v=11200521"></script>
+<script src="assets/mobile-patch.js?v=11200521"></script>
 </body>
 </html>
