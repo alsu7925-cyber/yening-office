@@ -49,8 +49,9 @@
          box-shadow:inset 0 0 0 1px rgba(255,255,255,.6)}
   .stage img{display:block;width:100%;height:auto}
   /* ---------- ⚾ 스포츠 데스크 소품 (v2.3 — 스포브리핑) : 라운지 앞 바닥의 네이비 매트 ---------- */
-  .sportmat{position:absolute;left:35%;top:89.5%;width:128px;transform:translate(-50%,-50%);
-            pointer-events:none;z-index:2;filter:drop-shadow(0 4px 7px rgba(120,90,100,.24))}
+  .stage img.sportmat{position:absolute;left:35%;top:89.5%;width:128px;height:auto;
+            transform:translate(-50%,-50%);pointer-events:none;z-index:2;
+            filter:drop-shadow(0 4px 7px rgba(120,90,100,.24))}
   .desk{position:absolute;transform:translate(-50%,-50%);width:208px;
         display:flex;gap:7px;align-items:center;
         background:rgba(255,253,252,.94);border:1px solid #f0bfce;border-radius:14px;
@@ -1824,7 +1825,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11200050" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11200057" alt="예닝 오피스 배경">
     </div>
     <div class="desk-list" id="deskList"></div>
     <div class="propshelf" id="propShelf">
@@ -2631,7 +2632,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11200050"></script>
+<script src="assets/pin.js?v=11200057"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -4934,7 +4935,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11200050" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11200057" alt="예닝 오피스 배경">`;
   html += `<img class="sportmat" src="assets/avatars/spobriefing_mat.png" alt="⚾ 스포츠 데스크 매트">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
   OFFICE.blogs.forEach(b => { html += deskCardHTML(b, posOf(b)); });
@@ -8000,8 +8001,8 @@ loadMemo();
 loadOffice(false);
 if (document.querySelector("#pane-campaign.on")) loadCampaigns();
 </script>
-<script src="assets/budget-local.js?v=11200050"></script>
-<script src="assets/reels-local.js?v=11200050"></script>
-<script src="assets/mobile-patch.js?v=11200050"></script>
+<script src="assets/budget-local.js?v=11200057"></script>
+<script src="assets/reels-local.js?v=11200057"></script>
+<script src="assets/mobile-patch.js?v=11200057"></script>
 </body>
 </html>
