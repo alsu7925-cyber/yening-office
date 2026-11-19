@@ -1824,7 +1824,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11200044" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11200050" alt="예닝 오피스 배경">
     </div>
     <div class="desk-list" id="deskList"></div>
     <div class="propshelf" id="propShelf">
@@ -2631,7 +2631,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11200044"></script>
+<script src="assets/pin.js?v=11200050"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -4934,7 +4934,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11200044" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11200050" alt="예닝 오피스 배경">`;
   html += `<img class="sportmat" src="assets/avatars/spobriefing_mat.png" alt="⚾ 스포츠 데스크 매트">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
   OFFICE.blogs.forEach(b => { html += deskCardHTML(b, posOf(b)); });
@@ -8000,8 +8000,8 @@ loadMemo();
 loadOffice(false);
 if (document.querySelector("#pane-campaign.on")) loadCampaigns();
 </script>
-<script src="assets/budget-local.js?v=11200044"></script>
-<script src="assets/reels-local.js?v=11200044"></script>
-<script src="assets/mobile-patch.js?v=11200044"></script>
+<script src="assets/budget-local.js?v=11200050"></script>
+<script src="assets/reels-local.js?v=11200050"></script>
+<script src="assets/mobile-patch.js?v=11200050"></script>
 </body>
 </html>
