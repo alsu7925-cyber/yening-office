@@ -1629,6 +1629,7 @@
   .ytb.ver{background:#eef4ff;color:#3d63a8;border-color:#c9d9f5}
   .ytb.chk{background:#fff8e6;color:#a2792a;border-color:#f0dfae}
   .ytb.no{background:#fdeeee;color:#b3423f;border-color:#f2c6c4}
+  .ytb.blk{background:#3b0f0f;color:#fff;border-color:#3b0f0f}
   .ytacts{display:flex;gap:6px;padding:6px 9px 9px;flex-wrap:wrap}
   .ytacts .btn{flex:1 1 auto;justify-content:center}
   .yth{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;margin:16px 2px 8px}
@@ -1636,6 +1637,12 @@
   .ytbar{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-bottom:9px}
   .ytwarn2{font-size:12px;color:#a33;background:#fdeeee;border:1px solid #f2c6c4;border-radius:11px;
            padding:8px 10px;margin-bottom:10px;line-height:1.5;font-weight:700}
+  .ytwarn2 b{color:#8d1f1f}
+  .ytwarn2[data-hard="0"]{color:#8a5a08;background:#fff8e6;border-color:#f0cf8a}
+  .ytwarn2[data-hard="0"] b{color:#8a5a08}
+  .ytcau{margin-top:4px;font-size:12px;color:#a33;background:#fdeeee;border:1px solid #f2c6c4;
+         border-radius:11px;padding:7px 10px;font-weight:700;line-height:1.5}
+  .ytcau b{color:#8d1f1f}
   .ytgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:12px}
   .ytframe{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:#fff;display:flex;
            flex-direction:column}
@@ -1786,6 +1793,11 @@
   .v27row{display:flex;gap:7px;flex-wrap:wrap;align-items:flex-end;margin-top:8px}
   .v27row > div{min-width:0}
   .v27mini{margin:7px 1px 0;font-size:11.5px;color:var(--dim);line-height:1.6}
+  .v27watch{margin-top:7px;font-size:12.5px;color:#a01b1b;background:#fdecec;border:1px solid #f0b6b6;
+            border-radius:11px;padding:8px 11px;font-weight:800;line-height:1.55}
+  .v27watch b{color:#7d0f0f}
+  .v27watch[data-hard="0"]{color:#8a5a08;background:#fff8e6;border-color:#f0cf8a}
+  .v27watch[data-hard="0"] b{color:#8a5a08}
   .v27mini b{color:#c4587a}
   .v27mini code{background:#fff2f6;border:1px solid #f8dde5;border-radius:5px;padding:0 4px;
                 font-size:11px;color:#b9577a}
@@ -1913,6 +1925,28 @@
   .v27fup .sk b{color:#41628a;font-weight:800}
   .v27fup .acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
   .v27fup .acts .btn{padding:5px 9px;font-size:11px;border-radius:8px}
+
+  /* ⛏️ 효자글 → 황금 키워드 바로 채굴 (v2.7.2) */
+  .v27gold{margin-top:13px;border:1px solid #f0dfae;border-radius:14px;background:#fffdf7;padding:11px 12px}
+  .v27goldh{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;margin-bottom:7px}
+  .v27goldh b{font-size:13px;color:#8a5a08}
+  .v27goldh small{font-size:11px;color:#a2907a;line-height:1.5}
+  .v27glist{display:grid;gap:7px;margin-top:9px}
+  .v27grow{border:1px solid #efe7d8;border-radius:11px;background:#fff;padding:8px 10px}
+  .v27grow .top{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+  .v27grow .rk{flex:none;width:20px;height:20px;border-radius:6px;background:#fff2d8;border:1px solid #f0dfae;
+               color:#8a5a08;font-weight:900;font-size:11px;display:flex;align-items:center;justify-content:center}
+  .v27grow .kw{font-size:13px;font-weight:900;color:#4b3a40;flex:1 1 120px;word-break:break-all}
+  .v27grow .cp{flex:none}
+  .v27grow .nums{display:flex;gap:10px;flex-wrap:wrap;font-size:11px;color:#8d7780;margin-top:5px}
+  .v27grow .nums b{color:#5d4a51;font-size:11.5px}
+  .v27grow .why{font-size:11px;color:#a2792a;margin-top:4px;line-height:1.55}
+  .v27gbadge{font-size:10px;font-weight:900;border-radius:999px;padding:1px 7px;border:1px solid;white-space:nowrap}
+  .v27gbadge.gold{background:#fff6da;border-color:#eed28a;color:#8a6408}
+  .v27gbadge.check{background:#f4f7fa;border-color:#dde6f1;color:#5c7590}
+  .v27gbadge.soft{background:#fff8e6;border-color:#f0cf8a;color:#8a5a08}
+  .v27ghd{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin-top:4px}
+  .v27ghd .st{font-size:11.5px;color:#7d6770;font-weight:700}
 
   /* 팩트 검수 */
   .v27fcsum{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 4px}
@@ -2382,7 +2416,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11200521" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11200729" alt="예닝 오피스 배경">
       <div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>
     </div>
     <div class="desk-list" id="deskList"></div>
@@ -3029,7 +3063,7 @@ body.locked{overflow:hidden}
   <section class="panel" id="ytpanel">
     <div class="phead">
       <h2>🎬 공식 유튜브 자동 캡처기</h2>
-      <span class="hint">검색 → 공식 채널만 → 장면 6~7장 + 출처 자동 저장 · PC 전용</span>
+      <span class="hint">검색 → 공식 채널만 (TV조선·채널A 제외) → 장면 6~7장 + 출처 자동 저장 · PC 전용</span>
       <button class="btn small" id="ytEnvRefresh" style="margin-left:auto" title="yt-dlp · ffmpeg 준비 상태를 다시 확인합니다">↻ 준비 상태</button>
     </div>
 
@@ -3064,6 +3098,9 @@ body.locked{overflow:hidden}
 
       <label class="ytchk"><input type="checkbox" id="ytAllCh"> 개인·비공식 채널도 같이 보기 (기본은 숨김)</label>
       <div class="ytwarn" id="ytAllWarn"></div>
+      <label class="ytchk"><input type="checkbox" id="ytCauCh"> ⚠️ 고소·저작권 주의 키워드 영상도 목록에 보기 (사진 캡처는 막혀요)</label>
+      <div class="ytwarn2" id="ytCauWarn" style="display:none"></div>
+      <div class="ytmini" style="margin-top:7px">⛔ <b>TV조선·채널A</b>는 사진을 절대 쓰지 않아서 채널 목록에서 빼고, 검색·캡처에서도 무조건 막아 두었어요.</div>
 
       <details class="ytextra">
         <summary>＋ 우리가 쓰는 공식 채널 직접 추가 (예: 새 구단 · 소속사 채널)</summary>
@@ -3412,7 +3449,7 @@ body.locked{overflow:hidden}
     <div class="phead">
       <h2>🏆 제목 성적표 <span class="amp">+</span> 🔥 효자글 전략기 <span class="amp">+</span> 🔍 팩트 검수</h2>
       <span class="hint">크레딧 0원 · 이 PC 안에서만 계산 · 기록은 title_scorecard.json / strategy_history.json / factcheck_history.json</span>
-      <span class="expver" style="margin-left:auto">v2.7 · 11/20</span>
+      <span class="expver" style="margin-left:auto">v2.7 · 11/20 · ⛏️바로채굴</span>
     </div>
 
     <div class="v27chips" id="v27Chips">
@@ -3428,6 +3465,7 @@ body.locked{overflow:hidden}
         <div>
           <label class="f">제목 — 발행 전에 채점해 보세요 (홈판 카드는 앞 13자를 먼저 봅니다)</label>
           <textarea id="scTitle" style="min-height:66px" placeholder='"96kg에서 9개월 만에" 마운자로 맞았다던 근황'></textarea>
+          <div class="v27watch" id="scWatch" style="display:none"></div>
           <div class="v27row">
             <div style="flex:0 0 168px">
               <label class="f">블로그</label>
@@ -3504,6 +3542,25 @@ body.locked{overflow:hidden}
       <div class="v27mini">중복 체크는 주간·일일 리포트, 크리에이터 어드바이저 기록, RSS 발행 목록의 <b>제목 단어</b>를 견줍니다.
         후속 주제는 단순 복제가 아니라 <b>이 글을 읽은 사람이 다음에 검색할 말</b>(비용·부작용·비교·대안·주의)로 만듭니다.</div>
       <div id="stResult"></div>
+
+      <!-- ============ ⛏️ 효자글 → 황금 키워드 바로 채굴 (v2.7.2) ============ -->
+      <div class="v27gold" id="stGoldBox">
+        <div class="v27goldh">
+          <b>⛏️ 황금 키워드 바로 채굴</b>
+          <small>이 효자글 제목·키워드로 실제 검색량과 블로그 문서수를 대조해, 검색량 많고 문서 적은 키워드만 위로 뽑아요</small>
+        </div>
+        <div class="v27row">
+          <div style="flex:1 1 260px">
+            <label class="f">시드 단어 (선택 · 1~2개 · 비우면 제목에서 자동)</label>
+            <input type="text" id="stGoldSeeds" placeholder="예: 마운자로, 마운자로부작용">
+          </div>
+          <button class="btn main" id="stGold">⛏️ 황금 키워드 채굴 추천</button>
+        </div>
+        <div class="v27mini">결과는 <b>TOP 8</b> — 검색량 · 문서수 · 경쟁률 + <b>왜 황금인지</b> 한 줄 + [📋 복사]까지 붙여 드려요.
+          주의 목록(17개)에 걸리는 키워드는 자동으로 빼고, 이정후는 ⚠️ 배지만 붙입니다.</div>
+        <div id="stGoldOut"></div>
+      </div>
+
       <div class="v27sect"><b>3</b> 저장된 전략 기록 <span class="sp" id="stHistCount"></span></div>
       <div class="v27hist" id="stHistory"></div>
     </div>
@@ -3512,6 +3569,7 @@ body.locked{overflow:hidden}
     <div class="v27sub" id="v27-fact">
       <label class="f">검수할 원고 붙여넣기</label>
       <textarea id="fcText" style="min-height:150px" placeholder="발행 전 원고를 그대로 붙여넣으세요. 날짜·금액·수치·인물 발언·통계·법·건강 표현을 문장 단위로 뽑아 드려요."></textarea>
+      <div class="v27watch" id="fcWatch" style="display:none"></div>
       <div class="v27row">
         <button class="btn" id="fcFileBtn">📄 .txt·.md 파일 불러오기</button>
         <input type="file" id="fcFile" accept=".txt,.md,.markdown,text/plain,text/markdown" style="display:none">
@@ -3591,7 +3649,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11200521"></script>
+<script src="assets/pin.js?v=11200729"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -5896,7 +5954,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11200521" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11200729" alt="예닝 오피스 배경">`;
   html += `<div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>`;   /* 🛋️ v2.5 보조 소파 */
   html += `<img class="sportmat" src="assets/avatars/spobriefing_mat.png" alt="⚾ 스포츠 데스크 매트">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
@@ -9289,6 +9347,106 @@ saveRoomLinks = async function(payload){
   return _origSaveRoomLinks(payload);
 };
 
+/* ============ 🚨 고소·저작권 주의 목록 (TV조선·채널A 포함 12개) ============
+   2026-11-20 예닝 님 지시 — 검색어·제목·원고에 이 이름이 들어오면 바로 빨간 경고를 띄웁니다. */
+const WATCH_TERMS = [
+  { label: "TV조선", keys: ["tv조선", "tv chosun", "tvchosun", "조선방송"] },
+  { label: "채널A", keys: ["채널a", "channel a", "channela"] },
+  { label: "G드레곤(지드래곤)", keys: ["g드레곤", "지드래곤", "gdragon", "g-dragon", "권지용"] },
+  { label: "김호중", keys: ["김호중"] },
+  { label: "과즙세연", keys: ["과즙세연"] },
+  { label: "아옳이", keys: ["아옳이"] },
+  { label: "홍진경", keys: ["홍진경"] },
+  { label: "옥주현(옥장판)", keys: ["옥주현", "옥장판"] },
+  { label: "이승기 소속사 회장", keys: ["이승기소속사", "이승기회장", "이승기소송", "후크엔터", "후크엔터테인먼트"] },
+  { label: "김수현 소송 관련", keys: ["김수현소송", "김수현고소", "김수현소송관련"] },
+  { label: "김범(영화배우)", keys: ["김범"], guard: ["김범수"] },
+  { label: "디자이너 박시영", keys: ["박시영"] },
+  /* --- 2026-11-20 예닝 님 추가 지시: 갤럭시코퍼레이션 소속 연예인 5명 --- */
+  { label: "김종국(갤럭시코퍼레이션)", keys: ["김종국", "kimjongkook", "kimjongkuk"] },
+  { label: "송강호(갤럭시코퍼레이션)", keys: ["송강호", "songkangho"] },
+  { label: "태민(갤럭시코퍼레이션)", keys: ["태민", "taemin"] },
+  { label: "류준열(갤럭시코퍼레이션)", keys: ["류준열", "ryujunyeol", "ryujunyol"] },
+  { label: "정일우(갤럭시코퍼레이션)", keys: ["정일우", "jungilwoo", "jeongilwoo"] }
+];
+
+/* ============ ⚠️ 소프트 주의 (차단 아님, v2.7.1) ============
+   2026-11-20 예닝 님 지시 — '이정후'는 갤럭시코퍼레이션 소속이지만
+   검색·채점·팩트 추출을 막지 않고, 주황색 배지만 띄워 공식 출처 위주를 권합니다. */
+const WATCH_SOFT = [
+  { label: "이정후(갤럭시코퍼레이션 소속)",
+    keys: ["이정후", "leejunghoo", "junghoolee", "leejungho"],
+    note: "공식 출처(MLB·구단)·경기 팩트 위주 권장" }
+];
+
+function watchSoftScan(text){
+  const s0 = watchNorm(text);
+  if (!s0) return [];
+  const out = [];
+  WATCH_SOFT.forEach(function (t) {
+    for (let i = 0; i < t.keys.length; i++) {
+      const k = watchNorm(t.keys[i]);
+      if (k && s0.indexOf(k) >= 0) { out.push(t); break; }
+    }
+  });
+  return out;
+}
+
+function watchSoftHTML(hits){
+  if (!hits || !hits.length) return "";
+  return hits.map(function (t) {
+    return "⚠️ " + esc(t.label) + (t.note ? " — " + esc(t.note) : "");
+  }).join("<br>");
+}
+
+function watchNorm(s){
+  return String(s == null ? "" : s).toLowerCase()
+    .replace(/[\s\t\r\n·ㆍ.,&_\-\/()\[\]{}'"`+!?:|*~]/g, "");
+}
+
+function watchScan(text){
+  const s0 = watchNorm(text);
+  if (!s0) return [];
+  const out = [];
+  WATCH_TERMS.forEach(function (t) {
+    let probe = s0;
+    (t.guard || []).forEach(function (g) {
+      const gn = watchNorm(g);
+      if (gn) probe = probe.split(gn).join("");
+    });
+    for (let i = 0; i < t.keys.length; i++) {
+      const k = watchNorm(t.keys[i]);
+      if (k && probe.indexOf(k) >= 0) { out.push(t.label); break; }
+    }
+  });
+  return out;
+}
+
+function watchBanner(el, hits, tail, softHits){
+  if (!el) return;
+  const hard = (hits && hits.length) ? hits : [];
+  const soft = (softHits && softHits.length) ? softHits : [];
+  if (!hard.length && !soft.length){
+    el.style.display = "none"; el.innerHTML = "";
+    el.setAttribute("data-on", "0"); el.setAttribute("data-hard", "0"); el.setAttribute("data-soft", "0");
+    return;
+  }
+  let h = "";
+  if (hard.length){
+    h = "🚨 고소·저작권 주의 대상 포함 — 사용 금지 권장<br><b>" + esc(hard.join(" · ")) + "</b>"
+      + (tail ? "<br>" + tail : "");
+  }
+  if (soft.length){
+    h += (h ? '<div style="margin-top:6px;padding-top:6px;border-top:1px dashed #e9cf94">' : "")
+      + watchSoftHTML(soft) + (h ? "</div>" : "");
+  }
+  el.style.display = "block";
+  el.setAttribute("data-on", "1");
+  el.setAttribute("data-hard", hard.length ? "1" : "0");
+  el.setAttribute("data-soft", soft.length ? "1" : "0");
+  el.innerHTML = h;
+}
+
 /* ================= 🎬 공식 유튜브 자동 캡처기 (v2.4) ================= */
 let YTENV = null, YTCUR = null, YTSETUP_T = null;
 
@@ -9304,8 +9462,8 @@ function ytDur(sec){
 }
 function ytBadge(v){
   const lvl = (v || {}).level || "private";
-  const cls = lvl === "official" ? "ok" : (lvl === "verified" ? "ver" : (lvl === "check" ? "chk" : "no"));
-  const ico = lvl === "official" ? "✅ " : (lvl === "verified" ? "☑️ " : (lvl === "check" ? "⚠️ " : "⛔ "));
+  const cls = lvl === "official" ? "ok" : (lvl === "verified" ? "ver" : (lvl === "check" ? "chk" : (lvl === "blocked" ? "blk" : "no")));
+  const ico = lvl === "official" ? "✅ " : (lvl === "verified" ? "☑️ " : (lvl === "check" ? "⚠️ " : (lvl === "blocked" ? "" : "⛔ ")));
   return '<span class="ytb ' + cls + '">' + ico + ytEsc((v || {}).label || "") + "</span>";
 }
 
@@ -9354,22 +9512,42 @@ async function ytStartSetup(){
 async function ytFind(){
   const q = ($("#ytQ").value || "").trim();
   if (!q){ toast("검색어를 먼저 적어 주세요"); try { $("#ytQ").focus(); } catch(e){} return; }
+  const qw = watchScan(q);
+  if (qw.length){
+    ytQWatch();
+    $("#ytRes").innerHTML = ""; $("#ytRes").style.display = "none";
+    $("#ytStatus").style.display = "block";
+    $("#ytStatus").innerHTML = "🚫 「" + ytEsc(qw.join(" · ")) + "」는 고소·저작권 주의 대상이라 검색을 막았어요.";
+    toast("🚨 주의 대상이라 검색을 막았어요 — " + qw.join(", "));
+    return;
+  }
   try { localStorage.setItem("yt_q", q); } catch(e){}
   const n = $("#ytN").value || "14";
   const allOn = $("#ytAllCh").checked;
   const all = allOn ? "1" : "0";
+  const cauBox = $("#ytCauCh");
+  const cauOn = !!(cauBox && cauBox.checked);
+  const cau = cauOn ? "1" : "0";
   $("#ytStatus").innerHTML = '<span class="ytspin"></span>「' + ytEsc(q) + '」 찾는 중…';
   $("#ytStatus").style.display = "block";
   $("#ytRes").innerHTML = "";
   $("#ytRes").style.display = "grid";
   $("#ytGo").disabled = true;
   const t0 = Date.now();
-  const d = await apiJSON("/api/yt_search?q=" + encodeURIComponent(q) + "&n=" + n + "&all=" + all);
+  const d = await apiJSON("/api/yt_search?q=" + encodeURIComponent(q) + "&n=" + n + "&all=" + all + "&caution=" + cau);
   $("#ytGo").disabled = false;
   const took = ((Date.now() - t0) / 1000).toFixed(1);
   if (!d || !d.ok){
     $("#ytStatus").style.display = "block";
     $("#ytStatus").innerHTML = "⚠️ " + ytEsc((d && d.error) || "검색에 실패했어요");
+    if (d && d.watchBlocked && d.watchBlocked.length){
+      const cw0 = $("#ytCauWarn");
+      if (cw0){
+        cw0.style.display = "block";
+        cw0.setAttribute("data-hard", "1");
+        cw0.innerHTML = "🚫 「" + ytEsc(d.watchBlocked.join(" · ")) + "」는 고소·저작권 주의 대상이라 <b>검색을 막았어요</b>.<br>다른 키워드로 찾아 주세요.";
+      }
+    }
     return;
   }
   const items = d.items || [];
@@ -9377,7 +9555,33 @@ async function ytFind(){
     + (d.verifiedN ? " · 인증 " + d.verifiedN + "개" : "")
     + (d.checkN ? " · 확인 필요 " + d.checkN + "개" : "")
     + " · 개인 채널 <b>" + (d.hidden || 0) + "개 숨김</b>"
+    + (d.blockedN ? " · ⛔ 차단 <b>" + d.blockedN + "개</b>" : "")
+    + (d.cautionN ? " · ⚠️ 주의 <b>" + d.cautionN + "개</b>" + (cauOn ? "" : " 숨김") : "")
     + ' <span class="ytmini">(' + took + "초)</span>";
+  const cw = $("#ytCauWarn");
+  if (cw){
+    const msgs = [];
+    const softMsgs = [];
+    if ((d.softQuery || []).length){
+      softMsgs.push(((d.softQuery || []).map(function (t) {
+        return "⚠️ " + ytEsc(t.label) + (t.note ? " — " + ytEsc(t.note) : "");
+      })).join("<br>"));
+    }
+    if ((d.cautionQuery || []).length){
+      msgs.push("「" + ytEsc(d.cautionQuery.join("·")) + "」는 고소·저작권 주의 목록에 있는 이름이에요. 사진·영상은 쓰지 말고, 글의 사실관계도 꼭 확인해 주세요.");
+    }
+    if ((d.cautionN || 0) > 0 && !cauOn){
+      msgs.push("주의 키워드가 들어간 영상 " + d.cautionN + "개는 기본으로 뺐어요. 굳이 볼 때만 위의 ‘주의 키워드 영상도 보기’를 켜세요 (캡처는 막혀요).");
+    }
+    if (msgs.length){
+      cw.style.display = "block"; cw.setAttribute("data-hard", "1");
+      cw.innerHTML = "⚠️ " + msgs.join("<br>") + (softMsgs.length ? "<br>" + softMsgs.join("<br>") : "");
+    } else if (softMsgs.length){
+      cw.style.display = "block"; cw.setAttribute("data-hard", "0");
+      cw.innerHTML = softMsgs.join("<br>");
+    }
+    else { cw.style.display = "none"; cw.innerHTML = ""; cw.setAttribute("data-hard", "0"); }
+  }
   const w = $("#ytAllWarn");
   if (!allOn && (d.hidden || 0) > 0){
     w.style.display = "block";
@@ -9388,18 +9592,30 @@ async function ytFind(){
   const g = $("#ytRes");
   g.innerHTML = "";
   if (!items.length){
-    g.innerHTML = '<div class="ytempty">공식 채널 결과가 없어요.<br>검색어를 조금 넓게(예: 구단명 + 선수명) 잡거나, '
-      + "‘개인 채널도 같이 보기’를 켜서 확인해 보세요.</div>";
+    let empty = "공식 채널 결과가 없어요.<br>검색어를 조금 넓게(예: 구단명 + 선수명) 잡거나, ‘개인 채널도 같이 보기’를 켜서 확인해 보세요.";
+    if ((d.blockedN || 0) > 0){
+      empty = "⛔ <b>TV조선·채널A</b> 결과 " + d.blockedN + "개는 사진을 쓸 수 없어서 모두 뺐어요.<br>다른 방송사·구단 공식 영상으로 찾아 주세요.";
+    } else if ((d.cautionN || 0) > 0){
+      empty = "⚠️ 고소·저작권 주의 목록에 걸린 영상 " + d.cautionN + "개만 나와서 모두 숨겼어요.<br>다른 키워드로 찾아 주세요.";
+    }
+    g.innerHTML = '<div class="ytempty">' + empty + "</div>";
     return;
   }
   items.forEach((it, i) => {
+    const cauHit = !!(it.caution && it.caution.length);
     const card = document.createElement("div");
     card.className = "ytcard";
     card.innerHTML = '<div class="th"><img src="' + ytEsc(it.thumb) + '" alt="" loading="lazy">'
       + (it.duration ? '<span class="dur">' + ytDur(it.duration) + "</span>" : "") + "</div>"
       + '<div class="m"><div class="t">' + ytEsc(it.title) + "</div>"
-      + '<div class="c">' + ytBadge(it.verdict) + "<span>" + ytEsc(it.channel) + "</span></div></div>"
-      + '<div class="ytacts"><button class="btn small main ytgrab" data-i="' + i + '">🎬 캡처</button>'
+      + '<div class="c">' + ytBadge(it.verdict)
+      + (cauHit ? '<span class="ytb blk">⚠️ 사용 금지: ' + ytEsc(it.caution.join("·")) + "</span>" : "")
+      + "<span>" + ytEsc(it.channel) + "</span></div>"
+      + (cauHit ? '<div class="ytcau">고소·저작권 주의 목록에 오른 이름이 들어간 영상이에요. 사진은 쓰지 마세요.</div>' : "")
+      + "</div>"
+      + '<div class="ytacts">' + (cauHit
+          ? '<button class="btn small" disabled title="고소·저작권 주의 목록 — 사진 사용 금지">🚫 캡처 금지</button>'
+          : '<button class="btn small main ytgrab" data-i="' + i + '">🎬 캡처</button>')
       + '<a class="btn small" href="' + ytEsc(it.url) + '" target="_blank" rel="noopener" title="유튜브에서 원본 영상 열기">▶ 영상</a></div>';
     g.appendChild(card);
   });
@@ -9596,6 +9812,36 @@ if ($("#ytExtraSave")) $("#ytExtraSave").onclick = ytSaveExtra;
 if ($("#ytJump")) $("#ytJump").onclick = () => { showTab("ytcap"); };
 if ($("#ytGo")) $("#ytGo").onclick = ytFind;
 if ($("#ytQ")) $("#ytQ").addEventListener("keydown", ev => { if (ev.key === "Enter") ytFind(); });
+function ytQWatch(){
+  const q = ($("#ytQ").value || "").trim();
+  const w = watchScan(q);
+  const sf = watchSoftScan(q);
+  const cw = $("#ytCauWarn");
+  const go = $("#ytGo");
+  if (w.length){
+    if (cw){
+      cw.style.display = "block";
+      cw.setAttribute("data-hard", "1");
+      cw.innerHTML = "🚫 「" + ytEsc(w.join(" · ")) + "」는 고소·저작권 주의 대상이라 <b>검색을 막았어요</b>.<br>"
+        + "사진·영상 모두 쓰지 말고, 다른 키워드로 찾아 주세요.";
+    }
+    if (go) go.disabled = true;
+  } else if (sf.length){
+    /* 소프트 주의 — 막지 않고 주황 배지만 (검색·캡처 정상 실행) */
+    if (cw){
+      cw.style.display = "block";
+      cw.setAttribute("data-hard", "0");
+      cw.innerHTML = watchSoftHTML(sf);
+    }
+    if (go) go.disabled = false;
+  } else {
+    if (cw && !(cw.getAttribute("data-keep") === "1")){
+      cw.style.display = "none"; cw.innerHTML = ""; cw.setAttribute("data-hard", "0");
+    }
+    if (go) go.disabled = false;
+  }
+}
+if ($("#ytQ")) $("#ytQ").addEventListener("input", ytQWatch);
 if ($("#ytAllCh")) $("#ytAllCh").onchange = () => { if (($("#ytQ").value || "").trim()) ytFind(); };
 if ($("#ytEnvRefresh")) $("#ytEnvRefresh").onclick = () => { toast("↻ 준비 상태 확인"); ytLoadEnv(); };
 if ($("#ytCapUrl")) $("#ytCapUrl").onclick = () => {
@@ -9621,6 +9867,8 @@ if ($("#ytCopyMain")) $("#ytCopyMain").onclick = () => {
 if ($("#ytInsta")) $("#ytInsta").onclick = () => {
   const q = ytInstaTerm();
   if (!q){ toast("먼저 검색어(이름)를 적어 주세요"); try { $("#ytQ").focus(); } catch(e){} return; }
+  const iw = watchScan(q);
+  if (iw.length){ toast("🚨 주의 대상이라 인스타 검색도 막았어요 — " + iw.join(", ")); return; }
   const url = "https://www.google.com/search?q=" + encodeURIComponent('site:instagram.com "' + q + '"');
   window.open(url, "_blank", "noopener");
   toast("📸 구글에서 공식 인스타를 찾는 창을 열었어요");
@@ -9633,6 +9881,7 @@ if ($("#ytInstaCopy")) $("#ytInstaCopy").onclick = () => {
 try {
   const q0 = localStorage.getItem("yt_q");
   if (q0 && $("#ytQ") && !$("#ytQ").value) $("#ytQ").value = q0;
+  if ($("#ytQ") && ($("#ytQ").value || "").trim()) ytQWatch();
 } catch(e){}
 
 try {
@@ -10460,7 +10709,7 @@ const V27_BLOG_ROWS = [
   ["petlifedesk", "펫 라이프데스크", "🐾"], ["plantlifedesk", "플랜트 라이프데스크", "🪴"],
   ["tistory", "티스토리", "📝"]
 ];
-const V27 = { tab: "scorecard", scored: null, data: null, strat: null, stratList: [], inflow: {}, fc: null,
+const V27 = { tab: "scorecard", scored: null, data: null, strat: null, stratList: [], inflow: {}, gold: null, fc: null,
               fcHist: null, loaded: { scorecard: false, strategy: false, fact: false } };
 
 function v27n(v, dflt) {
@@ -10508,6 +10757,11 @@ const SC_SAMPLE = [
 function scRun() {
   const t = ($("#scTitle").value || "").trim();
   if (!t) { toast("채점할 제목을 넣어 주세요"); return; }
+  const sw = watchScan(t);
+  const ss = watchSoftScan(t);
+  watchBanner($("#scWatch"), sw, "이 이름이 들어간 제목·글은 사진·영상 모두 쓰지 않는 게 좋아요.", ss);
+  if (sw.length && !confirm("🚨 고소·저작권 주의 대상이에요 — " + sw.join(", ") +
+      "\n사진·영상을 쓰면 위험하니 다른 소재로 바꾸는 게 좋아요.\n그래도 채점만 할까요?")) return;
   const r = scoreHomeTitle(t);
   if (!r || !r.ok) { toast("채점하지 못했어요"); return; }
   V27.scored = r;
@@ -10826,6 +11080,7 @@ function stRender(d) {
   }).join("");
   box.innerHTML =
     '<div class="v27btns" style="margin:0 0 8px"><button class="btn small main" data-act="copyall">📋 분석 전체 복사</button>' +
+    '<button class="btn small" data-act="gold">⛏️ 황금 키워드 채굴</button>' +
     '<span class="v27mini" style="margin-left:4px">후킹·키워드·구조·중복·후속 5개를 한 번에 복사해요</span></div>' +
     '<div class="v27stcard"><h4>① 제목 후킹 분석 — ' + esc(hk.summary || "") + "</h4>" +
     (hk.features || []).map(function (f) {
@@ -10890,7 +11145,8 @@ function stRenderHistory(list) {
       "<div><b>" + esc(h.title) + "</b>" +
       '<div class="m">' + esc(h.blogName || "") + " · " + esc((h.kindLabel || "")) + " · " + esc(h.savedAt || "") +
       ((h.angles || []).length ? " · " + h.angles.map(function (a) { return esc(a); }).join(", ") : "") + "</div></div>" +
-      '<span class="sp"></span><button class="v27x" data-act="open">불러오기</button>' +
+      '<span class="sp"></span><button class="v27x" data-act="gold" title="이 효자글로 황금 키워드 바로 채굴">⛏️</button>' +
+      '<button class="v27x" data-act="open">불러오기</button>' +
       '<button class="v27x" data-act="del">✕</button></div>';
   }).join("");
 }
@@ -10906,6 +11162,143 @@ async function stSaveNow() {
   toast(d.message || "저장했어요");
   stRenderHistory(d.history || []);
   stLoadList(false);
+}
+
+/* ---------- ⛏️ 효자글 → 황금 키워드 바로 채굴 (v2.7.2) ---------- */
+function stGoldSeedList() {
+  const el = $("#stGoldSeeds");
+  return (el ? el.value : "").split(",").map(function (x) { return x.trim(); }).filter(Boolean).slice(0, 2);
+}
+function stGoldNum(v, plus) {
+  if (v === null || v === undefined) return "–";
+  return v27n(v) + (plus ? "+" : "");
+}
+function stGoldRatio(r) {
+  if (r === null || r === undefined) return "–";
+  return Number(r).toFixed(2);
+}
+
+async function stGoldMine(over) {
+  over = over || {};
+  if (V27_MOBILE) { toast(V27_MOBILE_MSG); return; }
+  const title = String(over.title || ($("#stTitle") ? $("#stTitle").value : "") || "").trim();
+  if (!title) { toast("효자글 제목을 먼저 넣어 주세요"); if ($("#stTitle")) $("#stTitle").focus(); return; }
+  const seeds = (over.seeds && over.seeds.length) ? over.seeds.slice(0, 2) : stGoldSeedList();
+  const blog = over.blog || ($("#stBlog") ? $("#stBlog").value : "") || "";
+  const kwEl = $("#stKw");
+  const keywords = over.keywords || (kwEl
+    ? kwEl.value.split(",").map(function (x) { return x.trim(); }).filter(Boolean) : []);
+  const btn = $("#stGold");
+  const out = $("#stGoldOut");
+  if (out) {
+    out.innerHTML = '<div class="v27empty">⛏️ 「' + esc(title.slice(0, 44)) + "」" +
+      (seeds.length ? " · 시드 " + esc(seeds.join(", ")) : " · 제목에서 시드 자동") +
+      " — 검색량·문서수 대조 중이에요 (10~20초)</div>";
+  }
+  if (btn) { btn.disabled = true; btn.textContent = "⛏️ 채굴 중…"; }
+  let d = null;
+  try {
+    d = await apiJSON("/api/strategy", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "mine", title: title, blog: blog, keywords: keywords, seeds: seeds })
+    });
+  } catch (e) {
+    d = { ok: false, error: "서버와 연결하지 못했어요 — PC 오피스 검은 창이 켜져 있는지 확인해 주세요." };
+  }
+  if (btn) { btn.disabled = false; btn.textContent = "⛏️ 황금 키워드 채굴 추천"; }
+  stRenderGold(d, title);
+  try { if (out) out.scrollIntoView({ behavior: "smooth", block: "nearest" }); } catch (e) {}
+  if (!d || !d.ok) { toast((d && d.error) || "채굴하지 못했어요"); return; }
+  toast(d.source === "api"
+    ? "⛏️ 황금 키워드 " + (d.items || []).length + "개를 찾았어요"
+    : "🧩 패턴 후보 " + (d.items || []).length + "개를 뽑았어요 (검색량은 API 연결 후)");
+}
+
+function stRenderGold(d, title) {
+  const box = $("#stGoldOut");
+  if (!box) return;
+  V27.gold = (d && d.ok) ? d : null;
+  if (!d || !d.ok) {
+    box.innerHTML = '<div class="v27empty">' + esc((d && (d.error || d.notice)) || "채굴 결과가 없어요") + "</div>";
+    return;
+  }
+  const items = d.items || [];
+  const src = d.source === "api"
+    ? '<span class="v27gbadge gold">✅ 실제 검색광고 API</span>'
+    : '<span class="v27gbadge soft">🧩 오프라인 패턴</span>';
+  const head = '<div class="v27ghd">' + src +
+    '<span class="st">시드 ' + esc((d.seeds || []).join(", ") || "–") +
+    (d.kindLabel ? " · " + esc(d.kindLabel) : "") +
+    (d.source === "api" ? " · 문서수 대조 " + (d.checked || 0) + "개" : "") + "</span>" +
+    (items.length ? '<button class="v27x" data-gold="copyall">📋 전체 복사</button>' : "") +
+    "</div>";
+  let note = "";
+  if (d.notice) note += '<div class="v27mini" style="color:#a2792a">' + esc(d.notice) + "</div>";
+  if ((d.filtered || []).length) {
+    note += '<div class="v27mini">🚫 고소·저작권 주의 목록에 걸린 후보는 결과에서 뺐어요 — <b>' +
+      esc((d.filtered || []).join(" · ")) + "</b></div>";
+  }
+  if ((d.soft || []).length) {
+    note += '<div class="v27mini" style="color:#8a5a08">⚠️ ' + esc((d.soft || []).join(" · ")) +
+      ' 이름이 들어간 키워드가 있어요 — 사진·영상은 공식 출처만, 글은 사실관계를 확인하고 쓰세요.</div>';
+  }
+  if (d.docNote) note += '<div class="v27mini" style="color:#b3261e">' + esc(d.docNote) + "</div>";
+  if (d.wide) {
+    note += '<div class="v27mini" style="color:#a2792a">제목 낱말이 겹치는 후보가 적어서 넓게 봤어요 — 주제와 조금 먼 키워드도 섞여 있어요.</div>';
+  } else if (d.source === "api" && !d.goldN && items.length) {
+    note += '<div class="v27mini" style="color:#a2792a">이 주제는 문서가 많은 편이라 경쟁률 1.00 이하인 <b>진짜 황금</b>이 나오지 않았어요 — ' +
+      "그중 가장 나은 후보를 위에서부터 보여 드려요. 시드를 더 좁히면(예: 동네+메뉴, 제품명+증상) 황금이 나오기도 해요.</div>";
+  }
+  if (!items.length) {
+    box.innerHTML = head + '<div class="v27empty">월 검색량 ' + v27n(d.minVol || 300) +
+      "회 이상 조건에 맞는 후보가 없었어요. 시드를 1~2개로 좁히거나 다른 말로 넣어 보세요.</div>" + note;
+    return;
+  }
+  const rows = items.map(function (it, i) {
+    const badge = it.pattern ? '<span class="v27gbadge check">🧩 패턴</span>'
+      : (it.verdict === "gold" ? '<span class="v27gbadge gold">⭐ 황금</span>'
+        : (it.verdict === "check" ? '<span class="v27gbadge check">확인</span>' : ""));
+    const softB = (it.soft || []).length
+      ? '<span class="v27gbadge soft">⚠️ ' + esc((it.soft || []).join(" · ")) + "</span>" : "";
+    const nums = it.pattern
+      ? '<span>검색량 <b>–</b></span><span>문서수 <b>–</b></span><span>경쟁률 <b>–</b></span>'
+      : '<span>검색량 <b>' + stGoldNum(it.total) + "</b></span>" +
+        "<span>문서수 <b>" + stGoldNum(it.docs, it.capped) + "</b></span>" +
+        "<span>경쟁률 <b>" + stGoldRatio(it.ratio) + "</b></span>" +
+        (it.comp ? "<span>경쟁정도 <b>" + esc(it.comp) + "</b></span>" : "");
+    const why = it.why || (it.angle ? it.angle + " 각도 후보" : "후속편에 바로 쓸 수 있는 말");
+    return '<div class="v27grow">' +
+      '<div class="top"><span class="rk">' + (i + 1) + "</span>" +
+      '<span class="kw">' + esc(it.kw) + " " + badge + softB + "</span>" +
+      '<button class="v27x cp" data-gold="copy" data-gkw="' + esc(it.kw) + '">📋 복사</button></div>' +
+      '<div class="nums">' + nums + "</div>" +
+      '<div class="why">왜 황금: ' + esc(why) + "</div>" +
+      "</div>";
+  }).join("");
+  box.innerHTML = head + '<div class="v27glist">' + rows + "</div>" + note +
+    '<div class="v27mini">경쟁률 = 블로그 문서수 ÷ 월 검색량이에요. <b>1.00 이하</b>면 문서보다 검색이 많은 자리라 ' +
+    "새 글도 1페이지를 노려볼 수 있어요. 문서 1,000건 이상은 네이버가 1,000으로 잘라 줘서 <b>1,000+</b>로 보여요.</div>";
+}
+
+function stGoldCopyAll() {
+  const d = V27.gold;
+  if (!d || !(d.items || []).length) { toast("먼저 황금 키워드를 채굴해 주세요"); return; }
+  const lines = ["⛏️ 황금 키워드 채굴 (" + v27Today() + ")",
+    "효자글: " + (d.title || ""),
+    "블로그: " + (d.blogName || d.blog || "–") + (d.kindLabel ? " · " + d.kindLabel : ""),
+    "시드: " + ((d.seeds || []).join(", ") || "–"), ""];
+  (d.items || []).forEach(function (it, i) {
+    if (it.pattern) {
+      lines.push((i + 1) + ". " + it.kw + " — 패턴 후보 (검색량·문서수 미확인)");
+    } else {
+      lines.push((i + 1) + ". " + it.kw + " — 검색량 " + v27n(it.total) +
+        " · 문서 " + (it.docs === null || it.docs === undefined ? "–" : v27n(it.docs) + (it.capped ? "+" : "")) +
+        " · 경쟁률 " + stGoldRatio(it.ratio) +
+        (it.verdict === "gold" ? " · ⭐ 황금" : ""));
+    }
+  });
+  lines.push("", "※ 경쟁률 = 블로그 문서수 ÷ 월 검색량 (1.00 이하가 황금)");
+  copyText(lines.join("\n"), "📋 황금 키워드 전체를 복사했어요");
 }
 
 /* ============================ 3) 발행 전 팩트 검수기 ============================ */
@@ -10986,6 +11379,11 @@ function fcRefreshSum() {
 async function fcRun() {
   const text = ($("#fcText").value || "").trim();
   if (text.length < 20) { toast("검수할 원고를 붙여넣어 주세요 (20자 이상)"); return; }
+  const fw = watchScan(text);
+  const fs = watchSoftScan(text);
+  watchBanner($("#fcWatch"), fw, "이 이름이 들어간 원고는 사진·영상 모두 쓰지 않는 게 좋아요.", fs);
+  if (fw.length && !confirm("🚨 고소·저작권 주의 대상이에요 — " + fw.join(", ") +
+      "\n그래도 팩트 추출을 할까요?")) return;
   if (V27_MOBILE) { toast(V27_MOBILE_MSG); return; }
   const btn = $("#fcRun");
   if (btn) { btn.disabled = true; btn.textContent = "추출 중…"; }
@@ -11082,6 +11480,16 @@ if ($("#pane-score")) {
 
   if ($("#scBlog") && !$("#scBlog").value) $("#scBlog").value = "ye_zib";
   if ($("#scRun")) $("#scRun").onclick = scRun;
+  if ($("#scTitle")) $("#scTitle").addEventListener("input", function () {
+    watchBanner($("#scWatch"), watchScan($("#scTitle").value),
+                "이 이름이 들어간 제목·글은 사진·영상 모두 쓰지 않는 게 좋아요.",
+                watchSoftScan($("#scTitle").value));
+  });
+  if ($("#fcText")) $("#fcText").addEventListener("input", function () {
+    watchBanner($("#fcWatch"), watchScan($("#fcText").value),
+                "이 이름이 들어간 원고는 사진·영상 모두 쓰지 않는 게 좋아요.",
+                watchSoftScan($("#fcText").value));
+  });
   if ($("#scTitle")) $("#scTitle").addEventListener("keydown", function (ev) {
     if (ev.key === "Enter" && !ev.shiftKey) { ev.preventDefault(); scRun(); }
   });
@@ -11125,12 +11533,29 @@ if ($("#pane-score")) {
     ["#stTitle", "#stViews", "#stHome", "#stSearch", "#stKw", "#stBody"].forEach(function (s) { if ($(s)) $(s).value = ""; });
     $("#stPick").value = "";
     $("#stResult").innerHTML = ""; V27.strat = null;
+    if ($("#stGoldSeeds")) $("#stGoldSeeds").value = "";
+    if ($("#stGoldOut")) $("#stGoldOut").innerHTML = ""; V27.gold = null;
     if ($("#stSave")) $("#stSave").disabled = true;
   };
   if ($("#stRun")) $("#stRun").onclick = stRun;
   if ($("#stSave")) $("#stSave").onclick = stSaveNow;
+  if ($("#stGold")) $("#stGold").onclick = function () { stGoldMine(); };
+  if ($("#stGoldSeeds")) $("#stGoldSeeds").addEventListener("keydown", function (ev) {
+    if (ev.key === "Enter") { ev.preventDefault(); stGoldMine(); }
+  });
+  if ($("#stGoldOut")) $("#stGoldOut").addEventListener("click", function (ev) {
+    const b = ev.target.closest("[data-gold]");
+    if (!b) return;
+    if (b.dataset.gold === "copy") { copyText(b.dataset.gkw || "", "📋 키워드를 복사했어요"); return; }
+    if (b.dataset.gold === "copyall") { stGoldCopyAll(); }
+  });
   if ($("#stResult")) $("#stResult").addEventListener("click", function (ev) {
     if (ev.target.closest('[data-act="copyall"]')) { stCopyAll(); return; }
+    if (ev.target.closest('[data-act="gold"]')) {
+      const inp = (V27.strat && V27.strat.input) || {};
+      stGoldMine({ title: inp.title || ($("#stTitle").value || ""), blog: inp.blog || ($("#stBlog").value || "") });
+      return;
+    }
     const b = ev.target.closest("[data-fup]");
     if (!b || !V27.strat) return;
     const row = ((V27.strat.followups || {}).rows || [])[Number(b.dataset.fup)];
@@ -11143,6 +11568,14 @@ if ($("#pane-score")) {
     if (!b) return;
     const row = b.closest(".v27hitem");
     const id = row.dataset.sid;
+    if (b.dataset.act === "gold") {
+      const g = (V27.history || []).filter(function (h) { return h.id === id; })[0];
+      if (!g) { toast("저장된 효자글을 찾지 못했어요"); return; }
+      if ($("#stTitle")) $("#stTitle").value = g.title || "";
+      if ($("#stBlog") && g.blog) $("#stBlog").value = g.blog;
+      stGoldMine({ title: g.title || "", blog: g.blog || "" });
+      return;
+    }
     if (b.dataset.act === "open") {
       const hit = (V27.history || []).filter(function (h) { return h.id === id; })[0];
       if (!hit) { toast("저장된 분석을 찾지 못했어요"); return; }
@@ -11177,6 +11610,9 @@ if ($("#pane-score")) {
       const rd = new FileReader();
       rd.onload = function () {
         $("#fcText").value = String(rd.result || "");
+        watchBanner($("#fcWatch"), watchScan($("#fcText").value),
+                    "이 이름이 들어간 원고는 사진·영상 모두 쓰지 않는 게 좋아요.",
+                    watchSoftScan($("#fcText").value));
         toast("📄 " + f.name + " 을(를) 불러왔어요");
       };
       rd.readAsText(f, "utf-8");
@@ -11217,16 +11653,17 @@ if ($("#pane-score")) {
   if (V27_MOBILE) {
     const note = $("#v27MobNote");
     if (note) { note.style.display = ""; note.innerHTML = V27_MOBILE_MSG; }
-    ["#scSave", "#scBulk", "#stRun", "#stSave", "#fcRun", "#fcFileBtn", "#fcSample"].forEach(function (s) {
+    ["#scSave", "#scBulk", "#stRun", "#stSave", "#fcRun", "#fcFileBtn", "#fcSample", "#stGold"].forEach(function (s) {
       if ($(s)) $(s).style.display = "none";
     });
+    if ($("#stGoldBox")) $("#stGoldBox").style.display = "none";
     if ($("#scSaveClose")) $("#scSaveClose").style.display = "none";
   }
 }
 window.__v27Sub = v27Sub;
 </script>
-<script src="assets/budget-local.js?v=11200521"></script>
-<script src="assets/reels-local.js?v=11200521"></script>
-<script src="assets/mobile-patch.js?v=11200521"></script>
+<script src="assets/budget-local.js?v=11200729"></script>
+<script src="assets/reels-local.js?v=11200729"></script>
+<script src="assets/mobile-patch.js?v=11200729"></script>
 </body>
 </html>
