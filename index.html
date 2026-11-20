@@ -1661,6 +1661,15 @@
   .ytpast .p .pt{padding:6px 7px;font-size:11px;color:#7d6870;line-height:1.35}
   .ytpast .p .pt b{display:block;color:#463339;font-size:11.5px;margin-bottom:2px;
                    display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+  /* 🗂 지난 캡처 — 썸네일 체크박스로 골라 일괄 저장 */
+  .ytpast .p{position:relative}
+  .ytpast .p.on{border-color:var(--pink2);box-shadow:0 0 0 2px #ffe3ee inset}
+  .ytpast .p .pchk{position:absolute;top:5px;left:5px;z-index:2;display:flex;align-items:center;gap:4px;
+    background:rgba(255,255,255,.93);border:1px solid var(--line);border-radius:999px;
+    padding:1px 8px 1px 3px;font-size:10.5px;font-weight:800;color:#8d7780;cursor:pointer}
+  .ytpast .p .pchk input{width:14px;height:14px;accent-color:#c88189;cursor:pointer;flex:none;margin:0}
+  .ytpast .p.on .pchk{background:#fff0f5;border-color:var(--pink2);color:#a64065}
+  #ytPastBar .btn{white-space:nowrap}
   .ytframe .srcin{resize:vertical;min-height:62px;line-height:1.45;overflow:auto}
   .ytextra{margin-top:10px;font-size:12px;color:#8d7780}
   .ytextra summary{cursor:pointer;font-weight:800;color:#957f88}
@@ -2433,7 +2442,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11202120" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11202206" alt="예닝 오피스 배경">
       <div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>
     </div>
     <div class="desk-list" id="deskList"></div>
@@ -3080,7 +3089,7 @@ body.locked{overflow:hidden}
   <div class="v28chips" id="v28Chips">
     <button class="v28chip on" type="button" data-v28="yt">🎬 유튜브 캡처</button>
     <button class="v28chip" type="button" data-v28="car">🚗 자동차 이미지</button>
-    <span class="ytmini" id="v28Hint" style="margin-left:auto">v2.8 · 미리보기에서 골라 저장 · 전부 이 PC 안에서(크레딧 0)</span>
+    <span class="ytmini" id="v28Hint" style="margin-left:auto">v2.8 · 공식 결과 모자라면 넓게 찾기 · 미리보기에서 골라 저장 · 전부 이 PC 안에서(크레딧 0)</span>
   </div>
   <!-- ================= 🎬 공식 유튜브 자동 캡처기 (v2.4 → v2.8) ================= -->
   <section class="panel" id="ytpanel">
@@ -3178,6 +3187,11 @@ body.locked{overflow:hidden}
         <button class="btn small" id="ytCopyMain">📋 대표 출처만 복사</button>
         <span class="ytmini" id="ytFolderTx"></span>
       </div>
+      <div class="ytbar" id="ytPastPickBar" style="display:none">
+        <label class="ytchk" style="margin:0"><input type="checkbox" id="ytPastPickAll" checked> 전체 선택</label>
+        <button class="btn small main" id="ytPastPickSave" type="button">💾 선택한 사진만 새 폴더로 저장</button>
+        <span class="ytmini" id="ytPastPickTx">고른 사진만 captures 안 새 폴더에 출처.txt 와 함께 모아 저장해요</span>
+      </div>
       <div class="ytwarn2" id="ytCapWarn" style="display:none"></div>
       <div class="ytgrid" id="ytFrames"></div>
       <div class="copybox">
@@ -3186,7 +3200,14 @@ body.locked{overflow:hidden}
       </div>
     </div>
 
-    <div class="yth"><b>🗂 지난 캡처</b><span class="ytmini">눌러서 사진과 출처를 다시 꺼내요</span></div>
+    <div class="yth"><b>🗂 지난 캡처</b><span class="ytmini">눌러서 사진과 출처를 다시 꺼내요 · 체크해서 한 번에 다시 저장할 수도 있어요</span>
+      <span class="ytmini" id="ytPastSelTx" style="margin-left:auto"></span></div>
+    <div class="ytbar" id="ytPastBar">
+      <button class="btn small" id="ytPastAllBtn" type="button">☑ 전체 선택</button>
+      <button class="btn small" id="ytPastNoneBtn" type="button">☐ 전체 해제</button>
+      <button class="btn small main" id="ytPastSave" type="button">💾 선택한 사진만 저장 (0장)</button>
+      <span class="ytmini" id="ytPastTx">썸네일 왼쪽 위 체크박스로 고르면, 고른 캡처 사진만 captures 안 새 폴더에 출처와 함께 모아 저장해요</span>
+    </div>
     <div class="ytpast" id="ytPast"></div>
   </section>
 
@@ -3742,7 +3763,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11202120"></script>
+<script src="assets/pin.js?v=11202206"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -6047,7 +6068,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11202120" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11202206" alt="예닝 오피스 배경">`;
   html += `<div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>`;   /* 🛋️ v2.5 보조 소파 */
   html += `<img class="sportmat" src="assets/avatars/spobriefing_mat.png" alt="⚾ 스포츠 데스크 매트">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
@@ -9655,6 +9676,7 @@ async function ytFind(){
     + " · 개인 채널 <b>" + (d.hidden || 0) + "개 숨김</b>"
     + (d.blockedN ? " · ⛔ 차단 <b>" + d.blockedN + "개</b>" : "")
     + (d.cautionN ? " · ⚠️ 주의 <b>" + d.cautionN + "개</b>" + (cauOn ? "" : " 숨김") : "")
+    + (((d.auxQueries || []).length) ? " · 넓게 찾기 <b title=\"공식 결과가 모자라 '공식·하이라이트·뉴스'를 덧붙여 다시 찾아 합쳤어요\">" + d.auxQueries.length + "회</b>" : "")
     + ' <span class="ytmini">(' + took + "초)</span>";
   const cw = $("#ytCauWarn");
   if (cw){
@@ -9802,9 +9824,19 @@ function ytRender(d){
 
   const g = $("#ytFrames");
   g.innerHTML = "";
+  const pastPick = !!d.pastPick;
   (d.frames || []).forEach((f, i) => {
     const card = document.createElement("div");
-    card.className = "ytframe";
+    card.className = "ytframe" + (pastPick ? " prev" : "");
+    card.dataset.file = f.name || "";
+    if (pastPick){
+      const pick = document.createElement("label");
+      pick.className = "pvchk";
+      pick.innerHTML = '<input type="checkbox" class="picksel" checked> 저장할 사진 ' + (i + 1) + "장";
+      const pk = pick.querySelector(".picksel");
+      pk.onchange = () => { card.classList.toggle("off", !pk.checked); ytPastPickCount(); };
+      card.appendChild(pick);
+    }
     const img = document.createElement("img");
     img.src = f.url || "";
     img.alt = (i + 1) + "장 장면";
@@ -9842,6 +9874,9 @@ function ytRender(d){
     card.appendChild(fb);
     g.appendChild(card);
   });
+  const pbar = $("#ytPastPickBar");
+  if (pbar) pbar.style.display = pastPick ? "" : "none";
+  ytPastPickCount();
   try { $("#ytResultWrap").scrollIntoView({behavior: "smooth", block: "start"}); } catch(e){}
   toast((d.kind === "thumb" ? "💾 썸네일 " : (d.thumbOnly ? "📷 썸네일 " : "🎬 사진 "))
     + (d.count || 0) + "장 + 출처 저장 완료");
@@ -9852,21 +9887,97 @@ async function ytLoadPast(){
   if (!el) return;
   const d = await apiJSON("/api/yt_list");
   const items = (d && d.items) || [];
+  const bar = $("#ytPastBar");
+  if (bar) bar.style.display = items.length ? "" : "none";
   if (!items.length){
     el.innerHTML = '<div class="ytempty">아직 캡처한 게 없어요 — 위에서 검색해 첫 장면을 담아 보세요 🌸</div>';
+    ytPastCount();
     return;
   }
   el.innerHTML = "";
   items.forEach(it => {
-    const b = document.createElement("button");
-    b.className = "p";
-    b.type = "button";
-    b.innerHTML = (it.thumb ? '<img src="' + ytEsc(it.thumb) + '" alt="" loading="lazy">' : "")
+    const card = document.createElement("div");
+    card.className = "p";
+    card.dataset.folder = it.folder || "";
+    card.dataset.count = String(it.count || 0);
+    card.innerHTML = '<label class="pchk" title="이 캡처 고르기">'
+      + '<input type="checkbox" class="pchkbox"> 고르기</label>'
+      + (it.thumb ? '<img src="' + ytEsc(it.thumb) + '" alt="" loading="lazy">' : "")
       + '<div class="pt"><b>' + ytEsc(it.title || it.folder) + "</b>"
       + ytEsc(it.channel || "") + " · " + (it.count || 0) + "장</div>";
-    b.onclick = () => ytOpenPast(it.folder);
-    el.appendChild(b);
+    const box = card.querySelector(".pchkbox");
+    box.onchange = () => { card.classList.toggle("on", box.checked); ytPastCount(); };
+    box.onclick = (ev) => { ev.stopPropagation(); };
+    card.title = (it.title || it.folder || "") + " — 클릭하면 사진·출처를 다시 열어요";
+    card.onclick = (ev) => {
+      if (ev.target && ev.target.closest && ev.target.closest(".pchk")) return;
+      ytOpenPast(it.folder);
+    };
+    el.appendChild(card);
   });
+  ytPastCount();
+}
+
+function ytPastCount(){
+  let n = 0, sum = 0;
+  document.querySelectorAll("#ytPast .p").forEach(c => {
+    const b = c.querySelector(".pchkbox");
+    if (b && b.checked){ n += 1; sum += Number(c.dataset.count || 0); }
+  });
+  const btn = $("#ytPastSave"), tx = $("#ytPastSelTx");
+  if (btn){ btn.textContent = "💾 선택한 사진만 저장 (" + sum + "장)"; btn.disabled = !sum; }
+  if (tx) tx.textContent = n ? "✓ " + n + "곳 선택 · 사진 " + sum + "장" : "";
+  return {folders: n, photos: sum};
+}
+
+function ytPastSelectAll(on){
+  document.querySelectorAll("#ytPast .p").forEach(c => {
+    const b = c.querySelector(".pchkbox");
+    if (!b) return;
+    b.checked = !!on;
+    c.classList.toggle("on", !!on);
+  });
+  ytPastCount();
+}
+
+async function ytPastSaveSel(){
+  const picks = Array.from(document.querySelectorAll("#ytPast .p"))
+    .filter(c => { const b = c.querySelector(".pchkbox"); return !!(b && b.checked); })
+    .map(c => ({folder: c.dataset.folder, files: []}));
+  if (!picks.length){ toast("저장할 지난 캡처를 먼저 체크해 주세요"); return; }
+  const btn = $("#ytPastSave");
+  const oldTx = btn ? btn.textContent : "";
+  if (btn){ btn.disabled = true; btn.textContent = "💾 저장 중…"; }
+  const d = await apiJSON("/api/yt_past_save", {method: "POST",
+    headers: {"Content-Type": "application/json"}, body: JSON.stringify({picks: picks})});
+  if (btn){ btn.disabled = false; btn.textContent = oldTx; }
+  if (!d || !d.ok){ toast("❌ " + ((d && d.error) || "저장하지 못했어요")); return; }
+  $("#ytStatus").style.display = "block";
+  $("#ytStatus").innerHTML = "✅ 지난 캡처 " + picks.length + "곳 · 사진 <b>" + (d.count || 0) + "장</b> 저장 완료";
+  ytRender(d);
+  ytLoadPast();
+  toast("💾 지난 캡처 사진 " + (d.count || 0) + "장을 새 폴더에 모았어요");
+}
+
+async function ytPastPickSave(){
+  const cur = YTCUR || {};
+  if (!cur.folder){ toast("먼저 지난 캡처를 열어 주세요"); return; }
+  const files = Array.from(document.querySelectorAll("#ytFrames .ytframe"))
+    .filter(c => { const b = c.querySelector(".picksel"); return !!(b && b.checked); })
+    .map(c => c.dataset.file).filter(Boolean);
+  if (!files.length){ toast("저장할 사진을 하나 이상 체크해 주세요"); return; }
+  const btn = $("#ytPastPickSave");
+  if (btn){ btn.disabled = true; }
+  const d = await apiJSON("/api/yt_past_save", {method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({picks: [{folder: cur.folder, files: files}]})});
+  if (btn){ btn.disabled = false; }
+  if (!d || !d.ok){ toast("❌ " + ((d && d.error) || "저장하지 못했어요")); return; }
+  $("#ytStatus").style.display = "block";
+  $("#ytStatus").innerHTML = "✅ 체크한 " + (d.count || 0) + "장을 새 폴더로 저장했어요";
+  ytRender(d);
+  ytLoadPast();
+  toast("💾 사진 " + (d.count || 0) + "장을 새 폴더에 모았어요");
 }
 
 async function ytOpenPast(folder){
@@ -9881,7 +9992,7 @@ async function ytOpenPast(folder){
   ytRender({folder: folder, title: m.title || folder, channel: m.channel || "",
             created: m.created || "", count: (m.frames || []).length, frames: m.frames || [],
             warning: m.warning || "", sourceMain: m.sourceMain || "", sourceAll: txt,
-            thumbOnly: !!m.thumbOnly});
+            thumbOnly: !!m.thumbOnly, pastPick: true});
 }
 
 function ytInstaTerm(){
@@ -9968,6 +10079,33 @@ if ($("#ytCopyMain")) $("#ytCopyMain").onclick = () => {
   if (!YTCUR){ toast("먼저 캡처해 주세요"); return; }
   copyText(YTCUR.sourceMain || "", "📋 대표 출처를 복사했어요");
 };
+function ytPastPickCount(){
+  const bar = $("#ytPastPickBar");
+  if (!bar || bar.style.display === "none") return;
+  const cards = Array.from(document.querySelectorAll("#ytFrames .ytframe"));
+  const on = cards.filter(c => { const b = c.querySelector(".picksel"); return !!(b && b.checked); }).length;
+  const all = $("#ytPastPickAll");
+  if (all) all.checked = !!cards.length && on === cards.length;
+  const btn = $("#ytPastPickSave");
+  if (btn){ btn.textContent = "💾 선택한 사진만 새 폴더로 저장 (" + on + "장)"; btn.disabled = !on; }
+  const tx = $("#ytPastPickTx");
+  if (tx) tx.textContent = on ? "고른 사진 " + on + "장만 captures 안 새 폴더에 출처.txt 와 함께 모아 저장해요"
+                              : "저장할 사진을 하나 이상 체크해 주세요";
+}
+if ($("#ytPastAllBtn")) $("#ytPastAllBtn").onclick = () => ytPastSelectAll(true);
+if ($("#ytPastNoneBtn")) $("#ytPastNoneBtn").onclick = () => ytPastSelectAll(false);
+if ($("#ytPastSave")) $("#ytPastSave").onclick = ytPastSaveSel;
+if ($("#ytPastPickAll")) $("#ytPastPickAll").onchange = () => {
+  const on = !!$("#ytPastPickAll").checked;
+  document.querySelectorAll("#ytFrames .ytframe").forEach(c => {
+    const b = c.querySelector(".picksel");
+    if (!b) return;
+    b.checked = on;
+    c.classList.toggle("off", !on);
+  });
+  ytPastPickCount();
+};
+if ($("#ytPastPickSave")) $("#ytPastPickSave").onclick = ytPastPickSave;
 if ($("#ytInsta")) $("#ytInsta").onclick = () => {
   const q = ytInstaTerm();
   if (!q){ toast("먼저 검색어(이름)를 적어 주세요"); try { $("#ytQ").focus(); } catch(e){} return; }
@@ -12228,8 +12366,8 @@ if ($("#pane-score")) {
 }
 window.__v27Sub = v27Sub;
 </script>
-<script src="assets/budget-local.js?v=11202120"></script>
-<script src="assets/reels-local.js?v=11202120"></script>
-<script src="assets/mobile-patch.js?v=11202120"></script>
+<script src="assets/budget-local.js?v=11202206"></script>
+<script src="assets/reels-local.js?v=11202206"></script>
+<script src="assets/mobile-patch.js?v=11202206"></script>
 </body>
 </html>
