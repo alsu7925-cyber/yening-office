@@ -1673,6 +1673,23 @@
   .ytspin{display:inline-block;width:13px;height:13px;border:2px solid #f2c9d7;border-top-color:#d9497a;
           border-radius:50%;animation:ytspin .7s linear infinite;vertical-align:-2px;margin-right:5px}
   @keyframes ytspin{to{transform:rotate(360deg)}}
+  /* ---------- 🎬🚗 v2.8 서브탭 · 미리보기 체크 ---------- */
+  .v28chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 12px}
+  .v28chip{font-family:inherit;font-size:13px;font-weight:800;color:#8d7780;cursor:pointer;
+    border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;
+    transition:.15s}
+  .v28chip:hover{border-color:var(--pink-line);color:#b9577a;background:#fff6fa}
+  .v28chip.on{background:linear-gradient(135deg,#fff0f5,#ffe4ee);border-color:var(--pink2);color:#a64065;
+    box-shadow:0 4px 12px rgba(214,151,170,.18)}
+  .ytframe.prev, .ytframe.car{position:relative}
+  .ytframe .pvchk{display:flex;align-items:center;gap:6px;padding:7px 9px;font-size:11.5px;font-weight:800;
+    color:#8d7780;background:#fff7fa;border-bottom:1px solid var(--line);cursor:pointer}
+  .ytframe .pvchk input{width:15px;height:15px;accent-color:#c88189;cursor:pointer;flex:none}
+  .ytframe .pvchk span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .ytframe.off{opacity:.45}
+  .ytframe.off .pvchk{background:#f6f2f3}
+  .v28mobnote{margin:9px 0 0;padding:9px 12px;border-radius:11px;background:#f4f9ff;
+    border:1px solid #d7e6f6;font-size:12px;color:#4f6b86;line-height:1.6}
   .ytempty{grid-column:1/-1;background:#fffafc;border:1px dashed var(--line);border-radius:14px;
            padding:16px;text-align:center;color:#a09199;font-size:12.5px;line-height:1.6}
   /* ---------- 📸 체험단 사진기 (v2.6) ---------- */
@@ -2365,7 +2382,7 @@ body.locked{overflow:hidden}
 
   <header class="hero">
     <div>
-      <h1>🏢 예닝 오피스 <span class="amp">·</span> 📱 모바일 <span style="display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;background:#ffe3ee;border:1px solid #f6a9bf;color:#a64065;font-size:12px;font-weight:700;vertical-align:middle">v2.7 · 11/20</span></h1>
+      <h1>🏢 예닝 오피스 <span class="amp">·</span> 📱 모바일 <span style="display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;background:#ffe3ee;border:1px solid #f6a9bf;color:#a64065;font-size:12px;font-weight:700;vertical-align:middle">v2.8 · 11/20</span></h1>
       <p>팀장님 아홉 분 오늘 실적 · 염탐 · 수익 · 가계부를 한 화면에서 🌸</p>
     </div>
     <div class="hero-side">
@@ -2374,7 +2391,7 @@ body.locked{overflow:hidden}
       <button class="btn small" id="linkBook" title="블로그 9곳 · 클립 · 인스타 · 스레드 · 페이스북 주소를 모아서 1초 복사">🔗 내 링크 모음</button>
       <button class="btn small" id="roomCfg" title="블로그 9곳의 밤티 이미지 · 젠스파크 · 클로드 방 · 밤티 대화방 주소와 블로그별 목표 편수를 넣습니다">⚙️ 링크/방 설정</button>
       <button class="btn small" id="notionBtn" title="노션 공용 허브 · 🛍️ 쇼핑커넥트 전용 허브 · 체험단 마스터 센터 · 예약발행 현황 · 일일 성과 리포트를 새 탭으로 엽니다">📝 노션 바로가기</button>
-      <button class="btn small" id="ytJump" title="공식 유튜브에서 장면 6~7장을 캡처하고 출처를 자동으로 만들어요">🎬 유튜브 캡처</button>
+      <button class="btn small" id="ytJump" title="공식 유튜브에서 7장을 미리보기로 뽑고, 체크한 사진만 출처와 함께 저장해요">🎬 유튜브 캡처</button>
       <button class="btn small" id="refresh">↻ 현황 새로고침</button>
     </div>
   </header>
@@ -2399,7 +2416,7 @@ body.locked{overflow:hidden}
     <button class="tab" data-tab="spy">🕵️ 내 블로그 염탐<span class="tbadge" id="spyBadge" style="display:none"></span></button>
     <button class="tab" data-tab="revenue">💰 수익 현황</button>
     <button class="tab" data-tab="budget">📒 예닝 가계부</button>
-    <button class="tab" data-tab="ytcap">🎬 유튜브 캡처</button>
+    <button class="tab" data-tab="ytcap">🎬 유튜브·자동차</button>
     <button class="tab" data-tab="weekly">📊 주간 리포트</button>
     <button class="tab" data-tab="photo">📸 체험단 사진기</button>
     <button class="tab" data-tab="score">🏆 성적표 &amp; 전략</button>
@@ -2416,7 +2433,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11201020" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11201620" alt="예닝 오피스 배경">
       <div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>
     </div>
     <div class="desk-list" id="deskList"></div>
@@ -3059,11 +3076,17 @@ body.locked{overflow:hidden}
   </div>
 
   <div class="tabpane" id="pane-ytcap">
-  <!-- ================= 🎬 공식 유튜브 자동 캡처기 (v2.4) ================= -->
+  <!-- ================= 🎬 유튜브 캡처 · 🚗 자동차 이미지 (v2.8) ================= -->
+  <div class="v28chips" id="v28Chips">
+    <button class="v28chip on" type="button" data-v28="yt">🎬 유튜브 캡처</button>
+    <button class="v28chip" type="button" data-v28="car">🚗 자동차 이미지</button>
+    <span class="ytmini" id="v28Hint" style="margin-left:auto">v2.8 · 미리보기에서 골라 저장 · 전부 이 PC 안에서(크레딧 0)</span>
+  </div>
+  <!-- ================= 🎬 공식 유튜브 자동 캡처기 (v2.4 → v2.8) ================= -->
   <section class="panel" id="ytpanel">
     <div class="phead">
       <h2>🎬 공식 유튜브 자동 캡처기</h2>
-      <span class="hint">검색 → 공식 채널만 (TV조선·채널A 제외) → 장면 6~7장 + 출처 자동 저장 · PC 전용</span>
+      <span class="hint">검색 → 공식 채널만 (TV조선·채널A 제외) → 7장 미리보기에서 골라 저장 + 출처 자동 · PC 전용</span>
       <button class="btn small" id="ytEnvRefresh" style="margin-left:auto" title="yt-dlp · ffmpeg 준비 상태를 다시 확인합니다">↻ 준비 상태</button>
     </div>
 
@@ -3127,10 +3150,24 @@ body.locked{overflow:hidden}
             <option value="6">6장</option>
           </select>
         </div>
-        <button class="btn main" id="ytCapUrl">🎬 이 영상 캡처</button>
+        <button class="btn main" id="ytCapUrl">🎬 장면 미리보기</button>
+        <button class="btn small" id="ytThumbSaveUrl" title="이 영상의 고화질 대표 썸네일(maxresdefault → hqdefault)을 바로 저장">💾 썸네일 저장</button>
         <button class="btn small" id="ytThumbBtn" title="내려받기가 막혔을 때만 — 유튜브 썸네일 4장으로 대체 저장">📷 썸네일 4장 대체</button>
       </div>
-      <div class="ytmini" style="margin-top:7px">사진은 <b>오피스 폴더 → captures → 날짜 폴더</b>에 저장되고, 같은 폴더에 <b>출처.txt</b> 가 함께 만들어져요.</div>
+      <div class="ytmini" style="margin-top:7px">사진은 <b>오피스 폴더 → captures → 날짜 폴더</b>에 저장되고, 같은 폴더에 <b>출처.txt</b> 가 함께 만들어져요. 먼저 <b>7장 미리보기</b>가 뜨고, 체크한 사진만 저장됩니다.</div>
+    </div>
+
+    <div id="ytPrevWrap" style="display:none">
+      <div class="yth"><b id="ytPrevTitle">🖼 미리보기 — 저장할 사진만 체크하세요</b><span class="ytmini" id="ytPrevMeta"></span></div>
+      <div class="ytbar">
+        <label class="ytchk" style="margin:0"><input type="checkbox" id="ytPrevAll" checked> 전체 선택</label>
+        <button class="btn small main" id="ytSaveSel">💾 선택한 사진 일괄 저장 (7장)</button>
+        <button class="btn small" id="ytReshuffle" title="같은 영상에서 겹치지 않는 다른 시간대 장면으로 바꿉니다">🎲 다른 장면 다시 뽑기</button>
+        <button class="btn small" id="ytPrevOpen" title="captures 폴더를 탐색기로 엽니다">📂 폴더 열기</button>
+        <span class="ytmini" id="ytPrevFolder"></span>
+      </div>
+      <div class="ytwarn2" id="ytPrevWarn" style="display:none"></div>
+      <div class="ytgrid" id="ytPrevFrames"></div>
     </div>
 
     <div id="ytResultWrap" style="display:none">
@@ -3151,6 +3188,62 @@ body.locked{overflow:hidden}
 
     <div class="yth"><b>🗂 지난 캡처</b><span class="ytmini">눌러서 사진과 출처를 다시 꺼내요</span></div>
     <div class="ytpast" id="ytPast"></div>
+  </section>
+
+  <!-- ================= 🚗 자동차 공식·해외 이미지 저장기 (v2.8) ================= -->
+  <section class="panel" id="carpane" style="display:none">
+    <div class="phead">
+      <h2>🚗 자동차 공식·해외 이미지 저장기</h2>
+      <span class="hint">NetCarShow · 현대/기아 공식 · 공식 보도자료만 · 언론사 기자·블로그 직찍 제외 · 조중동 21곳 차단 · PC 전용</span>
+    </div>
+
+    <div class="ytbox">
+      <div class="ytsearch">
+        <div style="flex:2 1 260px">
+          <label class="f">차종·키워드</label>
+          <input type="text" id="carQ" placeholder="예: 쏘렌토 MQ4, 아이오닉 9, BMW 5시리즈 — Enter 로도 찾아요">
+        </div>
+        <div style="flex:0 1 110px">
+          <label class="f">사진 수</label>
+          <select id="carN">
+            <option value="8">8장</option>
+            <option value="12" selected>12장</option>
+            <option value="16">16장</option>
+          </select>
+        </div>
+        <button class="btn main" id="carGo">🔎 공식 이미지 찾기</button>
+      </div>
+      <div class="ytmini" style="margin-top:8px">출처는 <b>NetCarShow · 현대자동차 공식 사이트 · 기아 공식 사이트(갤러리) · BMW 그룹 공식 보도자료</b>처럼 실제 가져온 사이트 이름 그대로 표기됩니다. 공식 사진이 4장보다 적으면 <b>위키미디어 공용(CC)</b> 사진으로 보충해요.</div>
+      <div class="ytwarn2" id="carWarn" style="display:none"></div>
+      <div class="v28mobnote" id="carMobNote" style="display:none">📱 폰에서는 자동차 이미지 검색이 안 돼요 — PC 오피스에서 써 주세요.</div>
+    </div>
+
+    <div class="status" id="carStatus" style="display:none"></div>
+
+    <div id="carPrevWrap" style="display:none">
+      <div class="yth"><b id="carTitle">🖼 찾은 공식 사진</b><span class="ytmini" id="carMeta"></span></div>
+      <div class="ytbar">
+        <label class="ytchk" style="margin:0"><input type="checkbox" id="carAll" checked> 전체 선택</label>
+        <button class="btn small main" id="carSave">💾 선택한 사진 일괄 저장</button>
+        <button class="btn small" id="carOpen" title="captures 폴더를 탐색기로 엽니다">📂 폴더 열기</button>
+      </div>
+      <div class="ytmini" id="carSrc" style="margin:0 2px 9px"></div>
+      <div class="ytgrid" id="carFrames"></div>
+    </div>
+
+    <div id="carResWrap" style="display:none">
+      <div class="yth"><b id="carResTitle">💾 저장 완료</b><span class="ytmini" id="carResMeta"></span></div>
+      <div class="ytbar">
+        <button class="btn small" id="carResOpen">📂 저장 폴더 열기</button>
+        <button class="btn small claude" id="carCopyAll">📋 출처 전체 복사</button>
+        <span class="ytmini" id="carResFolder"></span>
+      </div>
+      <div class="ytgrid" id="carResFrames"></div>
+      <div class="copybox">
+        <label class="f">전체 출처 복사칸 (Ctrl+A → Ctrl+C)</label>
+        <textarea id="carSourceAll" readonly></textarea>
+      </div>
+    </div>
   </section>
   </div>
 
@@ -3449,7 +3542,7 @@ body.locked{overflow:hidden}
     <div class="phead">
       <h2>🏆 제목 성적표 <span class="amp">+</span> 🔥 효자글 전략기 <span class="amp">+</span> 🔍 팩트 검수</h2>
       <span class="hint">크레딧 0원 · 이 PC 안에서만 계산 · 기록은 title_scorecard.json / strategy_history.json / factcheck_history.json</span>
-      <span class="expver" style="margin-left:auto">v2.7 · 11/20 · ⛏️바로채굴</span>
+      <span class="expver" style="margin-left:auto">v2.8 · 11/20 · ⛏️바로채굴</span>
     </div>
 
     <div class="v27chips" id="v27Chips">
@@ -3557,7 +3650,7 @@ body.locked{overflow:hidden}
           <button class="btn main" id="stGold">⛏️ 황금 키워드 채굴 추천</button>
         </div>
         <div class="v27mini">결과는 <b>TOP 8</b> — 검색량 · 문서수 · 경쟁률 + <b>왜 황금인지</b> 한 줄 + [📋 복사]까지 붙여 드려요.
-          주의 목록(17개)에 걸리는 키워드는 자동으로 빼고, 이정후는 ⚠️ 배지만 붙입니다.</div>
+          주의 목록(21개)에 걸리는 키워드는 자동으로 빼고, 이정후는 ⚠️ 배지만 붙입니다.</div>
         <div id="stGoldOut"></div>
       </div>
 
@@ -3649,7 +3742,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11201020"></script>
+<script src="assets/pin.js?v=11201620"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -5954,7 +6047,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11201020" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11201620" alt="예닝 오피스 배경">`;
   html += `<div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>`;   /* 🛋️ v2.5 보조 소파 */
   html += `<img class="sportmat" src="assets/avatars/spobriefing_mat.png" alt="⚾ 스포츠 데스크 매트">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
@@ -9347,11 +9440,16 @@ saveRoomLinks = async function(payload){
   return _origSaveRoomLinks(payload);
 };
 
-/* ============ 🚨 고소·저작권 주의 목록 (TV조선·채널A 포함 12개) ============
+/* ============ 🚨 고소·저작권 주의 목록 (언론사·인물 포함 21개) ============
    2026-11-20 예닝 님 지시 — 검색어·제목·원고에 이 이름이 들어오면 바로 빨간 경고를 띄웁니다. */
 const WATCH_TERMS = [
   { label: "TV조선", keys: ["tv조선", "tv chosun", "tvchosun", "조선방송"] },
   { label: "채널A", keys: ["채널a", "channel a", "channela"] },
+  /* --- 2026-11-20 예닝 님 추가 지시: 언론사 4곳 (사진·기사 인용 금지) --- */
+  { label: "JTBC", keys: ["jtbc", "제이티비씨", "중앙그룹"] },
+  { label: "중앙일보", keys: ["중앙일보", "중앙 일보"] },
+  { label: "조선일보", keys: ["조선일보", "조선 일보"] },
+  { label: "동아일보", keys: ["동아일보", "동아 일보"] },
   { label: "G드레곤(지드래곤)", keys: ["g드레곤", "지드래곤", "gdragon", "g-dragon", "권지용"] },
   { label: "김호중", keys: ["김호중"] },
   { label: "과즙세연", keys: ["과즙세연"] },
@@ -9615,14 +9713,24 @@ async function ytFind(){
       + "</div>"
       + '<div class="ytacts">' + (cauHit
           ? '<button class="btn small" disabled title="고소·저작권 주의 목록 — 사진 사용 금지">🚫 캡처 금지</button>'
-          : '<button class="btn small main ytgrab" data-i="' + i + '">🎬 캡처</button>')
+          : '<button class="btn small main ytgrab" data-i="' + i + '">🎬 캡처</button>'
+            + '<button class="btn small ytthumb" data-i="' + i + '" title="이 영상의 고화질 대표 썸네일을 바로 저장">💾 썸네일 저장</button>')
       + '<a class="btn small" href="' + ytEsc(it.url) + '" target="_blank" rel="noopener" title="유튜브에서 원본 영상 열기">▶ 영상</a></div>';
     g.appendChild(card);
   });
   g.querySelectorAll(".ytgrab").forEach(b => {
     b.onclick = () => {
       const it = items[Number(b.dataset.i)];
-      if (it) ytDoCapture(it.url, Number($("#ytCount").value || 7), it);
+      if (it) ytPreview(it.url, Number(($("#ytCount") && $("#ytCount").value) || 7));
+    };
+  });
+  g.querySelectorAll(".ytthumb").forEach(b => {
+    b.onclick = () => {
+      const it = items[Number(b.dataset.i)];
+      if (it){
+        $("#ytUrl").value = it.url;
+        ytSaveThumb(it);
+      }
     };
   });
 }
@@ -9680,10 +9788,13 @@ async function ytThumbCapture(){
 function ytRender(d){
   YTCUR = d;
   $("#ytResultWrap").style.display = "";
-  $("#ytCapTitle").textContent = (d.thumbOnly ? "📷 썸네일 4장 (대체) · " : "🎬 캡처 완료 · ") + (d.title || "");
+  const kt = (d.kind === "thumb") ? "💾 썸네일 저장 완료 · "
+    : (d.kind === "saved") ? "✅ 저장 완료 · "
+    : (d.thumbOnly ? "📷 썸네일 4장 (대체) · " : "🎬 캡처 완료 · ");
+  $("#ytCapTitle").textContent = kt + (d.title || "");
   $("#ytCapMeta").textContent = "사진 " + (d.count || 0) + "장 · " + (d.channel || "")
     + (d.created ? " · " + d.created : "");
-  $("#ytFolderTx").textContent = "저장 위치 · captures/" + (d.folder || "");
+  $("#ytFolderTx").textContent = "저장 위치 · " + (d.dir || ("captures/" + (d.folder || "")));
   const w = $("#ytCapWarn");
   if (d.warning){ w.style.display = ""; w.textContent = d.warning; }
   else { w.style.display = "none"; w.textContent = ""; }
@@ -9732,7 +9843,8 @@ function ytRender(d){
     g.appendChild(card);
   });
   try { $("#ytResultWrap").scrollIntoView({behavior: "smooth", block: "start"}); } catch(e){}
-  toast((d.thumbOnly ? "📷 썸네일 " : "🎬 사진 ") + (d.count || 0) + "장 + 출처 저장 완료");
+  toast((d.kind === "thumb" ? "💾 썸네일 " : (d.thumbOnly ? "📷 썸네일 " : "🎬 사진 "))
+    + (d.count || 0) + "장 + 출처 저장 완료");
 }
 
 async function ytLoadPast(){
@@ -9844,17 +9956,9 @@ function ytQWatch(){
 if ($("#ytQ")) $("#ytQ").addEventListener("input", ytQWatch);
 if ($("#ytAllCh")) $("#ytAllCh").onchange = () => { if (($("#ytQ").value || "").trim()) ytFind(); };
 if ($("#ytEnvRefresh")) $("#ytEnvRefresh").onclick = () => { toast("↻ 준비 상태 확인"); ytLoadEnv(); };
-if ($("#ytCapUrl")) $("#ytCapUrl").onclick = () => {
-  const url = ($("#ytUrl").value || "").trim();
-  if (!url){ toast("유튜브 주소를 먼저 넣어 주세요"); return; }
-  ytDoCapture(url, Number($("#ytCount").value || 7));
-};
 if ($("#ytThumbBtn")) $("#ytThumbBtn").onclick = ytThumbCapture;
-if ($("#ytOpen")) $("#ytOpen").onclick = async () => {
-  if (!YTCUR || !YTCUR.folder){ toast("먼저 캡처해 주세요"); return; }
-  const d = await apiJSON("/api/yt_open", {method: "POST", headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({folder: YTCUR.folder})});
-  toast(d && d.ok ? "📂 탐색기에서 폴더를 열었어요" : ("❌ " + ((d && d.error) || "폴더를 열지 못했어요")));
+if ($("#ytOpen")) $("#ytOpen").onclick = () => {
+  ytOpenFolder((YTCUR && YTCUR.folder) || "", "saved");
 };
 if ($("#ytCopyAll")) $("#ytCopyAll").onclick = () => {
   if (!YTCUR){ toast("먼저 캡처해 주세요"); return; }
@@ -9878,6 +9982,468 @@ if ($("#ytInstaCopy")) $("#ytInstaCopy").onclick = () => {
   if (!acc){ toast("계정명이나 검색어를 먼저 적어 주세요"); return; }
   copyText("출처: @" + acc + " 공식 인스타그램", "📸 인스타 출처 예시를 복사했어요");
 };
+/* ================= 🎬 v2.8 — 미리보기 → 체크 → 일괄 저장 / 🚗 자동차 이미지 ================= */
+const YTPV = {token:"", frames:[], sel:new Set(), round:1, dir:"", folder:""};
+const CARS = {token:"", items:[], sel:new Set(), dir:"", folder:"", savedDir:"", sourceAll:""};
+const V28_MOBILE = (typeof window.__OFFICE_READY !== "undefined");
+
+function v28Tab(which){
+  document.querySelectorAll("#v28Chips .v28chip").forEach(function (b) {
+    b.classList.toggle("on", b.getAttribute("data-v28") === which);
+  });
+  const yt = $("#ytpanel"), car = $("#carpane");
+  if (yt) yt.style.display = (which === "car") ? "none" : "";
+  if (car) car.style.display = (which === "car") ? "" : "none";
+  try { localStorage.setItem("v28_yt_sub", which); } catch(e){}
+}
+document.querySelectorAll("#v28Chips .v28chip").forEach(function (b) {
+  b.onclick = function () { v28Tab(b.getAttribute("data-v28")); };
+});
+
+/* ---------------- 🎬 유튜브: 미리보기 ---------------- */
+function ytpvCount(){
+  const n = YTPV.sel.size;
+  const b = $("#ytSaveSel");
+  if (b){ b.textContent = "💾 선택한 사진 일괄 저장 (" + n + "장)"; b.disabled = (n === 0); }
+  const all = $("#ytPrevAll");
+  if (all) all.checked = YTPV.frames.length > 0 && n === YTPV.frames.length;
+}
+
+function ytpvStatus(html){
+  const el = $("#ytStatus");
+  if (!el) return;
+  el.style.display = "block";
+  el.innerHTML = html;
+}
+
+function ytpvCard(f, i){
+  const card = document.createElement("div");
+  card.className = "ytframe prev";
+  const lab = document.createElement("label");
+  lab.className = "pvchk";
+  const cb = document.createElement("input");
+  cb.type = "checkbox";
+  cb.checked = YTPV.sel.has(f.name);
+  cb.onchange = function () {
+    if (cb.checked) YTPV.sel.add(f.name); else YTPV.sel.delete(f.name);
+    card.classList.toggle("off", !cb.checked);
+    ytpvCount();
+  };
+  lab.appendChild(cb);
+  const sp = document.createElement("span");
+  sp.textContent = (i + 1) + "장 · " + (f.ts || "");
+  lab.appendChild(sp);
+  const img = document.createElement("img");
+  img.src = f.url || "";
+  img.alt = (i + 1) + "장 장면";
+  img.loading = "lazy";
+  const fb = document.createElement("div");
+  fb.className = "fb";
+  const inp = document.createElement("textarea");
+  inp.className = "srcin";
+  inp.readOnly = true;
+  inp.rows = 3;
+  inp.value = f.source || "";
+  inp.title = "이 장면의 출처 문구 — 그대로 복사해 쓰시면 됩니다";
+  const act = document.createElement("div");
+  act.className = "fbact";
+  const cp = document.createElement("button");
+  cp.className = "btn small main";
+  cp.type = "button";
+  cp.textContent = "📋 출처 복사";
+  cp.onclick = function () { copyText(f.source || "", "📋 " + (i + 1) + "장 출처를 복사했어요"); };
+  const go = document.createElement("a");
+  go.className = "btn small";
+  go.href = f.openUrl || "";
+  go.target = "_blank";
+  go.rel = "noopener";
+  go.textContent = "▶ 이 장면";
+  act.appendChild(cp);
+  act.appendChild(go);
+  fb.appendChild(inp);
+  fb.appendChild(act);
+  card.appendChild(lab);
+  card.appendChild(img);
+  card.appendChild(fb);
+  return card;
+}
+
+function ytpvRender(d){
+  YTPV.token = d.token || "";
+  YTPV.frames = d.frames || [];
+  YTPV.round = d.round || 1;
+  YTPV.dir = d.dir || "";
+  YTPV.folder = d.folder || "";
+  YTPV.sel = new Set(YTPV.frames.map(function (f) { return f.name; }));
+  const wrap = $("#ytPrevWrap");
+  if (wrap) wrap.style.display = "";
+  $("#ytPrevTitle").textContent = "🖼 미리보기 · " + (d.title || "")
+    + (YTPV.round > 1 ? "  (" + YTPV.round + "번째 장면)" : "") + " — 저장할 사진만 체크하세요";
+  $("#ytPrevMeta").textContent = (d.channel || "") + " · " + (d.count || 0) + "장 · 저장 예정 폴더 captures/"
+    + (YTPV.folder || "");
+  $("#ytPrevFolder").textContent = YTPV.dir ? ("저장 위치 · " + YTPV.dir) : "";
+  const w = $("#ytPrevWarn");
+  if (w){
+    if (d.warning){ w.style.display = ""; w.setAttribute("data-hard", "0"); w.textContent = d.warning; }
+    else { w.style.display = "none"; w.textContent = ""; }
+  }
+  const g = $("#ytPrevFrames");
+  g.innerHTML = "";
+  YTPV.frames.forEach(function (f, i) { g.appendChild(ytpvCard(f, i)); });
+  ytpvCount();
+  try { wrap.scrollIntoView({behavior: "smooth", block: "start"}); } catch(e){}
+}
+
+async function ytPreview(url, count){
+  if (!url){ toast("유튜브 주소를 먼저 넣어 주세요"); return; }
+  $("#ytUrl").value = url;
+  ytpvStatus('<span class="ytspin"></span>장면을 뽑는 중… 영상 길이에 따라 30초~2분 걸려요. 이 화면 그대로 두고 기다려 주세요.');
+  document.querySelectorAll(".ytgrab").forEach(function (b) { b.disabled = true; });
+  const cb = $("#ytCapUrl");
+  if (cb) cb.disabled = true;
+  const d = await apiJSON("/api/yt_preview", {
+    method: "POST", headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({url: url, count: count || 7})
+  });
+  document.querySelectorAll(".ytgrab").forEach(function (b) { b.disabled = false; });
+  if (cb) cb.disabled = false;
+  if (!d || !d.ok){
+    let msg = "⚠️ " + ytEsc((d && d.error) || "장면을 뽑지 못했어요");
+    if (d && d.thumbOk) msg += '<div class="ytmini" style="margin-top:5px">급하면 위의 <b>[💾 썸네일 저장]</b>으로 대표 이미지를 바로 받을 수 있어요.</div>';
+    if (d && d.detail) msg += '<details class="ytdetail"><summary>자세한 원인 보기</summary><div>' + ytEsc(d.detail) + "</div></details>";
+    ytpvStatus(msg);
+    return;
+  }
+  ytpvStatus("🖼 <b>" + (d.count || 0) + "장</b> 미리보기 — 체크한 사진만 저장됩니다. 마음에 안 들면 [🎲 다른 장면 다시 뽑기]를 눌러 주세요.");
+  ytpvRender(d);
+}
+
+async function ytPreviewNow(){
+  const url = ($("#ytUrl").value || "").trim();
+  if (!url){ toast("유튜브 주소를 먼저 넣어 주세요"); try { $("#ytUrl").focus(); } catch(e){} return; }
+  ytPreview(url, Number(($("#ytCount") && $("#ytCount").value) || 7));
+}
+
+async function ytSaveSelected(){
+  if (!YTPV.token){ toast("먼저 영상을 불러와 주세요"); return; }
+  const names = YTPV.frames.filter(function (f) { return YTPV.sel.has(f.name); })
+    .map(function (f) { return f.name; });
+  if (!names.length){ toast("저장할 사진을 하나 이상 체크해 주세요"); return; }
+  const btn = $("#ytSaveSel");
+  if (btn){ btn.disabled = true; btn.textContent = "저장 중… (" + names.length + "장)"; }
+  const d = await apiJSON("/api/yt_save", {
+    method: "POST", headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({token: YTPV.token, names: names})
+  });
+  if (!d || !d.ok){
+    if (btn){ btn.disabled = false; }
+    ytpvCount();
+    toast("❌ " + ((d && d.error) || "저장하지 못했어요"));
+    if (d && d.expired){ $("#ytPrevWrap").style.display = "none"; }
+    return;
+  }
+  if (btn){ btn.disabled = false; }
+  ytpvStatus("✅ <b>" + (d.count || 0) + "장</b> 저장 완료 · " + ytEsc(d.dir || ""));
+  ytRender(d);
+  ytLoadPast();
+  toast("💾 체크한 " + (d.count || 0) + "장만 저장했어요");
+}
+
+async function ytReshuffle(){
+  if (!YTPV.token){ toast("먼저 영상을 불러와 주세요"); return; }
+  const btn = $("#ytReshuffle");
+  if (btn) btn.disabled = true;
+  $("#ytPrevMeta").textContent = "🎲 같은 영상에서 다른 시간대 장면을 뽑는 중…";
+  const d = await apiJSON("/api/yt_reshuffle", {
+    method: "POST", headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({token: YTPV.token})
+  });
+  if (btn) btn.disabled = false;
+  if (!d || !d.ok){
+    $("#ytPrevMeta").textContent = "⚠️ " + ((d && d.error) || "다시 뽑지 못했어요");
+    if (d && d.expired) $("#ytPrevWrap").style.display = "none";
+    toast("❌ " + ((d && d.error) || "다시 뽑지 못했어요"));
+    return;
+  }
+  ytpvRender(d);
+  toast("🎲 " + (d.round || 2) + "번째 장면 " + (d.count || 0) + "장으로 바꿨어요");
+}
+
+async function ytOpenFolder(folder, kind){
+  const d = await apiJSON("/api/yt_open", {
+    method: "POST", headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({folder: folder || "", kind: kind || ""})
+  });
+  if (d && d.ok) toast("📂 폴더를 열었어요 · " + (d.path || ""));
+  else toast("❌ " + ((d && d.error) || "폴더를 열지 못했어요") + (d && d.path ? " · " + d.path : ""));
+}
+
+async function ytSaveThumb(item){
+  const url = (item && item.url) || ($("#ytUrl").value || "").trim();
+  if (!/youtu/i.test(url || "")){ toast("유튜브 주소로만 썸네일을 저장할 수 있어요"); return; }
+  toast("💾 썸네일 저장 중…");
+  const d = await apiJSON("/api/yt_thumb", {
+    method: "POST", headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({url: url, channel: (item && item.channel) || "", title: (item && item.title) || ""})
+  });
+  if (!d || !d.ok){ toast("❌ " + ((d && d.error) || "썸네일을 저장하지 못했어요")); return; }
+  ytRender(d);
+  ytLoadPast();
+  toast("💾 썸네일 저장 완료 · " + ((d.width && d.height) ? (d.width + "×" + d.height) : ""));
+}
+
+/* ---------------- 🚗 자동차 이미지 ---------------- */
+function carCount(){
+  const n = CARS.sel.size;
+  const b = $("#carSave");
+  if (b){ b.textContent = "💾 선택한 사진 일괄 저장 (" + n + "장)"; b.disabled = (n === 0); }
+  const all = $("#carAll");
+  if (all) all.checked = CARS.items.length > 0 && n === CARS.items.length;
+}
+
+function carStatus(html){
+  const el = $("#carStatus");
+  if (!el) return;
+  el.style.display = "block";
+  el.innerHTML = html;
+}
+
+function carCard(it, i){
+  const card = document.createElement("div");
+  card.className = "ytframe car";
+  const lab = document.createElement("label");
+  lab.className = "pvchk";
+  const cb = document.createElement("input");
+  cb.type = "checkbox";
+  cb.checked = CARS.sel.has(it.name);
+  cb.onchange = function () {
+    if (cb.checked) CARS.sel.add(it.name); else CARS.sel.delete(it.name);
+    card.classList.toggle("off", !cb.checked);
+    carCount();
+  };
+  lab.appendChild(cb);
+  const sp = document.createElement("span");
+  sp.textContent = (i + 1) + " · " + (it.sourceName || "");
+  lab.appendChild(sp);
+  const img = document.createElement("img");
+  img.src = it.url || "";
+  img.alt = (it.sourceName || "자동차") + " 사진";
+  img.loading = "lazy";
+  const fb = document.createElement("div");
+  fb.className = "fb";
+  const meta = document.createElement("div");
+  meta.className = "ts";
+  meta.textContent = ((it.width || 0) + "×" + (it.height || 0)) + (it.kb ? " · " + it.kb + "KB" : "");
+  const src = document.createElement("textarea");
+  src.className = "srcin";
+  src.readOnly = true;
+  src.rows = 3;
+  src.value = it.source || "";
+  const act = document.createElement("div");
+  act.className = "fbact";
+  const cp = document.createElement("button");
+  cp.className = "btn small main";
+  cp.type = "button";
+  cp.textContent = "📋 출처 복사";
+  cp.onclick = function () { copyText(it.source || "", "📋 출처를 복사했어요"); };
+  const go = document.createElement("a");
+  go.className = "btn small";
+  go.href = it.pageUrl || "#";
+  go.target = "_blank";
+  go.rel = "noopener";
+  go.textContent = "▶ 원본";
+  act.appendChild(cp);
+  act.appendChild(go);
+  fb.appendChild(meta);
+  fb.appendChild(src);
+  fb.appendChild(act);
+  card.appendChild(lab);
+  card.appendChild(img);
+  card.appendChild(fb);
+  return card;
+}
+
+function carRender(d){
+  CARS.token = d.token || "";
+  CARS.items = d.items || [];
+  CARS.sel = new Set(CARS.items.map(function (x) { return x.name; }));
+  $("#carPrevWrap").style.display = "";
+  $("#carTitle").textContent = "🖼 " + (d.query || "") + " 공식 사진 — 저장할 사진만 체크하세요";
+  $("#carMeta").textContent = (d.count || 0) + "장 · 미리보기(아직 저장 전)";
+  const bits = (d.sources || []).map(function (s) { return s.label + " " + s.count + "장"; });
+  const dr = d.dropped || {};
+  let line = bits.length ? ("가져온 곳 · " + bits.join(" · ")) : "";
+  if (dr.blog || dr.press || dr.etc){
+    line += (line ? " · " : "") + "제외 " + ((dr.blog || 0) + (dr.press || 0) + (dr.etc || 0))
+      + "장 (언론사·블로그·비공식" + (dr.press ? "·조중동 " + dr.press : "") + ")";
+  }
+  $("#carSrc").innerHTML = ytEsc(line);
+  const w = $("#carWarn");
+  if (w){
+    const notes = d.notes || [];
+    if (notes.length){ w.style.display = ""; w.setAttribute("data-hard", "0"); w.innerHTML = notes.map(ytEsc).join("<br>"); }
+    else { w.style.display = "none"; w.innerHTML = ""; }
+  }
+  const g = $("#carFrames");
+  g.innerHTML = "";
+  CARS.items.forEach(function (it, i) { g.appendChild(carCard(it, i)); });
+  carCount();
+  try { $("#carPrevWrap").scrollIntoView({behavior: "smooth", block: "start"}); } catch(e){}
+}
+
+async function carSearchNow(){
+  const q = ($("#carQ").value || "").trim();
+  if (!q){ toast("차종이나 키워드를 넣어 주세요"); try { $("#carQ").focus(); } catch(e){} return; }
+  const qw = watchScan(q);
+  if (qw.length){
+    const w = $("#carWarn");
+    if (w){ w.style.display = ""; w.setAttribute("data-hard", "1");
+      w.innerHTML = "🚫 「" + ytEsc(qw.join(" · ")) + "」는 고소·저작권 주의 대상이라 <b>검색을 막았어요</b>.<br>사진·영상 모두 쓰지 말고 다른 키워드로 찾아 주세요."; }
+    toast("🚨 주의 대상이라 검색을 막았어요 — " + qw.join(", "));
+    return;
+  }
+  const n = Number(($("#carN") && $("#carN").value) || 12);
+  carStatus('<span class="ytspin"></span>공식 사이트·보도사진에서 「' + ytEsc(q) + '」 사진을 찾는 중… (10~20초)');
+  $("#carGo").disabled = true;
+  const t0 = Date.now();
+  const d = await apiJSON("/api/car_search", {
+    method: "POST", headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({query: q, count: n})
+  });
+  $("#carGo").disabled = false;
+  if (!d || !d.ok){
+    carStatus("⚠️ " + ytEsc((d && d.error) || "사진을 찾지 못했어요")
+      + ((d && (d.notes || []).length) ? '<div class="ytmini" style="margin-top:5px">' + (d.notes || []).map(ytEsc).join("<br>") + "</div>" : ""));
+    if (d && d.blocked && d.blockedLabels && d.blockedLabels.length){
+      const w = $("#carWarn");
+      if (w){ w.style.display = ""; w.setAttribute("data-hard", "1");
+        w.innerHTML = "🚫 「" + ytEsc(d.blockedLabels.join(" · ")) + "」는 주의 목록(21곳)에 있어 <b>검색을 막았어요</b>."; }
+    }
+    return;
+  }
+  const took = ((Date.now() - t0) / 1000).toFixed(1);
+  carStatus("🔎 <b>" + ytEsc(d.query) + "</b> · 공식·해외 사진 <b>" + (d.count || 0) + "장</b> 찾음"
+    + ' <span class="ytmini">(' + took + "초)</span>");
+  carRender(d);
+}
+
+async function carSaveNow(){
+  if (!CARS.token){ toast("먼저 사진을 찾아 주세요"); return; }
+  const names = CARS.items.filter(function (x) { return CARS.sel.has(x.name); })
+    .map(function (x) { return x.name; });
+  if (!names.length){ toast("저장할 사진을 하나 이상 체크해 주세요"); return; }
+  const btn = $("#carSave");
+  if (btn){ btn.disabled = true; btn.textContent = "저장 중… (" + names.length + "장)"; }
+  const d = await apiJSON("/api/car_save", {
+    method: "POST", headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({token: CARS.token, names: names, items: CARS.items,
+                          query: (($("#carQ").value || "").trim())})
+  });
+  if (btn) btn.disabled = false;
+  if (!d || !d.ok){
+    carCount();
+    toast("❌ " + ((d && d.error) || "저장하지 못했어요"));
+    return;
+  }
+  CARS.dir = d.dir || ""; CARS.folder = d.folder || ""; CARS.savedDir = d.dir || "";
+  CARS.sourceAll = d.sourceAll || "";
+  $("#carResWrap").style.display = "";
+  $("#carResTitle").textContent = "💾 저장 완료 · " + (d.count || 0) + "장";
+  $("#carResMeta").textContent = d.query || "";
+  $("#carResFolder").textContent = "저장 위치 · " + (d.dir || "");
+  $("#carSourceAll").value = d.sourceAll || "";
+  const g = $("#carResFrames");
+  g.innerHTML = "";
+  (d.frames || []).forEach(function (f, i) {
+    const card = document.createElement("div");
+    card.className = "ytframe";
+    const img = document.createElement("img");
+    img.src = f.url || "";
+    img.alt = (i + 1) + "번째 사진";
+    img.loading = "lazy";
+    const fb = document.createElement("div");
+    fb.className = "fb";
+    const ts = document.createElement("div");
+    ts.className = "ts";
+    ts.textContent = f.name || "";
+    const inp = document.createElement("textarea");
+    inp.className = "srcin";
+    inp.readOnly = true;
+    inp.rows = 3;
+    inp.value = f.source || "";
+    const act = document.createElement("div");
+    act.className = "fbact";
+    const cp = document.createElement("button");
+    cp.className = "btn small main";
+    cp.type = "button";
+    cp.textContent = "📋 출처 복사";
+    cp.onclick = function () { copyText(f.source || "", "📋 출처를 복사했어요"); };
+    act.appendChild(cp);
+    fb.appendChild(ts);
+    fb.appendChild(inp);
+    fb.appendChild(act);
+    card.appendChild(img);
+    card.appendChild(fb);
+    g.appendChild(card);
+  });
+  carStatus("✅ <b>" + (d.count || 0) + "장</b> 저장 완료 · " + ytEsc(d.dir || ""));
+  try { $("#carResWrap").scrollIntoView({behavior: "smooth", block: "start"}); } catch(e){}
+  toast("💾 체크한 " + (d.count || 0) + "장을 captures 폴더에 저장했어요");
+}
+
+if ($("#ytSaveSel")) $("#ytSaveSel").onclick = ytSaveSelected;
+if ($("#ytReshuffle")) $("#ytReshuffle").onclick = ytReshuffle;
+if ($("#ytPrevAll")) $("#ytPrevAll").onchange = function () {
+  const on = $("#ytPrevAll").checked;
+  YTPV.sel = new Set(on ? YTPV.frames.map(function (f) { return f.name; }) : []);
+  document.querySelectorAll("#ytPrevFrames .ytframe").forEach(function (card, i) {
+    const cb = card.querySelector("input[type=checkbox]");
+    if (cb){ cb.checked = on; }
+    card.classList.toggle("off", !on);
+  });
+  ytpvCount();
+};
+if ($("#ytPrevOpen")) $("#ytPrevOpen").onclick = function () {
+  ytOpenFolder(YTPV.folder, "preview");
+};
+if ($("#ytThumbSaveUrl")) $("#ytThumbSaveUrl").onclick = function () { ytSaveThumb(null); };
+if ($("#ytCapUrl")) $("#ytCapUrl").onclick = ytPreviewNow;
+
+if ($("#carGo")) $("#carGo").onclick = carSearchNow;
+if ($("#carQ")) $("#carQ").addEventListener("keydown", function (ev) { if (ev.key === "Enter") carSearchNow(); });
+if ($("#carSave")) $("#carSave").onclick = carSaveNow;
+if ($("#carAll")) $("#carAll").onchange = function () {
+  const on = $("#carAll").checked;
+  CARS.sel = new Set(on ? CARS.items.map(function (x) { return x.name; }) : []);
+  document.querySelectorAll("#carFrames .ytframe").forEach(function (card) {
+    const cb = card.querySelector("input[type=checkbox]");
+    if (cb){ cb.checked = on; }
+    card.classList.toggle("off", !on);
+  });
+  carCount();
+};
+if ($("#carOpen")) $("#carOpen").onclick = function () {
+  ytOpenFolder(CARS.folder, "car");
+};
+if ($("#carResOpen")) $("#carResOpen").onclick = function () {
+  ytOpenFolder(CARS.folder, "car");
+};
+if ($("#carCopyAll")) $("#carCopyAll").onclick = function () {
+  if (!CARS.sourceAll){ toast("먼저 사진을 저장해 주세요"); return; }
+  copyText(CARS.sourceAll, "📋 자동차 사진 출처를 복사했어요");
+};
+if (V28_MOBILE){
+  const mn = $("#carMobNote");
+  if (mn) mn.style.display = "";
+  ["#carGo", "#carSave", "#carOpen"].forEach(function (s) {
+    const el = $(s); if (el) el.disabled = true;
+  });
+}
+try {
+  const sub = localStorage.getItem("v28_yt_sub");
+  if (sub === "car") v28Tab("car");
+} catch(e){}
+
 try {
   const q0 = localStorage.getItem("yt_q");
   if (q0 && $("#ytQ") && !$("#ytQ").value) $("#ytQ").value = q0;
@@ -11662,8 +12228,8 @@ if ($("#pane-score")) {
 }
 window.__v27Sub = v27Sub;
 </script>
-<script src="assets/budget-local.js?v=11201020"></script>
-<script src="assets/reels-local.js?v=11201020"></script>
-<script src="assets/mobile-patch.js?v=11201020"></script>
+<script src="assets/budget-local.js?v=11201620"></script>
+<script src="assets/reels-local.js?v=11201620"></script>
+<script src="assets/mobile-patch.js?v=11201620"></script>
 </body>
 </html>
