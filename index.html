@@ -1518,21 +1518,31 @@
                 display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
   .wk .wkbox h3 small{margin-left:auto;font-size:10.5px;font-weight:700;color:var(--wkdim)}
 
-  /* 요일별 막대 */
-  .wk .wkbars{position:relative;height:196px;display:flex;align-items:flex-end;gap:6px;
-              padding:18px 2px 0;border-bottom:1px solid #F4E7E3}
-  .wk .wkb{flex:1 1 0;min-width:0;height:100%;display:flex;flex-direction:column;
-           justify-content:flex-end;align-items:center;position:relative;z-index:1}
-  .wk .wkb .v{font-size:10.5px;font-weight:900;color:var(--wkbrown);margin-bottom:4px;white-space:nowrap}
-  .wk .wkb .bar{width:100%;max-width:46px;flex:0 0 auto;border-radius:9px 9px 3px 3px;
+  /* 요일별 막대 (v3.0 — 이번 주 + 지난주) */
+  .wk .wkbarlegend{display:flex;gap:11px;flex-wrap:wrap;align-items:center;margin:0 0 2px;font-size:10.5px;
+                   color:#A98F87;font-weight:800}
+  .wk .wkbarlegend span{display:inline-flex;align-items:center;gap:4px}
+  .wk .wkbarlegend i{width:9px;height:9px;border-radius:3px;display:inline-block}
+  .wk .wkbarlegend i.pv{background:#E4D8D3}
+  .wk .wkbarlegend i.tw{background:linear-gradient(180deg,#DFA2A5,#C88189)}
+  .wk .wkbarlegend i.av{background:none;border-top:1.5px dashed #D9B48F;border-radius:0;height:0;width:12px}
+  .wk .wkbarlegend .nn{margin-left:auto;font-weight:700;color:#C7B2AB}
+  .wk .wkbars{position:relative;height:196px;display:flex;align-items:flex-end;gap:5px;
+              padding:14px 2px 0;border-bottom:1px solid #F4E7E3}
+  .wk .wkb{flex:1 1 0;min-width:0;height:100%;display:flex;align-items:flex-end;justify-content:center;
+           gap:3px;position:relative;z-index:1}
+  .wk .wkb .v{position:absolute;top:0;left:0;right:0;text-align:center;font-size:10.5px;font-weight:900;
+              color:var(--wkbrown);white-space:nowrap}
+  .wk .wkb .bar{width:46%;max-width:20px;border-radius:7px 7px 3px 3px;
                 background:linear-gradient(180deg,#F6DEDD 0%,#DFA2A5 100%);
-                box-shadow:inset 0 -3px 0 rgba(255,255,255,.35);transition:height .5s ease}
-  .wk .wkb.best .bar{background:linear-gradient(180deg,#DFA2A5 0%,#C88189 100%);
-                     box-shadow:0 6px 14px rgba(200,129,137,.32)}
+                box-shadow:inset 0 -2px 0 rgba(255,255,255,.35);transition:height .45s ease}
+  .wk .wkb .bar.pv{width:34%;max-width:15px;background:#E7DCD7;box-shadow:none}
+  .wk .wkb.best .bar:not(.pv){background:linear-gradient(180deg,#DFA2A5 0%,#C88189 100%);
+                              box-shadow:0 6px 14px rgba(200,129,137,.32)}
   .wk .wkb.best .v{color:var(--wkrose);font-size:11.5px}
-  .wk .wkb.miss .bar{height:5px !important;background:#F1E4E0;box-shadow:none}
+  .wk .wkb.miss .bar:not(.pv){height:3px !important;background:#F1E4E0;box-shadow:none}
   .wk .wkb.miss .v{color:#CDB7B0;font-weight:800}
-  .wk .wkb .d{position:absolute;bottom:-32px;font-size:11px;font-weight:900;color:#A98F87;
+  .wk .wkb .d{position:absolute;bottom:-32px;left:0;right:0;font-size:11px;font-weight:900;color:#A98F87;
               text-align:center;line-height:1.3}
   .wk .wkb .d b{display:block;font-size:10px;font-weight:700;color:#C7B2AB}
   .wk .wkb.best .d{color:var(--wkrose)}
@@ -1578,6 +1588,37 @@
   .wk .wkrk .bl{font-size:9.5px;color:#C0A9A2;font-weight:700;margin-left:5px}
   .wk .wkmore{margin-top:8px;text-align:center;font-size:11.5px;font-weight:800;color:var(--wkrose);
               cursor:pointer;padding:5px;border-radius:10px;background:#FCF3F1;border:1px solid #F3E1DC}
+
+  /* ---------- 주간 리포트 v3.0 추가분 ---------- */
+  .wk .wkfilter{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+  .wk .wkbchip{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--wkline);background:#fff;
+               color:#8E736B;font-family:inherit;font-size:12px;font-weight:800;padding:6px 11px;border-radius:20px;
+               cursor:pointer;transition:.15s;white-space:nowrap}
+  .wk .wkbchip i{font-style:normal;font-size:12.5px}
+  .wk .wkbchip em{font-style:normal;font-size:10.5px;font-weight:800;color:#BCA49D}
+  .wk .wkbchip:hover{border-color:#E6CCC5;background:#FFF9F7}
+  .wk .wkbchip.on{background:linear-gradient(135deg,#F6DEDD,#EFC9CB);border-color:#E4B3B5;color:#8A4453}
+  .wk .wkbchip.on em{color:#9A5B68}
+  .wk .wksum{display:flex;gap:9px;align-items:flex-start;background:#FFF9F6;border:1px solid #F3E3DD;
+             border-left:4px solid var(--wkrose);border-radius:14px;padding:11px 14px;margin-bottom:12px}
+  .wk .wksum .tag{flex:0 0 auto;font-size:10.5px;font-weight:900;color:#fff;background:var(--wkrose);
+                  border-radius:8px;padding:3px 8px;margin-top:1px}
+  .wk .wksum p{margin:0;font-size:12.5px;line-height:1.75;color:#6E5550;font-weight:600}
+  .wk .wkcard .dl{margin-top:5px;font-size:10.5px;font-weight:900;color:#B39A93;line-height:1.4}
+  .wk .wkcard .dl small{font-weight:700;color:#C4AEA7}
+  .wk .wkcard .dl.up{color:#2F7D4D}
+  .wk .wkcard .dl.down{color:#B3564E}
+  .wk .wkcard.hero .dl{color:#FBEAEA}
+  .wk .wkcard.hero .dl small{color:#F6D9D9}
+  .wk .wkbshare{display:flex;flex-direction:column;gap:6px}
+  .wk .wkbrow{display:grid;grid-template-columns:20px 92px minmax(0,1fr) 62px 52px;gap:8px;align-items:center;
+              font-size:12px;color:#6E5850;font-weight:700}
+  .wk .wkbrow .e{font-size:12.5px}
+  .wk .wkbrow .n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .wk .wkbrow .tr{height:9px;border-radius:5px;background:#F6EDEA;overflow:hidden}
+  .wk .wkbrow .fi{height:100%;border-radius:5px;opacity:.85}
+  .wk .wkbrow .v{text-align:right;font-weight:900;color:var(--wkbrown)}
+  .wk .wkbrow .s{text-align:right;font-size:11px;color:#B39A93;font-weight:800}
 
   /* 읽을 점 */
   .wk .wkins{display:grid;grid-template-columns:1fr 1fr;gap:9px}
@@ -1634,6 +1675,9 @@
     .wk .wkflows{flex-direction:column;align-items:flex-start}
     .wk .wkbars{height:168px}
     .wk .wkrk{grid-template-columns:22px 46px minmax(0,1fr) auto;gap:6px;font-size:11.5px}
+    .wk .wkbrow{grid-template-columns:18px 74px minmax(0,1fr) 56px 44px;gap:6px;font-size:11.5px}
+    .wk .wksum{flex-direction:column;gap:5px}
+    .wk .wkbchip{font-size:11.5px;padding:5px 9px}
     .wk .wkrk .bl{display:none}
     .wk .wkttl{font-size:17px}
   }
@@ -2435,7 +2479,7 @@ body.locked{overflow:hidden}
 
   <header class="hero">
     <div>
-      <h1>🏢 예닝 오피스 <span class="amp">·</span> 📱 모바일 <span style="display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;background:#ffe3ee;border:1px solid #f6a9bf;color:#a64065;font-size:12px;font-weight:700;vertical-align:middle">v2.9 · 11/23</span></h1>
+      <h1>🏢 예닝 오피스 <span class="amp">·</span> 📱 모바일 <span style="display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;background:#ffe3ee;border:1px solid #f6a9bf;color:#a64065;font-size:12px;font-weight:700;vertical-align:middle">v3.0 · 11/23</span></h1>
       <p>팀장님 아홉 분 오늘 실적 · 염탐 · 수익 · 가계부를 한 화면에서 🌸</p>
     </div>
     <div class="hero-side">
@@ -2486,7 +2530,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11231525" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11231539" alt="예닝 오피스 배경">
       <div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>
     </div>
     <div class="desk-list" id="deskList"></div>
@@ -3313,11 +3357,11 @@ body.locked{overflow:hidden}
   </div>
 
   <div class="tabpane" id="pane-weekly">
-  <!-- ================= 📊 주간 리포트 (v2.5) ================= -->
+  <!-- ================= 📊 주간 리포트 (v3.0) ================= -->
   <section class="panel wk" id="wkPanel">
     <div class="wkhead">
       <div class="wkttl">피콜로 분석 · 주간 흐름
-        <small>월~일 한 주를 한 장으로 · 크리에이터 어드바이저 23:30 수집 기록으로만 계산해요</small>
+        <small>월~일 한 주를 한 장으로 · 크리에이터 어드바이저 기록(다음 날 마감 확정치 우선)</small>
       </div>
       <div class="wksel">
         <label for="wkWeek">주차</label>
@@ -3327,18 +3371,23 @@ body.locked{overflow:hidden}
       </div>
     </div>
 
+    <div class="wkfilter" id="wkBlogs"></div>
+
     <div class="wknotice" id="wkNotice">주간 기록을 불러오는 중…</div>
+
+    <div class="wksum" id="wkSummary"></div>
 
     <div class="wkcards" id="wkCards"></div>
 
     <div class="wkgrid">
       <div class="wkbox">
         <h3>요일별 조회수 <small id="wkBarMeta"></small></h3>
+        <div class="wkbarlegend" id="wkBarLegend"></div>
         <div class="wkbars" id="wkBars"></div>
         <div class="wkbarfoot" id="wkBarFoot"></div>
       </div>
       <div class="wkbox">
-        <h3>어디서 들어왔나 <small>유입 비율</small></h3>
+        <h3>어디서 들어왔나 <small>유입경로 비중</small></h3>
         <div class="wkflowwrap">
           <div class="wkdonut" id="wkFlow"><div class="hole"><b>–</b><span>홈판</span></div></div>
           <div class="wklegen" id="wkFlowLeg"></div>
@@ -3361,6 +3410,11 @@ body.locked{overflow:hidden}
         </div>
         <div class="wkbasis" id="wkTypeBasis"></div>
       </div>
+    </div>
+
+    <div class="wkbox" id="wkBlogShareBox" style="margin-top:12px">
+      <h3>블로그별 조회 비중 <small>이번 주 합계 기준</small></h3>
+      <div class="wkbshare" id="wkBlogShare"></div>
     </div>
 
     <div class="wkbox" style="margin-top:12px">
@@ -3807,7 +3861,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11231525"></script>
+<script src="assets/pin.js?v=11231539"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -6112,7 +6166,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11231525" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11231539" alt="예닝 오피스 배경">`;
   html += `<div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>`;   /* 🛋️ v2.5 보조 소파 */
   html += `<img class="sportmat" src="assets/avatars/spobriefing_mat.png" alt="⚾ 스포츠 데스크 매트">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
@@ -8352,11 +8406,13 @@ document.querySelectorAll("#tabs .tab").forEach(t => {
   t.onclick = () => showTab(t.dataset.tab);
 });
 
-/* ================= 📊 주간 리포트 (v2.5) ================= */
-/*  크리에이터 어드바이저 23:30 수집 기록(creator_advisor_logs)만으로 만든 /api/weekly 를 그립니다.
-    - 아직 수집 전인 날짜는 0 이 아니라 '-' 로 표시합니다(가짜 숫자 금지).
+/* ================= 📊 주간 리포트 (v3.0 · 2026-11-23) ================= */
+/*  /api/weekly 하나로 '전체'와 '블로그별'을 모두 그립니다
+    (폰은 서버가 없어서 같은 payload 를 복호화해 쓰므로 필터도 fetch 없이 즉시 바뀝니다).
+    - 다음 날 기록에 있는 '마감 확정치'가 있으면 그 값, 없으면 그날 23:3x 실시간값(잠정)을 씁니다.
+    - 수집 전인 날짜는 0 이 아니라 '-' 로 표시합니다(가짜 숫자 금지).
     - 체크리스트는 폰(localStorage) + PC(/api/weekly/todo) 양쪽에 저장됩니다. */
-let WEEKLY = { ok: false, weeks: [], sel: "" };
+let WEEKLY = { ok: false, weeks: [], sel: "", scope: "" };
 let WK_VIEW = "day";
 let WK_MORE = false;
 const WK_MOBILE = (typeof window.__OFFICE_READY !== "undefined");
@@ -8375,21 +8431,41 @@ function wkDoneLocal() {
 function wkSaveLocal(o) {
   try { localStorage.setItem("office_weekly_todo", JSON.stringify(o)); } catch (e) {}
 }
-function wkCur() {
+function wkBase() {
   const list = WEEKLY.weeks || [];
   return list.find(w => w.key === WEEKLY.sel) || list[0] || null;
+}
+function wkCur() {
+  const base = wkBase();
+  if (!base) return null;
+  if (!WEEKLY.scope) return base;
+  const b = (base.by_blog || {})[WEEKLY.scope];
+  if (!b) return base;
+  return Object.assign({}, b, { label: base.label, week_key: base.key,
+                                blog_meta: base.blog_meta, base: base });
+}
+function wkDay(a, delta) {
+  const d = new Date(a + "T00:00:00");
+  d.setDate(d.getDate() + delta);
+  return d;
+}
+function wkPrevLabel(w) {
+  const s = wkDay(w.start, -7), e = wkDay(w.start, -1);
+  return (s.getMonth() + 1) + "/" + s.getDate() + " ~ " + (e.getMonth() + 1) + "/" + e.getDate();
 }
 
 async function loadWeekly(force) {
   const n = $("#wkNotice");
   if (n && !(WEEKLY.weeks || []).length) n.textContent = "주간 기록을 불러오는 중…";
-  let url = "/api/weekly?" + (force ? "fresh=1&" : "") + "t=" + Date.now();
+  const url = "/api/weekly?" + (force ? "fresh=1&" : "") + "t=" + Date.now();
   try {
     const r = await fetch(url);
     const d = await r.json();
     WEEKLY = d || { ok: false, weeks: [] };
     const list = WEEKLY.weeks || [];
     if (!WEEKLY.sel || !list.some(w => w.key === WEEKLY.sel)) WEEKLY.sel = (list[0] || {}).key || "";
+    const base = wkBase();
+    if (WEEKLY.scope && !(base && (base.by_blog || {})[WEEKLY.scope])) WEEKLY.scope = "";
     renderWeekly();
   } catch (e) {
     if (n) n.innerHTML = "주간 리포트를 불러오지 못했어요 — <b>" + esc(String((e && e.message) || e)) + "</b><br>" +
@@ -8398,33 +8474,32 @@ async function loadWeekly(force) {
 }
 
 function renderWeekly() {
+  const base = wkBase();
   const w = wkCur();
   const sel = $("#wkWeek");
   if (sel) {
     sel.innerHTML = (WEEKLY.weeks || []).map(x =>
-      `<option value="${esc(x.key)}"${x.key === (w && w.key) ? " selected" : ""}>${esc(x.label)}${x.status === "in_progress" ? " (진행 중)" : ""}</option>`
+      `<option value="${esc(x.key)}"${x.key === (base && base.key) ? " selected" : ""}>${esc(x.label)}${x.status === "in_progress" ? " (진행 중)" : ""}</option>`
     ).join("") || `<option>기록 없음</option>`;
   }
+  wkRenderChips(base);
   const st = $("#wkState");
   if (st) {
     st.className = "wkchip" + (w && w.status === "in_progress" ? " live" : "");
-    st.textContent = !w ? "기록 없음" : (w.status === "in_progress" ? "📝 진행 중 · " + w.days_counted + "일 수집" : "✅ " + w.days_counted + "일 완성");
+    st.textContent = !w ? "기록 없음"
+      : (w.status === "in_progress" ? "📝 진행 중 · " + w.days_counted + "일 수집" : "✅ " + w.days_counted + "일 완성");
   }
   const nt = $("#wkNotice");
   if (nt) {
-    if (!w) {
-      nt.innerHTML = "아직 이 주의 수집 기록이 없어요. 밤 11시 30분 수집이 하루씩 쌓이면 자동으로 채워져요.";
-    } else {
-      nt.innerHTML = "🗓 <b>" + esc(w.label) + "</b> · " + esc(w.notice);
-    }
+    if (!w) nt.innerHTML = "아직 이 주의 수집 기록이 없어요. 밤 11시 30분 수집이 하루씩 쌓이면 자동으로 채워져요.";
+    else nt.innerHTML = "🗓 <b>" + esc(w.label) + "</b> · " + esc(w.notice || "");
   }
-  const panel = $("#wkPanel");
-  if (panel) panel.style.display = "";
+  wkRenderSummary(w);
   if (!w) {
-    ["#wkCards", "#wkBars", "#wkRank", "#wkInsights", "#wkTodos"].forEach(s => {
+    ["#wkCards", "#wkBars", "#wkRank", "#wkInsights", "#wkTodos", "#wkBlogShare"].forEach(s => {
       const el = $(s); if (el) el.innerHTML = `<div class="wkempty">표시할 기록이 아직 없어요.</div>`;
     });
-    ["#wkFlowLeg", "#wkTypeLeg"].forEach(s => { const el = $(s); if (el) el.innerHTML = ""; });
+    ["#wkFlowLeg", "#wkTypeLeg", "#wkBarLegend"].forEach(s => { const el = $(s); if (el) el.innerHTML = ""; });
     const det = $("#wkDetail"); if (det) det.innerHTML = "";
     return;
   }
@@ -8433,6 +8508,7 @@ function renderWeekly() {
   wkRenderFlow(w);
   wkRenderRank(w);
   wkRenderTypes(w);
+  wkRenderBlogShare(w);
   wkRenderInsights(w);
   wkRenderTodos(w);
   wkRenderDetail(w);
@@ -8445,59 +8521,114 @@ function renderWeekly() {
   }
 }
 
+function wkRenderChips(base) {
+  const box = $("#wkBlogs");
+  if (!box) return;
+  if (!base) { box.innerHTML = ""; return; }
+  const meta = base.blog_meta || [];
+  const all = `<button class="wkbchip${WEEKLY.scope ? "" : " on"}" data-bid="">
+      <b>전체</b><em>${wkN(base.total)}</em></button>`;
+  box.innerHTML = all + meta.map(b =>
+    `<button class="wkbchip${WEEKLY.scope === b.id ? " on" : ""}" data-bid="${esc(b.id)}" title="${esc(b.name)} ${wkN(b.views)}회 · ${wkPct(b.share)}">
+       <i style="color:${esc(b.color)}">${esc(b.emoji)}</i>${esc(b.name)}<em>${wkPct(b.share)}</em></button>`
+  ).join("");
+  box.querySelectorAll(".wkbchip").forEach(el => {
+    el.onclick = () => {
+      const bid = el.dataset.bid || "";
+      if (WEEKLY.scope === bid) return;
+      WEEKLY.scope = bid;
+      WK_MORE = false;
+      renderWeekly();
+    };
+  });
+}
+
+function wkRenderSummary(w) {
+  const box = $("#wkSummary");
+  if (!box) return;
+  if (!w || !w.summary) { box.style.display = "none"; box.innerHTML = ""; return; }
+  box.style.display = "";
+  box.innerHTML = `<span class="tag">🔎 피콜로 분석</span><p>${esc(w.summary)}</p>`;
+}
+
+function wkDelta(dl, w, key) {
+  if (!dl) return `<div class="dl none">전주(${esc(wkPrevLabel(w))}) 기록 없음</div>`;
+  const v = key === "avg" ? dl.avg_pct : dl.total_pct;
+  if (v === null || v === undefined) return `<div class="dl none">전주 비교 없음</div>`;
+  const up = Number(v) >= 0;
+  return `<div class="dl ${up ? "up" : "down"}">${up ? "▲" : "▼"} ${Math.abs(Math.round(Number(v) * 10) / 10)}% <small>전주 대비</small></div>`;
+}
+
 function wkRenderCards(w) {
   const box = $("#wkCards");
   if (!box) return;
-  const isFull = w.days_counted >= 7;
+  const full = w.days_counted >= 7;
   const best = w.best || {};
   const top = w.top || {};
   box.innerHTML =
     `<div class="wkcard hero">
        <div class="lb">한 주 조회수</div>
        <div class="vl">${wkN(w.total)}<i>회</i></div>
-       <div class="sub">${isFull ? "월~일 7일 합계" : "수집된 " + w.days_counted + "일 합계"}</div>
+       <div class="sub">${full ? "월~일 7일 합계" : "수집된 " + w.days_counted + "일 합계"}</div>
+       ${wkDelta(w.delta, w, "total")}
      </div>
      <div class="wkcard">
        <div class="lb">하루 평균</div>
        <div class="vl">${wkN(w.avg)}<i>회</i></div>
        <div class="sub">수집한 ${w.days_counted}일 평균</div>
+       ${wkDelta(w.delta, w, "avg")}
      </div>
      <div class="wkcard">
        <div class="lb">가장 많이 본 날</div>
        <div class="vl">${best.label ? esc(best.label) + " <i>" + esc(best.wd) + "</i>" : "–"}</div>
        <div class="sub">${best.views ? wkN(best.views) + "회" : "기록 없음"}</div>
+       <div class="dl none">${w.weak && w.weak.views ? "가장 적은 날 " + esc(w.weak.label) + " " + wkN(w.weak.views) + "회" : "&nbsp;"}</div>
      </div>
      <div class="wkcard">
        <div class="lb">1위 글 쏠림</div>
        <div class="vl">${wkPct(top.share)}</div>
        <div class="sub">${top.title ? esc(String(top.title).slice(0, 22)) + (String(top.title).length > 22 ? "…" : "") : "기록 없음"}</div>
+       <div class="dl none">${top.views ? wkN(top.views) + "회 · " + esc(top.blog_name || "") : "&nbsp;"}</div>
      </div>`;
 }
 
 function wkRenderBars(w) {
-  const box = $("#wkBars"), foot = $("#wkBarFoot"), meta = $("#wkBarMeta");
+  const box = $("#wkBars"), foot = $("#wkBarFoot"), meta = $("#wkBarMeta"), leg = $("#wkBarLegend");
   if (!box) return;
   const days = w.days || [];
-  const vals = days.filter(d => d.views !== null && d.views !== undefined);
-  const max = Math.max.apply(null, vals.map(d => d.views).concat([1]));
+  const vals = days.filter(d => d.views !== null && d.views !== undefined).map(d => d.views);
+  const prev = (w.prev && w.prev.days) || [];
+  const prevMap = {};
+  prev.forEach((d, i) => { if (d && d.views !== null && d.views !== undefined) prevMap[i] = d.views; });
+  const hasPrev = Object.keys(prevMap).length > 0;
+  const all = vals.concat(hasPrev ? Object.values(prevMap) : []);
+  const max = Math.max.apply(null, all.concat([1]));
   const avg = w.avg || 0;
   const bestDate = (w.best || {}).date;
-  if (meta) meta.textContent = vals.length ? ("최고 " + wkN(Math.max.apply(null, vals.map(d => d.views))) + "회") : "수집 전";
-  box.innerHTML = days.map(d => {
+  if (meta) meta.textContent = vals.length ? ("최고 " + wkN(Math.max.apply(null, vals)) + "회") : "수집 전";
+  if (leg) {
+    leg.innerHTML = (hasPrev ? `<span><i class="pv"></i>지난주</span>` : "") +
+      `<span><i class="tw"></i>이번 주</span>` +
+      (avg ? `<span><i class="av"></i>평균 ${wkN(avg)}</span>` : "") +
+      (!hasPrev ? `<span class="nn">지난주(${esc(wkPrevLabel(w))}) 기록은 아직 없어요</span>` : "");
+  }
+  box.innerHTML = days.map((d, di) => {
     const miss = (d.views === null || d.views === undefined);
-    const h = miss ? 5 : Math.max(5, Math.round(d.views / max * 84));
+    const h = miss ? 3 : Math.max(3, Math.round(d.views / max * 82));
+    const pv = prevMap[di];
+    const hp = (pv === undefined || pv === null) ? 0 : Math.max(2, Math.round(pv / max * 82));
     const cls = "wkb" + (miss ? " miss" : "") + (d.date === bestDate ? " best" : "");
     return `<div class="${cls}" title="${esc(d.label)}(${esc(d.wd)}) ${miss ? "수집 전" : wkN(d.views) + "회"}">
       <span class="v">${miss ? "-" : wkN(d.views)}</span>
+      ${hasPrev ? `<div class="bar pv" style="height:${hp}%"></div>` : ""}
       <div class="bar" style="height:${h}%"></div>
       <span class="d">${esc(d.wd)}<b>${esc(d.label)}</b></span>
     </div>`;
   }).join("");
-  /* 평균 점선은 막대와 같은 눈금(칸 높이의 84%)으로 그립니다 — %가 컨테이너 기준이라
-     padding 만큼 어긋나던 문제를 px 로 맞춥니다. */
+  /* 평균 점선 — 막대 높이를 82% 눈금으로 그리므로 같은 비율로 px 을 맞춥니다. */
   if (avg) {
-    const colH = Math.max(40, box.clientHeight - 18);
-    const px = Math.max(6, Math.round(avg / max * 84 / 100 * colH));
+    const colH = Math.max(40, box.clientHeight || 196);
+    const px = Math.max(6, Math.round(avg / max * 82 / 100 * colH));
     const line = document.createElement("div");
     line.className = "wkavg";
     line.style.bottom = px + "px";
@@ -8505,8 +8636,10 @@ function wkRenderBars(w) {
     box.appendChild(line);
   }
   if (foot) {
-    foot.textContent = vals.length
-      ? `막대 위 숫자는 그날 5곳 합계 조회수 · 주황 점선은 하루 평균(${wkN(avg)}회) · 빈 칸은 아직 수집 전이에요.`
+    foot.innerHTML = vals.length
+      ? `막대 위 숫자는 그날 조회수 · 주황 점선은 하루 평균(${wkN(avg)}회) · ` +
+        (hasPrev ? "연한 회색 막대가 지난주 같은 요일이에요. " : "") +
+        "빈 칸은 아직 수집 전이에요."
       : "이 주에는 아직 수집된 날짜가 없어요.";
   }
 }
@@ -8539,7 +8672,7 @@ function wkRenderFlow(w) {
   const b = $("#wkFlowBasis");
   if (b) {
     b.innerHTML = items.length
-      ? "블로그별 유입 비중을 그 주 조회수로 가중한 값이에요." + (w.inflow_basis ? " (유입분석 기준일 " + esc(w.inflow_basis) + ")" : "")
+      ? "블로그별 유입 비중을 그 기준일 조회수로 가중한 값이에요. (기준일 " + esc(w.inflow_basis || "–") + ")"
       : "유입경로 기록이 아직 없어요.";
   }
 }
@@ -8579,14 +8712,30 @@ function wkRenderTypes(w) {
   const leg = $("#wkTypeLeg");
   if (leg) {
     leg.innerHTML = items.map(it =>
-      `<div class="row"><i style="background:${esc(it.color)}"></i>${esc(it.label)}<em>${wkPct(it.share)}</em></div>`
+      `<div class="row"><i style="background:${esc(it.color)}"></i>${esc(it.label)}<em>${wkN(it.views)} · ${wkPct(it.share)}</em></div>`
     ).join("") || `<div class="row">기록 없음</div>`;
   }
   const b = $("#wkTypeBasis");
   if (b) {
-    b.innerHTML = "위 조회수 순위에 기록된 글 " + (w.post_count || 0) + "편을 기준으로 한 비중이에요. " +
+    b.innerHTML = "위 조회수 순위에 기록된 글 " + (w.post_count || 0) + "편 기준이에요. " +
       "‘홈판형’은 그 주 홈판 유입 기록이 있는 글입니다.";
   }
+}
+
+function wkRenderBlogShare(w) {
+  const box = $("#wkBlogShare"), wrap = $("#wkBlogShareBox");
+  if (!box || !wrap) return;
+  if (w.scope) { wrap.style.display = "none"; return; }
+  wrap.style.display = "";
+  const rows = (w.blogs || []).slice().sort((a, b) => b.views - a.views);
+  const max = rows.length ? rows[0].views || 1 : 1;
+  box.innerHTML = rows.map(b =>
+    `<div class="wkbrow" title="${esc(b.name)} ${wkN(b.views)}회 · ${wkPct(b.share)}">
+       <span class="e">${esc(b.emoji)}</span>
+       <span class="n">${esc(b.name)}</span>
+       <div class="tr"><div class="fi" style="width:${Math.max(2, Math.round(b.views / max * 100))}%;background:${esc(b.color)}"></div></div>
+       <span class="v">${wkN(b.views)}</span><span class="s">${wkPct(b.share)}</span>
+     </div>`).join("") || `<div class="wkempty">기록 없음</div>`;
 }
 
 function wkRenderInsights(w) {
@@ -8601,7 +8750,8 @@ function wkRenderInsights(w) {
 function wkRenderTodos(w) {
   const box = $("#wkTodos");
   if (!box) return;
-  const local = wkDoneLocal()[w.key] || [];
+  const tk = w.todo_key || w.key;
+  const local = wkDoneLocal()[tk] || [];
   const done = new Set((w.todo_done || []).concat(local));
   box.innerHTML = (w.todos || []).map(t =>
     `<label class="wkt${done.has(t.id) ? " done" : ""}" data-id="${esc(t.id)}">
@@ -8618,19 +8768,22 @@ async function wkToggleTodo(w, cb) {
   const id = lab && lab.dataset.id;
   if (!id) return;
   lab.classList.toggle("done", cb.checked);
+  const tk = w.todo_key || w.key;
   const all = wkDoneLocal();
-  const set = new Set(all[w.key] || []);
+  const set = new Set(all[tk] || []);
   if (cb.checked) set.add(id); else set.delete(id);
-  all[w.key] = Array.from(set);
+  all[tk] = Array.from(set);
   wkSaveLocal(all);
   const srv = new Set(w.todo_done || []);
   if (cb.checked) srv.add(id); else srv.delete(id);
   w.todo_done = Array.from(srv);
+  const base = wkBase();
+  if (base && base.by_blog && base.by_blog[w.scope]) base.by_blog[w.scope].todo_done = w.todo_done;
   if (WK_MOBILE) { toast("📱 이 기기에 저장했어요"); return; }
   try {
     const r = await fetch("/api/weekly/todo", {
       method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ week: w.key, done: w.todo_done })
+      body: JSON.stringify({ week: tk, done: w.todo_done })
     });
     const d = await r.json();
     if (d && d.ok) toast("✅ 체크 저장했어요");
@@ -8643,14 +8796,15 @@ function wkRenderDetail(w) {
   if (!box) return;
   if (meta) meta.textContent = WK_VIEW === "day" ? "7일 전체" : (WK_VIEW === "flow" ? "유입경로·블로그별" : "순위 기록 " + (w.post_count || 0) + "편");
   if (WK_VIEW === "day") {
-    box.innerHTML = `<table><thead><tr><th class="l">날짜</th><th>조회</th><th>검색 유입</th><th>홈판 유입</th><th class="l">메모</th></tr></thead><tbody>` +
+    box.innerHTML = `<table><thead><tr><th class="l">날짜</th><th>조회</th><th>검색 유입</th><th>메인 유입</th><th class="l">값</th></tr></thead><tbody>` +
       (w.days || []).map(d => {
         const miss = d.views === null || d.views === undefined;
+        const src = miss ? "수집 전" : (d.src === "final" ? "마감 확정" : "잠정(" + (d.collected || "23:3x") + ")");
         return `<tr class="${miss ? "miss" : ""}"><td class="l">${esc(d.label)} ${esc(d.wd)}</td>
           <td class="v">${miss ? "-" : wkN(d.views)}</td>
           <td>${miss ? "-" : wkN(d.search)}</td>
           <td>${miss ? "-" : wkN(d.main)}</td>
-          <td class="l">${miss ? "수집 전" : ("실시간 수집 " + esc(d.collected || "23:30"))}</td></tr>`;
+          <td class="l">${esc(src)}</td></tr>`;
       }).join("") + `</tbody></table>`;
   } else if (WK_VIEW === "flow") {
     const rows = (w.inflow || []).map(it => `<tr><td class="l">${esc(it.label)}</td><td class="v">${wkPct(it.pct)}</td></tr>`).join("");
@@ -12510,8 +12664,8 @@ if ($("#pane-score")) {
 }
 window.__v27Sub = v27Sub;
 </script>
-<script src="assets/budget-local.js?v=11231525"></script>
-<script src="assets/reels-local.js?v=11231525"></script>
-<script src="assets/mobile-patch.js?v=11231525"></script>
+<script src="assets/budget-local.js?v=11231539"></script>
+<script src="assets/reels-local.js?v=11231539"></script>
+<script src="assets/mobile-patch.js?v=11231539"></script>
 </body>
 </html>
