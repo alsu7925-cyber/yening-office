@@ -2486,7 +2486,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11231524" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11231525" alt="예닝 오피스 배경">
       <div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>
     </div>
     <div class="desk-list" id="deskList"></div>
@@ -3807,7 +3807,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11231524"></script>
+<script src="assets/pin.js?v=11231525"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -6112,7 +6112,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11231524" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11231525" alt="예닝 오피스 배경">`;
   html += `<div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>`;   /* 🛋️ v2.5 보조 소파 */
   html += `<img class="sportmat" src="assets/avatars/spobriefing_mat.png" alt="⚾ 스포츠 데스크 매트">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
@@ -7972,7 +7972,7 @@ function renderSpyTurb(bid, num){
       '</div>' +
       '<div class="turbstats">' +
         '<div class="turbkpi"><b>' + spyTurbPct(src.top1_changed_pct) + '</b><span>1위 바뀐 검색어</span></div>' +
-        '<div class="turbkpi"><b>' + spyNum(src.half_changed_count || 0) + '개</b><span>절반 넘게 바뀐 검색어</span></div>' +
+        '<div class="turbkpi"><b>' + (cmp ? spyNum(src.half_changed_count || 0) + '개' : '–') + '</b><span>절반 넘게 바뀐 검색어</span></div>' +
         '<div class="turbkpi"><b>' + spyTurbPct(src.top11_20_turnover_pct) + '</b><span>11~20위 교체율</span></div>' +
       '</div>' +
     '</div>' + chipsHtml + '</section>';
@@ -12510,8 +12510,8 @@ if ($("#pane-score")) {
 }
 window.__v27Sub = v27Sub;
 </script>
-<script src="assets/budget-local.js?v=11231524"></script>
-<script src="assets/reels-local.js?v=11231524"></script>
-<script src="assets/mobile-patch.js?v=11231524"></script>
+<script src="assets/budget-local.js?v=11231525"></script>
+<script src="assets/reels-local.js?v=11231525"></script>
+<script src="assets/mobile-patch.js?v=11231525"></script>
 </body>
 </html>
