@@ -1531,8 +1531,8 @@
               padding:14px 2px 0;border-bottom:1px solid #F4E7E3}
   .wk .wkb{flex:1 1 0;min-width:0;height:100%;display:flex;align-items:flex-end;justify-content:center;
            gap:3px;position:relative;z-index:1}
-  .wk .wkb .v{position:absolute;top:0;left:0;right:0;text-align:center;font-size:10.5px;font-weight:900;
-              color:var(--wkbrown);white-space:nowrap}
+  .wk .wkb .v{position:absolute;left:0;right:0;text-align:center;font-size:10.5px;font-weight:900;
+              color:var(--wkbrown);white-space:nowrap;margin-bottom:4px}
   .wk .wkb .bar{width:46%;max-width:20px;border-radius:7px 7px 3px 3px;
                 background:linear-gradient(180deg,#F6DEDD 0%,#DFA2A5 100%);
                 box-shadow:inset 0 -2px 0 rgba(255,255,255,.35);transition:height .45s ease}
@@ -2530,7 +2530,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11231542" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11231544" alt="예닝 오피스 배경">
       <div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>
     </div>
     <div class="desk-list" id="deskList"></div>
@@ -3861,7 +3861,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11231542"></script>
+<script src="assets/pin.js?v=11231544"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -6166,7 +6166,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11231542" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11231544" alt="예닝 오피스 배경">`;
   html += `<div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>`;   /* 🛋️ v2.5 보조 소파 */
   html += `<img class="sportmat" src="assets/avatars/spobriefing_mat.png" alt="⚾ 스포츠 데스크 매트">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
@@ -8619,7 +8619,7 @@ function wkRenderBars(w) {
     const hp = (pv === undefined || pv === null) ? 0 : Math.max(2, Math.round(pv / max * 82));
     const cls = "wkb" + (miss ? " miss" : "") + (d.date === bestDate ? " best" : "");
     return `<div class="${cls}" title="${esc(d.label)}(${esc(d.wd)}) ${miss ? "수집 전" : wkN(d.views) + "회"}">
-      <span class="v">${miss ? "-" : wkN(d.views)}</span>
+      <span class="v" style="bottom:${h}%">${miss ? "-" : wkN(d.views)}</span>
       ${hasPrev ? `<div class="bar pv" style="height:${hp}%"></div>` : ""}
       <div class="bar" style="height:${h}%"></div>
       <span class="d">${esc(d.wd)}<b>${esc(d.label)}</b></span>
@@ -12664,8 +12664,8 @@ if ($("#pane-score")) {
 }
 window.__v27Sub = v27Sub;
 </script>
-<script src="assets/budget-local.js?v=11231542"></script>
-<script src="assets/reels-local.js?v=11231542"></script>
-<script src="assets/mobile-patch.js?v=11231542"></script>
+<script src="assets/budget-local.js?v=11231544"></script>
+<script src="assets/reels-local.js?v=11231544"></script>
+<script src="assets/mobile-patch.js?v=11231544"></script>
 </body>
 </html>
