@@ -1427,11 +1427,54 @@
           font-weight:900;font-size:11.5px}
   .spypos.mid{background:#f6f1e8;color:#a2792a}
   .spypos.low{background:#fdeef3;color:#c4587a}
+  /* ---------- 🌪️ 네이버 흔들림 (v2.9) ---------- */
+  .spyturb .turbhead{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline;justify-content:space-between}
+  .spyturb .turbasof{font-size:10.5px;color:#a58e96;font-weight:700}
+  .turbmain{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,300px);gap:11px;
+            align-items:stretch;margin-top:6px}
+  .turbleft{background:linear-gradient(135deg,#fff5f9 0%,#ffeaf2 100%);border:1px solid #fbd3e2;
+            border-radius:15px;padding:11px 13px}
+  .turbcap{font-size:11px;color:#957f88;font-weight:800}
+  .turbbig{font-size:37px;font-weight:900;color:#db2777;line-height:1.06;margin-top:1px;
+           font-variant-numeric:tabular-nums;letter-spacing:-1px}
+  .turbbig small{font-size:15px;font-weight:800;margin-left:1px;letter-spacing:0}
+  .turbbig .vs{font-size:12px;color:#a58e96;font-weight:800;margin-left:5px;letter-spacing:0}
+  .turbstat{display:inline-block;margin-top:6px;padding:2px 9px;border-radius:999px;font-size:11.5px;
+            font-weight:900;background:#fff;border:1px solid var(--pink-line);color:#b9577a}
+  .turbstat.calm{background:#eef8f1;border-color:#cfe9d9;color:#3f7f5c}
+  .turbstat.little{background:#fff7e6;border-color:#f5e0ae;color:#a2792a}
+  .turbstat.big{background:#ffeef2;border-color:#f6b9c9;color:#c0342f}
+  .turbnote{font-size:11px;color:#8d7780;margin-top:6px;line-height:1.55}
+  .turbscore{font-size:12px;font-weight:800;color:#4b3a40;margin-top:7px}
+  .turbscore b.up{color:#db2777}.turbscore b.down{color:#cf5a5a}.turbscore b.flat{color:#a58e96}
+  .turbchart svg{width:100%;height:50px;display:block;margin-top:3px}
+  .turbchart .lg{display:flex;flex-wrap:wrap;gap:9px;font-size:10px;color:#957f88;margin-top:1px}
+  .turbchart .lg i{display:inline-block;width:9px;height:3px;border-radius:2px;margin-right:3px;
+                   vertical-align:middle}
+  .turbstats{display:grid;grid-template-rows:repeat(3,minmax(0,1fr));gap:6px}
+  .turbkpi{background:#fff;border:1px solid #fce7f3;border-radius:12px;padding:6px 10px;
+           display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .turbkpi b{font-size:18px;font-weight:900;color:#be185d;font-variant-numeric:tabular-nums;
+             white-space:nowrap}
+  .turbkpi span{font-size:11px;color:#8d7780;font-weight:700;text-align:right;line-height:1.35}
+  .turbchipsbox{margin-top:9px}
+  .turbchipsbox .t{font-size:11px;color:#957f88;font-weight:800;margin-bottom:5px}
+  .turbchips{display:flex;flex-wrap:wrap;gap:5px}
+  .turbchip{background:#fff6ea;border:1px solid #f6e0a8;color:#8a6a1f;border-radius:999px;
+            padding:3px 9px;font-size:11.5px;font-weight:800}
+  .turbchip em{font-style:normal;color:#b9577a;margin-left:4px;font-size:11px}
+  .turbnone{font-size:11.5px;color:#8d7780}
   @media (max-width:900px){
     .spyhero{grid-template-columns:1fr}
     .spyscorebox{border-right:0;border-bottom:1px dashed var(--line);padding:0 0 8px}
     .spycols{grid-template-columns:1fr}
     .spygrid{grid-template-columns:repeat(6,minmax(0,1fr))}
+    .turbmain{grid-template-columns:1fr}
+    .turbstats{grid-template-rows:none;grid-template-columns:repeat(3,minmax(0,1fr))}
+    .turbkpi{flex-direction:column;align-items:flex-start;gap:1px;padding:7px 8px}
+    .turbkpi b{font-size:16px}
+    .turbkpi span{text-align:left;font-size:10px}
+    .turbbig{font-size:33px}
   }
   /* ---------- 📊 주간 리포트 (v2.5 · 예브 스타일 시그니처) ---------- */
   .wk{--wkc:#FFFDFB; --wksoft:#F9E9E9; --wkblush:#F2D8D7; --wkdusty:#DFA2A5;
@@ -2391,7 +2434,7 @@ body.locked{overflow:hidden}
 
   <header class="hero">
     <div>
-      <h1>🏢 예닝 오피스 <span class="amp">·</span> 📱 모바일 <span style="display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;background:#ffe3ee;border:1px solid #f6a9bf;color:#a64065;font-size:12px;font-weight:700;vertical-align:middle">v2.8 · 11/20</span></h1>
+      <h1>🏢 예닝 오피스 <span class="amp">·</span> 📱 모바일 <span style="display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;background:#ffe3ee;border:1px solid #f6a9bf;color:#a64065;font-size:12px;font-weight:700;vertical-align:middle">v2.9 · 11/23</span></h1>
       <p>팀장님 아홉 분 오늘 실적 · 염탐 · 수익 · 가계부를 한 화면에서 🌸</p>
     </div>
     <div class="hero-side">
@@ -2442,7 +2485,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11231022" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11231521" alt="예닝 오피스 배경">
       <div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>
     </div>
     <div class="desk-list" id="deskList"></div>
@@ -3763,7 +3806,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11231022"></script>
+<script src="assets/pin.js?v=11231521"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -6068,7 +6111,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11231022" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11231521" alt="예닝 오피스 배경">`;
   html += `<div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>`;   /* 🛋️ v2.5 보조 소파 */
   html += `<img class="sportmat" src="assets/avatars/spobriefing_mat.png" alt="⚾ 스포츠 데스크 매트">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
@@ -7836,6 +7879,103 @@ function spySpark(trend){
     '점 <b style="color:' + (d >= 0 ? "#db2777" : "#c96060") + '">' + (d >= 0 ? "+" : "") + d.toFixed(1) + '</b></div>';
 }
 
+function spyTurbPct(v){
+  if (v === null || v === undefined || v === "" || isNaN(Number(v))) return "–";
+  return Number(v).toFixed(1) + "%";
+}
+
+function spyTurbChart(hist){
+  const rows = (hist || []).filter(r => r && r.date);
+  if (!rows.length) return "";
+  const W = 320, H = 50, pad = 4;
+  const t = rows.map(r => (r.top10_turnover_pct == null || isNaN(Number(r.top10_turnover_pct))) ? null : Number(r.top10_turnover_pct));
+  const s = rows.map(r => (r.score_delta_pct == null || isNaN(Number(r.score_delta_pct))) ? null : Number(r.score_delta_pct));
+  const all = t.filter(v => v !== null).concat(s.filter(v => v !== null)).concat([0]);
+  if (!all.length) return "";
+  let mn = Math.min.apply(null, all), mx = Math.max.apply(null, all);
+  if (mx - mn < 2) { mx += 1; mn -= 1; }
+  const X = i => pad + (W - pad*2) * (rows.length === 1 ? 0.5 : i/(rows.length-1));
+  const Y = v => H - pad - (H - pad*2) * ((v - mn) / ((mx - mn) || 1));
+  const series = (vals, color, dash) => {
+    const pts = [];
+    vals.forEach((v, i) => { if (v !== null) pts.push([X(i), Y(v)]); });
+    if (!pts.length) return "";
+    const d = pts.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
+    const dots = pts.map(p => '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="2.2" fill="' + color + '"/>').join("");
+    return '<path d="' + d + '" fill="none" stroke="' + color + '" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"' +
+      (dash ? ' stroke-dasharray="4 3"' : '') + '/>' + dots;
+  };
+  const zero = (mn < 0 && mx > 0)
+    ? '<line x1="' + pad + '" x2="' + (W-pad) + '" y1="' + Y(0).toFixed(1) + '" y2="' + Y(0).toFixed(1) +
+      '" stroke="#f3d3dc" stroke-width="1" stroke-dasharray="2 3"/>' : '';
+  if (rows.length === 1) {
+    return '<div class="turbchart"><div class="turbnote" style="margin-top:2px">그래프는 이틀부터 — 오늘 값이 첫 점이에요.</div></div>';
+  }
+  return '<div class="turbchart"><svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none">' + zero +
+    series(t, "#ec4899", false) + series(s, "#efb63c", true) + '</svg>' +
+    '<div class="lg"><span><i style="background:#ec4899"></i>상위 10편 교체율</span>' +
+    '<span><i style="background:#efb63c"></i>내 점수 변동률</span><span>' + rows.length + '일</span></div></div>';
+}
+
+/* 네이버 흔들림 카드 — bid 가 있으면 그 블로그 검색판, 없으면 5개 전체 */
+function renderSpyTurb(bid, num){
+  const rep = SPY.report || {};
+  const tb = rep.turbulence;
+  const bmeta = (SPY.blogs || []).filter(b => b.id === bid)[0] || null;
+  const per = (bid && tb && tb.by_blog && tb.by_blog[bid]) || null;
+  const head = (num || "") + (bid ? "네이버 흔들림 — " + spyEsc((bmeta && bmeta.name) || "") : "네이버 흔들림 — 5개 블로그 전체");
+  if (!tb || !tb.ok) {
+    return '<section class="spysec spyturb"><div class="turbhead"><h3>🌊 ' + head + '</h3></div>' +
+      '<div class="sub">매일 아침 염탐 때 검색어별 상위 10편·11~20편을 저장해 어제와 비교합니다.</div>' +
+      '<div class="turbnone">아직 오늘 스냅샷이 없어요 — 다음 염탐부터 쌓입니다.</div></section>';
+  }
+  const src = per || tb;
+  const cmp = src.top10_turnover_pct != null && !isNaN(Number(src.top10_turnover_pct));
+  const days = src.days_accumulated || tb.days_accumulated || 1;
+  const stKey = src.status_key || tb.status_key || "accum";
+  const st = src.status || tb.status || ("평소 값 쌓는 중(" + days + "일째)");
+  const note = (stKey === "accum")
+    ? "흔들림 값은 쌓이는 중이에요. 사흘 넘게 쌓이면 '평소 / 조금 / 크게 흔들림'으로 판정해요."
+    : (stKey === "calm" ? "평소와 비슷하게 움직였어요. 상위권이 안정적이라는 뜻이에요."
+      : (stKey === "little" ? "평소보다 조금 더 흔들렸어요. 상위권 변동을 한 번 확인해 보세요."
+        : "평소보다 크게 흔들렸어요. 1위·상위권이 많이 바뀌었습니다."));
+  const big = cmp
+    ? Number(src.top10_turnover_pct).toFixed(1) + '<small>%</small>' +
+      (src.baseline_pct != null ? '<span class="vs">· 평소 ' + spyTurbPct(src.baseline_pct) + '</span>' : '')
+    : '–<small>%</small><span class="vs">오늘 첫 스냅샷</span>';
+  const sd = tb.score_delta_pct;
+  const scoreHtml = (sd === null || sd === undefined || isNaN(Number(sd)))
+    ? '<div class="turbscore">내 노출 점수 <b class="flat">어제 기록 없음</b></div>'
+    : '<div class="turbscore">내 노출 점수 어제 대비 <b class="' + (Number(sd) > 0 ? "up" : (Number(sd) < 0 ? "down" : "flat")) + '">' +
+      (Number(sd) > 0 ? "+" : "") + Number(sd).toFixed(1) + '%</b></div>';
+  const asof = tb.prev_date
+    ? (tb.prev_date.slice(5) + ' → ' + String(tb.date || "").slice(5) + ' 비교 · 검색어 ' + (tb.snapshot_keywords || 0) +
+       '개 중 ' + (tb.compared_keywords || 0) + '개 비교')
+    : ('오늘 상위 20편 ' + (tb.snapshot_keywords || 0) + '개 검색어 저장 · 내일 아침부터 비교');
+  const chips = src.most_changed_keywords || [];
+  const chipsHtml = chips.length
+    ? '<div class="turbchipsbox"><div class="t">크게 바뀐 검색어 (검색량 큰 순)</div><div class="turbchips">' +
+      chips.map(c => '<span class="turbchip">' + spyEsc(c.kw) + '<em>' + spyTurbPct(c.turnover_pct) + '</em></span>').join("") +
+      '</div></div>'
+    : '<div class="turbchipsbox"><div class="t">크게 바뀐 검색어</div><div class="turbnone">절반 넘게 바뀐 검색어가 아직 없어요.</div></div>';
+  return '<section class="spysec spyturb">' +
+    '<div class="turbhead"><h3>🌊 ' + head + '</h3><span class="turbasof">' + asof + '</span></div>' +
+    '<div class="sub">상위 10편 교체율 = 어제 10위 안에 없던 글이 오늘 10위 안에 들어온 비율 · ⬇ 작을수록 순위판이 그대로라는 뜻</div>' +
+    '<div class="turbmain">' +
+      '<div class="turbleft">' +
+        '<div class="turbcap">상위 10편 교체율' + (bid ? ' (이 블로그가 뜬 검색판)' : '') + '</div>' +
+        '<div class="turbbig">' + big + '</div>' +
+        '<span class="turbstat ' + stKey + '">' + spyEsc(st) + '</span>' +
+        '<div class="turbnote">' + spyEsc(note) + '</div>' + scoreHtml + spyTurbChart(tb.history) +
+      '</div>' +
+      '<div class="turbstats">' +
+        '<div class="turbkpi"><b>' + spyTurbPct(src.top1_changed_pct) + '</b><span>1위 바뀐 검색어</span></div>' +
+        '<div class="turbkpi"><b>' + spyNum(src.half_changed_count || 0) + '개</b><span>절반 넘게 바뀐 검색어</span></div>' +
+        '<div class="turbkpi"><b>' + spyTurbPct(src.top11_20_turnover_pct) + '</b><span>11~20위 교체율</span></div>' +
+      '</div>' +
+    '</div>' + chipsHtml + '</section>';
+}
+
 function spyPostStatus(p){
   if (p.status === "rank1") return {cls:"c-rank1", label:"1"};
   if (p.status === "ranked") return {cls:"c-ranked", label:String(p.rank)};
@@ -8064,7 +8204,8 @@ function renderSpyAll(){
     '개 · 누락 의심 ' + (t.missing || 0) + '편' + ((t.new_missing || 0) ? ' · <b style="color:#c0342f">새로 누락 ' + t.new_missing + '편</b>' : '') + '</div>' +
     '<div style="overflow:auto"><table class="spytable"><thead><tr><th>블로그</th><th>노출 점수</th><th>100위 안</th><th>10위 안</th><th>1위</th><th>검색어</th><th>누락 의심</th></tr></thead><tbody>' +
     rows + '</tbody></table></div>' +
-    '<div class="note">블로그를 누르면 그 블로그의 30편 지도·움직인 검색어·숨은 검색어·경쟁 블로그가 나옵니다.</div></section>';
+    '<div class="note">블로그를 누르면 그 블로그의 30편 지도·움직인 검색어·숨은 검색어·경쟁 블로그가 나옵니다.</div>' +
+    renderSpyTurb("", "") + '</section>';
 }
 
 function renderSpyBody(){
@@ -8081,14 +8222,15 @@ function renderSpyBody(){
       '<div class="sub">기준 ' + spyWhen(b.built || built) + ' · 검색어 ' + (b.kwcount || 0) + '개 중 ' + (b.in100 || 0) + '개 노출' +
       (b.error ? ' · <b style="color:#c0342f">' + spyEsc(b.error) + '</b>' : '') + '</div>' +
       renderSpyHero(b) + '</section>' +
-    '<section class="spysec"><h3>2. 최근 글 ' + (b.posts || []).length + '편 노출 지도</h3>' +
+    renderSpyTurb(SPYSEL, "2. ") +
+    '<section class="spysec"><h3>3. 최근 글 ' + (b.posts || []).length + '편 노출 지도</h3>' +
       '<div class="sub">글마다 1~100위 안에 뜨는지 네모 칸으로 — 베이지 칸은 누락 의심, 연크림은 발행 6시간 이내 · 칸을 누르면 글 정보와 바로가기 링크가 나와요</div>' +
       renderSpyGrid(b) + '</section>' +
-    '<section class="spysec"><h3>3. 어제보다 움직인 검색어</h3>' +
+    '<section class="spysec"><h3>4. 어제보다 움직인 검색어</h3>' +
       '<div class="sub">월 검색량 큰 순으로 위·아래 비교</div>' + renderSpyMovers(b) + '</section>' +
-    '<section class="spysec"><h3>4. 내가 몰랐던 노출 검색어</h3>' +
+    '<section class="spysec"><h3>5. 내가 몰랐던 노출 검색어</h3>' +
       '<div class="sub">메인 타깃이 아닌데 100위 안에 걸린 숨은 검색어</div>' + renderSpyHidden(b) + '</section>' +
-    '<section class="spysec"><h3>5. 같은 주제 경쟁 블로그 TOP 10</h3>' + renderSpyComp(b) + '</section>';
+    '<section class="spysec"><h3>6. 같은 주제 경쟁 블로그 TOP 10</h3>' + renderSpyComp(b) + '</section>';
   body.querySelectorAll(".spycell").forEach(el => {
     const i = Number(el.dataset.i);
     el.onmouseenter = () => spyPreviewCell(i);        // 데스크톱: 올려만 봐도 미리보기
@@ -12366,8 +12508,8 @@ if ($("#pane-score")) {
 }
 window.__v27Sub = v27Sub;
 </script>
-<script src="assets/budget-local.js?v=11231022"></script>
-<script src="assets/reels-local.js?v=11231022"></script>
-<script src="assets/mobile-patch.js?v=11231022"></script>
+<script src="assets/budget-local.js?v=11231521"></script>
+<script src="assets/reels-local.js?v=11231521"></script>
+<script src="assets/mobile-patch.js?v=11231521"></script>
 </body>
 </html>
