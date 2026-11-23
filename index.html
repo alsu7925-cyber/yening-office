@@ -1501,17 +1501,17 @@
   .wk .wkcards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
   .wk .wkcard{background:#fff;border:1px solid var(--wkline);border-radius:16px;padding:12px 14px;
               min-width:0}
-  .wk .wkcard.hero{background:linear-gradient(135deg,#E5B0B3 0%,#C88189 100%);border:0;
+  .wk .wkcard.wkhero{background:linear-gradient(135deg,#E5B0B3 0%,#C88189 100%);border:0;
                    box-shadow:0 10px 22px rgba(200,129,137,.26)}
   .wk .wkcard .lb{font-size:11.5px;font-weight:800;color:var(--wkdim)}
   .wk .wkcard .vl{font-size:24px;font-weight:900;color:var(--wkbrown);letter-spacing:-.8px;
                   margin-top:2px;white-space:nowrap}
   .wk .wkcard .vl i{font-style:normal;font-size:13px;font-weight:800;margin-left:2px;color:var(--wkdim)}
   .wk .wkcard .sub{font-size:11px;color:var(--wkdim);margin-top:3px;line-height:1.45}
-  .wk .wkcard.hero .lb{color:#FBEAEA}
-  .wk .wkcard.hero .vl{color:#fff;font-size:27px}
-  .wk .wkcard.hero .vl i{color:#FBEAEA}
-  .wk .wkcard.hero .sub{color:#FCEFEF}
+  .wk .wkcard.wkhero .lb{color:#FBEAEA}
+  .wk .wkcard.wkhero .vl{color:#fff;font-size:27px}
+  .wk .wkcard.wkhero .vl i{color:#FBEAEA}
+  .wk .wkcard.wkhero .sub{color:#FCEFEF}
   .wk .wkgrid{display:grid;grid-template-columns:1.3fr 1fr;gap:12px;margin-top:12px}
   .wk .wkbox{background:#fff;border:1px solid var(--wkline);border-radius:18px;padding:13px 15px 15px}
   .wk .wkbox h3{margin:0 0 11px;font-size:13.5px;font-weight:900;color:var(--wkbrown);
@@ -1608,8 +1608,8 @@
   .wk .wkcard .dl small{font-weight:700;color:#C4AEA7}
   .wk .wkcard .dl.up{color:#2F7D4D}
   .wk .wkcard .dl.down{color:#B3564E}
-  .wk .wkcard.hero .dl{color:#FBEAEA}
-  .wk .wkcard.hero .dl small{color:#F6D9D9}
+  .wk .wkcard.wkhero .dl{color:#FBEAEA}
+  .wk .wkcard.wkhero .dl small{color:#F6D9D9}
   .wk .wkbshare{display:flex;flex-direction:column;gap:6px}
   .wk .wkbrow{display:grid;grid-template-columns:20px 92px minmax(0,1fr) 62px 52px;gap:8px;align-items:center;
               font-size:12px;color:#6E5850;font-weight:700}
@@ -1670,7 +1670,7 @@
     .wk .wkcards{grid-template-columns:1fr 1fr}
     .wk .wkgrid{grid-template-columns:1fr}
     .wk .wkcard .vl{font-size:20px}
-    .wk .wkcard.hero .vl{font-size:22px}
+    .wk .wkcard.wkhero .vl{font-size:22px}
     .wk .wkins{grid-template-columns:1fr}
     .wk .wkflows{flex-direction:column;align-items:flex-start}
     .wk .wkbars{height:168px}
@@ -2530,7 +2530,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11231539" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11231542" alt="예닝 오피스 배경">
       <div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>
     </div>
     <div class="desk-list" id="deskList"></div>
@@ -3861,7 +3861,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11231539"></script>
+<script src="assets/pin.js?v=11231542"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -6166,7 +6166,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11231539" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11231542" alt="예닝 오피스 배경">`;
   html += `<div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>`;   /* 🛋️ v2.5 보조 소파 */
   html += `<img class="sportmat" src="assets/avatars/spobriefing_mat.png" alt="⚾ 스포츠 데스크 매트">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
@@ -8566,7 +8566,7 @@ function wkRenderCards(w) {
   const best = w.best || {};
   const top = w.top || {};
   box.innerHTML =
-    `<div class="wkcard hero">
+    `<div class="wkcard wkhero">
        <div class="lb">한 주 조회수</div>
        <div class="vl">${wkN(w.total)}<i>회</i></div>
        <div class="sub">${full ? "월~일 7일 합계" : "수집된 " + w.days_counted + "일 합계"}</div>
@@ -12664,8 +12664,8 @@ if ($("#pane-score")) {
 }
 window.__v27Sub = v27Sub;
 </script>
-<script src="assets/budget-local.js?v=11231539"></script>
-<script src="assets/reels-local.js?v=11231539"></script>
-<script src="assets/mobile-patch.js?v=11231539"></script>
+<script src="assets/budget-local.js?v=11231542"></script>
+<script src="assets/reels-local.js?v=11231542"></script>
+<script src="assets/mobile-patch.js?v=11231542"></script>
 </body>
 </html>
