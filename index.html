@@ -1678,6 +1678,7 @@
     .wk .wkbrow{grid-template-columns:18px 74px minmax(0,1fr) 56px 44px;gap:6px;font-size:11.5px}
     .wk .wksum{flex-direction:column;gap:5px}
     .wk .wkbchip{font-size:11.5px;padding:5px 9px}
+    .wk .wkavg span{display:none}          /* 좁은 화면에서는 범례의 '평균'만 남깁니다 */
     .wk .wkrk .bl{display:none}
     .wk .wkttl{font-size:17px}
   }
@@ -2530,7 +2531,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11231544" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11231548" alt="예닝 오피스 배경">
       <div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>
     </div>
     <div class="desk-list" id="deskList"></div>
@@ -3861,7 +3862,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11231544"></script>
+<script src="assets/pin.js?v=11231548"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -6166,7 +6167,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11231544" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11231548" alt="예닝 오피스 배경">`;
   html += `<div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>`;   /* 🛋️ v2.5 보조 소파 */
   html += `<img class="sportmat" src="assets/avatars/spobriefing_mat.png" alt="⚾ 스포츠 데스크 매트">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
@@ -12664,8 +12665,8 @@ if ($("#pane-score")) {
 }
 window.__v27Sub = v27Sub;
 </script>
-<script src="assets/budget-local.js?v=11231544"></script>
-<script src="assets/reels-local.js?v=11231544"></script>
-<script src="assets/mobile-patch.js?v=11231544"></script>
+<script src="assets/budget-local.js?v=11231548"></script>
+<script src="assets/reels-local.js?v=11231548"></script>
+<script src="assets/mobile-patch.js?v=11231548"></script>
 </body>
 </html>
