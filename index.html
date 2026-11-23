@@ -2485,7 +2485,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11231521" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11231522" alt="예닝 오피스 배경">
       <div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>
     </div>
     <div class="desk-list" id="deskList"></div>
@@ -3806,7 +3806,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11231521"></script>
+<script src="assets/pin.js?v=11231522"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -6111,7 +6111,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11231521" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11231522" alt="예닝 오피스 배경">`;
   html += `<div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>`;   /* 🛋️ v2.5 보조 소파 */
   html += `<img class="sportmat" src="assets/avatars/spobriefing_mat.png" alt="⚾ 스포츠 데스크 매트">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
@@ -7942,7 +7942,7 @@ function renderSpyTurb(bid, num){
   const big = cmp
     ? Number(src.top10_turnover_pct).toFixed(1) + '<small>%</small>' +
       (src.baseline_pct != null ? '<span class="vs">· 평소 ' + spyTurbPct(src.baseline_pct) + '</span>' : '')
-    : '–<small>%</small><span class="vs">오늘 첫 스냅샷</span>';
+    : '–<span class="vs">오늘 첫 스냅샷</span>';
   const sd = tb.score_delta_pct;
   const scoreHtml = (sd === null || sd === undefined || isNaN(Number(sd)))
     ? '<div class="turbscore">내 노출 점수 <b class="flat">어제 기록 없음</b></div>'
@@ -7960,7 +7960,7 @@ function renderSpyTurb(bid, num){
     : '<div class="turbchipsbox"><div class="t">크게 바뀐 검색어</div><div class="turbnone">절반 넘게 바뀐 검색어가 아직 없어요.</div></div>';
   return '<section class="spysec spyturb">' +
     '<div class="turbhead"><h3>🌊 ' + head + '</h3><span class="turbasof">' + asof + '</span></div>' +
-    '<div class="sub">상위 10편 교체율 = 어제 10위 안에 없던 글이 오늘 10위 안에 들어온 비율 · ⬇ 작을수록 순위판이 그대로라는 뜻</div>' +
+    '<div class="sub">상위 10편 교체율 = 어제 10위 안에 없던 글이 오늘 10위 안에 들어온 비율 — 작을수록 순위판이 그대로라는 뜻</div>' +
     '<div class="turbmain">' +
       '<div class="turbleft">' +
         '<div class="turbcap">상위 10편 교체율' + (bid ? ' (이 블로그가 뜬 검색판)' : '') + '</div>' +
@@ -12508,8 +12508,8 @@ if ($("#pane-score")) {
 }
 window.__v27Sub = v27Sub;
 </script>
-<script src="assets/budget-local.js?v=11231521"></script>
-<script src="assets/reels-local.js?v=11231521"></script>
-<script src="assets/mobile-patch.js?v=11231521"></script>
+<script src="assets/budget-local.js?v=11231522"></script>
+<script src="assets/reels-local.js?v=11231522"></script>
+<script src="assets/mobile-patch.js?v=11231522"></script>
 </body>
 </html>
