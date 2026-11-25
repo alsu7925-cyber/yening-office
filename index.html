@@ -2531,7 +2531,7 @@ body.locked{overflow:hidden}
     </div>
 
     <div class="stage" id="stage">
-      <img src="assets/office_bg.webp?v=11251119" alt="예닝 오피스 배경">
+      <img src="assets/office_bg.webp?v=11251127" alt="예닝 오피스 배경">
       <div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>
     </div>
     <div class="desk-list" id="deskList"></div>
@@ -3770,7 +3770,7 @@ body.locked{overflow:hidden}
           <button class="btn main" id="stGold">⛏️ 황금 키워드 채굴 추천</button>
         </div>
         <div class="v27mini">결과는 <b>TOP 8</b> — 검색량 · 문서수 · 경쟁률 + <b>왜 황금인지</b> 한 줄 + [📋 복사]까지 붙여 드려요.
-          주의 목록(21개)에 걸리는 키워드는 자동으로 빼고, 이정후는 ⚠️ 배지만 붙입니다.</div>
+          주의 목록(22개)에 걸리는 키워드는 자동으로 빼고, 이정후는 ⚠️ 배지만 붙입니다.</div>
         <div id="stGoldOut"></div>
       </div>
 
@@ -3862,7 +3862,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="assets/pin.js?v=11251119"></script>
+<script src="assets/pin.js?v=11251127"></script>
 <script>
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
@@ -6167,7 +6167,7 @@ function walkerHTML(b){
 
 function buildStage(){
   const stage = $("#stage");
-  let html = `<img src="assets/office_bg.webp?v=11251119" alt="예닝 오피스 배경">`;
+  let html = `<img src="assets/office_bg.webp?v=11251127" alt="예닝 오피스 배경">`;
   html += `<div class="loungeaux" aria-hidden="true"><b></b><b></b><b></b></div>`;   /* 🛋️ v2.5 보조 소파 */
   html += `<img class="sportmat" src="assets/avatars/spobriefing_mat.png" alt="⚾ 스포츠 데스크 매트">`;
   html += ceoCardHTML(OFFICE.boss, POS.ceo);
@@ -9760,8 +9760,8 @@ saveRoomLinks = async function(payload){
   return _origSaveRoomLinks(payload);
 };
 
-/* ============ 🚨 고소·저작권 주의 목록 (언론사·인물 포함 21개) ============
-   2026-11-20 예닝 님 지시 — 검색어·제목·원고에 이 이름이 들어오면 바로 빨간 경고를 띄웁니다. */
+/* ============ 🚨 고소·저작권 주의 목록 (언론사·인물 포함 22개) ============
+   2026-11-25 예닝 님 지시 — 윤승아 추가.
 const WATCH_TERMS = [
   { label: "TV조선", keys: ["tv조선", "tv chosun", "tvchosun", "조선방송"] },
   { label: "채널A", keys: ["채널a", "channel a", "channela"] },
@@ -9780,6 +9780,8 @@ const WATCH_TERMS = [
   { label: "김수현 소송 관련", keys: ["김수현소송", "김수현고소", "김수현소송관련"] },
   { label: "김범(영화배우)", keys: ["김범"], guard: ["김범수"] },
   { label: "디자이너 박시영", keys: ["박시영"] },
+  /* --- 2026-11-25 예닝 님 추가 지시 --- */
+  { label: "윤승아", keys: ["윤승아"] },
   /* --- 2026-11-20 예닝 님 추가 지시: 갤럭시코퍼레이션 소속 연예인 5명 --- */
   { label: "김종국(갤럭시코퍼레이션)", keys: ["김종국", "kimjongkook", "kimjongkuk"] },
   { label: "송강호(갤럭시코퍼레이션)", keys: ["송강호", "songkangho"] },
@@ -12665,8 +12667,8 @@ if ($("#pane-score")) {
 }
 window.__v27Sub = v27Sub;
 </script>
-<script src="assets/budget-local.js?v=11251119"></script>
-<script src="assets/reels-local.js?v=11251119"></script>
-<script src="assets/mobile-patch.js?v=11251119"></script>
+<script src="assets/budget-local.js?v=11251127"></script>
+<script src="assets/reels-local.js?v=11251127"></script>
+<script src="assets/mobile-patch.js?v=11251127"></script>
 </body>
 </html>
